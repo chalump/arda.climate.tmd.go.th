@@ -1,0 +1,394 @@
+{
+  "rows": [
+    {
+      "region_id": "1",
+      "region_name": "Amnat Charoen",
+      "value": 32.699453
+    },
+    {
+      "region_id": "2",
+      "region_name": "Ang Thong",
+      "value": 24.416687
+    },
+    {
+      "region_id": "3",
+      "region_name": "Bangkok Metropolis",
+      "value": 1.4063
+    },
+    {
+      "region_id": "4",
+      "region_name": "Buri Ram",
+      "value": 16.150206
+    },
+    {
+      "region_id": "5",
+      "region_name": "Chachoengsao",
+      "value": 24.382765
+    },
+    {
+      "region_id": "6",
+      "region_name": "Chai Nat",
+      "value": 8.076188
+    },
+    {
+      "region_id": "7",
+      "region_name": "Chaiyaphum",
+      "value": 9.314235
+    },
+    {
+      "region_id": "8",
+      "region_name": "Chanthaburi",
+      "value": 2.11058
+    },
+    {
+      "region_id": "9",
+      "region_name": "Chiang Mai",
+      "value": 3.967139
+    },
+    {
+      "region_id": "10",
+      "region_name": "Chiang Rai",
+      "value": -29.033714
+    },
+    {
+      "region_id": "11",
+      "region_name": "Chon Buri",
+      "value": 10.656719
+    },
+    {
+      "region_id": "12",
+      "region_name": "Chumphon",
+      "value": 51.337753
+    },
+    {
+      "region_id": "13",
+      "region_name": "Kalasin",
+      "value": 44.020096
+    },
+    {
+      "region_id": "14",
+      "region_name": "Kamphaeng Phet",
+      "value": 27.673228
+    },
+    {
+      "region_id": "15",
+      "region_name": "Kanchanaburi",
+      "value": 45.414875
+    },
+    {
+      "region_id": "16",
+      "region_name": "Khon Kaen",
+      "value": 24.316744
+    },
+    {
+      "region_id": "17",
+      "region_name": "Krabi",
+      "value": 69.778759
+    },
+    {
+      "region_id": "18",
+      "region_name": "Lampang",
+      "value": 26.669587
+    },
+    {
+      "region_id": "19",
+      "region_name": "Lamphun",
+      "value": 22.258948
+    },
+    {
+      "region_id": "20",
+      "region_name": "Loei",
+      "value": 21.157825
+    },
+    {
+      "region_id": "21",
+      "region_name": "Lop Buri",
+      "value": 15.316212
+    },
+    {
+      "region_id": "22",
+      "region_name": "Mae Hong Son",
+      "value": 19.784935
+    },
+    {
+      "region_id": "23",
+      "region_name": "Maha Sarakham",
+      "value": 27.440503
+    },
+    {
+      "region_id": "24",
+      "region_name": "Mukdahan",
+      "value": 43.408941
+    },
+    {
+      "region_id": "25",
+      "region_name": "Nakhon Nayok",
+      "value": 31.571882
+    },
+    {
+      "region_id": "26",
+      "region_name": "Nakhon Pathom",
+      "value": 12.383453
+    },
+    {
+      "region_id": "27",
+      "region_name": "Nakhon Phanom",
+      "value": 57.858579
+    },
+    {
+      "region_id": "28",
+      "region_name": "Nakhon Ratchasima",
+      "value": 22.841962
+    },
+    {
+      "region_id": "29",
+      "region_name": "Nakhon Sawan",
+      "value": 6.405718
+    },
+    {
+      "region_id": "30",
+      "region_name": "Nakhon Si Thammarat",
+      "value": 24.513038
+    },
+    {
+      "region_id": "31",
+      "region_name": "Nan",
+      "value": 4.478359
+    },
+    {
+      "region_id": "32",
+      "region_name": "Narathiwat",
+      "value": 25.378859
+    },
+    {
+      "region_id": "33",
+      "region_name": "Nong Bua Lam Phu",
+      "value": 19.841929
+    },
+    {
+      "region_id": "34",
+      "region_name": "Nong Khai",
+      "value": 57.33953
+    },
+    {
+      "region_id": "35",
+      "region_name": "Nonthaburi",
+      "value": 1.39187
+    },
+    {
+      "region_id": "36",
+      "region_name": "Pathum Thani",
+      "value": 4.125286
+    },
+    {
+      "region_id": "37",
+      "region_name": "Pattani",
+      "value": 29.560571
+    },
+    {
+      "region_id": "38",
+      "region_name": "Phangnga",
+      "value": 174.132064
+    },
+    {
+      "region_id": "39",
+      "region_name": "Phatthalung (Songkhla Lake)",
+      "value": 12.127377
+    },
+    {
+      "region_id": "40",
+      "region_name": "Phatthalung",
+      "value": 21.852369
+    },
+    {
+      "region_id": "41",
+      "region_name": "Phayao",
+      "value": -1.287779
+    },
+    {
+      "region_id": "42",
+      "region_name": "Phetchabun",
+      "value": 3.05956
+    },
+    {
+      "region_id": "43",
+      "region_name": "Phetchaburi",
+      "value": 2.412082
+    },
+    {
+      "region_id": "44",
+      "region_name": "Phichit",
+      "value": -2.422987
+    },
+    {
+      "region_id": "45",
+      "region_name": "Phitsanulok",
+      "value": 13.036796
+    },
+    {
+      "region_id": "46",
+      "region_name": "Phra Nakhon Si Ayutthaya",
+      "value": 16.668348
+    },
+    {
+      "region_id": "47",
+      "region_name": "Phrae",
+      "value": 30.2693
+    },
+    {
+      "region_id": "48",
+      "region_name": "Phuket",
+      "value": 119.41262
+    },
+    {
+      "region_id": "49",
+      "region_name": "Prachin Buri",
+      "value": 59.323125
+    },
+    {
+      "region_id": "50",
+      "region_name": "Prachuap Khiri Khan",
+      "value": 11.016363
+    },
+    {
+      "region_id": "51",
+      "region_name": "Ranong",
+      "value": 120.347465
+    },
+    {
+      "region_id": "52",
+      "region_name": "Ratchaburi",
+      "value": 14.750462
+    },
+    {
+      "region_id": "53",
+      "region_name": "Rayong",
+      "value": 12.087575
+    },
+    {
+      "region_id": "54",
+      "region_name": "Roi Et",
+      "value": 28.767355
+    },
+    {
+      "region_id": "55",
+      "region_name": "Sa Kaeo",
+      "value": 27.14749
+    },
+    {
+      "region_id": "56",
+      "region_name": "Sakon Nakhon",
+      "value": 49.879625
+    },
+    {
+      "region_id": "57",
+      "region_name": "Samut Prakan",
+      "value": 7.084927
+    },
+    {
+      "region_id": "58",
+      "region_name": "Samut Sakhon",
+      "value": 11.850028
+    },
+    {
+      "region_id": "59",
+      "region_name": "Samut Songkhram",
+      "value": 12.080732
+    },
+    {
+      "region_id": "60",
+      "region_name": "Saraburi",
+      "value": 25.8815
+    },
+    {
+      "region_id": "61",
+      "region_name": "Satun",
+      "value": 50.115667
+    },
+    {
+      "region_id": "62",
+      "region_name": "Si Sa Ket",
+      "value": 10.606786
+    },
+    {
+      "region_id": "63",
+      "region_name": "Sing Buri",
+      "value": 11.52172
+    },
+    {
+      "region_id": "64",
+      "region_name": "Songkhla (Songkhla Lake)",
+      "value": 11.250553
+    },
+    {
+      "region_id": "65",
+      "region_name": "Songkhla",
+      "value": 32.281126
+    },
+    {
+      "region_id": "66",
+      "region_name": "Sukhothai",
+      "value": 45.062068
+    },
+    {
+      "region_id": "67",
+      "region_name": "Suphan Buri",
+      "value": 17.268234
+    },
+    {
+      "region_id": "68",
+      "region_name": "Surat Thani",
+      "value": 49.119315
+    },
+    {
+      "region_id": "69",
+      "region_name": "Surin",
+      "value": 13.321748
+    },
+    {
+      "region_id": "70",
+      "region_name": "Tak",
+      "value": 43.655116
+    },
+    {
+      "region_id": "71",
+      "region_name": "Trang",
+      "value": 60.571194
+    },
+    {
+      "region_id": "72",
+      "region_name": "Trat",
+      "value": 24.459107
+    },
+    {
+      "region_id": "73",
+      "region_name": "Ubon Ratchathani",
+      "value": 23.681445
+    },
+    {
+      "region_id": "74",
+      "region_name": "Udon Thani",
+      "value": 33.466267
+    },
+    {
+      "region_id": "75",
+      "region_name": "Uthai Thani",
+      "value": 22.397371
+    },
+    {
+      "region_id": "76",
+      "region_name": "Uttaradit",
+      "value": 38.821747
+    },
+    {
+      "region_id": "77",
+      "region_name": "Yala",
+      "value": 22.189126
+    },
+    {
+      "region_id": "78",
+      "region_name": "Yasothon",
+      "value": 34.533167
+    }
+  ]
+}

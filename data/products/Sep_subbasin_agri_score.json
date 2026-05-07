@@ -1,0 +1,1799 @@
+{
+  "rows": [
+    {
+      "region_id": "0101",
+      "region_name": "¹éÓáÁè»ÒÂµÍ¹º¹",
+      "value": 0.398512
+    },
+    {
+      "region_id": "0102",
+      "region_name": "ËéÇÂáÁèÊÒ",
+      "value": 0.398543
+    },
+    {
+      "region_id": "0103",
+      "region_name": "¹éÓáÁè»ÒÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.397585
+    },
+    {
+      "region_id": "0104",
+      "region_name": "¹éÓ¢Í§",
+      "value": 0.396845
+    },
+    {
+      "region_id": "0105",
+      "region_name": "¹éÓáÁè»ÒÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.397215
+    },
+    {
+      "region_id": "0106",
+      "region_name": "¹éÓáÁèÊÐÁÒ´",
+      "value": 0.397262
+    },
+    {
+      "region_id": "0107",
+      "region_name": "¹éÓáÁè»ÒÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.397215
+    },
+    {
+      "region_id": "0108",
+      "region_name": "¹éÓáÁèÊØÃÔ¹·Ãì",
+      "value": 0.406566
+    },
+    {
+      "region_id": "0109",
+      "region_name": "áÁè¹éÓÂÇÁµÍ¹º¹",
+      "value": 0.406671
+    },
+    {
+      "region_id": "0110",
+      "region_name": "¹éÓáÁèÅÒËÅÇ§",
+      "value": 0.406331
+    },
+    {
+      "region_id": "0111",
+      "region_name": "áÁè¹éÓÂÇÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.40681
+    },
+    {
+      "region_id": "0112",
+      "region_name": "¹éÓáÁèÊÐàÃÕÂ§",
+      "value": 0.40855
+    },
+    {
+      "region_id": "0113",
+      "region_name": "áÁè¹éÓÂÇÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.401381
+    },
+    {
+      "region_id": "0114",
+      "region_name": "¹éÓáÁèÃÔ´",
+      "value": 0.395983
+    },
+    {
+      "region_id": "0115",
+      "region_name": "áÁè¹éÓÂÇÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.392945
+    },
+    {
+      "region_id": "0116",
+      "region_name": "¹éÓáÁèà§Ò",
+      "value": 0.398151
+    },
+    {
+      "region_id": "0117",
+      "region_name": "áÁè¹éÓÂÇÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 4",
+      "value": 0.396128
+    },
+    {
+      "region_id": "0118",
+      "region_name": "áÁè¹éÓÊÒÅÐÇÔ¹µÍ¹º¹",
+      "value": 0.405488
+    },
+    {
+      "region_id": "0119",
+      "region_name": "¹éÓáÁèá§Ð",
+      "value": 0.408924
+    },
+    {
+      "region_id": "0120",
+      "region_name": "áÁè¹éÓàÁÂµÍ¹º¹",
+      "value": 0.414382
+    },
+    {
+      "region_id": "0121",
+      "region_name": "ËéÇÂáÁèÅÐàÁÒ",
+      "value": 0.412882
+    },
+    {
+      "region_id": "0122",
+      "region_name": "áÁè¹éÓàÁÂµÍ¹ÅèÒ§",
+      "value": 0.408197
+    },
+    {
+      "region_id": "0201",
+      "region_name": "áÁè¹éÓâ¢§µÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.339801
+    },
+    {
+      "region_id": "0202",
+      "region_name": "¹éÓáÁè¨Ñ¹",
+      "value": 0.395488
+    },
+    {
+      "region_id": "0203",
+      "region_name": "¹éÓáÁè½Ò§",
+      "value": 0.414844
+    },
+    {
+      "region_id": "0204",
+      "region_name": "¹éÓáÁè¡¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.428981
+    },
+    {
+      "region_id": "0205",
+      "region_name": "¹éÓáÁè¡¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.431045
+    },
+    {
+      "region_id": "0206",
+      "region_name": "¹éÓáÁèÅÒÇÊèÇ¹·Õè 1",
+      "value": 0.403668
+    },
+    {
+      "region_id": "0207",
+      "region_name": "¹éÓáÁèÊÃÇÂ",
+      "value": 0.413804
+    },
+    {
+      "region_id": "0208",
+      "region_name": "¹éÓáÁèÅÒÇÊèÇ¹·Õè 2",
+      "value": 0.396721
+    },
+    {
+      "region_id": "0209",
+      "region_name": "¹éÓáÁè¡¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.379102
+    },
+    {
+      "region_id": "0210",
+      "region_name": "áÁè¹éÓâ¢§µÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.344016
+    },
+    {
+      "region_id": "0211",
+      "region_name": "áÁè¹éÓÍÔ§µÍ¹º¹",
+      "value": 0.397798
+    },
+    {
+      "region_id": "0212",
+      "region_name": "áÁè¹éÓÍÔ§µÍ¹¡ÅÒ§ÊèÇ¹·Õè 1",
+      "value": 0.376371
+    },
+    {
+      "region_id": "0213",
+      "region_name": "áÁè¹éÓ¾Ø§",
+      "value": 0.400966
+    },
+    {
+      "region_id": "0214",
+      "region_name": "áÁè¹éÓÍÔ§µÍ¹¡ÅÒ§ÊèÇ¹·Õè 2",
+      "value": 0.347064
+    },
+    {
+      "region_id": "0215",
+      "region_name": "áÁèÅÒÇ",
+      "value": 0.408394
+    },
+    {
+      "region_id": "0216",
+      "region_name": "áÁè¹éÓÍÔ§µÍ¹ÅèÒ§",
+      "value": 0.351867
+    },
+    {
+      "region_id": "0217",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 2",
+      "value": 0.43833
+    },
+    {
+      "region_id": "0301",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 3",
+      "value": 0.415154
+    },
+    {
+      "region_id": "0302",
+      "region_name": "¹éÓËÁÑ¹",
+      "value": 0.413275
+    },
+    {
+      "region_id": "0303",
+      "region_name": "¹éÓÊÒ¹",
+      "value": 0.409498
+    },
+    {
+      "region_id": "0304",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 4",
+      "value": 0.311051
+    },
+    {
+      "region_id": "0305",
+      "region_name": "áÁè¹éÓàÅÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.339425
+    },
+    {
+      "region_id": "0306",
+      "region_name": "ËéÇÂ¹éÓ»Ç¹",
+      "value": 0.309574
+    },
+    {
+      "region_id": "0307",
+      "region_name": "áÁè¹éÓàÅÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.306114
+    },
+    {
+      "region_id": "0308",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 5",
+      "value": 0.299702
+    },
+    {
+      "region_id": "0309",
+      "region_name": "ËéÇÂ¹éÓâÊÁ",
+      "value": 0.298329
+    },
+    {
+      "region_id": "0310",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 6/1",
+      "value": 0.279529
+    },
+    {
+      "region_id": "0311",
+      "region_name": "¹éÓâÁ§",
+      "value": 0.286062
+    },
+    {
+      "region_id": "0312",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 6/2",
+      "value": 0.279338
+    },
+    {
+      "region_id": "0313",
+      "region_name": "¹éÓÊÇÂ",
+      "value": 0.272828
+    },
+    {
+      "region_id": "0314",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 7/1",
+      "value": 0.266969
+    },
+    {
+      "region_id": "0315",
+      "region_name": "ËéÇÂËÅÇ§ÊèÇ¹·Õè 1",
+      "value": 0.282381
+    },
+    {
+      "region_id": "0316",
+      "region_name": "ËéÇÂ´Ò¹",
+      "value": 0.271565
+    },
+    {
+      "region_id": "0317",
+      "region_name": "ËéÇÂËÅÇ§ÊèÇ¹·Õè 2",
+      "value": 0.264726
+    },
+    {
+      "region_id": "0318",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 7/2",
+      "value": 0.275466
+    },
+    {
+      "region_id": "0319",
+      "region_name": "áÁè¹éÓÊ§¤ÃÒÁµÍ¹º¹",
+      "value": 0.268452
+    },
+    {
+      "region_id": "0320",
+      "region_name": "ËéÇÂ¤Í§",
+      "value": 0.277438
+    },
+    {
+      "region_id": "0321",
+      "region_name": "áÁè¹éÓÊ§¤ÃÒÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.274064
+    },
+    {
+      "region_id": "0322",
+      "region_name": "ËéÇÂÎÕé",
+      "value": 0.27337
+    },
+    {
+      "region_id": "0323",
+      "region_name": "áÁè¹éÓÊ§¤ÃÒÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.278411
+    },
+    {
+      "region_id": "0324",
+      "region_name": "ËéÇÂ¹éÓÂÒÁ",
+      "value": 0.27522
+    },
+    {
+      "region_id": "0325",
+      "region_name": "áÁè¹éÓÊ§¤ÃÒÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.27779
+    },
+    {
+      "region_id": "0326",
+      "region_name": "ËéÇÂ¹éÓÍÙ¹",
+      "value": 0.28238
+    },
+    {
+      "region_id": "0327",
+      "region_name": "áÁè¹éÓÊ§¤ÃÒÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 4",
+      "value": 0.275751
+    },
+    {
+      "region_id": "0328",
+      "region_name": "ËéÇÂ·ÇÂ",
+      "value": 0.276792
+    },
+    {
+      "region_id": "0329",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 8",
+      "value": 0.27877
+    },
+    {
+      "region_id": "0330",
+      "region_name": "¹éÓ¾Ø§",
+      "value": 0.294404
+    },
+    {
+      "region_id": "0331",
+      "region_name": "ËéÇÂ¹éÓ¡èÓ",
+      "value": 0.284299
+    },
+    {
+      "region_id": "0332",
+      "region_name": "áÁè¹éÓâ¢§ÊèÇ¹·Õè 9",
+      "value": 0.285482
+    },
+    {
+      "region_id": "0333",
+      "region_name": "ËéÇÂºÒ§·ÃÒÂ",
+      "value": 0.294602
+    },
+    {
+      "region_id": "0334",
+      "region_name": "ËéÇÂÁØ¡",
+      "value": 0.283698
+    },
+    {
+      "region_id": "0335",
+      "region_name": "ËéÇÂºÑ§ÍÕé",
+      "value": 0.281703
+    },
+    {
+      "region_id": "0336",
+      "region_name": "áÁè¹éÓâ¢§µÍ¹ÅèÒ§",
+      "value": 0.273951
+    },
+    {
+      "region_id": "0401",
+      "region_name": "ÅÓ¹éÓªÕµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.398598
+    },
+    {
+      "region_id": "0402",
+      "region_name": "ÅÓÊÐ¾Ø§",
+      "value": 0.400373
+    },
+    {
+      "region_id": "0403",
+      "region_name": "ÅÓ¹éÓªÕµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.341467
+    },
+    {
+      "region_id": "0404",
+      "region_name": "ÅÓ¡ÃÐ¨Ç¹",
+      "value": 0.298498
+    },
+    {
+      "region_id": "0405",
+      "region_name": "ÅÓ¹éÓªÕÊèÇ¹·Õè 2/1",
+      "value": 0.283177
+    },
+    {
+      "region_id": "0406",
+      "region_name": "ÅÓ¤Ñ¹©Ù",
+      "value": 0.283301
+    },
+    {
+      "region_id": "0407",
+      "region_name": "ÅÓ¹éÓªÕÊèÇ¹·Õè 2/2",
+      "value": 0.288006
+    },
+    {
+      "region_id": "0408",
+      "region_name": "ËéÇÂÊÒÁËÁÍ",
+      "value": 0.287119
+    },
+    {
+      "region_id": "0409",
+      "region_name": "ÅÓ¹éÓªÕÊèÇ¹·Õè 3",
+      "value": 0.287738
+    },
+    {
+      "region_id": "0410",
+      "region_name": "ÅÓ¹éÓ¾Í§µÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.368854
+    },
+    {
+      "region_id": "0411",
+      "region_name": "¹éÓ¾ÇÂ",
+      "value": 0.310324
+    },
+    {
+      "region_id": "0412",
+      "region_name": "ÅÓ¹éÓ¾Í§µÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.287342
+    },
+    {
+      "region_id": "0413",
+      "region_name": "ÅÓ¾Ðà¹ÕÂ§",
+      "value": 0.292836
+    },
+    {
+      "region_id": "0414",
+      "region_name": "¹éÓ¾ÃËÁ",
+      "value": 0.333751
+    },
+    {
+      "region_id": "0415",
+      "region_name": "ÅÓ¹éÓàªÔ­ÊèÇ¹·Õè 1",
+      "value": 0.362383
+    },
+    {
+      "region_id": "0416",
+      "region_name": "ÅÓ¹éÓàªÔ­ÊèÇ¹·Õè 2",
+      "value": 0.295086
+    },
+    {
+      "region_id": "0417",
+      "region_name": "ÅÓ¹éÓ¾Í§µÍ¹º¹ÊèÇ¹·Õè 3",
+      "value": 0.284299
+    },
+    {
+      "region_id": "0418",
+      "region_name": "ÅÓ¹éÓ¾Í§µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.283775
+    },
+    {
+      "region_id": "0419",
+      "region_name": "ËéÇÂÊÒÂºÒµÃ",
+      "value": 0.287507
+    },
+    {
+      "region_id": "0420",
+      "region_name": "ÅÓ¹éÓ¾Í§µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.288438
+    },
+    {
+      "region_id": "0421",
+      "region_name": "ÅÓ¹éÓªÕÊèÇ¹·Õè 4/1",
+      "value": 0.285467
+    },
+    {
+      "region_id": "0422",
+      "region_name": "ÅÓ»ÒÇµÍ¹º¹",
+      "value": 0.283842
+    },
+    {
+      "region_id": "0423",
+      "region_name": "ÅÓ¾Ñ¹ªÒ´",
+      "value": 0.280857
+    },
+    {
+      "region_id": "0424",
+      "region_name": "ÅÓ»ÒÇµÍ¹ÅèÒ§",
+      "value": 0.2859
+    },
+    {
+      "region_id": "0425",
+      "region_name": "ÅÓ¹éÓªÕÊèÇ¹·Õè 4/2",
+      "value": 0.281364
+    },
+    {
+      "region_id": "0426",
+      "region_name": "ÅÓ¹éÓÂÑ§",
+      "value": 0.276372
+    },
+    {
+      "region_id": "0427",
+      "region_name": "ÅÓ¹éÓªÕµÍ¹ÅèÒ§",
+      "value": 0.274058
+    },
+    {
+      "region_id": "0501",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.311489
+    },
+    {
+      "region_id": "0502",
+      "region_name": "ÅÓá«Ð",
+      "value": 0.311988
+    },
+    {
+      "region_id": "0503",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.297299
+    },
+    {
+      "region_id": "0504",
+      "region_name": "ÅÓ¾ÃÐà¾ÅÔ§",
+      "value": 0.305685
+    },
+    {
+      "region_id": "0505",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹º¹ÊèÇ¹·Õè 3",
+      "value": 0.282879
+    },
+    {
+      "region_id": "0506",
+      "region_name": "ÅÓµÐ¤Í§",
+      "value": 0.299712
+    },
+    {
+      "region_id": "0507",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹º¹ÊèÇ¹·Õè 4",
+      "value": 0.284722
+    },
+    {
+      "region_id": "0508",
+      "region_name": "ÅÓàªÔ§ä¡Ã",
+      "value": 0.281203
+    },
+    {
+      "region_id": "0509",
+      "region_name": "ÅÓ¨Ñ¡ÃÃÒª",
+      "value": 0.280626
+    },
+    {
+      "region_id": "0510",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹º¹ÊèÇ¹·Õè 5",
+      "value": 0.281396
+    },
+    {
+      "region_id": "0511",
+      "region_name": "ÅÓ¹Ò§ÃÍ§",
+      "value": 0.295155
+    },
+    {
+      "region_id": "0512",
+      "region_name": "ÅÓ»Ðà·ÕÂ",
+      "value": 0.284328
+    },
+    {
+      "region_id": "0513",
+      "region_name": "ÅÓ»ÅÒÂÁÒÈ",
+      "value": 0.287033
+    },
+    {
+      "region_id": "0514",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/1",
+      "value": 0.279459
+    },
+    {
+      "region_id": "0515",
+      "region_name": "ËéÇÂàÍ¡",
+      "value": 0.288788
+    },
+    {
+      "region_id": "0516",
+      "region_name": "ÅÓÊÐá·´ÊèÇ¹·Õè 1",
+      "value": 0.281085
+    },
+    {
+      "region_id": "0517",
+      "region_name": "ÅÓÊÐá·´ÊèÇ¹·Õè 2",
+      "value": 0.283061
+    },
+    {
+      "region_id": "0518",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/2",
+      "value": 0.280778
+    },
+    {
+      "region_id": "0519",
+      "region_name": "ÅÓ¾Ñ§ªÙ",
+      "value": 0.288847
+    },
+    {
+      "region_id": "0520",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/3",
+      "value": 0.279324
+    },
+    {
+      "region_id": "0521",
+      "region_name": "ËéÇÂµÐâ¤§",
+      "value": 0.275839
+    },
+    {
+      "region_id": "0522",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/4",
+      "value": 0.27754
+    },
+    {
+      "region_id": "0523",
+      "region_name": "ÅÓªÕ",
+      "value": 0.275295
+    },
+    {
+      "region_id": "0524",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/5",
+      "value": 0.276018
+    },
+    {
+      "region_id": "0525",
+      "region_name": "ÅÓ¾ÅÑº¾ÅÒ",
+      "value": 0.283838
+    },
+    {
+      "region_id": "0526",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/6",
+      "value": 0.277149
+    },
+    {
+      "region_id": "0527",
+      "region_name": "ÅÓàµÒ",
+      "value": 0.291858
+    },
+    {
+      "region_id": "0528",
+      "region_name": "ÅÓàÊÕÂÇãË­èÊèÇ¹·Õè 1",
+      "value": 0.288928
+    },
+    {
+      "region_id": "0529",
+      "region_name": "ÅÓàÊÕÂÇãË­èÊèÇ¹·Õè 2",
+      "value": 0.282743
+    },
+    {
+      "region_id": "0530",
+      "region_name": "ÅÓàÊÕÂÇ¹éÍÂ",
+      "value": 0.28592
+    },
+    {
+      "region_id": "0531",
+      "region_name": "ÅÓàÊÕÂÇãË­èÊèÇ¹·Õè 3",
+      "value": 0.277437
+    },
+    {
+      "region_id": "0532",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 2/7",
+      "value": 0.27572
+    },
+    {
+      "region_id": "0533",
+      "region_name": "ËéÇÂ·Ñº·Ñ¹",
+      "value": 0.275848
+    },
+    {
+      "region_id": "0534",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/1",
+      "value": 0.274608
+    },
+    {
+      "region_id": "0535",
+      "region_name": "ËéÇÂÊÓÃÒ­",
+      "value": 0.275829
+    },
+    {
+      "region_id": "0536",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/2",
+      "value": 0.277705
+    },
+    {
+      "region_id": "0537",
+      "region_name": "ËéÇÂ·Ò",
+      "value": 0.283869
+    },
+    {
+      "region_id": "0538",
+      "region_name": "ËéÇÂ¢ÂØ§ÊèÇ¹·Õè 1",
+      "value": 0.279521
+    },
+    {
+      "region_id": "0539",
+      "region_name": "ËéÇÂ¢ÂØ§ÊèÇ¹·Õè 2",
+      "value": 0.280007
+    },
+    {
+      "region_id": "0540",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/3",
+      "value": 0.279995
+    },
+    {
+      "region_id": "0541",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/4",
+      "value": 0.277226
+    },
+    {
+      "region_id": "0542",
+      "region_name": "ÅÓà«ºÒÂÊèÇ¹·Õè 1",
+      "value": 0.265188
+    },
+    {
+      "region_id": "0543",
+      "region_name": "ËéÇÂâ¾§",
+      "value": 0.268383
+    },
+    {
+      "region_id": "0544",
+      "region_name": "ÅÓà«ºÒÂÊèÇ¹·Õè 2",
+      "value": 0.269868
+    },
+    {
+      "region_id": "0545",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/5",
+      "value": 0.276388
+    },
+    {
+      "region_id": "0546",
+      "region_name": "ÅÓà«º¡",
+      "value": 0.272083
+    },
+    {
+      "region_id": "0547",
+      "region_name": "ÅÓ¹éÓÁÙÅÊèÇ¹·Õè 3/6",
+      "value": 0.276301
+    },
+    {
+      "region_id": "0548",
+      "region_name": "ÅÓâ´ÁãË­è",
+      "value": 0.287473
+    },
+    {
+      "region_id": "0549",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.279892
+    },
+    {
+      "region_id": "0550",
+      "region_name": "ËéÇÂµØ§ÅØ§",
+      "value": 0.276016
+    },
+    {
+      "region_id": "0551",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.281818
+    },
+    {
+      "region_id": "0552",
+      "region_name": "ÅÓâ´Á¹éÍÂ",
+      "value": 0.28503
+    },
+    {
+      "region_id": "0553",
+      "region_name": "ÅÓ¹éÓÁÙÅµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.281694
+    },
+    {
+      "region_id": "0601",
+      "region_name": "áÁè¹éÓ»Ô§µÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.407519
+    },
+    {
+      "region_id": "0602",
+      "region_name": "¹éÓáÁè§Ñ´",
+      "value": 0.401832
+    },
+    {
+      "region_id": "0603",
+      "region_name": "áÁè¹éÓ»Ô§µÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.400128
+    },
+    {
+      "region_id": "0604",
+      "region_name": "áÁè¹éÓáÁèáµ§",
+      "value": 0.444184
+    },
+    {
+      "region_id": "0605",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 2/1",
+      "value": 0.342402
+    },
+    {
+      "region_id": "0606",
+      "region_name": "¹éÓáÁèÃÔÁ",
+      "value": 0.403647
+    },
+    {
+      "region_id": "0607",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 2/2",
+      "value": 0.34388
+    },
+    {
+      "region_id": "0608",
+      "region_name": "¹éÓáÁè¡Ç§",
+      "value": 0.347085
+    },
+    {
+      "region_id": "0609",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 2/3",
+      "value": 0.282041
+    },
+    {
+      "region_id": "0610",
+      "region_name": "¹éÓáÁè¢Ò¹",
+      "value": 0.387007
+    },
+    {
+      "region_id": "0611",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 2/4",
+      "value": 0.300766
+    },
+    {
+      "region_id": "0612",
+      "region_name": "¹éÓáÁèÅÕé",
+      "value": 0.37055
+    },
+    {
+      "region_id": "0613",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 3/1",
+      "value": 0.313451
+    },
+    {
+      "region_id": "0614",
+      "region_name": "¹éÓáÁè¡ÅÒ§",
+      "value": 0.377345
+    },
+    {
+      "region_id": "0615",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 3/2",
+      "value": 0.369714
+    },
+    {
+      "region_id": "0616",
+      "region_name": "¹éÓáÁèá¨èÁµÍ¹º¹",
+      "value": 0.48948
+    },
+    {
+      "region_id": "0617",
+      "region_name": "¹éÓáÁèá¨èÁµÍ¹ÅèÒ§",
+      "value": 0.462366
+    },
+    {
+      "region_id": "0618",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 3/3",
+      "value": 0.388923
+    },
+    {
+      "region_id": "0619",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 3/4",
+      "value": 0.398757
+    },
+    {
+      "region_id": "0620",
+      "region_name": "¹éÓáÁèµ×è¹",
+      "value": 0.404079
+    },
+    {
+      "region_id": "0621",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 4/1",
+      "value": 0.401477
+    },
+    {
+      "region_id": "0622",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 4/2",
+      "value": 0.31185
+    },
+    {
+      "region_id": "0623",
+      "region_name": "ËéÇÂáÁè·éÍ",
+      "value": 0.324822
+    },
+    {
+      "region_id": "0624",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 4/3",
+      "value": 0.308048
+    },
+    {
+      "region_id": "0625",
+      "region_name": "¤ÅÍ§ÇÑ§à¨éÒ",
+      "value": 0.342989
+    },
+    {
+      "region_id": "0626",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 4/4",
+      "value": 0.309166
+    },
+    {
+      "region_id": "0627",
+      "region_name": "¤ÅÍ§áÁèÃÐ¡Ò",
+      "value": 0.337247
+    },
+    {
+      "region_id": "0628",
+      "region_name": "áÁè¹éÓ»Ô§ÊèÇ¹·Õè 4/5",
+      "value": 0.343028
+    },
+    {
+      "region_id": "0629",
+      "region_name": "¤ÅÍ§ÊÇ¹ËÁÒ¡",
+      "value": 0.399288
+    },
+    {
+      "region_id": "0630",
+      "region_name": "áÁè¹éÓ»Ô§µÍ¹ÅèÒ§",
+      "value": 0.389345
+    },
+    {
+      "region_id": "0701",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹º¹",
+      "value": 0.398474
+    },
+    {
+      "region_id": "0702",
+      "region_name": "áÁè¹éÓÊÇÂ",
+      "value": 0.386316
+    },
+    {
+      "region_id": "0703",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹¡ÅÒ§ÊèÇ¹·Õè 1",
+      "value": 0.328938
+    },
+    {
+      "region_id": "0704",
+      "region_name": "¹éÓáÁèµØëÂ",
+      "value": 0.342709
+    },
+    {
+      "region_id": "0705",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹¡ÅÒ§ÊèÇ¹·Õè 2",
+      "value": 0.289794
+    },
+    {
+      "region_id": "0706",
+      "region_name": "¹éÓáÁè¨Ò§",
+      "value": 0.294857
+    },
+    {
+      "region_id": "0707",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.283345
+    },
+    {
+      "region_id": "0708",
+      "region_name": "¹éÓáÁèµèÓ",
+      "value": 0.288939
+    },
+    {
+      "region_id": "0709",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.301973
+    },
+    {
+      "region_id": "0710",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.301753
+    },
+    {
+      "region_id": "0711",
+      "region_name": "áÁè¹éÓÇÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 4",
+      "value": 0.361196
+    },
+    {
+      "region_id": "0801",
+      "region_name": "áÁè¹éÓÂÁµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.412439
+    },
+    {
+      "region_id": "0802",
+      "region_name": "áÁè¹éÓ¤Ç¹",
+      "value": 0.406784
+    },
+    {
+      "region_id": "0803",
+      "region_name": "áÁè¹éÓÂÁµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.370144
+    },
+    {
+      "region_id": "0804",
+      "region_name": "¹éÓ»Õé",
+      "value": 0.374336
+    },
+    {
+      "region_id": "0805",
+      "region_name": "áÁè¹éÓÂÁµÍ¹º¹ÊèÇ¹·Õè 3",
+      "value": 0.319953
+    },
+    {
+      "region_id": "0806",
+      "region_name": "áÁè¹éÓ§ÒÇ",
+      "value": 0.376177
+    },
+    {
+      "region_id": "0807",
+      "region_name": "áÁè¹éÓÂÁµÍ¹¡ÅÒ§ÊèÇ¹·Õè 1",
+      "value": 0.303948
+    },
+    {
+      "region_id": "0808",
+      "region_name": "¹éÓáÁè¤ÓÁÕ",
+      "value": 0.30481
+    },
+    {
+      "region_id": "0809",
+      "region_name": "áÁè¹éÓÂÁµÍ¹¡ÅÒ§ÊèÇ¹·Õè 2",
+      "value": 0.308556
+    },
+    {
+      "region_id": "0810",
+      "region_name": "¹éÓáÁèµéÒ",
+      "value": 0.30071
+    },
+    {
+      "region_id": "0811",
+      "region_name": "áÁè¹éÓÂÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.305042
+    },
+    {
+      "region_id": "0812",
+      "region_name": "ËéÇÂáÁèÊÔ¹",
+      "value": 0.304414
+    },
+    {
+      "region_id": "0813",
+      "region_name": "áÁè¹éÓÂÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.309136
+    },
+    {
+      "region_id": "0814",
+      "region_name": "¹éÓáÁèÁÍ¡",
+      "value": 0.319736
+    },
+    {
+      "region_id": "0815",
+      "region_name": "áÁè¹éÓÂÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.390583
+    },
+    {
+      "region_id": "0816",
+      "region_name": "¹éÓáÁèÃÓ¾Ñ¹",
+      "value": 0.3119
+    },
+    {
+      "region_id": "0817",
+      "region_name": "áÁè¹éÓÂÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 4",
+      "value": 0.361212
+    },
+    {
+      "region_id": "0818",
+      "region_name": "¤ÅÍ§ºÒ§á¡éÇ",
+      "value": 0.396928
+    },
+    {
+      "region_id": "0819",
+      "region_name": "áÁè¹éÓÂÁµÍ¹ÅèÒ§ÊèÇ¹·Õè 5",
+      "value": 0.407271
+    },
+    {
+      "region_id": "0901",
+      "region_name": "áÁè¹éÓ¹èÒ¹µÍ¹º¹",
+      "value": 0.423233
+    },
+    {
+      "region_id": "0902",
+      "region_name": "ËéÇÂ¹éÓÂÒÇ (1)",
+      "value": 0.385563
+    },
+    {
+      "region_id": "0903",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 2/1",
+      "value": 0.329671
+    },
+    {
+      "region_id": "0904",
+      "region_name": "¹éÓÂÒÇ (2)",
+      "value": 0.399191
+    },
+    {
+      "region_id": "0905",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 2/2",
+      "value": 0.316091
+    },
+    {
+      "region_id": "0906",
+      "region_name": "¹éÓÊÁØ¹",
+      "value": 0.309024
+    },
+    {
+      "region_id": "0907",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 2/3",
+      "value": 0.302833
+    },
+    {
+      "region_id": "0908",
+      "region_name": "¹éÓÊÒ",
+      "value": 0.299324
+    },
+    {
+      "region_id": "0909",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 2/4",
+      "value": 0.298618
+    },
+    {
+      "region_id": "0910",
+      "region_name": "¹éÓÇéÒ",
+      "value": 0.397067
+    },
+    {
+      "region_id": "0911",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 3/1",
+      "value": 0.298693
+    },
+    {
+      "region_id": "0912",
+      "region_name": "¹éÓáË§",
+      "value": 0.363766
+    },
+    {
+      "region_id": "0913",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 3/2",
+      "value": 0.324908
+    },
+    {
+      "region_id": "0914",
+      "region_name": "¹éÓ»Ò´",
+      "value": 0.332557
+    },
+    {
+      "region_id": "0915",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 4/1",
+      "value": 0.306267
+    },
+    {
+      "region_id": "0916",
+      "region_name": "¤ÅÍ§µÃÍ¹",
+      "value": 0.306996
+    },
+    {
+      "region_id": "0917",
+      "region_name": "áÁè¹éÓ¹èÒ¹ÊèÇ¹·Õè 4/2",
+      "value": 0.352652
+    },
+    {
+      "region_id": "0918",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂÊèÇ¹·Õè 1",
+      "value": 0.424264
+    },
+    {
+      "region_id": "0919",
+      "region_name": "¹éÓÀÒ¤",
+      "value": 0.415747
+    },
+    {
+      "region_id": "0920",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂÊèÇ¹·Õè 2",
+      "value": 0.355984
+    },
+    {
+      "region_id": "0921",
+      "region_name": "áÁè¹éÓ¹èÒ¹µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.403998
+    },
+    {
+      "region_id": "0922",
+      "region_name": "áÁè¹éÓÇÑ§·Í§",
+      "value": 0.369606
+    },
+    {
+      "region_id": "0923",
+      "region_name": "áÁè¹éÓ¹èÒ¹µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.371415
+    },
+    {
+      "region_id": "1001",
+      "region_name": "ºÖ§ºÃà¾ç´",
+      "value": 0.371587
+    },
+    {
+      "region_id": "1002",
+      "region_name": "·ÕèÃÒºáÁè¹éÓà¨éÒ¾ÃÐÂÒ",
+      "value": 0.403267
+    },
+    {
+      "region_id": "1101",
+      "region_name": "¹éÓáÁèÇ§",
+      "value": 0.314553
+    },
+    {
+      "region_id": "1102",
+      "region_name": "áÁè¹éÓÊÐá¡¡ÃÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.354977
+    },
+    {
+      "region_id": "1103",
+      "region_name": "¤ÅÍ§â¾¸Ôì",
+      "value": 0.346515
+    },
+    {
+      "region_id": "1104",
+      "region_name": "ËéÇÂ·ÑºàÊÅÒ",
+      "value": 0.32425
+    },
+    {
+      "region_id": "1105",
+      "region_name": "áÁè¹éÓÊÐá¡¡ÃÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.348253
+    },
+    {
+      "region_id": "1106",
+      "region_name": "áÁè¹éÓÊÐá¡¡ÃÑ§µÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.407411
+    },
+    {
+      "region_id": "1201",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡µÍ¹º¹",
+      "value": 0.366498
+    },
+    {
+      "region_id": "1202",
+      "region_name": "ËéÇÂ¹éÓ¾Ø§",
+      "value": 0.345964
+    },
+    {
+      "region_id": "1203",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡ÊèÇ¹·Õè 2",
+      "value": 0.325629
+    },
+    {
+      "region_id": "1204",
+      "region_name": "¤ÅÍ§ËéÇÂºèÍ",
+      "value": 0.311964
+    },
+    {
+      "region_id": "1205",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡ÊèÇ¹·Õè 3/1",
+      "value": 0.285166
+    },
+    {
+      "region_id": "1206",
+      "region_name": "ËéÇÂà¡ÒÐá¡éÇ",
+      "value": 0.32062
+    },
+    {
+      "region_id": "1207",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡ÊèÇ¹·Õè 3/2",
+      "value": 0.35236
+    },
+    {
+      "region_id": "1208",
+      "region_name": "ÅÓÊ¹¸Ô",
+      "value": 0.285779
+    },
+    {
+      "region_id": "1209",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.307939
+    },
+    {
+      "region_id": "1210",
+      "region_name": "ËéÇÂËÁÇ¡àËÅç¡",
+      "value": 0.303152
+    },
+    {
+      "region_id": "1211",
+      "region_name": "áÁè¹éÓ»èÒÊÑ¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.361351
+    },
+    {
+      "region_id": "1301",
+      "region_name": "ËéÇÂ¡ÃÐàÊÕÂÇ",
+      "value": 0.34764
+    },
+    {
+      "region_id": "1302",
+      "region_name": "·ÕèÃÒºáÁè¹éÓ·èÒ¨Õ¹",
+      "value": 0.405207
+    },
+    {
+      "region_id": "1401",
+      "region_name": "áÁè¹éÓá¤ÇãË­èµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.402377
+    },
+    {
+      "region_id": "1402",
+      "region_name": "ËéÇÂáÁèÅÐÁØ§",
+      "value": 0.401896
+    },
+    {
+      "region_id": "1403",
+      "region_name": "áÁè¹éÓá¤ÇãË­èµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.402331
+    },
+    {
+      "region_id": "1404",
+      "region_name": "ËéÇÂáÁè¨Ñ¹",
+      "value": 0.402359
+    },
+    {
+      "region_id": "1405",
+      "region_name": "áÁè¹éÓá¤ÇãË­èµÍ¹º¹ÊèÇ¹·Õè 3",
+      "value": 0.395592
+    },
+    {
+      "region_id": "1406",
+      "region_name": "ËéÇÂ¢Òá¢é§",
+      "value": 0.330946
+    },
+    {
+      "region_id": "1407",
+      "region_name": "áÁè¹éÓá¤ÇãË­èµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.358688
+    },
+    {
+      "region_id": "1408",
+      "region_name": "ËéÇÂµÐà¾Ô¹",
+      "value": 0.330383
+    },
+    {
+      "region_id": "1409",
+      "region_name": "áÁè¹éÓá¤ÇãË­èµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.350565
+    },
+    {
+      "region_id": "1410",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.404882
+    },
+    {
+      "region_id": "1411",
+      "region_name": "ËéÇÂ»ÔÅÍ¡",
+      "value": 0.422566
+    },
+    {
+      "region_id": "1412",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.406136
+    },
+    {
+      "region_id": "1413",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.353719
+    },
+    {
+      "region_id": "1414",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.346254
+    },
+    {
+      "region_id": "1415",
+      "region_name": "ÅÓÀÒªÕ",
+      "value": 0.372422
+    },
+    {
+      "region_id": "1416",
+      "region_name": "áÁè¹éÓá¤Ç¹éÍÂµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.398348
+    },
+    {
+      "region_id": "1417",
+      "region_name": "·ÕèÃÒºáÁè¹éÓáÁè¡ÅÍ§",
+      "value": 0.427026
+    },
+    {
+      "region_id": "1501",
+      "region_name": "¤ÅÍ§¾ÃÐÊ·Ö§",
+      "value": 0.340694
+    },
+    {
+      "region_id": "1502",
+      "region_name": "áÁè¹éÓ¾ÃÐ»Ã§ÊèÇ¹·Õè 1",
+      "value": 0.310467
+    },
+    {
+      "region_id": "1503",
+      "region_name": "áÁè¹éÓ¾ÃÐ»Ã§ÊèÇ¹·Õè 2",
+      "value": 0.385678
+    },
+    {
+      "region_id": "1504",
+      "region_name": "áÁè¹éÓË¹ØÁÒ¹",
+      "value": 0.313628
+    },
+    {
+      "region_id": "1505",
+      "region_name": "áÁè¹éÓ»ÃÒ¨Õ¹ºØÃÕµÍ¹ÅèÒ§",
+      "value": 0.366004
+    },
+    {
+      "region_id": "1506",
+      "region_name": "áÁè¹éÓ¹¤Ã¹ÒÂ¡",
+      "value": 0.322764
+    },
+    {
+      "region_id": "1507",
+      "region_name": "·ÕèÃÒºáÁè¹éÓºÒ§»Ð¡§ÊèÇ¹·Õè 1",
+      "value": 0.399779
+    },
+    {
+      "region_id": "1508",
+      "region_name": "¤ÅÍ§·èÒÅÒ´",
+      "value": 0.35832
+    },
+    {
+      "region_id": "1509",
+      "region_name": "¤ÅÍ§ËÅÇ§",
+      "value": 0.364502
+    },
+    {
+      "region_id": "1510",
+      "region_name": "·ÕèÃÒºáÁè¹éÓºÒ§»Ð¡§ÊèÇ¹·Õè 2",
+      "value": 0.402593
+    },
+    {
+      "region_id": "1601",
+      "region_name": "âµ¹àÅÊÒ»µÍ¹º¹ (ÅØèÁ¹éÓÊÒ¢Ò)",
+      "value": 0.331295
+    },
+    {
+      "region_id": "1602",
+      "region_name": "ËéÇÂ¾ÃÁâË´",
+      "value": 0.348307
+    },
+    {
+      "region_id": "1603",
+      "region_name": "âµ¹àÅÊÒ»µÍ¹ÅèÒ§",
+      "value": 0.329652
+    },
+    {
+      "region_id": "1701",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (ÅØèÁ¹éÓÊÒ¢Ò 1)",
+      "value": 0.394972
+    },
+    {
+      "region_id": "1702",
+      "region_name": "¤ÅÍ§ãË­è",
+      "value": 0.391213
+    },
+    {
+      "region_id": "1703",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (ÅØèÁ¹éÓÊÒ¢Ò 2)",
+      "value": 0.387562
+    },
+    {
+      "region_id": "1704",
+      "region_name": "áÁè¹éÓ»ÃÐáÊ",
+      "value": 0.348545
+    },
+    {
+      "region_id": "1705",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (ÅØèÁ¹éÓÊÒ¢Ò 3)",
+      "value": 0.390639
+    },
+    {
+      "region_id": "1706",
+      "region_name": "¤ÅÍ§âµ¹´",
+      "value": 0.335539
+    },
+    {
+      "region_id": "1707",
+      "region_name": "áÁè¹éÓ¨Ñ¹·ºØÃÕ",
+      "value": 0.358212
+    },
+    {
+      "region_id": "1708",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (ÅØèÁ¹éÓÊÒ¢Ò 4)",
+      "value": 0.341909
+    },
+    {
+      "region_id": "1709",
+      "region_name": "áÁè¹éÓàÁ×Í§µÃÒ´",
+      "value": 0.331569
+    },
+    {
+      "region_id": "1710",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (ÅØèÁ¹éÓÊÒ¢Ò 5)",
+      "value": 0.385128
+    },
+    {
+      "region_id": "1801",
+      "region_name": "áÁè¹éÓà¾ªÃºØÃÕµÍ¹º¹",
+      "value": 0.368939
+    },
+    {
+      "region_id": "1802",
+      "region_name": "ËéÇÂáÁè»ÃÐ¨Ñ¹",
+      "value": 0.359054
+    },
+    {
+      "region_id": "1803",
+      "region_name": "áÁè¹éÓà¾ªÃºØÃÕµÍ¹ÅèÒ§",
+      "value": 0.41548
+    },
+    {
+      "region_id": "1804",
+      "region_name": "áÁè¹éÓ»ÃÒ³ºØÃÕ ( ÅØèÁ¹éÓÊÒ¢Ò )",
+      "value": 0.33199
+    },
+    {
+      "region_id": "1805",
+      "region_name": "¤ÅÍ§à¢Òá´§",
+      "value": 0.318915
+    },
+    {
+      "region_id": "1806",
+      "region_name": "¤ÅÍ§¡ØÂ",
+      "value": 0.314652
+    },
+    {
+      "region_id": "1807",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅ»ÃÐ¨Çº¤ÕÃÕ¢Ñ¹¸ìÊèÇ¹·Õè 1",
+      "value": 0.30931
+    },
+    {
+      "region_id": "1808",
+      "region_name": "¤ÅÍ§ºÒ§ÊÐ¾Ò¹ãË­è",
+      "value": 0.301777
+    },
+    {
+      "region_id": "1809",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅ»ÃÐ¨Çº¤ÕÃÕ¢Ñ¹¸ìÊèÇ¹·Õè 2",
+      "value": 0.348643
+    },
+    {
+      "region_id": "1901",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.40884
+    },
+    {
+      "region_id": "1902",
+      "region_name": "¤ÅÍ§·èÒµÐàÀÒ ( ÅØèÁ¹éÓÊÒ¢Ò )",
+      "value": 0.33553
+    },
+    {
+      "region_id": "1903",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.428175
+    },
+    {
+      "region_id": "1904",
+      "region_name": "¤ÅÍ§ËÅÑ§ÊÇ¹",
+      "value": 0.349828
+    },
+    {
+      "region_id": "1905",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡ÊèÇ¹·Õè 2",
+      "value": 0.363185
+    },
+    {
+      "region_id": "1906",
+      "region_name": "¤ÅÍ§Ê¡",
+      "value": 0.319913
+    },
+    {
+      "region_id": "1907",
+      "region_name": "¤ÅÍ§¾ÃÐáÊ§",
+      "value": 0.333199
+    },
+    {
+      "region_id": "1908",
+      "region_name": "¤ÅÍ§¾ØÁ´Ç§µÍ¹ÅèÒ§",
+      "value": 0.338168
+    },
+    {
+      "region_id": "1909",
+      "region_name": "¤ÅÍ§¨Ñ¹´Õ",
+      "value": 0.383829
+    },
+    {
+      "region_id": "1910",
+      "region_name": "áÁè¹éÓµÒ»ÕµÍ¹º¹ÊèÇ¹·Õè 1",
+      "value": 0.347963
+    },
+    {
+      "region_id": "1911",
+      "region_name": "áÁè¹éÓµÒ»ÕµÍ¹º¹ÊèÇ¹·Õè 2",
+      "value": 0.436094
+    },
+    {
+      "region_id": "1912",
+      "region_name": "¤ÅÍ§ÊÔ¹»Ø¹",
+      "value": 0.382923
+    },
+    {
+      "region_id": "1913",
+      "region_name": "áÁè¹éÓµÒ»ÕµÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.38025
+    },
+    {
+      "region_id": "1914",
+      "region_name": "¤ÅÍ§ÍÔ»Ñ¹",
+      "value": 0.385606
+    },
+    {
+      "region_id": "1915",
+      "region_name": "áÁè¹éÓµÒ»ÕµÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.393028
+    },
+    {
+      "region_id": "1916",
+      "region_name": "áÁè¹éÓµÒ»ÕµÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.385992
+    },
+    {
+      "region_id": "1917",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡ÊèÇ¹·Õè 3",
+      "value": 0.35379
+    },
+    {
+      "region_id": "1918",
+      "region_name": "¤ÅÍ§¡ÅÒÂ",
+      "value": 0.344676
+    },
+    {
+      "region_id": "1919",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡ÊèÇ¹·Õè 4",
+      "value": 0.393794
+    },
+    {
+      "region_id": "2001",
+      "region_name": "·ÐàÅ¹éÍÂ",
+      "value": 0.408635
+    },
+    {
+      "region_id": "2002",
+      "region_name": "·ÐàÅËÅÇ§",
+      "value": 0.361581
+    },
+    {
+      "region_id": "2003",
+      "region_name": "·ÐàÅÊÒºÊ§¢ÅÒ ( ÅØèÁ¹éÓÊÒ¢Ò )",
+      "value": 0.334483
+    },
+    {
+      "region_id": "2004",
+      "region_name": "¤ÅÍ§¹Ò·ÇÕ",
+      "value": 0.331325
+    },
+    {
+      "region_id": "2005",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 1",
+      "value": 0.36866
+    },
+    {
+      "region_id": "2006",
+      "region_name": "¤ÅÍ§à·¾Ò",
+      "value": 0.294663
+    },
+    {
+      "region_id": "2101",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 2",
+      "value": 0.371787
+    },
+    {
+      "region_id": "2102",
+      "region_name": "áÁè¹éÓ»ÑµµÒ¹ÕµÍ¹º¹",
+      "value": 0.377749
+    },
+    {
+      "region_id": "2103",
+      "region_name": "áÁè¹éÓ»ÑµµÒ¹ÕµÍ¹ÅèÒ§",
+      "value": 0.315473
+    },
+    {
+      "region_id": "2104",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹ÅèÒ§ÊèÇ¹·Õè 3",
+      "value": 0.393769
+    },
+    {
+      "region_id": "2105",
+      "region_name": "áÁè¹éÓÊÒÂºØÃÕ",
+      "value": 0.336599
+    },
+    {
+      "region_id": "2106",
+      "region_name": "áÁè¹éÓºÒ§¹ÃÒ",
+      "value": 0.353709
+    },
+    {
+      "region_id": "2107",
+      "region_name": "áÁè¹éÓâ¡Å¡",
+      "value": 0.36947
+    },
+    {
+      "region_id": "2201",
+      "region_name": "áÁè¹éÓ¡ÃÐºØÃÕ ( ÅØèÁ¹éÓÊÒ¢Ò )",
+      "value": 0.33174
+    },
+    {
+      "region_id": "2202",
+      "region_name": "¤ÅÍ§ÅÐÍØè¹",
+      "value": 0.319527
+    },
+    {
+      "region_id": "2203",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹µ¡µÍ¹º¹",
+      "value": 0.319102
+    },
+    {
+      "region_id": "2204",
+      "region_name": "¤ÅÍ§µÐ¡ÑèÇ»èÒ",
+      "value": 0.332069
+    },
+    {
+      "region_id": "2205",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹µ¡ÊèÇ¹·Õè 2",
+      "value": 0.38875
+    },
+    {
+      "region_id": "2206",
+      "region_name": "à¡ÒÐÀÙà¡çµ",
+      "value": 0.394679
+    },
+    {
+      "region_id": "2207",
+      "region_name": "¤ÅÍ§·èÍÁ",
+      "value": 0.421661
+    },
+    {
+      "region_id": "2208",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹µ¡ÊèÇ¹·Õè 3",
+      "value": 0.412859
+    },
+    {
+      "region_id": "2209",
+      "region_name": "áÁè¹éÓµÃÑ§",
+      "value": 0.368466
+    },
+    {
+      "region_id": "2210",
+      "region_name": "¤ÅÍ§»ÐàËÅÕèÂ¹",
+      "value": 0.32131
+    },
+    {
+      "region_id": "2211",
+      "region_name": "¤ÅÍ§ÅÐ§Ù",
+      "value": 0.308255
+    },
+    {
+      "region_id": "2212",
+      "region_name": "¤ÅÍ§ºÓºÑ§",
+      "value": 0.305846
+    },
+    {
+      "region_id": "2213",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹µ¡µÍ¹ÅèÒ§",
+      "value": 0.347556
+    },
+    {
+      "region_id": "10-is",
+      "region_name": "à¨éÒ¾ÃÐÂÒ (à¡ÒÐ)",
+      "value": 0.395065
+    },
+    {
+      "region_id": "17-is",
+      "region_name": "ªÒÂ½Ñè§·ÐàÅµÐÇÑ¹ÍÍ¡ (à¡ÒÐ)",
+      "value": 0.297842
+    },
+    {
+      "region_id": "18-is",
+      "region_name": "à¾ªÃºØÃÕ-»ÃÐ¨Çº¤ÕÃÕ¢Ñ¹¸ì (à¡ÒÐ)",
+      "value": 0.352289
+    },
+    {
+      "region_id": "19-is",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹ÍÍ¡µÍ¹º¹ (à¡ÒÐ)",
+      "value": 0.314573
+    },
+    {
+      "region_id": "20-is",
+      "region_name": "·ÐàÅÊÒºÊ§¢ÅÒ (à¡ÒÐ)",
+      "value": 0.384558
+    },
+    {
+      "region_id": "22-is",
+      "region_name": "ÀÒ¤ãµé½Ñè§µÐÇÑ¹µ¡ (à¡ÒÐ)",
+      "value": 0.381168
+    }
+  ]
+}

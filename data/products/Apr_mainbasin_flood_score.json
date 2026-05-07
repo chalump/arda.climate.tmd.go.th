@@ -1,0 +1,144 @@
+{
+  "rows": [
+    {
+      "region_id": "01",
+      "region_name": "Salawin",
+      "value": 0.359029
+    },
+    {
+      "region_id": "02",
+      "region_name": "North Khong",
+      "value": 0.358404
+    },
+    {
+      "region_id": "03",
+      "region_name": "Northeast Khong",
+      "value": 0.357787
+    },
+    {
+      "region_id": "04",
+      "region_name": "Chi",
+      "value": 0.348321
+    },
+    {
+      "region_id": "05",
+      "region_name": "Mun",
+      "value": 0.337157
+    },
+    {
+      "region_id": "06",
+      "region_name": "Ping",
+      "value": 0.373909
+    },
+    {
+      "region_id": "07",
+      "region_name": "Wang",
+      "value": 0.387541
+    },
+    {
+      "region_id": "08",
+      "region_name": "Yom",
+      "value": 0.420312
+    },
+    {
+      "region_id": "09",
+      "region_name": "Nan",
+      "value": 0.395795
+    },
+    {
+      "region_id": "10",
+      "region_name": "Chao Phraya",
+      "value": 0.438621
+    },
+    {
+      "region_id": "10-is",
+      "region_name": "Chao Phraya (Island)",
+      "value": 0.416067
+    },
+    {
+      "region_id": "11",
+      "region_name": "Sakae Krang",
+      "value": 0.392501
+    },
+    {
+      "region_id": "12",
+      "region_name": "Pasak",
+      "value": 0.396466
+    },
+    {
+      "region_id": "13",
+      "region_name": "Tha Chin",
+      "value": 0.414134
+    },
+    {
+      "region_id": "14",
+      "region_name": "Mae Klong",
+      "value": 0.372128
+    },
+    {
+      "region_id": "15",
+      "region_name": "Bang Pakong",
+      "value": 0.405571
+    },
+    {
+      "region_id": "16",
+      "region_name": "Tonle Sap",
+      "value": 0.371219
+    },
+    {
+      "region_id": "17",
+      "region_name": "East Coast Gulf",
+      "value": 0.427373
+    },
+    {
+      "region_id": "17-is",
+      "region_name": "East Coast Gulf (Island)",
+      "value": 0.450944
+    },
+    {
+      "region_id": "18",
+      "region_name": "Phetchaburi - Prachuap Khiri Khan",
+      "value": 0.359101
+    },
+    {
+      "region_id": "18-is",
+      "region_name": "Phetchaburi - Prachuap Khiri Khan (Island)",
+      "value": 0.405718
+    },
+    {
+      "region_id": "19",
+      "region_name": "Peninsula - Upper East Coast",
+      "value": 0.441218
+    },
+    {
+      "region_id": "19-is",
+      "region_name": "Peninsula - Upper East Coast (Island)",
+      "value": 0.403945
+    },
+    {
+      "region_id": "20",
+      "region_name": "Thale Sap Songkhla",
+      "value": 0.420571
+    },
+    {
+      "region_id": "20-is",
+      "region_name": "Thale Sap Songkhla (Island)",
+      "value": 0.390033
+    },
+    {
+      "region_id": "21",
+      "region_name": "Peninsula - Lower East Coast",
+      "value": 0.431419
+    },
+    {
+      "region_id": "22",
+      "region_name": "Peninsula - West Coast",
+      "value": 0.459699
+    },
+    {
+      "region_id": "22-is",
+      "region_name": "Peninsula - West Coast (Island)",
+      "value": 0.466068
+    }
+  ]
+}

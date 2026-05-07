@@ -1,0 +1,4644 @@
+{
+  "rows": [
+    {
+      "region_id": "32641",
+      "region_name": "K. Kut Rang",
+      "value": 67.548847
+    },
+    {
+      "region_id": "32642",
+      "region_name": "Kae Dam",
+      "value": 71.191471
+    },
+    {
+      "region_id": "32643",
+      "region_name": "Kantharawichai",
+      "value": 64.56439
+    },
+    {
+      "region_id": "32644",
+      "region_name": "Kosum Phisai",
+      "value": 63.475503
+    },
+    {
+      "region_id": "32645",
+      "region_name": "Muang Maha Sarakam",
+      "value": 67.793607
+    },
+    {
+      "region_id": "32646",
+      "region_name": "Na Chuak",
+      "value": 65.021487
+    },
+    {
+      "region_id": "32647",
+      "region_name": "Na Dun",
+      "value": 65.161989
+    },
+    {
+      "region_id": "32648",
+      "region_name": "Phayakkhaphum Phisai",
+      "value": 63.284134
+    },
+    {
+      "region_id": "32649",
+      "region_name": "Wapi Pathum",
+      "value": 69.871675
+    },
+    {
+      "region_id": "32650",
+      "region_name": "Yang Si Surat",
+      "value": 61.372845
+    },
+    {
+      "region_id": "32651",
+      "region_name": "Don Tan",
+      "value": 84.679974
+    },
+    {
+      "region_id": "32652",
+      "region_name": "Dong Luang",
+      "value": 66.779966
+    },
+    {
+      "region_id": "32653",
+      "region_name": "Khamcha-i",
+      "value": 74.599233
+    },
+    {
+      "region_id": "32654",
+      "region_name": "Muang Mukdahan",
+      "value": 79.293095
+    },
+    {
+      "region_id": "32655",
+      "region_name": "Nikhom Kham Soi",
+      "value": 85.992033
+    },
+    {
+      "region_id": "32656",
+      "region_name": "Nong Sung",
+      "value": 85.265947
+    },
+    {
+      "region_id": "32657",
+      "region_name": "Wan Yai",
+      "value": 77.176409
+    },
+    {
+      "region_id": "32658",
+      "region_name": "Ban Na",
+      "value": 44.034618
+    },
+    {
+      "region_id": "32659",
+      "region_name": "Muang Nakhon Nayok",
+      "value": 51.549069
+    },
+    {
+      "region_id": "32660",
+      "region_name": "Ongkharak",
+      "value": 33.573383
+    },
+    {
+      "region_id": "32661",
+      "region_name": "Pak Phli",
+      "value": 61.734246
+    },
+    {
+      "region_id": "32662",
+      "region_name": "Bang Len",
+      "value": 49.210543
+    },
+    {
+      "region_id": "32663",
+      "region_name": "Don Tum",
+      "value": 47.050614
+    },
+    {
+      "region_id": "32664",
+      "region_name": "Kamphaeng Saen",
+      "value": 38.364391
+    },
+    {
+      "region_id": "32665",
+      "region_name": "Muang Nakhon Pathom",
+      "value": 50.253785
+    },
+    {
+      "region_id": "32666",
+      "region_name": "Nakhon Chaisi",
+      "value": 58.472752
+    },
+    {
+      "region_id": "32667",
+      "region_name": "Phuttha Mon Thon",
+      "value": 62.979451
+    },
+    {
+      "region_id": "32668",
+      "region_name": "Sam Phran",
+      "value": 64.849506
+    },
+    {
+      "region_id": "32669",
+      "region_name": "Ban Phaeng",
+      "value": 122.733764
+    },
+    {
+      "region_id": "32670",
+      "region_name": "K. Wang Yang",
+      "value": 63.617848
+    },
+    {
+      "region_id": "32671",
+      "region_name": "Muang Nakhon Phanom",
+      "value": 84.050598
+    },
+    {
+      "region_id": "32672",
+      "region_name": "Na Kae",
+      "value": 64.689143
+    },
+    {
+      "region_id": "32673",
+      "region_name": "Na Thom",
+      "value": 106.757715
+    },
+    {
+      "region_id": "32674",
+      "region_name": "Na Wa",
+      "value": 74.48573
+    },
+    {
+      "region_id": "32675",
+      "region_name": "Phon Sawan",
+      "value": 71.981794
+    },
+    {
+      "region_id": "32676",
+      "region_name": "Pla Pak",
+      "value": 73.28945
+    },
+    {
+      "region_id": "32677",
+      "region_name": "Renu Nakhon",
+      "value": 71.349562
+    },
+    {
+      "region_id": "32678",
+      "region_name": "Si Songkhram",
+      "value": 92.201809
+    },
+    {
+      "region_id": "32679",
+      "region_name": "Tha Uthen",
+      "value": 92.986451
+    },
+    {
+      "region_id": "32680",
+      "region_name": "That Phanom",
+      "value": 73.971436
+    },
+    {
+      "region_id": "32681",
+      "region_name": "Ban Luam",
+      "value": 46.319843
+    },
+    {
+      "region_id": "32682",
+      "region_name": "Bua Yai",
+      "value": 50.420068
+    },
+    {
+      "region_id": "32683",
+      "region_name": "Chakkarat",
+      "value": 26.557954
+    },
+    {
+      "region_id": "32684",
+      "region_name": "Chalermphrakiet",
+      "value": 27.69286
+    },
+    {
+      "region_id": "32685",
+      "region_name": "Chok Chai",
+      "value": 27.924424
+    },
+    {
+      "region_id": "32686",
+      "region_name": "Chum Phuang",
+      "value": 40.477775
+    },
+    {
+      "region_id": "32687",
+      "region_name": "Dan Khun Thot",
+      "value": 35.398096
+    },
+    {
+      "region_id": "32688",
+      "region_name": "Huai Thalang",
+      "value": 32.70817
+    },
+    {
+      "region_id": "32689",
+      "region_name": "K. Bua Lai",
+      "value": 57.197999
+    },
+    {
+      "region_id": "32690",
+      "region_name": "K. Lam Tha Men Chai",
+      "value": 45.927307
+    },
+    {
+      "region_id": "32691",
+      "region_name": "K. Muang Yang",
+      "value": 52.919363
+    },
+    {
+      "region_id": "32692",
+      "region_name": "K. Phra Thong Kham",
+      "value": 37.713146
+    },
+    {
+      "region_id": "32693",
+      "region_name": "K. Sida",
+      "value": 50.309155
+    },
+    {
+      "region_id": "32694",
+      "region_name": "K. The Pha Rak",
+      "value": 35.272555
+    },
+    {
+      "region_id": "32695",
+      "region_name": "Kaeng Sanam Nang",
+      "value": 55.503563
+    },
+    {
+      "region_id": "32696",
+      "region_name": "Kham Sakae Saeng",
+      "value": 40.402336
+    },
+    {
+      "region_id": "32697",
+      "region_name": "Kham Thala So",
+      "value": 32.865689
+    },
+    {
+      "region_id": "32698",
+      "region_name": "Khon Buri",
+      "value": 35.179443
+    },
+    {
+      "region_id": "32699",
+      "region_name": "Khong",
+      "value": 44.470641
+    },
+    {
+      "region_id": "32700",
+      "region_name": "Muang Nakhon Ratchasima",
+      "value": 31.611344
+    },
+    {
+      "region_id": "32701",
+      "region_name": "Non Daeng",
+      "value": 47.112982
+    },
+    {
+      "region_id": "32702",
+      "region_name": "Non Sung",
+      "value": 37.162249
+    },
+    {
+      "region_id": "32703",
+      "region_name": "Non Thai",
+      "value": 35.42555
+    },
+    {
+      "region_id": "32704",
+      "region_name": "Nong Bunnak",
+      "value": 26.802744
+    },
+    {
+      "region_id": "32372",
+      "region_name": "Suan Luang",
+      "value": 76.642014
+    },
+    {
+      "region_id": "32408",
+      "region_name": "Muang Chachoengsao",
+      "value": 67.050339
+    },
+    {
+      "region_id": "32409",
+      "region_name": "Phanom Sarakham",
+      "value": 47.829638
+    },
+    {
+      "region_id": "32410",
+      "region_name": "Plaeng Yao",
+      "value": 43.511803
+    },
+    {
+      "region_id": "32411",
+      "region_name": "Ratchasan",
+      "value": 56.16704
+    },
+    {
+      "region_id": "32412",
+      "region_name": "Sanam Chaikhet",
+      "value": 37.18845
+    },
+    {
+      "region_id": "32951",
+      "region_name": "Wat Phleng",
+      "value": 41.709155
+    },
+    {
+      "region_id": "32952",
+      "region_name": "Ban Chang",
+      "value": 62.617297
+    },
+    {
+      "region_id": "33003",
+      "region_name": "Song Dao",
+      "value": 61.899738
+    },
+    {
+      "region_id": "33004",
+      "region_name": "Tao Ngoi",
+      "value": 55.836275
+    },
+    {
+      "region_id": "33005",
+      "region_name": "Wanon Niwat",
+      "value": 73.184316
+    },
+    {
+      "region_id": "33075",
+      "region_name": "Na Thawi",
+      "value": 43.941896
+    },
+    {
+      "region_id": "33076",
+      "region_name": "Ranot",
+      "value": 34.52208
+    },
+    {
+      "region_id": "33077",
+      "region_name": "Rattaphum",
+      "value": 51.835624
+    },
+    {
+      "region_id": "33078",
+      "region_name": "Saba Yoi",
+      "value": 50.110224
+    },
+    {
+      "region_id": "33079",
+      "region_name": "Sadao",
+      "value": 42.975367
+    },
+    {
+      "region_id": "33080",
+      "region_name": "Sathing Phra",
+      "value": 36.836621
+    },
+    {
+      "region_id": "33081",
+      "region_name": "Singha Nakhon",
+      "value": 39.351548
+    },
+    {
+      "region_id": "32707",
+      "region_name": "Phimai",
+      "value": 38.0599
+    },
+    {
+      "region_id": "32708",
+      "region_name": "Pra Thai",
+      "value": 53.012002
+    },
+    {
+      "region_id": "32709",
+      "region_name": "Sikhiu",
+      "value": 37.036139
+    },
+    {
+      "region_id": "32710",
+      "region_name": "Soeng Sang",
+      "value": 32.617778
+    },
+    {
+      "region_id": "32711",
+      "region_name": "Sung Noen",
+      "value": 37.534445
+    },
+    {
+      "region_id": "32712",
+      "region_name": "Wang Num Khiaw",
+      "value": 49.644436
+    },
+    {
+      "region_id": "32713",
+      "region_name": "Banphot Phisai",
+      "value": 43.223531
+    },
+    {
+      "region_id": "32714",
+      "region_name": "Chumsaeng",
+      "value": 34.545542
+    },
+    {
+      "region_id": "32937",
+      "region_name": "K. Suk Samran",
+      "value": 149.368286
+    },
+    {
+      "region_id": "32938",
+      "region_name": "Kapoe",
+      "value": 157.146028
+    },
+    {
+      "region_id": "32939",
+      "region_name": "Kra Buri",
+      "value": 189.354759
+    },
+    {
+      "region_id": "32940",
+      "region_name": "La-Un",
+      "value": 220.686821
+    },
+    {
+      "region_id": "32941",
+      "region_name": "Muang Ranong",
+      "value": 264.336886
+    },
+    {
+      "region_id": "32942",
+      "region_name": "Ban Pong",
+      "value": 39.155962
+    },
+    {
+      "region_id": "32943",
+      "region_name": "Bang Phae",
+      "value": 52.229235
+    },
+    {
+      "region_id": "32944",
+      "region_name": "Chom Bung",
+      "value": 40.491682
+    },
+    {
+      "region_id": "32945",
+      "region_name": "Damnoen Saduak",
+      "value": 48.525579
+    },
+    {
+      "region_id": "32946",
+      "region_name": "K. Ban Kha",
+      "value": 47.209404
+    },
+    {
+      "region_id": "32964",
+      "region_name": "K. Nong Hi",
+      "value": 65.940516
+    },
+    {
+      "region_id": "32965",
+      "region_name": "K. Thung Kao Lua",
+      "value": 78.835888
+    },
+    {
+      "region_id": "32966",
+      "region_name": "Kaset Wisai",
+      "value": 67.578121
+    },
+    {
+      "region_id": "32967",
+      "region_name": "Moei Wadi",
+      "value": 75.328364
+    },
+    {
+      "region_id": "32968",
+      "region_name": "Muang Roi Et",
+      "value": 76.573724
+    },
+    {
+      "region_id": "32969",
+      "region_name": "Muang Suang",
+      "value": 70.633347
+    },
+    {
+      "region_id": "32970",
+      "region_name": "Nong Phok",
+      "value": 84.62739
+    },
+    {
+      "region_id": "32971",
+      "region_name": "Panom Phrai",
+      "value": 66.428819
+    },
+    {
+      "region_id": "32972",
+      "region_name": "Pathum Rat",
+      "value": 64.994031
+    },
+    {
+      "region_id": "32973",
+      "region_name": "Pho Chai",
+      "value": 72.248182
+    },
+    {
+      "region_id": "32974",
+      "region_name": "Phon Sai",
+      "value": 62.186349
+    },
+    {
+      "region_id": "32367",
+      "region_name": "Ratchathewi",
+      "value": 74.328015
+    },
+    {
+      "region_id": "32368",
+      "region_name": "Sai Mai",
+      "value": 60.485847
+    },
+    {
+      "region_id": "32369",
+      "region_name": "Samphantawong",
+      "value": 73.68002
+    },
+    {
+      "region_id": "32370",
+      "region_name": "Saphan Sung",
+      "value": 73.747056
+    },
+    {
+      "region_id": "32371",
+      "region_name": "Sathorn",
+      "value": 74.872715
+    },
+    {
+      "region_id": "32953",
+      "region_name": "Ban Khai",
+      "value": 60.316909
+    },
+    {
+      "region_id": "32954",
+      "region_name": "K. Khao Chamao",
+      "value": 60.723175
+    },
+    {
+      "region_id": "32955",
+      "region_name": "K. Nikhom Pattan",
+      "value": 61.939562
+    },
+    {
+      "region_id": "32956",
+      "region_name": "Klaeng",
+      "value": 76.941351
+    },
+    {
+      "region_id": "32957",
+      "region_name": "Muang Rayong",
+      "value": 62.49
+    },
+    {
+      "region_id": "32999",
+      "region_name": "Phanna Nikhom",
+      "value": 59.522249
+    },
+    {
+      "region_id": "33000",
+      "region_name": "Phon Na Kaeo",
+      "value": 61.843099
+    },
+    {
+      "region_id": "33001",
+      "region_name": "Phu Phan",
+      "value": 50.865124
+    },
+    {
+      "region_id": "33002",
+      "region_name": "Sawang Daen Din",
+      "value": 64.19201
+    },
+    {
+      "region_id": "32316",
+      "region_name": "Chanuman",
+      "value": 77.451593
+    },
+    {
+      "region_id": "32317",
+      "region_name": "Hua Taphan",
+      "value": 63.437521
+    },
+    {
+      "region_id": "32318",
+      "region_name": "Lu Amnat",
+      "value": 64.800517
+    },
+    {
+      "region_id": "32319",
+      "region_name": "Muang Amnat Charoen",
+      "value": 67.832619
+    },
+    {
+      "region_id": "32320",
+      "region_name": "Pathum Ratwongsa",
+      "value": 68.817734
+    },
+    {
+      "region_id": "32321",
+      "region_name": "Phana",
+      "value": 68.476423
+    },
+    {
+      "region_id": "32322",
+      "region_name": "Senangkhanikhom",
+      "value": 80.083338
+    },
+    {
+      "region_id": "32323",
+      "region_name": "Chaiyo",
+      "value": 51.798142
+    },
+    {
+      "region_id": "32324",
+      "region_name": "Muang Ang Thong",
+      "value": 56.346101
+    },
+    {
+      "region_id": "32325",
+      "region_name": "Pa Mok",
+      "value": 53.738122
+    },
+    {
+      "region_id": "32326",
+      "region_name": "Pho Thong",
+      "value": 50.72113
+    },
+    {
+      "region_id": "32327",
+      "region_name": "Samko",
+      "value": 46.255769
+    },
+    {
+      "region_id": "32328",
+      "region_name": "Sawaengha",
+      "value": 52.820882
+    },
+    {
+      "region_id": "32329",
+      "region_name": "Wiset Chai Chan",
+      "value": 52.361053
+    },
+    {
+      "region_id": "32330",
+      "region_name": "Bang Bon",
+      "value": 70.348813
+    },
+    {
+      "region_id": "32331",
+      "region_name": "Bang Kapi",
+      "value": 73.515541
+    },
+    {
+      "region_id": "32332",
+      "region_name": "Bang Khae",
+      "value": 67.615238
+    },
+    {
+      "region_id": "32333",
+      "region_name": "Bang Khen",
+      "value": 64.916408
+    },
+    {
+      "region_id": "32334",
+      "region_name": "Bang Kho Laem",
+      "value": 74.108192
+    },
+    {
+      "region_id": "32335",
+      "region_name": "Bang Na",
+      "value": 79.474429
+    },
+    {
+      "region_id": "32336",
+      "region_name": "Bang Plad",
+      "value": 71.913378
+    },
+    {
+      "region_id": "32337",
+      "region_name": "Bang Rak",
+      "value": 74.362259
+    },
+    {
+      "region_id": "32338",
+      "region_name": "Bang Su",
+      "value": 69.001814
+    },
+    {
+      "region_id": "32339",
+      "region_name": "Bangkhuntien",
+      "value": 73.021314
+    },
+    {
+      "region_id": "32340",
+      "region_name": "Bangkok Noi",
+      "value": 69.170281
+    },
+    {
+      "region_id": "32341",
+      "region_name": "Bangkok Yai",
+      "value": 72.702329
+    },
+    {
+      "region_id": "32342",
+      "region_name": "Bung Kum",
+      "value": 72.542064
+    },
+    {
+      "region_id": "32343",
+      "region_name": "Chatuchak",
+      "value": 69.061941
+    },
+    {
+      "region_id": "32344",
+      "region_name": "Chom Thong",
+      "value": 74.400882
+    },
+    {
+      "region_id": "32345",
+      "region_name": "Din Dang",
+      "value": 74.427228
+    },
+    {
+      "region_id": "32346",
+      "region_name": "Don Muang",
+      "value": 59.965587
+    },
+    {
+      "region_id": "32347",
+      "region_name": "Dusit",
+      "value": 72.881052
+    },
+    {
+      "region_id": "32348",
+      "region_name": "Huai Kwang",
+      "value": 74.142507
+    },
+    {
+      "region_id": "32349",
+      "region_name": "Khan Na Yao",
+      "value": 71.891114
+    },
+    {
+      "region_id": "32350",
+      "region_name": "Khlong Sam Wa",
+      "value": 63.912877
+    },
+    {
+      "region_id": "32351",
+      "region_name": "Khlong San",
+      "value": 73.6861
+    },
+    {
+      "region_id": "32352",
+      "region_name": "Khlong Toey",
+      "value": 76.092817
+    },
+    {
+      "region_id": "32353",
+      "region_name": "Lak Si",
+      "value": 66.335781
+    },
+    {
+      "region_id": "32354",
+      "region_name": "Lat Krabang",
+      "value": 74.771393
+    },
+    {
+      "region_id": "32355",
+      "region_name": "Lat Phrao",
+      "value": 69.278465
+    },
+    {
+      "region_id": "32356",
+      "region_name": "Min Buri",
+      "value": 71.820078
+    },
+    {
+      "region_id": "32357",
+      "region_name": "Nong Chok",
+      "value": 61.252795
+    },
+    {
+      "region_id": "32358",
+      "region_name": "Nongkheam",
+      "value": 67.322731
+    },
+    {
+      "region_id": "32359",
+      "region_name": "Pathum Wan",
+      "value": 74.967072
+    },
+    {
+      "region_id": "32360",
+      "region_name": "Phasi Charoen",
+      "value": 71.405101
+    },
+    {
+      "region_id": "32361",
+      "region_name": "Phaya Thai",
+      "value": 74.555228
+    },
+    {
+      "region_id": "32362",
+      "region_name": "Phra Nakhon",
+      "value": 72.867015
+    },
+    {
+      "region_id": "32363",
+      "region_name": "Pom Pram Sattru",
+      "value": 72.890194
+    },
+    {
+      "region_id": "32364",
+      "region_name": "Prakanong",
+      "value": 78.676258
+    },
+    {
+      "region_id": "32365",
+      "region_name": "Prawet",
+      "value": 76.837568
+    },
+    {
+      "region_id": "32366",
+      "region_name": "Rat Burana",
+      "value": 74.382837
+    },
+    {
+      "region_id": "32373",
+      "region_name": "Taling Chan",
+      "value": 67.690093
+    },
+    {
+      "region_id": "32374",
+      "region_name": "Thawi Wattana",
+      "value": 66.055234
+    },
+    {
+      "region_id": "32375",
+      "region_name": "Thon Buri",
+      "value": 73.466227
+    },
+    {
+      "region_id": "32376",
+      "region_name": "Thungkru",
+      "value": 74.893207
+    },
+    {
+      "region_id": "32377",
+      "region_name": "Wang Thonglang",
+      "value": 73.833218
+    },
+    {
+      "region_id": "32378",
+      "region_name": "Wattana",
+      "value": 76.535918
+    },
+    {
+      "region_id": "32379",
+      "region_name": "Yannawa",
+      "value": 75.783122
+    },
+    {
+      "region_id": "32380",
+      "region_name": "Ban Kruat",
+      "value": 36.779074
+    },
+    {
+      "region_id": "32381",
+      "region_name": "Ban Mai Chai Pho",
+      "value": 55.459475
+    },
+    {
+      "region_id": "32382",
+      "region_name": "Chalermphrakiet",
+      "value": 27.595665
+    },
+    {
+      "region_id": "32383",
+      "region_name": "Cham Ni",
+      "value": 32.552814
+    },
+    {
+      "region_id": "32384",
+      "region_name": "Huai Rat",
+      "value": 47.407128
+    },
+    {
+      "region_id": "32385",
+      "region_name": "K. Ban Dan",
+      "value": 50.667838
+    },
+    {
+      "region_id": "32386",
+      "region_name": "K. Daen Kong",
+      "value": 52.294188
+    },
+    {
+      "region_id": "32387",
+      "region_name": "Khu Muang",
+      "value": 49.081622
+    },
+    {
+      "region_id": "32388",
+      "region_name": "Krasang",
+      "value": 49.39264
+    },
+    {
+      "region_id": "32389",
+      "region_name": "Lahan Sai",
+      "value": 35.592222
+    },
+    {
+      "region_id": "32390",
+      "region_name": "Lam Plai Mat",
+      "value": 36.797577
+    },
+    {
+      "region_id": "32391",
+      "region_name": "Muang Buri Ram",
+      "value": 42.189341
+    },
+    {
+      "region_id": "32392",
+      "region_name": "Na Pho",
+      "value": 60.365607
+    },
+    {
+      "region_id": "32393",
+      "region_name": "Nang Rong",
+      "value": 25.169207
+    },
+    {
+      "region_id": "32394",
+      "region_name": "Non Din Daeng",
+      "value": 37.435629
+    },
+    {
+      "region_id": "32395",
+      "region_name": "Non Suwan",
+      "value": 23.028659
+    },
+    {
+      "region_id": "32396",
+      "region_name": "Nong Hong",
+      "value": 27.558966
+    },
+    {
+      "region_id": "32397",
+      "region_name": "Nong Ki",
+      "value": 24.002398
+    },
+    {
+      "region_id": "32398",
+      "region_name": "Pa Kham",
+      "value": 31.60441
+    },
+    {
+      "region_id": "32399",
+      "region_name": "Phlapphlachai",
+      "value": 42.071674
+    },
+    {
+      "region_id": "32400",
+      "region_name": "Phutthaisong",
+      "value": 56.650808
+    },
+    {
+      "region_id": "32401",
+      "region_name": "Prakhon Chai",
+      "value": 35.057702
+    },
+    {
+      "region_id": "32402",
+      "region_name": "Satuk",
+      "value": 53.264295
+    },
+    {
+      "region_id": "32403",
+      "region_name": "Ban Pho",
+      "value": 66.75097
+    },
+    {
+      "region_id": "32404",
+      "region_name": "Bang Khla",
+      "value": 55.978684
+    },
+    {
+      "region_id": "32405",
+      "region_name": "Bang Nam Prieo",
+      "value": 52.547934
+    },
+    {
+      "region_id": "32406",
+      "region_name": "Bang Pakong",
+      "value": 66.717699
+    },
+    {
+      "region_id": "32407",
+      "region_name": "K. Khlong Khuan",
+      "value": 56.388979
+    },
+    {
+      "region_id": "32413",
+      "region_name": "Tha Ta Kieb",
+      "value": 35.661837
+    },
+    {
+      "region_id": "32414",
+      "region_name": "Han Kha",
+      "value": 38.483006
+    },
+    {
+      "region_id": "32415",
+      "region_name": "K. Noen Kham",
+      "value": 40.684661
+    },
+    {
+      "region_id": "32416",
+      "region_name": "K. Nong Ma Mong",
+      "value": 37.021557
+    },
+    {
+      "region_id": "32417",
+      "region_name": "Manorom",
+      "value": 31.443691
+    },
+    {
+      "region_id": "32418",
+      "region_name": "Muang Chai Nat",
+      "value": 32.312296
+    },
+    {
+      "region_id": "32419",
+      "region_name": "Sankha Buri",
+      "value": 43.39092
+    },
+    {
+      "region_id": "32420",
+      "region_name": "Sanphaya",
+      "value": 36.947661
+    },
+    {
+      "region_id": "32421",
+      "region_name": "Wat Sing",
+      "value": 29.903381
+    },
+    {
+      "region_id": "32422",
+      "region_name": "Bamnet Narong",
+      "value": 38.152624
+    },
+    {
+      "region_id": "32423",
+      "region_name": "Ban Khwao",
+      "value": 40.30957
+    },
+    {
+      "region_id": "32424",
+      "region_name": "Ban Thaen",
+      "value": 59.56506
+    },
+    {
+      "region_id": "32425",
+      "region_name": "Chatturat",
+      "value": 40.619147
+    },
+    {
+      "region_id": "32426",
+      "region_name": "K. Sap Yai",
+      "value": 41.5373
+    },
+    {
+      "region_id": "32427",
+      "region_name": "Kaeng Khlo",
+      "value": 62.775165
+    },
+    {
+      "region_id": "32428",
+      "region_name": "Kaset Sombon",
+      "value": 55.89496
+    },
+    {
+      "region_id": "32429",
+      "region_name": "Khon San",
+      "value": 52.962673
+    },
+    {
+      "region_id": "32430",
+      "region_name": "Khon Sawan",
+      "value": 60.676947
+    },
+    {
+      "region_id": "32431",
+      "region_name": "Muang Chaiyaphum",
+      "value": 49.184793
+    },
+    {
+      "region_id": "32432",
+      "region_name": "Noen Sa-Nga",
+      "value": 42.007793
+    },
+    {
+      "region_id": "32433",
+      "region_name": "Nong Bua Daeng",
+      "value": 44.887406
+    },
+    {
+      "region_id": "32434",
+      "region_name": "Nong Bua Rawae",
+      "value": 40.141488
+    },
+    {
+      "region_id": "32435",
+      "region_name": "Phakdi Chumphol",
+      "value": 41.051768
+    },
+    {
+      "region_id": "32436",
+      "region_name": "Phu Khieo",
+      "value": 60.072172
+    },
+    {
+      "region_id": "32437",
+      "region_name": "Thep Sathit",
+      "value": 38.604107
+    },
+    {
+      "region_id": "32438",
+      "region_name": "K. Kao Kichakut",
+      "value": 76.813858
+    },
+    {
+      "region_id": "32439",
+      "region_name": "K. Na Yai Am",
+      "value": 103.862745
+    },
+    {
+      "region_id": "32440",
+      "region_name": "Kang Hang Maeo",
+      "value": 62.508098
+    },
+    {
+      "region_id": "32441",
+      "region_name": "Khlung",
+      "value": 111.470233
+    },
+    {
+      "region_id": "32442",
+      "region_name": "Laem Sing",
+      "value": 122.583359
+    },
+    {
+      "region_id": "32443",
+      "region_name": "Makham",
+      "value": 100.535615
+    },
+    {
+      "region_id": "32444",
+      "region_name": "Muang Chanthaburi",
+      "value": 106.102902
+    },
+    {
+      "region_id": "32445",
+      "region_name": "Pong Nam Ron",
+      "value": 62.586655
+    },
+    {
+      "region_id": "32446",
+      "region_name": "Soydow",
+      "value": 48.926822
+    },
+    {
+      "region_id": "32447",
+      "region_name": "Tha Mai",
+      "value": 104.273182
+    },
+    {
+      "region_id": "32448",
+      "region_name": "Chai Prakarn",
+      "value": 96.089247
+    },
+    {
+      "region_id": "32449",
+      "region_name": "Chiang Dao",
+      "value": 88.300667
+    },
+    {
+      "region_id": "32450",
+      "region_name": "Chom Thong",
+      "value": 66.323216
+    },
+    {
+      "region_id": "32451",
+      "region_name": "Doi Saket",
+      "value": 72.28946
+    },
+    {
+      "region_id": "32452",
+      "region_name": "Doi Tao",
+      "value": 54.082955
+    },
+    {
+      "region_id": "32453",
+      "region_name": "Fang",
+      "value": 97.59403
+    },
+    {
+      "region_id": "32454",
+      "region_name": "Hang Dong",
+      "value": 68.926465
+    },
+    {
+      "region_id": "32455",
+      "region_name": "Hot",
+      "value": 64.571275
+    },
+    {
+      "region_id": "32456",
+      "region_name": "K. Doi Lo",
+      "value": 67.509565
+    },
+    {
+      "region_id": "32457",
+      "region_name": "K. Mae On",
+      "value": 76.453139
+    },
+    {
+      "region_id": "32458",
+      "region_name": "Mae Ai",
+      "value": 100.609141
+    },
+    {
+      "region_id": "32459",
+      "region_name": "Mae Chaem",
+      "value": 59.424414
+    },
+    {
+      "region_id": "32460",
+      "region_name": "Mae Rim",
+      "value": 69.554417
+    },
+    {
+      "region_id": "32461",
+      "region_name": "Mae Taeng",
+      "value": 77.262184
+    },
+    {
+      "region_id": "32462",
+      "region_name": "Mae Wang",
+      "value": 64.254882
+    },
+    {
+      "region_id": "32463",
+      "region_name": "Muang Chiang Mai",
+      "value": 73.256327
+    },
+    {
+      "region_id": "32464",
+      "region_name": "Omkoi",
+      "value": 58.300687
+    },
+    {
+      "region_id": "32465",
+      "region_name": "Phrao",
+      "value": 79.034544
+    },
+    {
+      "region_id": "32466",
+      "region_name": "Samoeng",
+      "value": 65.27815
+    },
+    {
+      "region_id": "32467",
+      "region_name": "San Kamphaeng",
+      "value": 71.497382
+    },
+    {
+      "region_id": "32468",
+      "region_name": "San Pa Tong",
+      "value": 65.150589
+    },
+    {
+      "region_id": "32469",
+      "region_name": "San Sai",
+      "value": 70.464715
+    },
+    {
+      "region_id": "32470",
+      "region_name": "Saraphi",
+      "value": 70.035169
+    },
+    {
+      "region_id": "32471",
+      "region_name": "Wiang Haeng",
+      "value": 88.290391
+    },
+    {
+      "region_id": "32472",
+      "region_name": "Chiang Khong",
+      "value": 113.639972
+    },
+    {
+      "region_id": "32473",
+      "region_name": "Chiang Saen",
+      "value": 110.129462
+    },
+    {
+      "region_id": "32474",
+      "region_name": "K. Doi Luang",
+      "value": 107.5099
+    },
+    {
+      "region_id": "32475",
+      "region_name": "K. Wieng Chiang",
+      "value": 105.549148
+    },
+    {
+      "region_id": "32476",
+      "region_name": "Khun Tan",
+      "value": 106.389267
+    },
+    {
+      "region_id": "32477",
+      "region_name": "Mae Chan",
+      "value": 104.736916
+    },
+    {
+      "region_id": "32478",
+      "region_name": "Mae Fa Luang",
+      "value": 104.148708
+    },
+    {
+      "region_id": "32479",
+      "region_name": "Mae Lao",
+      "value": 108.442832
+    },
+    {
+      "region_id": "32480",
+      "region_name": "Mae Sai",
+      "value": 95.121647
+    },
+    {
+      "region_id": "32481",
+      "region_name": "Mae Suai",
+      "value": 98.703728
+    },
+    {
+      "region_id": "32482",
+      "region_name": "Muang Chiang Rai",
+      "value": 108.424965
+    },
+    {
+      "region_id": "32483",
+      "region_name": "Pa Daet",
+      "value": 90.410878
+    },
+    {
+      "region_id": "32484",
+      "region_name": "Phan",
+      "value": 95.780022
+    },
+    {
+      "region_id": "32485",
+      "region_name": "Phaya Mengrai",
+      "value": 105.843129
+    },
+    {
+      "region_id": "32486",
+      "region_name": "Thoeng",
+      "value": 97.138575
+    },
+    {
+      "region_id": "32487",
+      "region_name": "Wiang Chai",
+      "value": 105.967292
+    },
+    {
+      "region_id": "32488",
+      "region_name": "Wiang Pa Pao",
+      "value": 73.605123
+    },
+    {
+      "region_id": "32489",
+      "region_name": "Wieng Kaen",
+      "value": 102.214418
+    },
+    {
+      "region_id": "32490",
+      "region_name": "Ban Bung",
+      "value": 54.550377
+    },
+    {
+      "region_id": "32491",
+      "region_name": "Bang Lamung",
+      "value": 47.853012
+    },
+    {
+      "region_id": "32492",
+      "region_name": "Bo Thong",
+      "value": 48.518799
+    },
+    {
+      "region_id": "32493",
+      "region_name": "K. Ko Chan",
+      "value": 45.532702
+    },
+    {
+      "region_id": "32494",
+      "region_name": "Ko Sichang",
+      "value": null
+    },
+    {
+      "region_id": "32495",
+      "region_name": "Muang Chon Buri",
+      "value": 55.479475
+    },
+    {
+      "region_id": "32496",
+      "region_name": "Nong Yai",
+      "value": 56.247851
+    },
+    {
+      "region_id": "32497",
+      "region_name": "Phan Thong",
+      "value": 59.971819
+    },
+    {
+      "region_id": "32498",
+      "region_name": "Phanat Nikhom",
+      "value": 53.678013
+    },
+    {
+      "region_id": "32499",
+      "region_name": "Sattahip",
+      "value": 55.24483
+    },
+    {
+      "region_id": "32500",
+      "region_name": "Si Racha",
+      "value": 48.887807
+    },
+    {
+      "region_id": "32501",
+      "region_name": "Lamae",
+      "value": 84.272551
+    },
+    {
+      "region_id": "32502",
+      "region_name": "Lang Suan",
+      "value": 95.992025
+    },
+    {
+      "region_id": "32503",
+      "region_name": "Muang Chumphon",
+      "value": 100.393689
+    },
+    {
+      "region_id": "32504",
+      "region_name": "Pathiu",
+      "value": 65.421745
+    },
+    {
+      "region_id": "32505",
+      "region_name": "Phato",
+      "value": 180.197754
+    },
+    {
+      "region_id": "32506",
+      "region_name": "Sawi",
+      "value": 105.834714
+    },
+    {
+      "region_id": "32507",
+      "region_name": "Tha Sae",
+      "value": 130.874545
+    },
+    {
+      "region_id": "32508",
+      "region_name": "Thung Tako",
+      "value": 91.470859
+    },
+    {
+      "region_id": "32509",
+      "region_name": "Huai Mek",
+      "value": 60.702773
+    },
+    {
+      "region_id": "32510",
+      "region_name": "Huai Phung",
+      "value": 54.466139
+    },
+    {
+      "region_id": "32511",
+      "region_name": "K. Don Chan",
+      "value": 59.946272
+    },
+    {
+      "region_id": "32512",
+      "region_name": "K. Kong Chai",
+      "value": 68.47578
+    },
+    {
+      "region_id": "32513",
+      "region_name": "K. Na Du",
+      "value": 56.122297
+    },
+    {
+      "region_id": "32514",
+      "region_name": "K. Sam Chai",
+      "value": 49.165306
+    },
+    {
+      "region_id": "32515",
+      "region_name": "Kamalasai",
+      "value": 66.934667
+    },
+    {
+      "region_id": "32516",
+      "region_name": "Kham Muang",
+      "value": 48.775168
+    },
+    {
+      "region_id": "32517",
+      "region_name": "Khao Wong",
+      "value": 63.689012
+    },
+    {
+      "region_id": "32518",
+      "region_name": "Kuchinarai",
+      "value": 68.509274
+    },
+    {
+      "region_id": "32519",
+      "region_name": "Muang Kalasin",
+      "value": 60.121109
+    },
+    {
+      "region_id": "32520",
+      "region_name": "Na Mon",
+      "value": 56.483803
+    },
+    {
+      "region_id": "32521",
+      "region_name": "Nong Kung Si",
+      "value": 57.600119
+    },
+    {
+      "region_id": "32522",
+      "region_name": "Rong Kham",
+      "value": 71.533696
+    },
+    {
+      "region_id": "32523",
+      "region_name": "Sahatsakhan",
+      "value": 50.083863
+    },
+    {
+      "region_id": "32524",
+      "region_name": "Somdet",
+      "value": 49.076649
+    },
+    {
+      "region_id": "32525",
+      "region_name": "Tha Khantho",
+      "value": 53.430274
+    },
+    {
+      "region_id": "32526",
+      "region_name": "Yang Talat",
+      "value": 65.481221
+    },
+    {
+      "region_id": "32527",
+      "region_name": "K. Bung Samakki",
+      "value": 47.12334
+    },
+    {
+      "region_id": "32528",
+      "region_name": "K. Ko Sam Pi Nakhon",
+      "value": 47.982714
+    },
+    {
+      "region_id": "32529",
+      "region_name": "Khanu Woralaksaburi",
+      "value": 46.47211
+    },
+    {
+      "region_id": "32530",
+      "region_name": "Klong Khlung",
+      "value": 45.410162
+    },
+    {
+      "region_id": "32531",
+      "region_name": "Klong Lan",
+      "value": 45.903988
+    },
+    {
+      "region_id": "32532",
+      "region_name": "Lan Krabu",
+      "value": 45.467107
+    },
+    {
+      "region_id": "32533",
+      "region_name": "Mueang Kamphaeng Phet",
+      "value": 43.889929
+    },
+    {
+      "region_id": "32534",
+      "region_name": "Pang Sila Thong",
+      "value": 45.825296
+    },
+    {
+      "region_id": "32535",
+      "region_name": "Phran Kratai",
+      "value": 44.021294
+    },
+    {
+      "region_id": "32536",
+      "region_name": "Sai Ngam",
+      "value": 44.726546
+    },
+    {
+      "region_id": "32537",
+      "region_name": "Sai Thong Watthana",
+      "value": 45.932322
+    },
+    {
+      "region_id": "32538",
+      "region_name": "Bo Phloi",
+      "value": 37.352862
+    },
+    {
+      "region_id": "32539",
+      "region_name": "Dan Makham Tia",
+      "value": 38.779528
+    },
+    {
+      "region_id": "32540",
+      "region_name": "Huai Kra Chao",
+      "value": 36.742709
+    },
+    {
+      "region_id": "32541",
+      "region_name": "Lao Khwan",
+      "value": 35.777096
+    },
+    {
+      "region_id": "32542",
+      "region_name": "Muang Kanchanaburi",
+      "value": 36.3695
+    },
+    {
+      "region_id": "32543",
+      "region_name": "Nong Prue",
+      "value": 38.572734
+    },
+    {
+      "region_id": "32544",
+      "region_name": "Phanom Thuan",
+      "value": 34.64446
+    },
+    {
+      "region_id": "32545",
+      "region_name": "Sai Yok",
+      "value": 47.848005
+    },
+    {
+      "region_id": "32546",
+      "region_name": "Sangkhla Buri",
+      "value": 85.331028
+    },
+    {
+      "region_id": "32547",
+      "region_name": "Si Sawat",
+      "value": 39.021551
+    },
+    {
+      "region_id": "32548",
+      "region_name": "Tha Maka",
+      "value": 36.908121
+    },
+    {
+      "region_id": "32549",
+      "region_name": "Tha Muang",
+      "value": 34.007223
+    },
+    {
+      "region_id": "32550",
+      "region_name": "Thong Pha Phum",
+      "value": 62.973992
+    },
+    {
+      "region_id": "32551",
+      "region_name": "Ban Fang",
+      "value": 52.304471
+    },
+    {
+      "region_id": "32552",
+      "region_name": "Ban Phai",
+      "value": 61.086056
+    },
+    {
+      "region_id": "32553",
+      "region_name": "Chonnabot",
+      "value": 60.713327
+    },
+    {
+      "region_id": "32554",
+      "region_name": "Chum Phae",
+      "value": 59.086896
+    },
+    {
+      "region_id": "32555",
+      "region_name": "K. Ban Haet",
+      "value": 56.886247
+    },
+    {
+      "region_id": "32556",
+      "region_name": "K. Khok Pho Cha",
+      "value": 60.406568
+    },
+    {
+      "region_id": "32557",
+      "region_name": "K. Non Sila",
+      "value": 60.974397
+    },
+    {
+      "region_id": "32558",
+      "region_name": "K. Nong Na Kham",
+      "value": 58.371159
+    },
+    {
+      "region_id": "32559",
+      "region_name": "K. Sam Sung",
+      "value": 55.38242
+    },
+    {
+      "region_id": "32560",
+      "region_name": "Khao Suan Kwang",
+      "value": 56.037297
+    },
+    {
+      "region_id": "32561",
+      "region_name": "Kranuan",
+      "value": 55.496001
+    },
+    {
+      "region_id": "32562",
+      "region_name": "Mancha Khiri",
+      "value": 57.549793
+    },
+    {
+      "region_id": "32563",
+      "region_name": "Muang Khon Kaen",
+      "value": 52.651508
+    },
+    {
+      "region_id": "32564",
+      "region_name": "Nam Phong",
+      "value": 50.681362
+    },
+    {
+      "region_id": "32565",
+      "region_name": "Nong Rua",
+      "value": 54.996487
+    },
+    {
+      "region_id": "32566",
+      "region_name": "Nong Song Hong",
+      "value": 59.640333
+    },
+    {
+      "region_id": "32567",
+      "region_name": "Phon",
+      "value": 60.530275
+    },
+    {
+      "region_id": "32568",
+      "region_name": "Phra Yun",
+      "value": 52.255959
+    },
+    {
+      "region_id": "32569",
+      "region_name": "Phu Wiang",
+      "value": 52.039714
+    },
+    {
+      "region_id": "32570",
+      "region_name": "Phupa Man",
+      "value": 58.425263
+    },
+    {
+      "region_id": "32571",
+      "region_name": "Puai Noi",
+      "value": 61.458177
+    },
+    {
+      "region_id": "32572",
+      "region_name": "Si Chomphu",
+      "value": 60.915588
+    },
+    {
+      "region_id": "32573",
+      "region_name": "Ubol Ratana",
+      "value": 50.888162
+    },
+    {
+      "region_id": "32574",
+      "region_name": "Waeng Noi",
+      "value": 60.402815
+    },
+    {
+      "region_id": "32575",
+      "region_name": "Waeng Yai",
+      "value": 61.065456
+    },
+    {
+      "region_id": "32576",
+      "region_name": "Wiang Kao",
+      "value": 60.647503
+    },
+    {
+      "region_id": "32577",
+      "region_name": "Ao Luk",
+      "value": 91.254558
+    },
+    {
+      "region_id": "32578",
+      "region_name": "Khao Phanom",
+      "value": 65.874827
+    },
+    {
+      "region_id": "32579",
+      "region_name": "Khlong Thom",
+      "value": 84.459796
+    },
+    {
+      "region_id": "32580",
+      "region_name": "Ko Lanta",
+      "value": 99.724451
+    },
+    {
+      "region_id": "32581",
+      "region_name": "Lam Thap",
+      "value": 77.692294
+    },
+    {
+      "region_id": "32582",
+      "region_name": "Muang Krabi",
+      "value": 87.860141
+    },
+    {
+      "region_id": "32583",
+      "region_name": "Nua Khlong",
+      "value": 73.112102
+    },
+    {
+      "region_id": "32584",
+      "region_name": "Plai Phraya",
+      "value": 84.237645
+    },
+    {
+      "region_id": "32585",
+      "region_name": "Chae Hom",
+      "value": 72.280641
+    },
+    {
+      "region_id": "32586",
+      "region_name": "Hang Chat",
+      "value": 81.595758
+    },
+    {
+      "region_id": "32587",
+      "region_name": "Ko Kha",
+      "value": 75.785113
+    },
+    {
+      "region_id": "32588",
+      "region_name": "Mae Mo",
+      "value": 82.640877
+    },
+    {
+      "region_id": "32589",
+      "region_name": "Mae Phrik",
+      "value": 49.813349
+    },
+    {
+      "region_id": "32590",
+      "region_name": "Mae Tha",
+      "value": 74.386017
+    },
+    {
+      "region_id": "32591",
+      "region_name": "Muang Lampang",
+      "value": 80.9993
+    },
+    {
+      "region_id": "32592",
+      "region_name": "Mueang Pan",
+      "value": 75.89553
+    },
+    {
+      "region_id": "32593",
+      "region_name": "Ngao",
+      "value": 78.896531
+    },
+    {
+      "region_id": "32594",
+      "region_name": "Soem Ngam",
+      "value": 69.804934
+    },
+    {
+      "region_id": "32595",
+      "region_name": "Sop Prap",
+      "value": 63.708976
+    },
+    {
+      "region_id": "32596",
+      "region_name": "Thoen",
+      "value": 52.014791
+    },
+    {
+      "region_id": "32597",
+      "region_name": "Wang Nua",
+      "value": 65.334799
+    },
+    {
+      "region_id": "32598",
+      "region_name": "Ban Hong",
+      "value": 69.480897
+    },
+    {
+      "region_id": "32599",
+      "region_name": "Ban Thi",
+      "value": 71.334919
+    },
+    {
+      "region_id": "32600",
+      "region_name": "K. Wiang Nong Long",
+      "value": 65.031816
+    },
+    {
+      "region_id": "32601",
+      "region_name": "Li",
+      "value": 54.475219
+    },
+    {
+      "region_id": "32602",
+      "region_name": "Mae Tha",
+      "value": 73.397711
+    },
+    {
+      "region_id": "32603",
+      "region_name": "Muang Lamphun",
+      "value": 66.605116
+    },
+    {
+      "region_id": "32604",
+      "region_name": "Pa Sang",
+      "value": 66.469862
+    },
+    {
+      "region_id": "32605",
+      "region_name": "Thung Hua Chang",
+      "value": 63.457326
+    },
+    {
+      "region_id": "32606",
+      "region_name": "Chiang Khan",
+      "value": 78.298953
+    },
+    {
+      "region_id": "32607",
+      "region_name": "Dan Sai",
+      "value": 48.865617
+    },
+    {
+      "region_id": "32608",
+      "region_name": "K. Erawan",
+      "value": 69.506596
+    },
+    {
+      "region_id": "32609",
+      "region_name": "K. Nong Hin",
+      "value": 64.935741
+    },
+    {
+      "region_id": "32610",
+      "region_name": "Muang Loei",
+      "value": 66.429858
+    },
+    {
+      "region_id": "32611",
+      "region_name": "Na Duang",
+      "value": 75.58725
+    },
+    {
+      "region_id": "32612",
+      "region_name": "Na Haeo",
+      "value": 45.546338
+    },
+    {
+      "region_id": "32613",
+      "region_name": "Pak Chom",
+      "value": 85.491953
+    },
+    {
+      "region_id": "32614",
+      "region_name": "Pha Khao",
+      "value": 67.349965
+    },
+    {
+      "region_id": "32615",
+      "region_name": "Phu Kradung",
+      "value": 63.884531
+    },
+    {
+      "region_id": "32616",
+      "region_name": "Phu Luang",
+      "value": 61.447297
+    },
+    {
+      "region_id": "32617",
+      "region_name": "Phu Rua",
+      "value": 58.029467
+    },
+    {
+      "region_id": "32618",
+      "region_name": "Tha Li",
+      "value": 64.25185
+    },
+    {
+      "region_id": "32619",
+      "region_name": "Wang Saphung",
+      "value": 61.839214
+    },
+    {
+      "region_id": "32620",
+      "region_name": "Ban Mi",
+      "value": 39.999808
+    },
+    {
+      "region_id": "32621",
+      "region_name": "Chai Badan",
+      "value": 33.126324
+    },
+    {
+      "region_id": "32622",
+      "region_name": "Khok Charoen",
+      "value": 34.351295
+    },
+    {
+      "region_id": "32623",
+      "region_name": "Khok Samrong",
+      "value": 36.927452
+    },
+    {
+      "region_id": "32624",
+      "region_name": "Lam Son Thi",
+      "value": 34.049293
+    },
+    {
+      "region_id": "32625",
+      "region_name": "Muang Lop Buri",
+      "value": 41.600553
+    },
+    {
+      "region_id": "32626",
+      "region_name": "Nong Muang",
+      "value": 35.497209
+    },
+    {
+      "region_id": "32627",
+      "region_name": "Phatthana Nikhom",
+      "value": 36.39826
+    },
+    {
+      "region_id": "32628",
+      "region_name": "Sra Both",
+      "value": 35.556375
+    },
+    {
+      "region_id": "32629",
+      "region_name": "Tha Luang",
+      "value": 34.619295
+    },
+    {
+      "region_id": "32630",
+      "region_name": "Tha Wung",
+      "value": 45.548212
+    },
+    {
+      "region_id": "32631",
+      "region_name": "Khun Yuam",
+      "value": 48.791104
+    },
+    {
+      "region_id": "32632",
+      "region_name": "Mae La Noi",
+      "value": 64.066253
+    },
+    {
+      "region_id": "32633",
+      "region_name": "Mae Sariang",
+      "value": 77.879132
+    },
+    {
+      "region_id": "32634",
+      "region_name": "Muang Mae Hong Son",
+      "value": 76.549881
+    },
+    {
+      "region_id": "32635",
+      "region_name": "Pai",
+      "value": 78.772553
+    },
+    {
+      "region_id": "32636",
+      "region_name": "Pang Ma Pha",
+      "value": 90.388633
+    },
+    {
+      "region_id": "32637",
+      "region_name": "Sop Moei",
+      "value": 73.927162
+    },
+    {
+      "region_id": "32638",
+      "region_name": "Borabu",
+      "value": 69.516569
+    },
+    {
+      "region_id": "32639",
+      "region_name": "Chiang Yun",
+      "value": 58.924026
+    },
+    {
+      "region_id": "32640",
+      "region_name": "K. Chun Chom",
+      "value": 60.549685
+    },
+    {
+      "region_id": "32705",
+      "region_name": "Pak Chong",
+      "value": 45.809893
+    },
+    {
+      "region_id": "32706",
+      "region_name": "Pak Thong Chai",
+      "value": 37.139633
+    },
+    {
+      "region_id": "32715",
+      "region_name": "K. Chum Ta Bong",
+      "value": 50.281341
+    },
+    {
+      "region_id": "32716",
+      "region_name": "K. Mae Poen",
+      "value": 51.494334
+    },
+    {
+      "region_id": "32717",
+      "region_name": "Kao Lieo",
+      "value": 38.366427
+    },
+    {
+      "region_id": "32718",
+      "region_name": "Krok Phra",
+      "value": 39.023108
+    },
+    {
+      "region_id": "32719",
+      "region_name": "Lat Yao",
+      "value": 43.132817
+    },
+    {
+      "region_id": "32720",
+      "region_name": "Mae Wong",
+      "value": 46.662349
+    },
+    {
+      "region_id": "32721",
+      "region_name": "Muang Nakhon Sawan",
+      "value": 37.0333
+    },
+    {
+      "region_id": "32722",
+      "region_name": "Nong Bua",
+      "value": 36.359628
+    },
+    {
+      "region_id": "32723",
+      "region_name": "Phaisali",
+      "value": 32.485045
+    },
+    {
+      "region_id": "32724",
+      "region_name": "Phayuha Khiri",
+      "value": 34.427073
+    },
+    {
+      "region_id": "32725",
+      "region_name": "Tak Fa",
+      "value": 33.489925
+    },
+    {
+      "region_id": "32726",
+      "region_name": "Takhli",
+      "value": 35.806258
+    },
+    {
+      "region_id": "32727",
+      "region_name": "Tha Tako",
+      "value": 32.720661
+    },
+    {
+      "region_id": "32728",
+      "region_name": "Bang Khan",
+      "value": 81.801283
+    },
+    {
+      "region_id": "32729",
+      "region_name": "Chalermphrakiet",
+      "value": 47.247638
+    },
+    {
+      "region_id": "32730",
+      "region_name": "Cha-uat",
+      "value": 52.845263
+    },
+    {
+      "region_id": "32731",
+      "region_name": "Chawang",
+      "value": 68.130297
+    },
+    {
+      "region_id": "32732",
+      "region_name": "Chian Yai",
+      "value": 42.740556
+    },
+    {
+      "region_id": "32733",
+      "region_name": "Chulaphon",
+      "value": 65.865715
+    },
+    {
+      "region_id": "32734",
+      "region_name": "Hua Sai",
+      "value": 38.58122
+    },
+    {
+      "region_id": "32735",
+      "region_name": "K. Chang Klang",
+      "value": 83.051176
+    },
+    {
+      "region_id": "32736",
+      "region_name": "K. Nophi Tam",
+      "value": 48.68778
+    },
+    {
+      "region_id": "32737",
+      "region_name": "Khanom",
+      "value": 38.383023
+    },
+    {
+      "region_id": "32738",
+      "region_name": "Lan Saka",
+      "value": 69.70896
+    },
+    {
+      "region_id": "32739",
+      "region_name": "Muang Nakhon Si Thammarat",
+      "value": 41.214271
+    },
+    {
+      "region_id": "32740",
+      "region_name": "Na Bon",
+      "value": 78.581006
+    },
+    {
+      "region_id": "32741",
+      "region_name": "Pak Phanang",
+      "value": 38.20414
+    },
+    {
+      "region_id": "32742",
+      "region_name": "Phi Pun",
+      "value": 60.890647
+    },
+    {
+      "region_id": "32743",
+      "region_name": "Phra Phrom",
+      "value": 49.182451
+    },
+    {
+      "region_id": "32744",
+      "region_name": "Phrommakhiri",
+      "value": 53.924029
+    },
+    {
+      "region_id": "32745",
+      "region_name": "Ron Phi Pun",
+      "value": 60.746128
+    },
+    {
+      "region_id": "32746",
+      "region_name": "Sichon",
+      "value": 39.419974
+    },
+    {
+      "region_id": "32747",
+      "region_name": "Tha Sala",
+      "value": 32.76719
+    },
+    {
+      "region_id": "32748",
+      "region_name": "Tham Phannara",
+      "value": 59.119545
+    },
+    {
+      "region_id": "32749",
+      "region_name": "Thung Song",
+      "value": 81.472901
+    },
+    {
+      "region_id": "32750",
+      "region_name": "Thung Yai",
+      "value": 66.601895
+    },
+    {
+      "region_id": "32751",
+      "region_name": "Ban Luang",
+      "value": 97.499005
+    },
+    {
+      "region_id": "32752",
+      "region_name": "Bo Klue",
+      "value": 82.421346
+    },
+    {
+      "region_id": "32753",
+      "region_name": "Chalermphrakiet",
+      "value": 80.89051
+    },
+    {
+      "region_id": "32754",
+      "region_name": "Chiang Klang",
+      "value": 94.667961
+    },
+    {
+      "region_id": "32755",
+      "region_name": "K. Phu Pieng",
+      "value": 90.670126
+    },
+    {
+      "region_id": "32756",
+      "region_name": "Mae Charim",
+      "value": 97.531772
+    },
+    {
+      "region_id": "32757",
+      "region_name": "Muang Nan",
+      "value": 94.720332
+    },
+    {
+      "region_id": "32758",
+      "region_name": "Na Mun",
+      "value": 92.994956
+    },
+    {
+      "region_id": "32759",
+      "region_name": "Na Noi",
+      "value": 100.653366
+    },
+    {
+      "region_id": "32760",
+      "region_name": "Pua",
+      "value": 91.083594
+    },
+    {
+      "region_id": "32761",
+      "region_name": "Santi Suk",
+      "value": 89.740573
+    },
+    {
+      "region_id": "32762",
+      "region_name": "Song Kwae",
+      "value": 99.817968
+    },
+    {
+      "region_id": "32763",
+      "region_name": "Tha Wang Pha",
+      "value": 99.951444
+    },
+    {
+      "region_id": "32764",
+      "region_name": "Thung Chang",
+      "value": 95.592196
+    },
+    {
+      "region_id": "32765",
+      "region_name": "Wiang Sa",
+      "value": 98.238305
+    },
+    {
+      "region_id": "32766",
+      "region_name": "Bacho",
+      "value": 34.12063
+    },
+    {
+      "region_id": "32767",
+      "region_name": "Cho-I-rong",
+      "value": 34.639608
+    },
+    {
+      "region_id": "32768",
+      "region_name": "Ja-Nae",
+      "value": 64.15559
+    },
+    {
+      "region_id": "32769",
+      "region_name": "Muang Narathiwat",
+      "value": 31.672625
+    },
+    {
+      "region_id": "32770",
+      "region_name": "Rangae",
+      "value": 39.83728
+    },
+    {
+      "region_id": "32771",
+      "region_name": "Ruso",
+      "value": 43.664289
+    },
+    {
+      "region_id": "32772",
+      "region_name": "Si Sakhon",
+      "value": 56.390993
+    },
+    {
+      "region_id": "32773",
+      "region_name": "Sukhirin",
+      "value": 67.053738
+    },
+    {
+      "region_id": "32774",
+      "region_name": "Su-ngai Ko Lok",
+      "value": 44.66791
+    },
+    {
+      "region_id": "32775",
+      "region_name": "Sungai Padi",
+      "value": 46.018727
+    },
+    {
+      "region_id": "32776",
+      "region_name": "Tak Bai",
+      "value": 26.376278
+    },
+    {
+      "region_id": "32777",
+      "region_name": "Waeng",
+      "value": 59.346313
+    },
+    {
+      "region_id": "32778",
+      "region_name": "Yi-ngo",
+      "value": 32.699353
+    },
+    {
+      "region_id": "32779",
+      "region_name": "Muang Nong Bua Lam Phu",
+      "value": 69.665456
+    },
+    {
+      "region_id": "32780",
+      "region_name": "Na Klang",
+      "value": 71.060641
+    },
+    {
+      "region_id": "32781",
+      "region_name": "Na Wang",
+      "value": 71.233537
+    },
+    {
+      "region_id": "32782",
+      "region_name": "Non Sang",
+      "value": 59.597996
+    },
+    {
+      "region_id": "32783",
+      "region_name": "Si Bun Ruang",
+      "value": 64.615189
+    },
+    {
+      "region_id": "32784",
+      "region_name": "Suwan Khuha",
+      "value": 72.654909
+    },
+    {
+      "region_id": "32785",
+      "region_name": "Bung Kan",
+      "value": 100.963066
+    },
+    {
+      "region_id": "32786",
+      "region_name": "Bung Khong Long",
+      "value": 114.853369
+    },
+    {
+      "region_id": "32787",
+      "region_name": "K. Bung Khla",
+      "value": 120.181489
+    },
+    {
+      "region_id": "32788",
+      "region_name": "K. Fao Rai",
+      "value": 87.903513
+    },
+    {
+      "region_id": "32789",
+      "region_name": "K. Pho Tak",
+      "value": 78.642294
+    },
+    {
+      "region_id": "32790",
+      "region_name": "K. Rattana Wapi",
+      "value": 91.319953
+    },
+    {
+      "region_id": "32791",
+      "region_name": "K. Sa Khrai",
+      "value": 66.841329
+    },
+    {
+      "region_id": "32792",
+      "region_name": "Muang Nong Khai",
+      "value": 74.75086
+    },
+    {
+      "region_id": "32793",
+      "region_name": "Pak Khat",
+      "value": 95.270242
+    },
+    {
+      "region_id": "32794",
+      "region_name": "Phon Charoen",
+      "value": 92.023535
+    },
+    {
+      "region_id": "32795",
+      "region_name": "Phon Phisai",
+      "value": 83.173148
+    },
+    {
+      "region_id": "32796",
+      "region_name": "Sang Khom",
+      "value": 91.108703
+    },
+    {
+      "region_id": "32797",
+      "region_name": "Seka",
+      "value": 97.694659
+    },
+    {
+      "region_id": "32798",
+      "region_name": "Si Chiang Mai",
+      "value": 79.042682
+    },
+    {
+      "region_id": "32799",
+      "region_name": "Si Wilai",
+      "value": 95.722157
+    },
+    {
+      "region_id": "32800",
+      "region_name": "So Phisai",
+      "value": 93.294901
+    },
+    {
+      "region_id": "32801",
+      "region_name": "Tha Bo",
+      "value": 73.107471
+    },
+    {
+      "region_id": "32802",
+      "region_name": "Bang Bua Thong",
+      "value": 65.32551
+    },
+    {
+      "region_id": "32803",
+      "region_name": "Bang Kruai",
+      "value": 66.683818
+    },
+    {
+      "region_id": "32804",
+      "region_name": "Bang Yai",
+      "value": 65.00318
+    },
+    {
+      "region_id": "32805",
+      "region_name": "Muang Nonthaburi",
+      "value": 66.960943
+    },
+    {
+      "region_id": "32806",
+      "region_name": "Pak Kret",
+      "value": 66.841143
+    },
+    {
+      "region_id": "32807",
+      "region_name": "Sai Noi",
+      "value": 58.510319
+    },
+    {
+      "region_id": "32808",
+      "region_name": "Khlong Luang",
+      "value": 55.261466
+    },
+    {
+      "region_id": "32809",
+      "region_name": "Lam Luk Ka",
+      "value": 52.168741
+    },
+    {
+      "region_id": "32810",
+      "region_name": "Lat Lum Kaeo",
+      "value": 60.192576
+    },
+    {
+      "region_id": "32811",
+      "region_name": "Muang Pathum Thani",
+      "value": 64.827547
+    },
+    {
+      "region_id": "32812",
+      "region_name": "Nong Sua",
+      "value": 44.956801
+    },
+    {
+      "region_id": "32813",
+      "region_name": "Sam Khok",
+      "value": 57.502457
+    },
+    {
+      "region_id": "32814",
+      "region_name": "Thanyaburi",
+      "value": 50.330498
+    },
+    {
+      "region_id": "32815",
+      "region_name": "Ka Pho",
+      "value": 37.248413
+    },
+    {
+      "region_id": "32816",
+      "region_name": "Khok Pho",
+      "value": 38.625558
+    },
+    {
+      "region_id": "32817",
+      "region_name": "Mae Lan",
+      "value": 35.565168
+    },
+    {
+      "region_id": "32818",
+      "region_name": "Mai Kaen",
+      "value": 32.700808
+    },
+    {
+      "region_id": "32819",
+      "region_name": "Mayo",
+      "value": 32.849113
+    },
+    {
+      "region_id": "32820",
+      "region_name": "Muang Pattani",
+      "value": 27.865278
+    },
+    {
+      "region_id": "32821",
+      "region_name": "Nong Chik",
+      "value": 34.218914
+    },
+    {
+      "region_id": "32822",
+      "region_name": "Panare",
+      "value": 35.040237
+    },
+    {
+      "region_id": "32823",
+      "region_name": "Sai Buri",
+      "value": 34.349062
+    },
+    {
+      "region_id": "32824",
+      "region_name": "Thung Yang Daeng",
+      "value": 35.418274
+    },
+    {
+      "region_id": "32825",
+      "region_name": "Yarang",
+      "value": 33.045349
+    },
+    {
+      "region_id": "32826",
+      "region_name": "Yaring",
+      "value": 32.367971
+    },
+    {
+      "region_id": "32827",
+      "region_name": "Kapong",
+      "value": 122.023374
+    },
+    {
+      "region_id": "32828",
+      "region_name": "Khura Buri",
+      "value": 129.772992
+    },
+    {
+      "region_id": "32829",
+      "region_name": "Ko Yao",
+      "value": 93.883577
+    },
+    {
+      "region_id": "32830",
+      "region_name": "Muang Phangnga",
+      "value": 118.452931
+    },
+    {
+      "region_id": "32831",
+      "region_name": "Takua Pa",
+      "value": 123.456344
+    },
+    {
+      "region_id": "32832",
+      "region_name": "Takua Thung",
+      "value": 100.622375
+    },
+    {
+      "region_id": "32833",
+      "region_name": "Thai Muang",
+      "value": 120.975629
+    },
+    {
+      "region_id": "32834",
+      "region_name": "Thap Put",
+      "value": 107.301087
+    },
+    {
+      "region_id": "32835",
+      "region_name": "Bang Kaeo",
+      "value": 43.338502
+    },
+    {
+      "region_id": "32836",
+      "region_name": "K. Sri Nakarin",
+      "value": 55.569692
+    },
+    {
+      "region_id": "32837",
+      "region_name": "Khao Chaison",
+      "value": 44.643853
+    },
+    {
+      "region_id": "32838",
+      "region_name": "Khuan Khanun",
+      "value": 39.394807
+    },
+    {
+      "region_id": "32839",
+      "region_name": "Kong Ra",
+      "value": 60.956278
+    },
+    {
+      "region_id": "32840",
+      "region_name": "Muang Phatthalung",
+      "value": 37.538731
+    },
+    {
+      "region_id": "32841",
+      "region_name": "Pa Bon",
+      "value": 55.171684
+    },
+    {
+      "region_id": "32842",
+      "region_name": "Pa Payom",
+      "value": 58.208638
+    },
+    {
+      "region_id": "32843",
+      "region_name": "Pak Phayun",
+      "value": 41.871314
+    },
+    {
+      "region_id": "32844",
+      "region_name": "Si Banphot",
+      "value": 57.802647
+    },
+    {
+      "region_id": "32845",
+      "region_name": "Tamot",
+      "value": 59.46269
+    },
+    {
+      "region_id": "32846",
+      "region_name": "n.a",
+      "value": 37.855683
+    },
+    {
+      "region_id": "32847",
+      "region_name": "Chiang Kham",
+      "value": 93.205811
+    },
+    {
+      "region_id": "32848",
+      "region_name": "Chiang Muan",
+      "value": 90.576118
+    },
+    {
+      "region_id": "32849",
+      "region_name": "Chun",
+      "value": 86.421694
+    },
+    {
+      "region_id": "32850",
+      "region_name": "Dok Kham Tai",
+      "value": 79.30584
+    },
+    {
+      "region_id": "32851",
+      "region_name": "K. Phu Kam Yao",
+      "value": 74.821573
+    },
+    {
+      "region_id": "32852",
+      "region_name": "K. Phu Sang",
+      "value": 96.875939
+    },
+    {
+      "region_id": "32853",
+      "region_name": "Mae Chai",
+      "value": 77.444106
+    },
+    {
+      "region_id": "32854",
+      "region_name": "Muang Phayao",
+      "value": 66.798746
+    },
+    {
+      "region_id": "32855",
+      "region_name": "Pong",
+      "value": 96.691693
+    },
+    {
+      "region_id": "32856",
+      "region_name": "Buang Sam Phan",
+      "value": 38.783661
+    },
+    {
+      "region_id": "32857",
+      "region_name": "Chon Daen",
+      "value": 40.704359
+    },
+    {
+      "region_id": "32858",
+      "region_name": "Khao Kho",
+      "value": 38.456857
+    },
+    {
+      "region_id": "32859",
+      "region_name": "Lom Kao",
+      "value": 49.801447
+    },
+    {
+      "region_id": "32860",
+      "region_name": "Lom Sak",
+      "value": 44.309017
+    },
+    {
+      "region_id": "32861",
+      "region_name": "Muang Phetchabun",
+      "value": 39.67523
+    },
+    {
+      "region_id": "32862",
+      "region_name": "Nam Nao",
+      "value": 56.915282
+    },
+    {
+      "region_id": "32863",
+      "region_name": "Nong Phai",
+      "value": 40.177659
+    },
+    {
+      "region_id": "32864",
+      "region_name": "Si Thep",
+      "value": 36.855822
+    },
+    {
+      "region_id": "32865",
+      "region_name": "Wang Pong",
+      "value": 40.644997
+    },
+    {
+      "region_id": "32866",
+      "region_name": "Wichian Buri",
+      "value": 38.118149
+    },
+    {
+      "region_id": "32867",
+      "region_name": "Ban Laem",
+      "value": 34.781505
+    },
+    {
+      "region_id": "32868",
+      "region_name": "Ban Lat",
+      "value": 35.535305
+    },
+    {
+      "region_id": "32869",
+      "region_name": "Cha-Am",
+      "value": 23.839279
+    },
+    {
+      "region_id": "32870",
+      "region_name": "Kaeng Krachan",
+      "value": 37.425873
+    },
+    {
+      "region_id": "32871",
+      "region_name": "Khao Yoi",
+      "value": 38.143443
+    },
+    {
+      "region_id": "32872",
+      "region_name": "Muang Phetchaburi",
+      "value": 33.238591
+    },
+    {
+      "region_id": "32873",
+      "region_name": "Nong Ya Plong",
+      "value": 44.565319
+    },
+    {
+      "region_id": "32874",
+      "region_name": "Tha Yang",
+      "value": 26.450279
+    },
+    {
+      "region_id": "32875",
+      "region_name": "Bang Mun Nak",
+      "value": 38.527581
+    },
+    {
+      "region_id": "32876",
+      "region_name": "K. Bung Narang",
+      "value": 44.815079
+    },
+    {
+      "region_id": "32877",
+      "region_name": "K. Dong Charoen",
+      "value": 39.757139
+    },
+    {
+      "region_id": "32878",
+      "region_name": "K. Sak Lek",
+      "value": 46.24154
+    },
+    {
+      "region_id": "32879",
+      "region_name": "Muang Phichit",
+      "value": 43.264686
+    },
+    {
+      "region_id": "32880",
+      "region_name": "Pho Prathap Chan",
+      "value": 42.922107
+    },
+    {
+      "region_id": "32881",
+      "region_name": "Pho Thale",
+      "value": 41.743704
+    },
+    {
+      "region_id": "32882",
+      "region_name": "Sam Ngam",
+      "value": 45.71746
+    },
+    {
+      "region_id": "32883",
+      "region_name": "Taphan Hin",
+      "value": 42.393357
+    },
+    {
+      "region_id": "32884",
+      "region_name": "Thap Khlo",
+      "value": 43.281394
+    },
+    {
+      "region_id": "32885",
+      "region_name": "Wachira Barami",
+      "value": 46.767828
+    },
+    {
+      "region_id": "32886",
+      "region_name": "Wang Sai Phun",
+      "value": 43.70825
+    },
+    {
+      "region_id": "32887",
+      "region_name": "Bang Krathum",
+      "value": 48.573055
+    },
+    {
+      "region_id": "32888",
+      "region_name": "Bang Rakam",
+      "value": 51.673844
+    },
+    {
+      "region_id": "32889",
+      "region_name": "Chat Trakan",
+      "value": 50.446374
+    },
+    {
+      "region_id": "32890",
+      "region_name": "Muang Phitsanulok",
+      "value": 52.101292
+    },
+    {
+      "region_id": "32891",
+      "region_name": "Nakhon Thai",
+      "value": 44.360663
+    },
+    {
+      "region_id": "32892",
+      "region_name": "Noen Maprang",
+      "value": 41.200328
+    },
+    {
+      "region_id": "32893",
+      "region_name": "Phrom Phiram",
+      "value": 48.102881
+    },
+    {
+      "region_id": "32894",
+      "region_name": "Wang Thong",
+      "value": 44.844208
+    },
+    {
+      "region_id": "32895",
+      "region_name": "Wat Bot",
+      "value": 45.991333
+    },
+    {
+      "region_id": "32896",
+      "region_name": "Ban Phraek",
+      "value": 52.017484
+    },
+    {
+      "region_id": "32897",
+      "region_name": "Bang Ban",
+      "value": 51.052848
+    },
+    {
+      "region_id": "32898",
+      "region_name": "Bang Pahan",
+      "value": 51.877723
+    },
+    {
+      "region_id": "32899",
+      "region_name": "Bang Pa-In",
+      "value": 52.865367
+    },
+    {
+      "region_id": "32900",
+      "region_name": "Bang Sai",
+      "value": 49.416623
+    },
+    {
+      "region_id": "32901",
+      "region_name": "Lat Bua Luang",
+      "value": 49.484206
+    },
+    {
+      "region_id": "32902",
+      "region_name": "Maha Rat",
+      "value": 52.557147
+    },
+    {
+      "region_id": "32903",
+      "region_name": "Nakhon Luang",
+      "value": 48.832081
+    },
+    {
+      "region_id": "32904",
+      "region_name": "Phachi",
+      "value": 52.480812
+    },
+    {
+      "region_id": "32905",
+      "region_name": "Phak Hai",
+      "value": 51.067528
+    },
+    {
+      "region_id": "32906",
+      "region_name": "Phra Nakhon Si Ayutthaya",
+      "value": 52.970169
+    },
+    {
+      "region_id": "32907",
+      "region_name": "Sena",
+      "value": 49.254072
+    },
+    {
+      "region_id": "32908",
+      "region_name": "Tha Rua",
+      "value": 48.497168
+    },
+    {
+      "region_id": "32909",
+      "region_name": "Uthai",
+      "value": 57.289534
+    },
+    {
+      "region_id": "32910",
+      "region_name": "Wang Noi",
+      "value": 52.973553
+    },
+    {
+      "region_id": "32911",
+      "region_name": "Den Chai",
+      "value": 67.845133
+    },
+    {
+      "region_id": "32912",
+      "region_name": "Long",
+      "value": 70.707857
+    },
+    {
+      "region_id": "32913",
+      "region_name": "Muang Phrae",
+      "value": 73.714713
+    },
+    {
+      "region_id": "32914",
+      "region_name": "Nong Muang Kai",
+      "value": 81.570383
+    },
+    {
+      "region_id": "32915",
+      "region_name": "Rong Kwang",
+      "value": 94.9371
+    },
+    {
+      "region_id": "32916",
+      "region_name": "Song",
+      "value": 90.858308
+    },
+    {
+      "region_id": "32917",
+      "region_name": "Sung Men",
+      "value": 66.791486
+    },
+    {
+      "region_id": "32918",
+      "region_name": "Wang Chin",
+      "value": 67.882366
+    },
+    {
+      "region_id": "32919",
+      "region_name": "Kathu",
+      "value": 93.538023
+    },
+    {
+      "region_id": "32920",
+      "region_name": "Muang Phuket",
+      "value": 95.803102
+    },
+    {
+      "region_id": "32921",
+      "region_name": "Thalang",
+      "value": 93.003911
+    },
+    {
+      "region_id": "32922",
+      "region_name": "Ban Sang",
+      "value": 62.271589
+    },
+    {
+      "region_id": "32923",
+      "region_name": "Kabin Buri",
+      "value": 50.121925
+    },
+    {
+      "region_id": "32924",
+      "region_name": "Muang Prachin Buri",
+      "value": 70.26868
+    },
+    {
+      "region_id": "32925",
+      "region_name": "Na Di",
+      "value": 58.413307
+    },
+    {
+      "region_id": "32926",
+      "region_name": "Prachantakham",
+      "value": 73.249146
+    },
+    {
+      "region_id": "32927",
+      "region_name": "Si Mahosot",
+      "value": 63.850617
+    },
+    {
+      "region_id": "32928",
+      "region_name": "Sri Mahar Pho",
+      "value": 58.884898
+    },
+    {
+      "region_id": "32929",
+      "region_name": "Bang Saphan",
+      "value": 64.85602
+    },
+    {
+      "region_id": "32930",
+      "region_name": "Bang Saphan Noi",
+      "value": 78.762387
+    },
+    {
+      "region_id": "32931",
+      "region_name": "Hua Hin",
+      "value": 22.639408
+    },
+    {
+      "region_id": "32932",
+      "region_name": "K. Sam Roi Yot",
+      "value": 24.921813
+    },
+    {
+      "region_id": "32933",
+      "region_name": "Kui Buri",
+      "value": 25.91534
+    },
+    {
+      "region_id": "32934",
+      "region_name": "Muang Prachuap Khiri Khan",
+      "value": 32.382349
+    },
+    {
+      "region_id": "32935",
+      "region_name": "Pran Buri",
+      "value": 23.516635
+    },
+    {
+      "region_id": "32936",
+      "region_name": "Thap Sakae",
+      "value": 49.861075
+    },
+    {
+      "region_id": "32947",
+      "region_name": "Muang Ratchaburi",
+      "value": 41.437557
+    },
+    {
+      "region_id": "32948",
+      "region_name": "Pak Tho",
+      "value": 38.77618
+    },
+    {
+      "region_id": "32949",
+      "region_name": "Photharam",
+      "value": 39.396567
+    },
+    {
+      "region_id": "32950",
+      "region_name": "Suan Phung",
+      "value": 49.256832
+    },
+    {
+      "region_id": "32958",
+      "region_name": "Pluak Daeng",
+      "value": 60.280499
+    },
+    {
+      "region_id": "32959",
+      "region_name": "Wang Chan",
+      "value": 62.841182
+    },
+    {
+      "region_id": "32960",
+      "region_name": "At Samat",
+      "value": 70.769964
+    },
+    {
+      "region_id": "32961",
+      "region_name": "Changhan",
+      "value": 75.4058
+    },
+    {
+      "region_id": "32962",
+      "region_name": "Chaturaphak Phim",
+      "value": 71.130809
+    },
+    {
+      "region_id": "32963",
+      "region_name": "K. Chiang Kwan",
+      "value": 77.885998
+    },
+    {
+      "region_id": "32975",
+      "region_name": "Phon Thong",
+      "value": 75.282487
+    },
+    {
+      "region_id": "32976",
+      "region_name": "Selaphum",
+      "value": 79.884124
+    },
+    {
+      "region_id": "32977",
+      "region_name": "Si Somdet",
+      "value": 75.066762
+    },
+    {
+      "region_id": "32978",
+      "region_name": "Suwannaphum",
+      "value": 66.190949
+    },
+    {
+      "region_id": "32979",
+      "region_name": "Thawatchaburi",
+      "value": 79.138342
+    },
+    {
+      "region_id": "32980",
+      "region_name": "Aranyaprathet",
+      "value": 38.965147
+    },
+    {
+      "region_id": "32981",
+      "region_name": "K. Kok Sung",
+      "value": 37.068218
+    },
+    {
+      "region_id": "32982",
+      "region_name": "K. Wang Sombun",
+      "value": 39.987359
+    },
+    {
+      "region_id": "32983",
+      "region_name": "Kao Cha Kan",
+      "value": 35.479014
+    },
+    {
+      "region_id": "32984",
+      "region_name": "Khlong Hat",
+      "value": 37.038349
+    },
+    {
+      "region_id": "32985",
+      "region_name": "Muang Sa Kaeo",
+      "value": 38.766301
+    },
+    {
+      "region_id": "32986",
+      "region_name": "Ta Phraya",
+      "value": 36.32946
+    },
+    {
+      "region_id": "32987",
+      "region_name": "Wang Nam Yen",
+      "value": 37.834093
+    },
+    {
+      "region_id": "32988",
+      "region_name": "Watthana Nakhon",
+      "value": 38.612648
+    },
+    {
+      "region_id": "32989",
+      "region_name": "Akat Amnuai",
+      "value": 79.316254
+    },
+    {
+      "region_id": "32990",
+      "region_name": "Ban Muang",
+      "value": 88.954312
+    },
+    {
+      "region_id": "32991",
+      "region_name": "Chareon Silp",
+      "value": 75.31494
+    },
+    {
+      "region_id": "32992",
+      "region_name": "Kham Ta Kla",
+      "value": 86.949806
+    },
+    {
+      "region_id": "32993",
+      "region_name": "Khok Sri Supan",
+      "value": 57.440739
+    },
+    {
+      "region_id": "32994",
+      "region_name": "Kusuman",
+      "value": 66.006867
+    },
+    {
+      "region_id": "32995",
+      "region_name": "Kut Bak",
+      "value": 50.442005
+    },
+    {
+      "region_id": "32996",
+      "region_name": "Muang Sakon Nakhon",
+      "value": 54.522053
+    },
+    {
+      "region_id": "32997",
+      "region_name": "Nikhom Nam Un",
+      "value": 51.873349
+    },
+    {
+      "region_id": "32998",
+      "region_name": "Phang Khon",
+      "value": 61.69279
+    },
+    {
+      "region_id": "33006",
+      "region_name": "Waritchaphum",
+      "value": 57.998333
+    },
+    {
+      "region_id": "33007",
+      "region_name": "Bang Bo",
+      "value": 69.165542
+    },
+    {
+      "region_id": "33008",
+      "region_name": "Bang Plee",
+      "value": 72.353663
+    },
+    {
+      "region_id": "33009",
+      "region_name": "K. Bang Sao Thon",
+      "value": 71.369292
+    },
+    {
+      "region_id": "33010",
+      "region_name": "Muang Samut Prakan",
+      "value": 72.317264
+    },
+    {
+      "region_id": "33011",
+      "region_name": "Phra Pra Daeng",
+      "value": 77.402245
+    },
+    {
+      "region_id": "33012",
+      "region_name": "Phra Samut Jadee",
+      "value": 74.45519
+    },
+    {
+      "region_id": "33013",
+      "region_name": "Ban Phaeo",
+      "value": 61.886546
+    },
+    {
+      "region_id": "33014",
+      "region_name": "Krathum Baen",
+      "value": 66.857931
+    },
+    {
+      "region_id": "33015",
+      "region_name": "Muang Samut Sakhon",
+      "value": 65.773467
+    },
+    {
+      "region_id": "33016",
+      "region_name": "Amphawa",
+      "value": 41.61511
+    },
+    {
+      "region_id": "33017",
+      "region_name": "Bang Khon Ti",
+      "value": 44.325618
+    },
+    {
+      "region_id": "33018",
+      "region_name": "Muang Samut Songkhram",
+      "value": 45.507034
+    },
+    {
+      "region_id": "33019",
+      "region_name": "Ban Mo",
+      "value": 51.590747
+    },
+    {
+      "region_id": "33020",
+      "region_name": "Chalermphrakiet",
+      "value": 57.42829
+    },
+    {
+      "region_id": "33021",
+      "region_name": "Don Phut",
+      "value": 50.441264
+    },
+    {
+      "region_id": "33022",
+      "region_name": "Kaeng Khoi",
+      "value": 54.345378
+    },
+    {
+      "region_id": "33023",
+      "region_name": "Muak Lek",
+      "value": 37.622286
+    },
+    {
+      "region_id": "33024",
+      "region_name": "Muang Saraburi",
+      "value": 72.776365
+    },
+    {
+      "region_id": "33025",
+      "region_name": "Nong Don",
+      "value": 47.673703
+    },
+    {
+      "region_id": "33026",
+      "region_name": "Nong Khae",
+      "value": 64.743074
+    },
+    {
+      "region_id": "33027",
+      "region_name": "Nong Saeng",
+      "value": 65.024194
+    },
+    {
+      "region_id": "33028",
+      "region_name": "Phra Phutthabat",
+      "value": 46.627904
+    },
+    {
+      "region_id": "33029",
+      "region_name": "Sao Hai",
+      "value": 65.906777
+    },
+    {
+      "region_id": "33030",
+      "region_name": "Wang Muang",
+      "value": 38.009659
+    },
+    {
+      "region_id": "33031",
+      "region_name": "Wihan Daeng",
+      "value": 56.302168
+    },
+    {
+      "region_id": "33032",
+      "region_name": "K. Ma Nang",
+      "value": 68.934868
+    },
+    {
+      "region_id": "33033",
+      "region_name": "Khuan Don",
+      "value": 69.781174
+    },
+    {
+      "region_id": "33034",
+      "region_name": "Khuan Ka Long",
+      "value": 69.146622
+    },
+    {
+      "region_id": "33035",
+      "region_name": "Langu",
+      "value": 74.631586
+    },
+    {
+      "region_id": "33036",
+      "region_name": "Muang Satun",
+      "value": 72.910982
+    },
+    {
+      "region_id": "33037",
+      "region_name": "Tha Phae",
+      "value": 78.045812
+    },
+    {
+      "region_id": "33038",
+      "region_name": "Thung Wa",
+      "value": 80.522558
+    },
+    {
+      "region_id": "33039",
+      "region_name": "Benchalak",
+      "value": 67.371619
+    },
+    {
+      "region_id": "33040",
+      "region_name": "Bung Bun",
+      "value": 59.013067
+    },
+    {
+      "region_id": "33041",
+      "region_name": "Huai Thap Than",
+      "value": 62.877152
+    },
+    {
+      "region_id": "33042",
+      "region_name": "K. Pho Si Suwan",
+      "value": 59.360014
+    },
+    {
+      "region_id": "33043",
+      "region_name": "K. Sila Lat",
+      "value": 62.855502
+    },
+    {
+      "region_id": "33044",
+      "region_name": "Kantharalak",
+      "value": 66.604789
+    },
+    {
+      "region_id": "33045",
+      "region_name": "Kanthararom",
+      "value": 69.389177
+    },
+    {
+      "region_id": "33046",
+      "region_name": "Khukhan",
+      "value": 57.764034
+    },
+    {
+      "region_id": "33047",
+      "region_name": "Khun Han",
+      "value": 57.642298
+    },
+    {
+      "region_id": "33048",
+      "region_name": "Muang Chan",
+      "value": 59.165625
+    },
+    {
+      "region_id": "33049",
+      "region_name": "Muang Si Sa Ket",
+      "value": 65.204108
+    },
+    {
+      "region_id": "33050",
+      "region_name": "Nam Kliang",
+      "value": 64.895064
+    },
+    {
+      "region_id": "33051",
+      "region_name": "Non Khun",
+      "value": 67.963733
+    },
+    {
+      "region_id": "33052",
+      "region_name": "Phayu",
+      "value": 60.575812
+    },
+    {
+      "region_id": "33053",
+      "region_name": "Phrai Bung",
+      "value": 59.459038
+    },
+    {
+      "region_id": "33054",
+      "region_name": "Phu Sing",
+      "value": 52.404125
+    },
+    {
+      "region_id": "33055",
+      "region_name": "Prang Ku",
+      "value": 57.360536
+    },
+    {
+      "region_id": "33056",
+      "region_name": "Rasi Salai",
+      "value": 62.1516
+    },
+    {
+      "region_id": "33057",
+      "region_name": "Sri Ratana",
+      "value": 63.144255
+    },
+    {
+      "region_id": "33058",
+      "region_name": "Uthumphon Phisai",
+      "value": 64.262895
+    },
+    {
+      "region_id": "33059",
+      "region_name": "Wang Hin",
+      "value": 62.072049
+    },
+    {
+      "region_id": "33060",
+      "region_name": "Yang Chum Noi",
+      "value": 63.963051
+    },
+    {
+      "region_id": "33061",
+      "region_name": "Bang Rachan",
+      "value": 50.907747
+    },
+    {
+      "region_id": "33062",
+      "region_name": "In Buri",
+      "value": 42.103568
+    },
+    {
+      "region_id": "33063",
+      "region_name": "Khai Bang Rachan",
+      "value": 53.304886
+    },
+    {
+      "region_id": "33064",
+      "region_name": "Muang Sing Buri",
+      "value": 50.784913
+    },
+    {
+      "region_id": "33065",
+      "region_name": "Phrom Buri",
+      "value": 50.787969
+    },
+    {
+      "region_id": "33066",
+      "region_name": "Tha Chang",
+      "value": 53.763691
+    },
+    {
+      "region_id": "33067",
+      "region_name": "Bang Klam",
+      "value": 41.979513
+    },
+    {
+      "region_id": "33068",
+      "region_name": "Chana",
+      "value": 40.931156
+    },
+    {
+      "region_id": "33069",
+      "region_name": "Hat Yai",
+      "value": 44.1518
+    },
+    {
+      "region_id": "33070",
+      "region_name": "Khlong Hoi Kong",
+      "value": 43.436886
+    },
+    {
+      "region_id": "33071",
+      "region_name": "Khuan Niang",
+      "value": 40.239092
+    },
+    {
+      "region_id": "33072",
+      "region_name": "Krasae Sinthu",
+      "value": 34.50785
+    },
+    {
+      "region_id": "33073",
+      "region_name": "Muang Songkhla",
+      "value": 39.623157
+    },
+    {
+      "region_id": "33074",
+      "region_name": "Na Mom",
+      "value": 42.926373
+    },
+    {
+      "region_id": "33082",
+      "region_name": "Thepha",
+      "value": 42.453233
+    },
+    {
+      "region_id": "33083",
+      "region_name": "n.a",
+      "value": 34.621063
+    },
+    {
+      "region_id": "33084",
+      "region_name": "Ban Dan Lan Hoi",
+      "value": 48.438188
+    },
+    {
+      "region_id": "33085",
+      "region_name": "Khiri Mat",
+      "value": 48.293809
+    },
+    {
+      "region_id": "33086",
+      "region_name": "Kong Krailat",
+      "value": 52.233077
+    },
+    {
+      "region_id": "33087",
+      "region_name": "Muang Sukhothai",
+      "value": 53.912526
+    },
+    {
+      "region_id": "33088",
+      "region_name": "Sawankhalok",
+      "value": 52.02448
+    },
+    {
+      "region_id": "33089",
+      "region_name": "Si Nakhon",
+      "value": 51.474606
+    },
+    {
+      "region_id": "33090",
+      "region_name": "Si Sam Rong",
+      "value": 52.723645
+    },
+    {
+      "region_id": "33091",
+      "region_name": "Si Satchanalai",
+      "value": 59.857079
+    },
+    {
+      "region_id": "33092",
+      "region_name": "Thung Saliam",
+      "value": 50.02936
+    },
+    {
+      "region_id": "33093",
+      "region_name": "Bang Pla Ma",
+      "value": 39.939348
+    },
+    {
+      "region_id": "33094",
+      "region_name": "Dan Chang",
+      "value": 39.941725
+    },
+    {
+      "region_id": "33095",
+      "region_name": "Doembang Nangbua",
+      "value": 45.709645
+    },
+    {
+      "region_id": "33096",
+      "region_name": "Don Chedi",
+      "value": 38.90453
+    },
+    {
+      "region_id": "33097",
+      "region_name": "Muang Suphanburi",
+      "value": 41.543856
+    },
+    {
+      "region_id": "33098",
+      "region_name": "Nong Ya Sai",
+      "value": 38.601831
+    },
+    {
+      "region_id": "33099",
+      "region_name": "Sam Chuk",
+      "value": 43.976077
+    },
+    {
+      "region_id": "33100",
+      "region_name": "Si Prachan",
+      "value": 44.155547
+    },
+    {
+      "region_id": "33101",
+      "region_name": "Song Phi Nong",
+      "value": 36.299449
+    },
+    {
+      "region_id": "33102",
+      "region_name": "U Thong",
+      "value": 36.539531
+    },
+    {
+      "region_id": "33103",
+      "region_name": "Ban Na Doem",
+      "value": 47.567473
+    },
+    {
+      "region_id": "33104",
+      "region_name": "Ban Na San",
+      "value": 50.618078
+    },
+    {
+      "region_id": "33105",
+      "region_name": "Ban Ta Khun",
+      "value": 110.83048
+    },
+    {
+      "region_id": "33106",
+      "region_name": "Chaiburi",
+      "value": 63.872221
+    },
+    {
+      "region_id": "33107",
+      "region_name": "Chaiya",
+      "value": 84.652047
+    },
+    {
+      "region_id": "33108",
+      "region_name": "Don Sak",
+      "value": 39.111726
+    },
+    {
+      "region_id": "33109",
+      "region_name": "K. Wipawadi",
+      "value": 84.001357
+    },
+    {
+      "region_id": "33110",
+      "region_name": "Kanchanadit",
+      "value": 38.580244
+    },
+    {
+      "region_id": "33111",
+      "region_name": "Khian Sa",
+      "value": 58.008353
+    },
+    {
+      "region_id": "33112",
+      "region_name": "Khiri Ratthanikhom",
+      "value": 65.381392
+    },
+    {
+      "region_id": "33113",
+      "region_name": "Ko Phangan",
+      "value": 19.994824
+    },
+    {
+      "region_id": "33114",
+      "region_name": "Ko Samui",
+      "value": 28.610651
+    },
+    {
+      "region_id": "33115",
+      "region_name": "Muang Surat Thani",
+      "value": 47.864943
+    },
+    {
+      "region_id": "33116",
+      "region_name": "Phanom",
+      "value": 98.405609
+    },
+    {
+      "region_id": "33117",
+      "region_name": "Phunphin",
+      "value": 52.891621
+    },
+    {
+      "region_id": "33118",
+      "region_name": "Prasaeng",
+      "value": 58.870131
+    },
+    {
+      "region_id": "33119",
+      "region_name": "Tha Chana",
+      "value": 71.941239
+    },
+    {
+      "region_id": "33120",
+      "region_name": "Tha Chang",
+      "value": 80.55671
+    },
+    {
+      "region_id": "33121",
+      "region_name": "Wiang Sa",
+      "value": 54.580633
+    },
+    {
+      "region_id": "33122",
+      "region_name": "Bua Chet",
+      "value": 52.078254
+    },
+    {
+      "region_id": "33123",
+      "region_name": "Chom Phra",
+      "value": 51.074728
+    },
+    {
+      "region_id": "33124",
+      "region_name": "Chumphon Buri",
+      "value": 59.816869
+    },
+    {
+      "region_id": "33125",
+      "region_name": "K. Kwao Si Narin",
+      "value": 52.224538
+    },
+    {
+      "region_id": "33126",
+      "region_name": "K. Non Narai",
+      "value": 55.456432
+    },
+    {
+      "region_id": "33127",
+      "region_name": "K. Phanom Dong Rak",
+      "value": 38.9343
+    },
+    {
+      "region_id": "33128",
+      "region_name": "K. Sri Narong",
+      "value": 58.524002
+    },
+    {
+      "region_id": "33129",
+      "region_name": "Kap Choeng",
+      "value": 49.282741
+    },
+    {
+      "region_id": "33130",
+      "region_name": "Lamduan",
+      "value": 56.069575
+    },
+    {
+      "region_id": "33131",
+      "region_name": "Muang Surin",
+      "value": 52.313077
+    },
+    {
+      "region_id": "33132",
+      "region_name": "Phrasat",
+      "value": 46.690255
+    },
+    {
+      "region_id": "33133",
+      "region_name": "Rattana Buri",
+      "value": 57.032776
+    },
+    {
+      "region_id": "33134",
+      "region_name": "Samrong Thap",
+      "value": 60.952193
+    },
+    {
+      "region_id": "33135",
+      "region_name": "Sangkha",
+      "value": 55.955937
+    },
+    {
+      "region_id": "33136",
+      "region_name": "Sanom",
+      "value": 53.295114
+    },
+    {
+      "region_id": "33137",
+      "region_name": "Sikhoraphum",
+      "value": 56.807939
+    },
+    {
+      "region_id": "33138",
+      "region_name": "Tha Tum",
+      "value": 53.811099
+    },
+    {
+      "region_id": "33139",
+      "region_name": "Ban Tak",
+      "value": 41.316884
+    },
+    {
+      "region_id": "33140",
+      "region_name": "K. Wang Chao",
+      "value": 45.972955
+    },
+    {
+      "region_id": "33141",
+      "region_name": "Mae Ramat",
+      "value": 66.971184
+    },
+    {
+      "region_id": "33142",
+      "region_name": "Mae Sot",
+      "value": 74.946743
+    },
+    {
+      "region_id": "33143",
+      "region_name": "Muang Tak",
+      "value": 45.124884
+    },
+    {
+      "region_id": "33144",
+      "region_name": "Phop Phra",
+      "value": 64.277613
+    },
+    {
+      "region_id": "33145",
+      "region_name": "Sam Ngao",
+      "value": 46.635322
+    },
+    {
+      "region_id": "33146",
+      "region_name": "Tha Song Yang",
+      "value": 92.456477
+    },
+    {
+      "region_id": "33147",
+      "region_name": "Umphang",
+      "value": 56.661511
+    },
+    {
+      "region_id": "33148",
+      "region_name": "Huai Yot",
+      "value": 84.043247
+    },
+    {
+      "region_id": "33149",
+      "region_name": "K. Hat Samran",
+      "value": 94.01657
+    },
+    {
+      "region_id": "33150",
+      "region_name": "Kantrang",
+      "value": 103.467597
+    },
+    {
+      "region_id": "33151",
+      "region_name": "Muang Trang",
+      "value": 94.16383
+    },
+    {
+      "region_id": "33152",
+      "region_name": "Na Yong",
+      "value": 83.47777
+    },
+    {
+      "region_id": "33153",
+      "region_name": "Palian",
+      "value": 84.252494
+    },
+    {
+      "region_id": "33154",
+      "region_name": "Rasada",
+      "value": 76.573454
+    },
+    {
+      "region_id": "33155",
+      "region_name": "Sikao",
+      "value": 102.496705
+    },
+    {
+      "region_id": "33156",
+      "region_name": "Wang Wiset",
+      "value": 95.855591
+    },
+    {
+      "region_id": "33157",
+      "region_name": "Yan Ta Khao",
+      "value": 90.726038
+    },
+    {
+      "region_id": "33158",
+      "region_name": "Bo Rai",
+      "value": 101.82729
+    },
+    {
+      "region_id": "33159",
+      "region_name": "K. Ko Chang",
+      "value": 117.802293
+    },
+    {
+      "region_id": "33160",
+      "region_name": "K. Ko Kut",
+      "value": 163.606407
+    },
+    {
+      "region_id": "33161",
+      "region_name": "Khao Saming",
+      "value": 128.829442
+    },
+    {
+      "region_id": "33162",
+      "region_name": "Khlong Yai",
+      "value": 175.949294
+    },
+    {
+      "region_id": "33163",
+      "region_name": "Laem Ngop",
+      "value": 126.373825
+    },
+    {
+      "region_id": "33164",
+      "region_name": "Muang Trat",
+      "value": 129.154987
+    },
+    {
+      "region_id": "33165",
+      "region_name": "Buntharik",
+      "value": 97.086471
+    },
+    {
+      "region_id": "33166",
+      "region_name": "Det Udom",
+      "value": 83.13107
+    },
+    {
+      "region_id": "33167",
+      "region_name": "Donmotdaeng",
+      "value": 80.578214
+    },
+    {
+      "region_id": "33168",
+      "region_name": "K. Lao Sua Kok",
+      "value": 73.381992
+    },
+    {
+      "region_id": "33169",
+      "region_name": "K. Na Tan",
+      "value": 78.353871
+    },
+    {
+      "region_id": "33170",
+      "region_name": "K. Na Yia",
+      "value": 88.892646
+    },
+    {
+      "region_id": "33171",
+      "region_name": "K. Nam Khun",
+      "value": 78.27012
+    },
+    {
+      "region_id": "33172",
+      "region_name": "K. Sawang Weeraw",
+      "value": 83.788951
+    },
+    {
+      "region_id": "33173",
+      "region_name": "Khemarat",
+      "value": 75.499456
+    },
+    {
+      "region_id": "33174",
+      "region_name": "Khong Chiam",
+      "value": 98.608655
+    },
+    {
+      "region_id": "33175",
+      "region_name": "Khuang Nai",
+      "value": 63.940812
+    },
+    {
+      "region_id": "33176",
+      "region_name": "Kut Khao Pun",
+      "value": 71.968118
+    },
+    {
+      "region_id": "33177",
+      "region_name": "Muang Samsip",
+      "value": 67.011727
+    },
+    {
+      "region_id": "33178",
+      "region_name": "Muang Ubon Ratchatani",
+      "value": 71.43818
+    },
+    {
+      "region_id": "33179",
+      "region_name": "Na Chaluai",
+      "value": 87.738352
+    },
+    {
+      "region_id": "33180",
+      "region_name": "Nam Yun",
+      "value": 88.798182
+    },
+    {
+      "region_id": "33181",
+      "region_name": "Phibun Mangsahan",
+      "value": 92.091319
+    },
+    {
+      "region_id": "33182",
+      "region_name": "Pho Si",
+      "value": 82.725105
+    },
+    {
+      "region_id": "33183",
+      "region_name": "Samrong",
+      "value": 73.345565
+    },
+    {
+      "region_id": "33184",
+      "region_name": "Si Muang Mai",
+      "value": 88.862025
+    },
+    {
+      "region_id": "33185",
+      "region_name": "Si Rin Ton",
+      "value": 102.763826
+    },
+    {
+      "region_id": "33186",
+      "region_name": "Tan Sum",
+      "value": 80.370932
+    },
+    {
+      "region_id": "33187",
+      "region_name": "Thung Si Udom",
+      "value": 77.032942
+    },
+    {
+      "region_id": "33188",
+      "region_name": "Trakan Phutphon",
+      "value": 74.406139
+    },
+    {
+      "region_id": "33189",
+      "region_name": "Warin Chamrap",
+      "value": 76.256746
+    },
+    {
+      "region_id": "33190",
+      "region_name": "Ban Dung",
+      "value": 74.984841
+    },
+    {
+      "region_id": "33191",
+      "region_name": "Ban Phu",
+      "value": 72.280564
+    },
+    {
+      "region_id": "33192",
+      "region_name": "Chai Wan",
+      "value": 58.704742
+    },
+    {
+      "region_id": "33193",
+      "region_name": "K. Ku Kaeo",
+      "value": 55.490361
+    },
+    {
+      "region_id": "33194",
+      "region_name": "K. Prachak Silapakhom",
+      "value": 64.129609
+    },
+    {
+      "region_id": "33195",
+      "region_name": "Kumphawapi",
+      "value": 59.064844
+    },
+    {
+      "region_id": "33196",
+      "region_name": "Kut Chap",
+      "value": 71.255177
+    },
+    {
+      "region_id": "33197",
+      "region_name": "Muang Udon Thani",
+      "value": 71.671878
+    },
+    {
+      "region_id": "33198",
+      "region_name": "Na Yung",
+      "value": 89.183868
+    },
+    {
+      "region_id": "33199",
+      "region_name": "Nam Som",
+      "value": 79.998175
+    },
+    {
+      "region_id": "33200",
+      "region_name": "Non Sa-at",
+      "value": 54.641225
+    },
+    {
+      "region_id": "33201",
+      "region_name": "Nong Han",
+      "value": 64.767185
+    },
+    {
+      "region_id": "33202",
+      "region_name": "Nong Saeng",
+      "value": 67.224244
+    },
+    {
+      "region_id": "33203",
+      "region_name": "Nong Wua So",
+      "value": 72.725572
+    },
+    {
+      "region_id": "33204",
+      "region_name": "Phen",
+      "value": 70.220067
+    },
+    {
+      "region_id": "33205",
+      "region_name": "Phibun Rak",
+      "value": 67.867806
+    },
+    {
+      "region_id": "33206",
+      "region_name": "Sang Khom",
+      "value": 75.502378
+    },
+    {
+      "region_id": "33207",
+      "region_name": "Si That",
+      "value": 52.620129
+    },
+    {
+      "region_id": "33208",
+      "region_name": "Thung Fon",
+      "value": 67.516557
+    },
+    {
+      "region_id": "33209",
+      "region_name": "Wang Sam Mo",
+      "value": 51.858765
+    },
+    {
+      "region_id": "33210",
+      "region_name": "Ban Rai",
+      "value": 48.18152
+    },
+    {
+      "region_id": "33211",
+      "region_name": "Huai Khot",
+      "value": 54.149009
+    },
+    {
+      "region_id": "33212",
+      "region_name": "Lan Sak",
+      "value": 54.757553
+    },
+    {
+      "region_id": "33213",
+      "region_name": "Muang Uthai Thani",
+      "value": 36.247319
+    },
+    {
+      "region_id": "33214",
+      "region_name": "Nong Chang",
+      "value": 45.904537
+    },
+    {
+      "region_id": "33215",
+      "region_name": "Nong Khayang",
+      "value": 33.775544
+    },
+    {
+      "region_id": "33216",
+      "region_name": "Sawang Arom",
+      "value": 45.982353
+    },
+    {
+      "region_id": "33217",
+      "region_name": "Thap Than",
+      "value": 45.689019
+    },
+    {
+      "region_id": "33218",
+      "region_name": "Ban Khok",
+      "value": 87.805926
+    },
+    {
+      "region_id": "33219",
+      "region_name": "Fak Tha",
+      "value": 81.158276
+    },
+    {
+      "region_id": "33220",
+      "region_name": "Laplae",
+      "value": 65.459296
+    },
+    {
+      "region_id": "33221",
+      "region_name": "Muang Uttaradit",
+      "value": 63.96713
+    },
+    {
+      "region_id": "33222",
+      "region_name": "Nam Pat",
+      "value": 60.861085
+    },
+    {
+      "region_id": "33223",
+      "region_name": "Phichai",
+      "value": 50.630183
+    },
+    {
+      "region_id": "33224",
+      "region_name": "Tha Pla",
+      "value": 74.442354
+    },
+    {
+      "region_id": "33225",
+      "region_name": "Thong Saen Khan",
+      "value": 55.42991
+    },
+    {
+      "region_id": "33226",
+      "region_name": "Tron",
+      "value": 57.540722
+    },
+    {
+      "region_id": "33227",
+      "region_name": "Bannang Star",
+      "value": 61.773016
+    },
+    {
+      "region_id": "33228",
+      "region_name": "Batong",
+      "value": 60.328829
+    },
+    {
+      "region_id": "33229",
+      "region_name": "K. Krong Pi Nung",
+      "value": 50.999646
+    },
+    {
+      "region_id": "33230",
+      "region_name": "Ka Bang",
+      "value": 53.806916
+    },
+    {
+      "region_id": "33231",
+      "region_name": "Muang Yala",
+      "value": 42.902215
+    },
+    {
+      "region_id": "33232",
+      "region_name": "Raman",
+      "value": 41.610163
+    },
+    {
+      "region_id": "33233",
+      "region_name": "Than To",
+      "value": 64.81479
+    },
+    {
+      "region_id": "33234",
+      "region_name": "Yaha",
+      "value": 53.345128
+    },
+    {
+      "region_id": "33235",
+      "region_name": "Amphoe Muang Yasothon",
+      "value": 68.691665
+    },
+    {
+      "region_id": "33236",
+      "region_name": "Amphoe Sai Mun",
+      "value": 77.603013
+    },
+    {
+      "region_id": "33237",
+      "region_name": "Kham Khuan Kaeo",
+      "value": 62.643323
+    },
+    {
+      "region_id": "33238",
+      "region_name": "Kho Wang",
+      "value": 63.166195
+    },
+    {
+      "region_id": "33239",
+      "region_name": "Kut Chum",
+      "value": 80.418352
+    },
+    {
+      "region_id": "33240",
+      "region_name": "Loeng Nok Tha",
+      "value": 84.766186
+    },
+    {
+      "region_id": "33241",
+      "region_name": "Maha Chana Chai",
+      "value": 63.848395
+    },
+    {
+      "region_id": "33242",
+      "region_name": "Pa Tiu",
+      "value": 67.602169
+    },
+    {
+      "region_id": "33243",
+      "region_name": "Thai Charoen",
+      "value": 83.326106
+    }
+  ]
+}
