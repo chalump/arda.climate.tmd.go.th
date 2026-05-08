@@ -67,38 +67,18 @@
     .data-quality { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .debug-box { border: 1px solid #e4ebf5; border-radius: 16px; padding: 14px; background: #fff; }
     .legend-note { color: var(--muted); font-size: 0.86rem; line-height: 1.45; margin-top: 8px; }
-    .selected-grid { display:grid; grid-template-columns: 1.18fr 0.82fr; gap: 14px; }
-    .stack-2 { display:grid; gap:14px; }
-    .context-card { border: 1px solid #d7e3f4; border-radius: 18px; background: linear-gradient(180deg, #fbfdff 0%, #f4f8ff 100%); padding: 14px; }
-    .context-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px; }
-    .context-name { font-size: 1.08rem; font-weight: 900; }
-    .context-sub { color: var(--muted); font-size: 0.9rem; line-height: 1.45; margin-top: 4px; }
-    .context-badges { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
-    .context-badge { display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border-radius:999px; background:#eef4ff; border:1px solid #cddcf8; color:#173b8a; font-size:0.8rem; font-weight:800; }
-    .context-map { min-height: 420px; border:1px solid #dbe4ef; border-radius: 16px; overflow:hidden; background:#fff; }
-    .context-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top: 12px; }
-    .context-detail { border:1px solid #e3ebf6; border-radius:14px; padding:12px; background:#fff; }
-    .context-detail .k { font-size:0.77rem; text-transform:uppercase; letter-spacing:0.03em; color:var(--muted); font-weight:800; margin-bottom:4px; }
-    .context-detail .v { font-size:0.96rem; font-weight:800; line-height:1.35; }
-    .context-note { margin-top: 12px; color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
     .export-block { margin-top: 18px; padding: 14px; border: 1px solid #d7e3f4; border-radius: 16px; background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%); }
     .export-title { font-size: 0.95rem; font-weight: 900; color: #173b8a; margin-bottom: 6px; }
     .export-note { color: var(--muted); font-size: 0.82rem; line-height: 1.45; margin-top: 8px; }
     .export-actions { display: grid; gap: 10px; margin-top: 12px; }
     .export-actions button { text-align: left; padding: 12px 14px; }
     .export-actions .secondary { background: white; border: 1px solid #bfd0f1; color: #173b8a; }
-
-    .pro-controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:10px 0 12px; padding:10px; border:1px solid #dbe4ef; border-radius:14px; background:#f8fbff; }
-    .pro-control { display:flex; gap:8px; align-items:center; font-size:0.86rem; color:var(--muted); font-weight:800; }
-    .pro-control select { border:1px solid #cbd5e1; border-radius:10px; padding:7px 10px; background:#fff; color:var(--text); font-weight:700; }
-    .risk-legend { display:flex; flex-wrap:wrap; gap:7px; margin-top:6px; color:var(--muted); font-size:0.78rem; }
-    .risk-dot { width:10px; height:10px; border-radius:999px; display:inline-block; border:1px solid rgba(15,23,42,.18); margin-right:4px; vertical-align:-1px; }
     @media (max-width: 1300px) {
       .grid-3 { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
-      .hero, .grid-2, .guidance-wrap, .data-quality, .selected-grid, .context-detail-grid { grid-template-columns: 1fr; }
+      .hero, .grid-2, .guidance-wrap, .data-quality { grid-template-columns: 1fr; }
     }
     @media (max-width: 980px) {
-      .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .selected-grid, .context-detail-grid { grid-template-columns: 1fr; }
+      .page, .grid-3, .guidance-wrap, .hero-right, .data-quality { grid-template-columns: 1fr; }
       .sidebar { position: static; }
     }
   </style>
@@ -112,15 +92,8 @@
       <div class="field"><label for="monthSelect">Forecast month</label><select id="monthSelect"></select></div>
       <div class="field"><label for="shapeSelect">Shape layer</label><select id="shapeSelect"></select></div>
       <div class="field"><label for="summaryProductSelect">Polygon summary product</label><select id="summaryProductSelect"></select></div>
-      <div class="export-block">
-        <div class="export-title">Export tools</div>
-        <div class="muted">Quick outputs from the current dashboard view.</div>
-        <div class="export-actions">
-          <button id="downloadFigureBtn">Download current main figure</button>
-          <button id="downloadReportBtn" class="secondary">Download designed one-page report</button>
-        </div>
-        <div class="export-note">The report includes the current main map, selected area, confidential/local distributions, and operational guidance in a cleaner one-page layout.</div>
-      </div>
+      <div class="field"><button id="downloadFigureBtn">Download current main figure</button></div>
+      <div class="field"><button id="downloadReportBtn" class="secondary">Download designed one-page report</button></div>
       <div class="field"><button id="downloadCsvBtn">Download summary JSON</button></div>
       <div class="field"><button id="downloadGeoBtn" class="secondary">Download summary GeoJSON</button></div>
       <div class="field"><button id="resetPolygonBtn" class="secondary">Clear selected polygon</button></div>
@@ -141,21 +114,46 @@
         </div>
       </section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Polygon-based geospatial map for the selected summary product and selected shape layer.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Selected layer ranking</div><div id="rankingTable"></div><div class="mini-note">Top and bottom polygons for the selected product. Click any polygon in the summary map to refresh the lower charts and guidance.</div></div></div></section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon together with a separate right-side context map. The right panel shows a topographic DEM + hillshade context, selected boundary overlay, nearby boundaries, and detailed name/context for the active polygon.</div></div></div><div class="selected-grid"><div class="stack-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="historicalBoxTitle">12-month historical distribution + forecast overlay</div><div class="pro-controls"><label class="pro-control">Distribution <select id="distributionModeSelect"><option value="box">Boxplot clean</option><option value="violin">Violin + box</option></select></label><label class="pro-control">Forecast color <select id="forecastColorModeSelect"><option value="percentile">By percentile rank</option><option value="fixed">Fixed red diamond</option></select></label></div><div id="historicalBoxChart" class="graph-md"></div><div class="risk-legend"><span><span class="risk-dot" style="background:#1d4ed8"></span>Dry &lt;20%</span><span><span class="risk-dot" style="background:#64748b"></span>Normal 20–80%</span><span><span class="risk-dot" style="background:#b91c1c"></span>Wet &gt;80%</span></div><div class="mini-note">For the selected area or station, each month shows the historical rainfall distribution with the current forecast overlaid as a diamond marker. Requires historical distribution JSON/CSV exported from the compute pipeline.</div></div></div><div class="context-card"><div class="context-head"><div><div class="context-name" id="selectedAreaName">Selected area context</div><div class="context-sub" id="selectedAreaSubtitle">Clicked polygon boundary over topographic DEM + hillshade context and nearby administrative boundaries.</div></div></div><div class="context-badges"><div class="context-badge" id="selectedAreaBadgeShape">Shape: -</div><div class="context-badge" id="selectedAreaBadgeMonth">Month: -</div><div class="context-badge" id="selectedAreaBadgeProduct">Product: -</div></div><div id="selectedAreaMap" class="context-map"></div><div class="context-detail-grid"><div class="context-detail"><div class="k">Selected area name</div><div class="v" id="selectedAreaDetailName">None selected</div></div><div class="context-detail"><div class="k">Region ID</div><div class="v" id="selectedAreaDetailId">-</div></div><div class="context-detail"><div class="k">Current value</div><div class="v" id="selectedAreaDetailValue">-</div></div><div class="context-detail"><div class="k">Local peers</div><div class="v" id="selectedAreaDetailPeers">-</div></div></div><div class="context-note" id="selectedAreaNote">Select any polygon from the summary map or grouped maps to show its contextual boundary view.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title">Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title">Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">SPI group</div><div class="section-subtitle">Short-, medium-, and seasonal-scale wetness and dryness indicators to contextualize the current rainfall outlook.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">SPI-1</div><div id="map_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-3</div><div id="map_spi3" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-6</div><div id="map_spi6" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Probability exceedance group</div><div class="section-subtitle">Exceedance probability layers for thresholds P67, P85, and P95.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Exceedance P67</div><div id="map_prob_exceed_p67" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P85</div><div id="map_prob_exceed_p85" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P95</div><div id="map_prob_exceed_p95" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Probability group</div><div class="section-subtitle">Tercile and heavy-rain probability products for operational risk interpretation.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Above Normal</div><div id="map_prob_tercile_above" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Near Normal</div><div id="map_prob_tercile_normal" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Below Normal</div><div id="map_prob_tercile_below" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Heavy Rain</div><div id="map_prob_heavy_rain" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Below Normal (single)</div><div id="map_prob_below_normal" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Dominant Tercile / Combined</div><div id="map_dominant_tercile" class="graph-sm"></div><div class="mini-note">Use this panel for a single combined probability view when available from your generated products.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Flood, drought, and agriculture risk group</div><div class="section-subtitle">Risk layers linked directly to the generated elevation-informed risk products and original flood/drought risk outputs.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Flood / Drought Risk</div><div id="map_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Probability SPI-1</div><div id="map_prob_drought_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Flood Score</div><div id="map_flood_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Score</div><div id="map_drought_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Agriculture Score</div><div id="map_agri_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Flood Risk</div><div id="map_flood_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Risk</div><div id="map_drought_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Agriculture Risk</div><div id="map_agri_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Advisory Classes</div><div id="map_advisory_class" class="graph-sm"></div><div class="mini-note">Integrated advisory class combining forecast tendency, SPI condition, rainfall probability, and risk interpretation.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Skill group</div><div class="section-subtitle">Model performance and reliability layers to support interpretation confidence.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Correlation Skill</div><div id="map_corr_skill" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">RMSE</div><div id="map_rmse_skill" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">MAE</div><div id="map_mae_skill" class="graph-sm"></div></div></div></section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title">Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title">Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
+
       <section class="section card"><div class="section-head"><div><div class="section-title">Data quality and polygon matching</div><div class="section-subtitle">Checks for region ID matching and area-average coverage between GeoJSON polygons and product JSON rows.</div></div></div><div class="data-quality"><div class="debug-box"><div class="mini-title">Current matching summary</div><div id="debugSummary" class="muted">No check yet.</div></div><div class="debug-box"><div class="mini-title">Example missing polygon IDs</div><div id="debugMissing" class="muted">No missing IDs reported.</div></div></div></section>
     </main>
   </div>
   <script>
-    const CONFIG = { manifestUrl: './data/manifest.json', geojsonDir: './data/geojson', productDir: './data/products', filePattern: '{month}_{shape}_{product}.json', geojsonPattern: '{shape}.geojson', historicalDir: './data/historical', demDir: './data/dem' };
-    const HISTORICAL_VALUE_CANDIDATES = ['historical_rainfall_mm','historical_value','obs','observed','rainfall','rainfall_mm','precip','precipitation','value'];
-    const HISTORICAL_FORECAST_CANDIDATES = ['current_forecast_mm','forecast_actual','forecast_value','forecast','current_forecast','predicted','value_forecast'];
+    const CONFIG = { manifestUrl: './data/manifest.json', geojsonDir: './data/geojson', productDir: './data/products', filePattern: '{month}_{shape}_{product}.json', geojsonPattern: '{shape}.geojson' };
+    const LOCKED_PLOT_CONFIG = {
+      responsive: true,
+      displaylogo: false,
+      scrollZoom: false,
+      doubleClick: false,
+      modeBarButtonsToRemove: [
+        'zoom2d','pan2d','select2d','lasso2d','zoomIn2d','zoomOut2d','autoScale2d','resetScale2d',
+        'zoomInGeo','zoomOutGeo','resetGeo','hoverClosestGeo','toImage'
+      ]
+    };
+    function lockLayoutInteractions(layout){
+      const locked = { ...(layout || {}), dragmode: false };
+      for(const axisName of ['xaxis','yaxis','xaxis2','yaxis2','xaxis3','yaxis3']){
+        if(locked[axisName]) locked[axisName] = { ...locked[axisName], fixedrange: true };
+      }
+      if(locked.geo){
+        locked.geo = { ...locked.geo };
+        locked.geo.lonaxis = { ...(locked.geo.lonaxis || {}), fixedrange: true };
+        locked.geo.lataxis = { ...(locked.geo.lataxis || {}), fixedrange: true };
+      }
+      return locked;
+    }
+    const _plotlyNewPlot = Plotly.newPlot.bind(Plotly);
+    Plotly.newPlot = function(div, data, layout, config){
+      return _plotlyNewPlot(div, data, lockLayoutInteractions(layout), { ...LOCKED_PLOT_CONFIG, ...(config || {}) });
+    };
     const SHAPE_OPTIONS = [{ value: 'adm1', label: 'ADM1 Province' },{ value: 'adm2', label: 'ADM2 District' },{ value: 'mainbasin', label: 'Main Basin' },{ value: 'subbasin', label: 'Sub-basin' }];
     const SUMMARY_PRODUCT_OPTIONS = [{ label: 'Forecast Actual Rainfall', value: 'forecast_actual' },{ label: 'Forecast Percent Anomaly', value: 'forecast_percent_anomaly' },{ label: 'Probability Below Normal', value: 'prob_below_normal' },{ label: 'Probability Heavy Rain', value: 'prob_heavy_rain' },{ label: 'Correlation Skill', value: 'corr_skill' },{ label: 'RMSE', value: 'rmse_skill' },{ label: 'MAE', value: 'mae_skill' },{ label: 'SPI-1', value: 'spi1' },{ label: 'SPI-3', value: 'spi3' },{ label: 'SPI-6', value: 'spi6' },{ label: 'Flood Risk Class', value: 'flood_risk_class' },{ label: 'Drought Risk', value: 'drought_risk_class' },{ label: 'Agriculture Risk', value: 'agri_risk_class' },{ label: 'Advisory Classes', value: 'advisory_class' },{ label: 'Flood Score', value: 'flood_score' },{ label: 'Drought Score', value: 'drought_score' },{ label: 'Agriculture Score', value: 'agri_score' },{ label: 'Probability Drought SPI-1', value: 'prob_drought_spi1' },{ label: 'Probability Exceedance P67', value: 'prob_exceed_p67' },{ label: 'Probability Exceedance P85', value: 'prob_exceed_p85' },{ label: 'Probability Exceedance P95', value: 'prob_exceed_p95' },{ label: 'F&D Risk', value: 'risk_class' }];
     const MONTHS = [['Jan','January'], ['Feb','February'], ['Mar','March'], ['Apr','April'], ['May','May'], ['Jun','June'], ['Jul','July'], ['Aug','August'], ['Sep','September'], ['Oct','October'], ['Nov','November'], ['Dec','December']];
@@ -224,7 +222,7 @@
 
 	advisory_class: { legend: 'Advisory class', colorscale: 'YlOrRd', zmin: 0, zmax: 5 }
 	};
-    const state = { month: 'Jun', shape: 'adm1', summaryProduct: 'forecast_actual', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, historicalCache: {}, demCache: {}, distributionMode: 'box', forecastColorMode: 'percentile', dataQuality: null };
+    const state = { month: 'Jun', shape: 'adm1', summaryProduct: 'forecast_actual', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
     const monthSelect = document.getElementById('monthSelect'), shapeSelect = document.getElementById('shapeSelect'), summaryProductSelect = document.getElementById('summaryProductSelect');
     const MAP_IDS = ['forecast_actual','forecast_anomaly','forecast_percent_anomaly','corr_skill','rmse_skill','mae_skill','prob_tercile_above','prob_tercile_normal','prob_tercile_below','prob_heavy_rain','prob_below_normal','dominant_tercile','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'];
     function monthName(abbr){ return Object.fromEntries(MONTHS)[abbr] || abbr; }
@@ -234,190 +232,66 @@
     function geojsonPath(shape){ return `${CONFIG.geojsonDir}/${CONFIG.geojsonPattern.replace('{shape}', shape)}`; }
     function normalizeId(v){ if (v === null || v === undefined) return ''; let s = String(v).trim(); if (s.endsWith('.0')) s = s.slice(0, -2); if (/^\d+$/.test(s)) s = String(parseInt(s, 10)); return s; }
     async function safeFetchJson(url){ const res = await fetch(url, { cache: 'no-store' }); if (!res.ok) throw new Error(`Missing file: ${url}`); return await res.json(); }
-    async function safeFetchText(url){ const res = await fetch(url, { cache: 'no-store' }); if (!res.ok) throw new Error(`Missing file: ${url}`); return await res.text(); }
-    function parseCsv(text){
-      const lines = String(text || '').trim().split(/\r?\n/).filter(Boolean);
-      if(!lines.length) return [];
-      const parseLine = (line) => {
-        const out=[]; let cur=''; let quote=false;
-        for(let i=0;i<line.length;i++){
-          const ch=line[i], next=line[i+1];
-          if(ch==='"' && quote && next==='"'){ cur+='"'; i++; continue; }
-          if(ch==='"'){ quote=!quote; continue; }
-          if(ch===',' && !quote){ out.push(cur); cur=''; continue; }
-          cur+=ch;
-        }
-        out.push(cur); return out;
-      };
-      const header = parseLine(lines[0]).map(h => h.trim());
-      return lines.slice(1).map(line => {
-        const vals = parseLine(line);
-        const row={};
-        header.forEach((h,i) => row[h] = vals[i] ?? '');
-        return row;
-      });
-    }
-    function normalizeHistoricalRows(raw){
-      const rows = Array.isArray(raw) ? raw : (raw?.rows || raw?.data || raw?.records || []);
-      return rows.map(r => ({...r, region_id: normalizeId(r.region_id ?? r.ADM2_PCODE ?? r.station_id ?? r.id), region_name: String(r.region_name ?? r.station_name ?? r.name ?? '')}));
-    }
-    function firstFiniteFrom(row, candidates){
-      for(const c of candidates){
-        if(row && row[c] !== undefined && row[c] !== null && row[c] !== ''){
-          const v = Number(row[c]);
-          if(Number.isFinite(v)) return v;
-        }
-      }
-      return null;
-    }
-    async function tryLoadJsonOrCsv(urlBase){
-      try { return normalizeHistoricalRows(await safeFetchJson(`${urlBase}.json`)); } catch(e1) {}
-      try { return normalizeHistoricalRows(parseCsv(await safeFetchText(`${urlBase}.csv`))); } catch(e2) {}
-      throw new Error(`Missing historical file: ${urlBase}.json or .csv`);
-    }
     async function loadManifest(){ if (state.manifest) return state.manifest; state.manifest = await safeFetchJson(CONFIG.manifestUrl); return state.manifest; }
     async function loadGeoJSON(shape){ if (state.geojsonCache[shape]) return state.geojsonCache[shape]; const gj = await safeFetchJson(geojsonPath(shape)); state.geojsonCache[shape] = gj; return gj; }
     function normalizeRows(raw){ if (Array.isArray(raw)) return raw; if (raw && Array.isArray(raw.rows)) return raw.rows; throw new Error('Unsupported JSON format. Expected array or { rows: [...] }.'); }
     async function loadProduct(month, shape, product){ const key = `${month}_${shape}_${product}`; if (state.productCache[key]) return state.productCache[key]; const raw = await safeFetchJson(productPath(month, shape, product)); const rows = normalizeRows(raw).map(r => ({ ...r, region_id: normalizeId(r.region_id), region_name: String(r.region_name ?? ''), value: Number.isFinite(Number(r.value)) ? Number(r.value) : null })); state.productCache[key] = rows; return rows; }
-    async function loadHistoricalMonthData(month, shape, product){
-      const key = `${month}_${shape}_${product}`;
-      if(state.historicalCache[key]) return state.historicalCache[key];
-      const bases = [
-        `${CONFIG.historicalDir}/${month}_${shape}_${product}_historical`,
-        `${CONFIG.historicalDir}/${shape}_${product}_${month}_historical`,
-        `${CONFIG.historicalDir}/${shape}_${product}_historical`,
-        `${CONFIG.historicalDir}/historical_${month}_${shape}_${product}`,
-        `${CONFIG.historicalDir}/ADM2_boxplot_distribution_forecast_${month}`,
-        `${CONFIG.historicalDir}/station_boxplot_distribution_forecast_${month}`,
-        `${CONFIG.historicalDir}/${month}_${shape}_forecast_actual_historical`,
-        `${CONFIG.historicalDir}/${shape}_forecast_actual_historical`
-      ];
-      let lastErr = null;
-      for(const base of bases){
-        try{
-          const rows = await tryLoadJsonOrCsv(base);
-          state.historicalCache[key] = rows;
-          return rows;
-        } catch(err){ lastErr = err; }
-      }
-      throw lastErr || new Error('No historical distribution file found.');
-    }
-    function extractHistoricalValues(rows, regionId, month){
-      const rid = normalizeId(regionId);
-      return rows
-        .filter(r => normalizeId(r.region_id) === rid)
-        .filter(r => !r.month || String(r.month).slice(0,3).toLowerCase() === month.toLowerCase())
-        .map(r => firstFiniteFrom(r, HISTORICAL_VALUE_CANDIDATES))
-        .filter(v => Number.isFinite(v));
-    }
-    function extractHistoricalForecast(rows, regionId, month){
-      const rid = normalizeId(regionId);
-      const matched = rows
-        .filter(r => normalizeId(r.region_id) === rid)
-        .filter(r => !r.month || String(r.month).slice(0,3).toLowerCase() === month.toLowerCase());
-      for(const r of matched){
-        const v = firstFiniteFrom(r, HISTORICAL_FORECAST_CANDIDATES);
-        if(Number.isFinite(v)) return v;
-      }
-      return null;
-    }
-
-    function percentileRank(values, x){
-      const vals = (values || []).filter(v => Number.isFinite(v));
-      if(!vals.length || !Number.isFinite(x)) return null;
-      return vals.filter(v => v <= x).length / vals.length * 100;
-    }
-    function forecastColorFromPercentile(pct){
-      if(!Number.isFinite(pct)) return '#b91c1c';
-      if(pct < 20) return '#1d4ed8';
-      if(pct > 80) return '#b91c1c';
-      return '#64748b';
-    }
-    function forecastLabelFromPercentile(pct){
-      if(!Number.isFinite(pct)) return 'unknown';
-      if(pct < 20) return 'dry / below historical normal';
-      if(pct > 80) return 'wet / above historical normal';
-      return 'near historical normal';
-    }
-    async function tryLoadDemGrid(box){
-      const candidates = [
-        `${CONFIG.demDir}/${state.shape}_dem.json`,
-        `${CONFIG.demDir}/topo_dem.json`,
-        `${CONFIG.demDir}/dem.json`
-      ];
-      for(const url of candidates){
-        try{
-          if(state.demCache[url]) return state.demCache[url];
-          const dem = await safeFetchJson(url);
-          if(dem && Array.isArray(dem.x) && Array.isArray(dem.y) && Array.isArray(dem.z)){
-            state.demCache[url] = dem;
-            return dem;
-          }
-        } catch {}
-      }
-      return null;
-    }
-    function subsetDemGrid(dem, box){
-      if(!dem) return null;
-      const xIdx = dem.x.map((v,i)=>({v:Number(v),i})).filter(o => Number.isFinite(o.v) && o.v >= box.minLon && o.v <= box.maxLon);
-      const yIdx = dem.y.map((v,i)=>({v:Number(v),i})).filter(o => Number.isFinite(o.v) && o.v >= box.minLat && o.v <= box.maxLat);
-      if(xIdx.length < 3 || yIdx.length < 3) return null;
-      const x = xIdx.map(o=>o.v);
-      const y = yIdx.map(o=>o.v);
-      const z = yIdx.map(yo => xIdx.map(xo => Number(dem.z[yo.i]?.[xo.i])));
-      if(!z.flat().some(Number.isFinite)) return null;
-      const shade = computeHillshade(z);
-      return {x, y, dem:z, shade, source:'file'};
-    }
-    function computeHillshade(z){
-      const ny = z.length, nx = z[0]?.length || 0;
-      return z.map((row, j) => row.map((val, i) => {
-        const center = Number.isFinite(val) ? val : 0;
-        const left = Number.isFinite(row[Math.max(i-1,0)]) ? row[Math.max(i-1,0)] : center;
-        const right = Number.isFinite(row[Math.min(i+1,nx-1)]) ? row[Math.min(i+1,nx-1)] : center;
-        const up = Number.isFinite((z[Math.max(j-1,0)] || [])[i]) ? z[Math.max(j-1,0)][i] : center;
-        const down = Number.isFinite((z[Math.min(j+1,ny-1)] || [])[i]) ? z[Math.min(j+1,ny-1)][i] : center;
-        const dzdx = right - left;
-        const dzdy = down - up;
-        const az = 315 * Math.PI / 180;
-        const alt = 45 * Math.PI / 180;
-        const slope = Math.atan(Math.sqrt(dzdx*dzdx + dzdy*dzdy) / 260);
-        const aspect = Math.atan2(dzdy, -dzdx);
-        const hs = Math.sin(alt)*Math.cos(slope) + Math.cos(alt)*Math.sin(slope)*Math.cos(az - aspect);
-        return Math.max(0, Math.min(1, hs));
-      }));
-    }
     function fillControls(){ monthSelect.innerHTML=''; MONTHS.forEach(([abbr,name])=>{ const opt=document.createElement('option'); opt.value=abbr; opt.textContent=`${name} (${abbr})`; monthSelect.appendChild(opt);}); monthSelect.value=state.month; shapeSelect.innerHTML=''; SHAPE_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; shapeSelect.appendChild(opt);}); shapeSelect.value=state.shape; summaryProductSelect.innerHTML=''; SUMMARY_PRODUCT_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; summaryProductSelect.appendChild(opt);}); summaryProductSelect.value=state.summaryProduct; }
     async function applyManifest(){ const manifest=await loadManifest(); const geos=new Set(manifest.geographies||[]); [...shapeSelect.options].forEach(opt=>{opt.disabled=geos.size?!geos.has(opt.value):false;}); if(geos.size&&!geos.has(state.shape)) state.shape=[...geos][0]; shapeSelect.value=state.shape; const months=new Set(manifest.months||[]); [...monthSelect.options].forEach(opt=>{opt.disabled=months.size?!months.has(opt.value):false;}); if(months.size&&!months.has(state.month)) state.month=[...months][0]; monthSelect.value=state.month; const products=new Set(manifest.products||[]); [...summaryProductSelect.options].forEach(opt=>{opt.disabled=products.size?!products.has(opt.value):false;}); if(products.size&&!products.has(state.summaryProduct)) state.summaryProduct=[...products][0]; summaryProductSelect.value=state.summaryProduct; }
     function updateHero(){ document.getElementById('metricMonth').textContent=monthName(state.month); document.getElementById('metricShape').textContent=shapeLabel(state.shape); document.getElementById('metricProduct').textContent=currentSummaryMeta()?.label||state.summaryProduct; document.getElementById('metricPolygon').textContent=state.selectedPolygon?.region_name||'None'; document.getElementById('summaryMapTitle').textContent=`${shapeLabel(state.shape)}: ${currentSummaryMeta()?.label||state.summaryProduct}`; document.getElementById('heroDetail').textContent=`Current display uses ${shapeLabel(state.shape)} for ${monthName(state.month)} and groups related products from the generated climate maps into operational sections.`; }
     function getGeoJSONBounds(geojson){ let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity; function walkCoords(coords){ if(!Array.isArray(coords)) return; if(typeof coords[0]==='number'&&typeof coords[1]==='number'){ const [lon,lat]=coords; if(Number.isFinite(lon)&&Number.isFinite(lat)){ minLon=Math.min(minLon,lon); minLat=Math.min(minLat,lat); maxLon=Math.max(maxLon,lon); maxLat=Math.max(maxLat,lat);} return;} coords.forEach(walkCoords);} (geojson.features||[]).forEach(f=>{ if(f?.geometry?.coordinates) walkCoords(f.geometry.coordinates);}); if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return {lonRange:[95,106],latRange:[5,21]}; const lonPad=Math.max(0.35,(maxLon-minLon)*0.06), latPad=Math.max(0.35,(maxLat-minLat)*0.06); return {lonRange:[minLon-lonPad,maxLon+lonPad],latRange:[minLat-latPad,maxLat+latPad]}; }
-    function baseChoroplethLayout(height,geojson){ const bounds=getGeoJSONBounds(geojson); return { margin:{l:0,r:0,t:10,b:0}, height, paper_bgcolor:'white', plot_bgcolor:'white', geo:{ visible:false, projection:{type:'mercator'}, bgcolor:'white', showland:false, showcountries:false, showcoastlines:false, showlakes:false, showrivers:false, showframe:false, lonaxis:{range:bounds.lonRange}, lataxis:{range:bounds.latRange} } }; }
+    function baseChoroplethLayout(height,geojson){ const bounds=getGeoJSONBounds(geojson); return { margin:{l:0,r:0,t:10,b:0}, height, dragmode:false, paper_bgcolor:'white', plot_bgcolor:'white', geo:{ visible:false, projection:{type:'mercator'}, bgcolor:'white', showland:false, showcountries:false, showcoastlines:false, showlakes:false, showrivers:false, showframe:false, lonaxis:{range:bounds.lonRange}, lataxis:{range:bounds.latRange} } }; }
     function setDebugSummary(q){ const summaryEl=document.getElementById('debugSummary'), missingEl=document.getElementById('debugMissing'); if(!q){ summaryEl.textContent='No check yet.'; missingEl.textContent='No missing IDs reported.'; return;} summaryEl.innerHTML=`Matched polygons: <b>${q.matched}</b> / <b>${q.total}</b><br>Coverage: <b>${q.coverage.toFixed(1)}%</b>`; missingEl.textContent=q.missingIds.length?q.missingIds.join(', '):'No missing IDs reported.'; }
+
+    function bboxFromFeature(feature){
+      let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity;
+      function walk(coords){
+        if(!Array.isArray(coords)) return;
+        if(typeof coords[0] === 'number' && typeof coords[1] === 'number'){
+          const lon = Number(coords[0]), lat = Number(coords[1]);
+          if(Number.isFinite(lon) && Number.isFinite(lat)){
+            minLon=Math.min(minLon,lon); minLat=Math.min(minLat,lat);
+            maxLon=Math.max(maxLon,lon); maxLat=Math.max(maxLat,lat);
+          }
+          return;
+        }
+        coords.forEach(walk);
+      }
+      walk(feature?.geometry?.coordinates);
+      if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return null;
+      return {minLon,minLat,maxLon,maxLat,width:maxLon-minLon,height:maxLat-minLat};
+    }
+
     function buildMainMapLabelTrace(geojson, names, shape){
       const features = geojson?.features || [];
       if(!features.length) return null;
-      const scored = features.map((f, i) => {
+      const bounds = getGeoJSONBounds(geojson);
+      const lonSpan = Math.max(bounds.lonRange[1] - bounds.lonRange[0], 1e-6);
+      const latSpan = Math.max(bounds.latRange[1] - bounds.latRange[0], 1e-6);
+      const maxLabelsByShape = { adm1: 77, mainbasin: 35, subbasin: 42, adm2: 45 };
+      const fontSizeByShape = { adm1: 9.5, mainbasin: 10, subbasin: 8.5, adm2: 7.2 };
+      const maxLabels = maxLabelsByShape[shape] || 45;
+      const fontSize = fontSizeByShape[shape] || 8.5;
+      const candidates = features.map((f, i) => {
         const c = featureCentroid(f);
         const b = bboxFromFeature(f);
-        if(!c || !b) return null;
-        const width = Math.max(b.maxLon - b.minLon, 0);
-        const height = Math.max(b.maxLat - b.minLat, 0);
-        const score = width * height;
-        const label = String(names[i] || f?.properties?.region_name || f?.properties?.name || f?.properties?.region_id || '').trim();
-        if(!label) return null;
-        return {lon:c.lon, lat:c.lat, label, score, width, height};
-      }).filter(Boolean).sort((a,b) => b.score - a.score);
+        const label = String(names[i] || f?.properties?.region_name || f?.properties?.NAME_2 || f?.properties?.name || f?.properties?.region_id || '').trim();
+        if(!c || !b || !label) return null;
+        const areaScore = Math.max(b.width * b.height, 1e-8);
+        const labelW = Math.max(0.018, (label.length * fontSize * 0.00095) * lonSpan);
+        const labelH = Math.max(0.018, (fontSize * 0.0028) * latSpan);
+        return { lon:c.lon, lat:c.lat, label, areaScore, labelW, labelH };
+      }).filter(Boolean).sort((a,b) => b.areaScore - a.areaScore);
 
-      const maxLabels = shape === 'adm2' ? 36 : shape === 'subbasin' ? 34 : 55;
-      const minScore = shape === 'adm2' ? 0.035 : shape === 'subbasin' ? 0.025 : 0.012;
       const selected = [];
-      const minDx = shape === 'adm2' ? 0.36 : 0.22;
-      const minDy = shape === 'adm2' ? 0.28 : 0.18;
-      for(const item of scored){
-        if(item.score < minScore && selected.length >= 12) continue;
-        const tooClose = selected.some(p => Math.abs(p.lon - item.lon) < minDx && Math.abs(p.lat - item.lat) < minDy);
-        if(tooClose) continue;
-        selected.push(item);
+      for(const cand of candidates){
+        const overlaps = selected.some(prev => {
+          const minDx = (cand.labelW + prev.labelW) * 0.52;
+          const minDy = (cand.labelH + prev.labelH) * 0.72;
+          return Math.abs(cand.lon - prev.lon) < minDx && Math.abs(cand.lat - prev.lat) < minDy;
+        });
+        if(overlaps) continue;
+        selected.push(cand);
         if(selected.length >= maxLabels) break;
       }
       if(!selected.length) return null;
@@ -427,7 +301,11 @@
         lon:selected.map(d => d.lon),
         lat:selected.map(d => d.lat),
         text:selected.map(d => d.label),
-        textfont:{size: shape === 'adm2' ? 8 : 9, color:'#0f172a', family:'Inter, Arial, sans-serif'},
+        textfont:{
+          size:fontSize,
+          color:'#0f172a',
+          family:'Inter, Arial, Helvetica, sans-serif'
+        },
         textposition:'middle center',
         hoverinfo:'skip',
         showlegend:false
@@ -486,14 +364,15 @@
         const labelTrace = buildMainMapLabelTrace(geojson, names, shape);
         if(labelTrace) tracesForMap.push(labelTrace);
       }
-      await Plotly.newPlot(divId, tracesForMap, baseChoroplethLayout(big ? 620 : 300, geojson), {responsive:true, displaylogo:false});
+
+      await Plotly.newPlot(divId, tracesForMap, baseChoroplethLayout(big ? 620 : 300, geojson), LOCKED_PLOT_CONFIG);
 
       if(clickable){
         const div = document.getElementById(divId);
         div.removeAllListeners?.('plotly_click');
         div.on('plotly_click', async evt => {
           const point = evt.points?.[0];
-          if(!point) return;
+          if(!point || !point.customdata) return;
 
           state.selectedPolygon = {
             region_id: normalizeId(point.customdata[0]),
@@ -530,7 +409,7 @@
             margin:{l:20,r:20,t:20,b:20},
             paper_bgcolor:'white',
             plot_bgcolor:'white'
-          }, {responsive:true,displaylogo:false});
+          }, LOCKED_PLOT_CONFIG);
         }
       }
     }
@@ -591,360 +470,12 @@
       return [min - pad, max + pad];
     }
 
-    function getFeatureById(geojson, regionId){
-      return (geojson?.features || []).find(f => normalizeId(f?.properties?.region_id) === normalizeId(regionId)) || null;
-    }
-
-    function featureRings(feature){
-      const geom = feature?.geometry;
-      if(!geom) return [];
-      if(geom.type === 'Polygon') return geom.coordinates || [];
-      if(geom.type === 'MultiPolygon') return (geom.coordinates || []).flat();
-      return [];
-    }
-
-    function bboxFromFeature(feature){
-      let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity;
-      const rings = featureRings(feature);
-      rings.forEach(ring => ring.forEach(pt => {
-        if(Array.isArray(pt) && Number.isFinite(pt[0]) && Number.isFinite(pt[1])){
-          minLon = Math.min(minLon, pt[0]); minLat = Math.min(minLat, pt[1]);
-          maxLon = Math.max(maxLon, pt[0]); maxLat = Math.max(maxLat, pt[1]);
-        }
-      }));
-      if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return null;
-      return {minLon, minLat, maxLon, maxLat};
-    }
-
-    function bboxUnion(boxes){
-      const valid = boxes.filter(Boolean);
-      if(!valid.length) return null;
-      return {
-        minLon: Math.min(...valid.map(b=>b.minLon)),
-        minLat: Math.min(...valid.map(b=>b.minLat)),
-        maxLon: Math.max(...valid.map(b=>b.maxLon)),
-        maxLat: Math.max(...valid.map(b=>b.maxLat)),
-      };
-    }
-
-    function expandBox(box, frac=0.12){
-      if(!box) return null;
-      const dx = Math.max((box.maxLon - box.minLon) * frac, 0.08);
-      const dy = Math.max((box.maxLat - box.minLat) * frac, 0.08);
-      return {minLon: box.minLon - dx, minLat: box.minLat - dy, maxLon: box.maxLon + dx, maxLat: box.maxLat + dy};
-    }
-
-    function buildTerrainBackdrop(box, nx=180, ny=180){
-      const x = Array.from({length:nx}, (_,i) => box.minLon + (i/(nx-1))*(box.maxLon-box.minLon));
-      const y = Array.from({length:ny}, (_,j) => box.minLat + (j/(ny-1))*(box.maxLat-box.minLat));
-      const dem = y.map((lat) => x.map((lon) => {
-        const lonN = (lon - box.minLon) / Math.max(box.maxLon - box.minLon, 1e-6);
-        const latN = (lat - box.minLat) / Math.max(box.maxLat - box.minLat, 1e-6);
-        const mountainBelt = 0.95 * Math.exp(-((lonN-0.30)**2/0.055 + (latN-0.68)**2/0.18));
-        const ridge1 = 0.42 * Math.sin((lonN*3.1 + latN*1.7) * Math.PI);
-        const ridge2 = 0.25 * Math.cos((lonN*6.2 - latN*2.6) * Math.PI);
-        const ridge3 = 0.14 * Math.sin((lonN*12.0 + latN*8.0) * Math.PI);
-        const basin = -0.45 * Math.exp(-((lonN-0.72)**2/0.08 + (latN-0.32)**2/0.06));
-        const tilt = 0.35 * (1 - latN) + 0.18 * lonN;
-        return 350 + 850 * (tilt + mountainBelt + ridge1 + ridge2 + ridge3 + basin);
-      }));
-
-      const shade = dem.map((row, j) => row.map((z, i) => {
-        const dzdx = ((row[Math.min(i+1,nx-1)] ?? z) - (row[Math.max(i-1,0)] ?? z));
-        const dzdy = (((dem[Math.min(j+1,ny-1)] || row)[i] ?? z) - ((dem[Math.max(j-1,0)] || row)[i] ?? z));
-        const az = 315 * Math.PI / 180;
-        const alt = 45 * Math.PI / 180;
-        const slope = Math.atan(Math.sqrt(dzdx*dzdx + dzdy*dzdy) / 250);
-        const aspect = Math.atan2(dzdy, -dzdx);
-        const hs = Math.sin(alt)*Math.cos(slope) + Math.cos(alt)*Math.sin(slope)*Math.cos(az - aspect);
-        return Math.max(0, Math.min(1, hs));
-      }));
-      return {x, y, dem, shade, source:'synthetic'};
-    }
-
-    function ringToXY(ring){
-      return {
-        x: ring.map(pt => pt[0]),
-        y: ring.map(pt => pt[1])
-      };
-    }
-
-    async function renderSelectedAreaContext(){
-      const setText = (id, text) => { const el = document.getElementById(id); if(el) el.textContent = text; };
-      setText('selectedAreaBadgeShape', `Shape: ${shapeLabel(state.shape)}`);
-      setText('selectedAreaBadgeMonth', `Month: ${monthName(state.month)}`);
-      setText('selectedAreaBadgeProduct', `Product: ${currentSummaryMeta()?.label || state.summaryProduct}`);
-
-      if(!state.selectedPolygon){
-        setText('selectedAreaName', 'Selected area context');
-        setText('selectedAreaSubtitle', 'Clicked polygon boundary over topographic DEM + hillshade context and nearby administrative boundaries.');
-        setText('selectedAreaDetailName', 'None selected');
-        setText('selectedAreaDetailId', '-');
-        setText('selectedAreaDetailValue', '-');
-        setText('selectedAreaDetailPeers', '-');
-        setText('selectedAreaNote', 'Select any polygon from the summary map or grouped maps to show its contextual boundary view.');
-        await Plotly.newPlot('selectedAreaMap', [], {
-          height: 420,
-          margin:{l:10,r:10,t:10,b:10},
-          annotations:[{text:'Select a polygon to show a separate contextual area map.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],
-          paper_bgcolor:'white',
-          plot_bgcolor:'white',
-          xaxis:{visible:false},
-          yaxis:{visible:false}
-        }, {responsive:true, displaylogo:false});
-        return;
-      }
-
-      const geojson = await loadGeoJSON(state.shape);
-      const feature = getFeatureById(geojson, state.selectedPolygon.region_id);
-      const peerIds = getLocalPeerIds(geojson, state.selectedPolygon.region_id, state.shape === 'adm2' ? 14 : 10);
-      const peerFeatures = (geojson?.features || []).filter(f => peerIds.includes(normalizeId(f?.properties?.region_id)));
-      const targetRows = await loadProduct(state.month, state.shape, state.summaryProduct);
-      const valueRow = targetRows.find(r => normalizeId(r.region_id) === normalizeId(state.selectedPolygon.region_id));
-
-      setText('selectedAreaName', state.selectedPolygon.region_name || 'Selected area');
-      setText('selectedAreaSubtitle', `${shapeLabel(state.shape)} contextual view with selected boundary, nearby boundaries, and topographic DEM + hillshade backdrop.`);
-      setText('selectedAreaDetailName', state.selectedPolygon.region_name || 'Selected area');
-      setText('selectedAreaDetailId', state.selectedPolygon.region_id || '-');
-      setText('selectedAreaDetailValue', Number.isFinite(valueRow?.value) ? `${valueRow.value.toFixed(3)} (${currentSummaryMeta()?.label || state.summaryProduct})` : 'No data');
-      setText('selectedAreaDetailPeers', `${peerIds.length} nearby polygons`);
-      setText('selectedAreaNote', 'Background is a topographic DEM + hillshade context for visual interpretation; overlay lines show the selected polygon and nearby boundaries for location detail.');
-
-      if(!feature){
-        await Plotly.newPlot('selectedAreaMap', [], {
-          height: 420,
-          margin:{l:10,r:10,t:10,b:10},
-          annotations:[{text:'Selected area geometry was not found in the active shape layer.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],
-          paper_bgcolor:'white', plot_bgcolor:'white', xaxis:{visible:false}, yaxis:{visible:false}
-        }, {responsive:true, displaylogo:false});
-        return;
-      }
-
-      const targetBox = bboxFromFeature(feature);
-      const peerBoxes = peerFeatures.map(bboxFromFeature);
-      const box = expandBox(bboxUnion([targetBox, ...peerBoxes]), 0.16);
-      const demFromFile = subsetDemGrid(await tryLoadDemGrid(box), box);
-      const terrain = demFromFile || buildTerrainBackdrop(box, 220, 220);
-
-      const traces = [
-        {
-          type:'heatmap',
-          x: terrain.x,
-          y: terrain.y,
-          z: terrain.dem,
-          colorscale: COLORSCALES.terrain,
-          showscale:true,
-          colorbar:{title:'DEM (m)', len:0.36, thickness:10, x:0.98, y:0.20, tickfont:{size:9}, outlinewidth:0.5},
-          hovertemplate:'DEM: %{z:.0f} m<extra></extra>',
-          opacity:0.92
-        },
-        {
-          type:'heatmap',
-          x: terrain.x,
-          y: terrain.y,
-          z: terrain.shade,
-          colorscale:[[0,'rgba(0,0,0,0.75)'],[0.45,'rgba(120,120,120,0.22)'],[1,'rgba(255,255,255,0.72)']],
-          showscale:false,
-          hoverinfo:'skip',
-          opacity:0.42
-        },
-        {
-          type:'contour',
-          x: terrain.x,
-          y: terrain.y,
-          z: terrain.dem,
-          contours:{showlabels:false, coloring:'none'},
-          line:{color:'rgba(15,23,42,0.30)', width:0.65},
-          showscale:false,
-          hoverinfo:'skip'
-        }
-      ];
-
-      peerFeatures.forEach(f => {
-        const fid = normalizeId(f?.properties?.region_id);
-        const isTarget = fid === normalizeId(state.selectedPolygon.region_id);
-        featureRings(f).forEach((ring, idx) => {
-          const xy = ringToXY(ring);
-          traces.push({
-            type:'scatter',
-            mode:'lines',
-            x: xy.x, y: xy.y,
-            line:{color: isTarget ? '#b91c1c' : 'rgba(31,41,55,0.55)', width: isTarget ? 3 : 1.1},
-            fill: isTarget ? 'toself' : 'none',
-            fillcolor: isTarget ? 'rgba(185,28,28,0.18)' : 'rgba(0,0,0,0)',
-            hoverinfo:'skip',
-            showlegend:false
-          });
-        });
-      });
-
-      const centroid = featureCentroid(feature);
-      if(centroid){
-        traces.push({
-          type:'scatter',
-          mode:'markers+text',
-          x:[centroid.lon], y:[centroid.lat],
-          text:[state.selectedPolygon.region_name || 'Selected area'],
-          textposition:'top center',
-          marker:{size:10,color:'#991b1b',line:{color:'white',width:1.5}},
-          textfont:{size:12,color:'#13213d'},
-          hovertemplate:`<b>${state.selectedPolygon.region_name || 'Selected area'}</b><br>Region ID: ${state.selectedPolygon.region_id || '-'}<extra></extra>`,
-          showlegend:false
-        });
-      }
-
-      await Plotly.newPlot('selectedAreaMap', traces, {
-        height: 420,
-        margin:{l:10,r:10,t:10,b:10},
-        paper_bgcolor:'white',
-        plot_bgcolor:'white',
-        xaxis:{range:[box.minLon, box.maxLon], visible:false, scaleanchor:'y', scaleratio:1},
-        yaxis:{range:[box.minLat, box.maxLat], visible:false},
-        annotations:[{
-          x:0.01,y:0.02,xref:'paper',yref:'paper',xanchor:'left',yanchor:'bottom',showarrow:false,
-          text:`Topo DEM + hillshade + selected boundary overlay (${terrain.source === 'file' ? 'DEM file' : 'synthetic terrain fallback'})`,
-          font:{size:11,color:'#334155'},
-          bgcolor:'rgba(255,255,255,0.82)',
-          bordercolor:'#cbd5e1',
-          borderwidth:1,
-          borderpad:4
-        }]
-      }, {responsive:true, displaylogo:false});
-    }
-
-
-
-    async function renderHistoricalForecastBoxplot(){
-      const titleEl = document.getElementById('historicalBoxTitle');
-      if(!document.getElementById('historicalBoxChart')) return;
-      if(!state.selectedPolygon){
-        titleEl.textContent = '12-month historical distribution + forecast overlay';
-        await Plotly.newPlot('historicalBoxChart', [], {
-          height:390,
-          annotations:[{text:'Click a polygon or station to compare the 12-month forecast against its historical monthly distribution.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],
-          margin:{l:45,r:20,t:20,b:45}, paper_bgcolor:'white', plot_bgcolor:'white'
-        }, {responsive:true, displaylogo:false});
-        return;
-      }
-
-      const traces = [];
-      const fcX = [], fcY = [], pText = [], fcColors = [], fcPctValues = [];
-      const allValues = [];
-      let loadedAny = false;
-      let lastMessage = '';
-
-      for(const [abbr, name] of MONTHS){
-        let histVals = [];
-        let fc = null;
-        try{
-          const histRows = await loadHistoricalMonthData(abbr, state.shape, state.summaryProduct);
-          histVals = extractHistoricalValues(histRows, state.selectedPolygon.region_id, abbr);
-          fc = extractHistoricalForecast(histRows, state.selectedPolygon.region_id, abbr);
-          loadedAny = loadedAny || histVals.length > 0;
-        } catch(err){ lastMessage = err.message; }
-
-        try{
-          const fcRows = await loadProduct(abbr, state.shape, state.summaryProduct);
-          const row = fcRows.find(r => normalizeId(r.region_id) === normalizeId(state.selectedPolygon.region_id));
-          if(row && Number.isFinite(row.value)) fc = row.value;
-        } catch {}
-
-        if(histVals.length){
-          allValues.push(...histVals);
-          if(state.distributionMode === 'violin'){
-            traces.push({
-              type:'violin',
-              name:abbr,
-              y:histVals,
-              box:{visible:true},
-              meanline:{visible:true},
-              points:'suspectedoutliers',
-              jitter:0.04,
-              pointpos:0,
-              marker:{size:2.5, opacity:0.25, color:'#1d4ed8'},
-              line:{width:0.9, color:'#1d4ed8'},
-              fillcolor:'rgba(29,78,216,0.17)',
-              spanmode:'hard',
-              hovertemplate:`${name}<br>Historical: %{y:.2f}<extra></extra>`
-            });
-          } else {
-            traces.push({
-              type:'box',
-              name:abbr,
-              y:histVals,
-              boxpoints:'outliers',
-              jitter:0.22,
-              pointpos:0,
-              marker:{size:3, opacity:0.40, color:'#334155'},
-              line:{width:1.2, color:'#0f172a'},
-              fillcolor:'rgba(29,78,216,0.13)',
-              hovertemplate:`${name}<br>Historical: %{y:.2f}<extra></extra>`
-            });
-          }
-        } else {
-          traces.push({type: state.distributionMode === 'violin' ? 'violin' : 'box', name:abbr, y:[null], hoverinfo:'skip'});
-        }
-
-        if(Number.isFinite(fc)){
-          const pct = percentileRank(histVals, fc);
-          const color = state.forecastColorMode === 'percentile' ? forecastColorFromPercentile(pct) : '#b91c1c';
-          fcX.push(abbr); fcY.push(fc); allValues.push(fc); fcColors.push(color); fcPctValues.push(pct);
-          if(Number.isFinite(pct)){
-            pText.push(`${name}: forecast ${fc.toFixed(1)}, percentile ${pct.toFixed(0)}% (${forecastLabelFromPercentile(pct)})`);
-          } else {
-            pText.push(`${name}: forecast ${fc.toFixed(1)}, no historical distribution`);
-          }
-        }
-      }
-
-      traces.push({
-        type:'scatter',
-        mode:'lines+markers',
-        x:fcX,
-        y:fcY,
-        name:'Current forecast',
-        line:{width:2.4, color:'#2563eb'},
-        marker:{size:12, color:fcColors, symbol:'diamond', line:{color:'#ffffff', width:1.4}},
-        text:pText,
-        hovertemplate:'%{text}<extra></extra>'
-      });
-
-      const validPct = fcPctValues.filter(Number.isFinite);
-      const dryCount = validPct.filter(v => v < 20).length;
-      const wetCount = validPct.filter(v => v > 80).length;
-      const normalCount = validPct.length - dryCount - wetCount;
-      const statusNote = validPct.length ? `Forecast rank summary: ${dryCount} dry, ${normalCount} near-normal, ${wetCount} wet months.` : '';
-      titleEl.textContent = `Historical monthly distribution + forecast: ${state.selectedPolygon.region_name}`;
-      const yRange = computeNiceRange(allValues);
-      const annotations = loadedAny ? [{
-        text: statusNote,
-        x:0.01,y:1.08,xref:'paper',yref:'paper',xanchor:'left',showarrow:false,
-        font:{size:11,color:'#475569'},align:'left'
-      }] : [{
-        text:`Historical distribution file not found or empty.<br>Expected examples: ./data/historical/{month}_${state.shape}_${state.summaryProduct}_historical.json/csv<br>or ./data/historical/ADM2_boxplot_distribution_forecast_{month}.json/csv<br>${lastMessage || ''}`,
-        x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:12,color:'gray'},align:'center'
-      }];
-      await Plotly.newPlot('historicalBoxChart', traces, {
-        height:410,
-        xaxis:{title:'Forecast month', categoryorder:'array', categoryarray:MONTHS.map(d=>d[0])},
-        yaxis:{title:currentSummaryMeta()?.label || state.summaryProduct, range:yRange || undefined, zeroline:false},
-        margin:{l:58,r:22,t:52,b:58},
-        paper_bgcolor:'white',
-        plot_bgcolor:'white',
-        showlegend:true,
-        legend:{orientation:'h',y:1.19},
-        annotations
-      }, {responsive:true, displaylogo:false});
-    }
-
     async function renderDiagnostics(){
       if(!state.selectedPolygon){
         document.getElementById('polygonBarTitle').textContent='Confidential local distributions ';
         document.getElementById('polygonLineTitle').textContent='Monthly local distributions ';
-        await Plotly.newPlot('polygonBarChart',[],{height:360,annotations:[{text:'Click a polygon in the summary map or any grouped map to compare the selected location against its nearest local polygons.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},{responsive:true,displaylogo:false});
-        await Plotly.newPlot('polygonLineChart',[],{height:360,annotations:[{text:'After selecting a polygon, this panel will show monthly local neighborhood distributions for the selected summary product.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},{responsive:true,displaylogo:false});
-        await renderSelectedAreaContext();
-        await renderHistoricalForecastBoxplot();
+        await Plotly.newPlot('polygonBarChart',[],{height:360,annotations:[{text:'Click a polygon in the summary map or any grouped map to compare the selected location against its nearest local polygons.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},LOCKED_PLOT_CONFIG);
+        await Plotly.newPlot('polygonLineChart',[],{height:360,annotations:[{text:'After selecting a polygon, this panel will show monthly local neighborhood distributions for the selected summary product.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},LOCKED_PLOT_CONFIG);
         return;
       }
 
@@ -1011,7 +542,7 @@
         plot_bgcolor:'white',
         showlegend:false,
         legend:{orientation:'h',y:1.12}
-      },{responsive:true,displaylogo:false});
+      },LOCKED_PLOT_CONFIG);
 	  
 //--- Monthly Prediction Time Series
       const monthBoxes=[]; const monthX=[]; const monthY=[]; const monthAllValues=[];
@@ -1072,9 +603,7 @@
         plot_bgcolor:'white',
         showlegend:false,
         legend:{orientation:'h',y:1.12}
-      },{responsive:true,displaylogo:false});
-      await renderSelectedAreaContext();
-      await renderHistoricalForecastBoxplot();
+      },LOCKED_PLOT_CONFIG);
     }
 
     function safeSlug(value){
@@ -1135,11 +664,7 @@
   .summary-chip { border:1px solid #d8e4f5; border-radius:16px; padding:12px 14px; background:white; }
   .summary-chip .h { font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); margin-bottom:6px; font-weight:800; }
   .summary-chip .t { font-size:14px; line-height:1.5; }
-  .content-grid { display:grid; grid-template-columns: 1.05fr 0.95fr; gap:16px; }
-  .report-side-stack { display:grid; gap:14px; }
-  .selected-map-card { border:1px solid var(--line); border-radius:18px; padding:14px; background:linear-gradient(180deg, #fbfdff 0%, #f4f8ff 100%); }
-  .selected-meta { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
-  .selected-meta .metric { background:#fff; }
+  .content-grid { display:grid; grid-template-columns: 1.18fr 0.82fr; gap:16px; }
   .panel { border:1px solid var(--line); border-radius:18px; padding:14px; background:var(--card); }
   .panel h3 { margin:0 0 8px; font-size:17px; }
   .panel p { margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
@@ -1149,7 +674,6 @@
   .quality-card .qh { font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); margin-bottom:6px; }
   .quality-card .qt { font-size:13px; line-height:1.55; }
   .diag-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
-  .panel p strong { color:#13213d; }
   .diag-grid .panel h4 { margin:0 0 8px; font-size:15px; }
   .guides { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
   .guide { border:1px solid var(--line); border-radius:20px; padding:16px 16px 14px; }
@@ -1192,25 +716,12 @@
         <p>${escapeHtml(payload.mapCaption)}</p>
         <div class="img-wrap">${payload.summaryMap ? `<img src="${payload.summaryMap}" alt="Main summary map" />` : ''}</div>
       </div>
-      <div class="report-side-stack">
-        <div class="selected-map-card">
-          <h3>Selected area context</h3>
-          <p><strong>${escapeHtml(payload.polygon)}</strong> shown separately with a topographic DEM + hillshade context, selected boundary overlay, and nearby boundaries.</p>
-          <div class="img-wrap">${payload.selectedAreaMap ? `<img src="${payload.selectedAreaMap}" alt="Selected area contextual map" />` : ''}</div>
-          <div class="selected-meta">
-            <div class="metric"><div class="k">Area name</div><div class="v">${escapeHtml(payload.polygon)}</div></div>
-            <div class="metric"><div class="k">Region ID</div><div class="v">${escapeHtml(payload.regionId)}</div></div>
-            <div class="metric"><div class="k">Current value</div><div class="v">${escapeHtml(payload.currentValue)}</div></div>
-            <div class="metric"><div class="k">Local peers</div><div class="v">${escapeHtml(payload.localPeers)}</div></div>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Selected area briefing</h3>
-          <p>This block summarizes the currently selected location and the active dashboard context for rapid communication or decision support.</p>
-          <div class="quality-card"><div class="qh">Area</div><div class="qt">${escapeHtml(payload.polygon)}</div></div>
-          <div class="quality-card"><div class="qh">Product focus</div><div class="qt">${escapeHtml(payload.product)}</div></div>
-          <div class="quality-card"><div class="qh">Interpretation note</div><div class="qt">Use this report together with the diagnostics and guidance panels below. Local context, exposure, and recent observations should still be checked before final action.</div></div>
-        </div>
+      <div class="panel">
+        <h3>Selected area briefing</h3>
+        <p>This block summarizes the currently selected location and the active dashboard context for rapid communication or decision support.</p>
+        <div class="quality-card"><div class="qh">Area</div><div class="qt">${escapeHtml(payload.polygon)}</div></div>
+        <div class="quality-card"><div class="qh">Product focus</div><div class="qt">${escapeHtml(payload.product)}</div></div>
+        <div class="quality-card"><div class="qh">Interpretation note</div><div class="qt">Use this report together with the diagnostics and guidance panels below. Local context, exposure, and recent observations should still be checked before final action.</div></div>
       </div>
     </div>
 
@@ -1224,11 +735,6 @@
         <h4>${escapeHtml(payload.diag2Title)}</h4>
         <p>Monthly local context for the active summary product.</p>
         <div class="img-wrap">${payload.diag2 ? `<img src="${payload.diag2}" alt="Monthly local distribution" />` : ''}</div>
-      </div>
-      <div class="panel">
-        <h4>12-month historical distribution + forecast overlay</h4>
-        <p>Historical monthly distribution for the selected area or station, with the current forecast overlaid.</p>
-        <div class="img-wrap">${payload.diag3 ? `<img src="${payload.diag3}" alt="Historical distribution with forecast overlay" />` : ''}</div>
       </div>
     </div>
 
@@ -1249,8 +755,6 @@
       const summaryMap = await plotToDataUrl('summaryMap', 1400, 900);
       const diag1 = await plotToDataUrl('polygonBarChart', 1200, 760);
       const diag2 = await plotToDataUrl('polygonLineChart', 1200, 760);
-      const diag3 = await plotToDataUrl('historicalBoxChart', 1200, 760);
-      const selectedAreaMap = await plotToDataUrl('selectedAreaMap', 1100, 900);
       const payload = {
         title: `ARDA S2DFS one-page summary report`,
         subtitle: `Current export for ${monthName(state.month)} using ${shapeLabel(state.shape)} and ${currentSummaryMeta()?.label || state.summaryProduct}.`,
@@ -1259,16 +763,11 @@
         product: currentSummaryMeta()?.label || state.summaryProduct,
         polygon: state.selectedPolygon?.region_name || 'None selected',
         mapCaption: 'Current main polygon layer summary as displayed in the dashboard.',
-        summaryText: `This report captures the active dashboard state, including the current main map, a separate selected-area context map, local confidential/distribution diagnostics, and guidance for the selected area or lead-ranked area.`,
+        summaryText: `This report captures the active dashboard state, including the current main map, local confidential/distribution diagnostics, and guidance for the selected area or lead-ranked area.`,
         qualityText: htmlToPlainText(document.getElementById('debugSummary')?.innerHTML) || 'No matching summary available.',
         summaryMap,
-        selectedAreaMap,
-        regionId: state.selectedPolygon?.region_id || '-',
-        currentValue: document.getElementById('selectedAreaDetailValue')?.textContent?.trim() || 'No data',
-        localPeers: document.getElementById('selectedAreaDetailPeers')?.textContent?.trim() || '-',
         diag1,
         diag2,
-        diag3,
         diag1Title: document.getElementById('polygonBarTitle')?.textContent?.trim() || 'Confidential local distributions',
         diag2Title: document.getElementById('polygonLineTitle')?.textContent?.trim() || 'Monthly local distributions',
         waterHtml: document.getElementById('waterGuidance')?.innerHTML || '<div>No data.</div>',
@@ -1300,16 +799,6 @@
     document.getElementById('downloadReportBtn').addEventListener('click',async()=>{
       await downloadCurrentSummaryReport();
     });
-    const distributionModeSelect = document.getElementById('distributionModeSelect');
-    const forecastColorModeSelect = document.getElementById('forecastColorModeSelect');
-    if(distributionModeSelect){
-      distributionModeSelect.value = state.distributionMode;
-      distributionModeSelect.addEventListener('change', async e => { state.distributionMode = e.target.value; await renderHistoricalForecastBoxplot(); });
-    }
-    if(forecastColorModeSelect){
-      forecastColorModeSelect.value = state.forecastColorMode;
-      forecastColorModeSelect.addEventListener('change', async e => { state.forecastColorMode = e.target.value; await renderHistoricalForecastBoxplot(); });
-    }
     async function boot(){ fillControls(); try{ await loadManifest(); } catch{} await refreshAll(); }
     boot();
   </script>
