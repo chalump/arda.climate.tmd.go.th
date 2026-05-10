@@ -50,8 +50,27 @@
     .guidance-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .guidance-box { border-radius: 22px; padding: 20px 22px; line-height: 1.55; border: 1px solid #d7e0eb; }
     .guidance-water { background: var(--water-bg); } .guidance-agri { background: var(--agri-bg); }
-    .guidance-title { font-weight: 900; margin-bottom: 16px; font-size: 1.03rem; }
+    .guidance-title { font-weight: 900; margin-bottom: 16px; font-size: 1.03rem; display:flex; align-items:center; gap:10px; }
+    .guidance-title .title-icon { width:34px; height:34px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem; border:1px solid #cbd5e1; background:#fff; }
     .guidance-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .alert-explainer { margin-bottom: 14px; border:1px solid #d7e3f4; border-radius:18px; background:linear-gradient(180deg,#fbfdff 0%,#f5f8ff 100%); padding:14px 16px; }
+    .alert-explainer-title { font-size:0.98rem; font-weight:900; margin-bottom:8px; color:#13213d; }
+    .alert-explainer-grid { display:grid; grid-template-columns:1.05fr 1fr 1fr 1fr; gap:12px; align-items:stretch; }
+    .alert-explainer-intro { color:var(--muted); font-size:0.88rem; line-height:1.45; padding-right:8px; border-right:1px solid #d7dde8; }
+    .alert-level-card { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; padding:10px 12px; border-radius:16px; background:#fff; border:1px solid #e3ebf6; }
+    .alert-level-icon { width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; font-weight:900; }
+    .alert-dry .alert-level-icon { color:#9c1d1d; background:#fff0f0; border:1px solid #f3b4b4; }
+    .alert-watch .alert-level-icon { color:#a54000; background:#fff4e8; border:1px solid #f2bf87; }
+    .alert-low .alert-level-icon { color:#9a6a00; background:#fff8dc; border:1px solid #e7c86a; }
+    .alert-level-name { font-weight:900; font-size:0.88rem; margin-bottom:3px; }
+    .alert-level-text { color:var(--muted); font-size:0.82rem; line-height:1.4; }
+    .action-list { display:grid; gap:10px; margin-top:8px; }
+    .action-item { display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start; }
+    .action-icon { width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#eef4ff; color:#1749b6; font-size:1rem; }
+    .guidance-agri .action-icon { background:#eaf8ef; color:#0d6b43; }
+    .action-title { font-weight:900; font-size:0.9rem; margin-bottom:2px; }
+    .action-text { color:#425579; font-size:0.86rem; line-height:1.42; }
+    .indicator-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
     .chip { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 14px; border-radius: 999px; font-weight: 800; font-size: 0.82rem; border: 1px solid transparent; letter-spacing: 0.01em; }
     .chip-ok { background: var(--ok-bg); border-color: var(--ok-line); color: #0d6b43; }
     .chip-warn { background: var(--warn-bg); border-color: var(--warn-line); color: #a54000; }
@@ -73,12 +92,65 @@
     .export-actions { display: grid; gap: 10px; margin-top: 12px; }
     .export-actions button { text-align: left; padding: 12px 14px; }
     .export-actions .secondary { background: white; border: 1px solid #bfd0f1; color: #173b8a; }
+
+    /* Pro decision-guidance layout: infographic style */
+    .guidance-section { background: #ffffff; }
+    .pro-alert-explainer { display:grid; grid-template-columns:1.35fr 1fr 1.15fr 1.15fr; gap:18px; align-items:center; padding:18px 20px; border-radius:18px; margin-bottom:16px; background:linear-gradient(180deg,#fbfdff 0%,#f7faff 100%); }
+    .alert-explainer-left { padding-right:18px; border-right:1px solid #cfd9e8; }
+    .pro-alert-explainer .alert-explainer-title { font-size:1.02rem; margin-bottom:8px; }
+    .pro-alert-explainer .alert-explainer-intro { border:0; padding:0; color:#284166; font-weight:600; }
+    .alert-definition { display:grid; grid-template-columns:58px 1fr; gap:12px; align-items:center; padding:4px 10px; border-left:1px solid #d4deec; }
+    .alert-big-icon { width:54px; height:54px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:1.45rem; background:white; box-shadow:0 4px 12px rgba(15,23,42,.06); }
+    .alert-def-dry .alert-big-icon { border:2px solid #ef4444; color:#b91c1c; background:#fff5f5; }
+    .alert-def-watch .alert-big-icon { border:2px solid #fb923c; color:#c2410c; background:#fff7ed; }
+    .alert-def-low .alert-big-icon { border:2px solid #facc15; color:#a16207; background:#fffbeb; }
+    .alert-definition .alert-level-name { font-size:.93rem; letter-spacing:.01em; }
+    .alert-definition .alert-level-name span { color:inherit; font-weight:900; }
+    .alert-def-dry .alert-level-name, .alert-def-dry b { color:#dc2626; }
+    .alert-def-watch .alert-level-name, .alert-def-watch b { color:#ea580c; }
+    .alert-def-low .alert-level-name, .alert-def-low b { color:#15803d; }
+    .alert-definition .alert-level-text { color:#1f3356; font-size:.86rem; font-weight:600; }
+    .guidance-box { padding:22px 26px; border-radius:22px; }
+    .guidance-water { background:linear-gradient(180deg,#f8fbff 0%,#f2f7ff 100%); border-color:#cfd9ee; }
+    .guidance-agri { background:linear-gradient(180deg,#fbfff8 0%,#f3fff1 100%); border-color:#d2e8d1; }
+    .guidance-title { font-size:1.12rem; margin-bottom:14px; }
+    .water-title-icon { border:2px solid #2563eb !important; background:#eef4ff !important; color:#1d4ed8; }
+    .agri-title-icon { border:2px solid #15803d !important; background:#eaf8ef !important; color:#15803d; }
+    .level-strip { display:flex; flex-wrap:wrap; gap:14px; margin:2px 0 16px 68px; }
+    .level-pill { display:inline-grid; grid-template-columns:30px 1fr; align-items:center; gap:8px; min-width:148px; padding:8px 14px; border-radius:999px; border:1px solid #e5e7eb; background:#fff; opacity:.72; }
+    .level-pill.active { opacity:1; box-shadow:0 8px 16px rgba(15,23,42,.08); transform:translateY(-1px); }
+    .level-pill .mini-icon { width:26px; height:26px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:.95rem; }
+    .level-main { font-size:.85rem; font-weight:900; line-height:1.05; }
+    .level-sub { font-size:.72rem; font-weight:800; margin-top:2px; }
+    .level-dry { border-color:#fecaca; background:#fff5f5; color:#991b1b; }
+    .level-dry .mini-icon { background:#fee2e2; color:#dc2626; }
+    .level-watch { border-color:#fed7aa; background:#fff7ed; color:#9a3412; }
+    .level-watch .mini-icon { background:#ffedd5; color:#ea580c; }
+    .level-low { border-color:#fde68a; background:#fffbeb; color:#92400e; }
+    .level-low .mini-icon { background:#fef3c7; color:#ca8a04; }
+    .guidance-box .guide-block:first-of-type { border-top:1px solid #cfd9e8; margin-top:6px; }
+    .what-list { display:grid; gap:8px; margin-top:8px; color:#223a60; }
+    .what-row { display:grid; grid-template-columns:24px 1fr; gap:10px; align-items:start; font-size:.91rem; }
+    .what-row b { font-weight:900; }
+    .indicator-grid { grid-template-columns:1fr 1fr; column-gap:28px; row-gap:7px; }
+    .guide-line { padding-left:14px; position:relative; }
+    .guide-line:before { content:'•'; position:absolute; left:0; color:#38547d; font-weight:900; }
+    .action-list { gap:9px; }
+    .action-item { grid-template-columns:36px 1fr; }
+    .action-icon { width:32px; height:32px; border-radius:10px; font-size:1.05rem; box-shadow:0 3px 8px rgba(15,23,42,.06); }
+    .action-title { color:#0f3c91; }
+    .guidance-agri .action-title { color:#166534; }
+    .action-text { color:#243955; font-weight:500; }
     @media (max-width: 1300px) {
       .grid-3 { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
-      .hero, .grid-2, .guidance-wrap, .data-quality { grid-template-columns: 1fr; }
+      .hero, .grid-2, .guidance-wrap, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
+      .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; }
+      .pro-alert-explainer { grid-template-columns:1fr; }
+      .alert-explainer-left, .alert-definition { border-right:none; border-left:none; border-bottom:1px solid #d7dde8; padding-bottom:12px; }
+      .level-strip { margin-left:0; }
     }
     @media (max-width: 980px) {
-      .page, .grid-3, .guidance-wrap, .hero-right, .data-quality { grid-template-columns: 1fr; }
+      .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .sidebar { position: static; }
     }
   </style>
@@ -115,7 +187,17 @@
       </section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Polygon-based geospatial map for the selected summary product and selected shape layer.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Selected layer ranking</div><div id="rankingTable"></div><div class="mini-note">Top and bottom polygons for the selected product. Click any polygon in the summary map to refresh the lower charts and guidance.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title">Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title">Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
+      <section class="section card guidance-section"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div>
+        <div class="alert-explainer pro-alert-explainer">
+          <div class="alert-explainer-left">
+            <div class="alert-explainer-title">How to interpret the alert levels</div>
+            <div class="alert-explainer-intro">These levels combine forecast anomaly, probability of below-normal rainfall, SPI, risk classes, and historical context to indicate expected moisture and water-stress conditions.</div>
+          </div>
+          <div class="alert-definition alert-def-dry"><div class="alert-big-icon">💧</div><div><div class="alert-level-name">DRY <span>(High risk)</span></div><div class="alert-level-text">High likelihood of below-normal rainfall or water stress. Impacts are likely. <b>Take action now.</b></div></div></div>
+          <div class="alert-definition alert-def-watch"><div class="alert-big-icon">⚠️</div><div><div class="alert-level-name">WATCH <span>(Moderate risk)</span></div><div class="alert-level-text">Uncertain or emerging signals of dryness or stress. <b>Monitor closely and prepare to act.</b></div></div></div>
+          <div class="alert-definition alert-def-low"><div class="alert-big-icon">👁</div><div><div class="alert-level-name">LOW–MODERATE <span>(Low risk)</span></div><div class="alert-level-text">Near-normal or slightly dry conditions. Impacts are possible but less likely. <b>Stay informed.</b></div></div></div>
+        </div>
+        <div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon water-title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon agri-title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">SPI group</div><div class="section-subtitle">Short-, medium-, and seasonal-scale wetness and dryness indicators to contextualize the current rainfall outlook.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">SPI-1</div><div id="map_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-3</div><div id="map_spi3" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-6</div><div id="map_spi6" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Probability exceedance group</div><div class="section-subtitle">Exceedance probability layers for thresholds P67, P85, and P95.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Exceedance P67</div><div id="map_prob_exceed_p67" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P85</div><div id="map_prob_exceed_p85" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P95</div><div id="map_prob_exceed_p95" class="graph-sm"></div></div></div></section>
@@ -423,7 +505,94 @@
     function classifySignal(ctx){ const pAnom=ctx.forecast_percent_anomaly, spi1=ctx.spi1, spi3=ctx.spi3, pBelow=ctx.prob_below_normal, pHeavy=ctx.prob_heavy_rain; if((Number.isFinite(pAnom)&&pAnom<=-20)||(Number.isFinite(spi1)&&spi1<=-1.0)||(Number.isFinite(spi3)&&spi3<=-1.0)||(Number.isFinite(pBelow)&&pBelow>=0.55)) return 'dry'; if((Number.isFinite(pAnom)&&pAnom>=20)||(Number.isFinite(pHeavy)&&pHeavy>=0.55)||(Number.isFinite(ctx.prob_exceed_p67)&&ctx.prob_exceed_p67>=0.55)) return 'wet'; return 'neutral'; }
     function advisoryLabel(v){ if(!Number.isFinite(v)) return 'No data'; if(v===0) return 'No advisory'; return String(Math.round(v)); }
     async function collectGuidanceContext(regionId){ const products=['forecast_actual','forecast_anomaly','forecast_percent_anomaly','prob_below_normal','prob_heavy_rain','prob_tercile_above','prob_tercile_normal','prob_tercile_below','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','corr_skill','rmse_skill','mae_skill','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class']; const ctx={}; for(const pid of products){ try{ const rows=await loadProduct(state.month,state.shape,pid); const row=rows.find(r=>normalizeId(r.region_id)===normalizeId(regionId)); if(row&&Number.isFinite(row.value)) ctx[pid]=row.value; } catch{} } return ctx; }
-    function renderGuidanceHtml(area,ctx,type){ const signal=classifySignal(ctx), confidence=confidenceLabel(ctx.corr_skill); const signalChip=`<span class="chip ${chipClassForSignal(signal)}">${signalLabel(signal)}</span>`; const alertChip=`<span class="chip ${alertChipClass(signal)}">${alertLabel(signal)}</span>`; const confidenceChip=`<span class="chip ${confidenceChipClass(ctx.corr_skill)}">${confidence}</span>`; const waterActions=[], agriActions=[]; if(signal==='dry'){ waterActions.push('Prioritize water storage conservation and irrigation allocation.'); waterActions.push('Review reservoir, canal, and local supply stress areas before major releases or restrictions.'); agriActions.push('Adjust planting windows and consider drought-tolerant or shorter-duration varieties.'); agriActions.push('Conserve soil moisture and prepare supplemental irrigation for sensitive crop stages.'); } else if(signal==='wet'){ waterActions.push('Increase readiness for runoff and drainage management.'); waterActions.push('Review gate, retention, and lowland flood-prone areas where exceedance probability is elevated.'); agriActions.push('Support planting where drainage is adequate, but protect flood-sensitive fields from ponding.'); agriActions.push('Monitor disease pressure and avoid fertilizer timing immediately before likely heavy-rain periods.'); } else { waterActions.push('Maintain routine operation and monitor weekly updates for signal changes.'); waterActions.push('Use local observations together with forecast and probability layers before major releases or restrictions.'); agriActions.push('Proceed with normal seasonal operations while monitoring short-term updates.'); agriActions.push('Adjust field practices locally where drainage or water access differs from the regional mean.'); } if(type==='water') return `<div class="guidance-chips">${signalChip}${alertChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div>Integrated water-management interpretation from forecast, SPI, exceedance probability, probability terciles, risk, advisory class, and skill.</div></div><div class="guide-block"><div class="guide-heading">Key indicators</div><div class="guide-lines"><div class="guide-line">Forecast % anomaly: <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">SPI-1 / SPI-3: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'}</b></div><div class="guide-line">P(below normal): <b>${formatPct(ctx.prob_below_normal)}</b></div><div class="guide-line">P(heavy rain): <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">P(exceed P67 / P85 / P95): <b>${formatPct(ctx.prob_exceed_p67)} / ${formatPct(ctx.prob_exceed_p85)} / ${formatPct(ctx.prob_exceed_p95)}</b></div><div class="guide-line">Flood / drought / advisory class: <b>${Number.isFinite(ctx.flood_risk_class)?ctx.flood_risk_class.toFixed(0):'n/a'} / ${Number.isFinite(ctx.drought_risk_class)?ctx.drought_risk_class.toFixed(0):'n/a'} / ${advisoryLabel(ctx.advisory_class)}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended actions</div><ul class="guide-actions">${waterActions.map(v=>`<li>${v}</li>`).join('')}</ul></div>`; const soilText=signal==='dry'?'Moisture stress risk increasing':signal==='wet'?'Moisture availability improving':'Near seasonal baseline'; return `<div class="guidance-chips">${signalChip}${alertChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div>Integrated agriculture interpretation using rainfall outlook, SPI, wet/dry probabilities, risk class, and forecast skill.</div></div><div class="guide-block"><div class="guide-heading">Agro-climate condition</div><div class="guide-lines"><div class="guide-line">Soil-moisture tendency: <b>${soilText}</b></div><div class="guide-line">SPI-1 / SPI-3 / SPI-6: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi6)?ctx.spi6.toFixed(2):'n/a'}</b></div><div class="guide-line">Heavy-rain probability: <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">Drought probability (SPI-1): <b>${formatPct(ctx.prob_drought_spi1)}</b></div><div class="guide-line">Agriculture score / class: <b>${Number.isFinite(ctx.agri_score)?ctx.agri_score.toFixed(2):'n/a'} / ${Number.isFinite(ctx.agri_risk_class)?ctx.agri_risk_class.toFixed(0):'n/a'}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended actions</div><ul class="guide-actions">${agriActions.map(v=>`<li>${v}</li>`).join('')}</ul></div>`; }
+    function riskTextFromSignal(signal){
+      if(signal==='dry') return 'High risk';
+      if(signal==='wet') return 'Wet / flood watch';
+      return 'Low–Moderate risk';
+    }
+    function levelStripHtml(signal){
+      const activeDry = signal === 'dry' ? ' active' : '';
+      const activeWatch = signal === 'wet' ? ' active' : '';
+      const activeLow = signal === 'neutral' ? ' active' : '';
+      return `<div class="level-strip">
+        <div class="level-pill level-dry${activeDry}"><div class="mini-icon">💧</div><div><div class="level-main">DRY</div><div class="level-sub">High risk</div></div></div>
+        <div class="level-pill level-watch${activeWatch}"><div class="mini-icon">⚠️</div><div><div class="level-main">WATCH</div><div class="level-sub">Moderate risk</div></div></div>
+        <div class="level-pill level-low${activeLow}"><div class="mini-icon">👁</div><div><div class="level-main">LOW–MODERATE</div><div class="level-sub">Low risk</div></div></div>
+      </div>`;
+    }
+    function whatItMeansHtml(type){
+      if(type === 'water'){
+        return `<div class="what-list">
+          <div class="what-row"><span>💧</span><div><b>DRY:</b> High chance of below-normal rainfall and water stress. Drought or shortage is likely.</div></div>
+          <div class="what-row"><span>⚠️</span><div><b>WATCH:</b> Mixed or uncertain conditions. Drought is possible — monitor and prepare.</div></div>
+          <div class="what-row"><span>👁</span><div><b>LOW–MODERATE:</b> Near-normal conditions. Drought is unlikely but stay informed.</div></div>
+        </div>`;
+      }
+      return `<div class="what-list">
+        <div class="what-row"><span>💧</span><div><b>DRY:</b> High chance of soil moisture deficit and crop stress. Yield loss is possible without action.</div></div>
+        <div class="what-row"><span>⚠️</span><div><b>WATCH:</b> Conditions may become stressful. Prepare and adjust management.</div></div>
+        <div class="what-row"><span>👁</span><div><b>LOW–MODERATE:</b> Near-normal conditions. Maintain normal practices and monitor.</div></div>
+      </div>`;
+    }
+    function buildActionItems(type, signal){
+      if(type === 'water'){
+        if(signal === 'dry') return [
+          ['📣','Early warning','Issue or update drought/water-stress alerts to agencies and communities. Share expected impacts and recommended preparedness actions.'],
+          ['📅','Water planning','Review storage levels and demand projections. Update allocation plans and trigger contingency measures where needed.'],
+          ['⚙️','Operations','Prioritize critical uses including drinking water, health, ecosystems, and sensitive irrigation. Optimize reservoir and canal operation.'],
+          ['📈','Monitoring','Increase monitoring frequency for rainfall, reservoirs, rivers, groundwater, and SPI trends. Update forecasts regularly.'],
+          ['👥','Stakeholder communication','Coordinate with irrigation districts, municipalities, agriculture offices, and disaster-management authorities. Provide clear public guidance.']
+        ];
+        if(signal === 'wet') return [
+          ['📣','Early warning','Notify flood-prone communities and operating agencies where heavy-rain or exceedance probabilities are elevated.'],
+          ['🌊','Flood readiness','Inspect drainage, gates, pumping stations, canals, retention areas, and lowland hot spots before the event window.'],
+          ['⚙️','Operations','Review pre-release or retention options carefully with short-range forecasts and downstream capacity.'],
+          ['📈','Monitoring','Track accumulated rainfall, river levels, radar/satellite products, and flash-flood indicators more frequently.'],
+          ['👥','Coordination','Prepare communication with DDPM/local authorities, water users, and municipalities for rapid response if thresholds are reached.']
+        ];
+        return [
+          ['📣','Preparedness','Maintain routine awareness products and communicate that conditions are near normal but still being monitored.'],
+          ['📅','Planning','Use the outlook as background information for seasonal allocation, reservoir planning, and local water-use scheduling.'],
+          ['⚙️','Operations','Continue normal operation, but keep contingency plans ready for updates if forecast probabilities change.'],
+          ['📈','Monitoring','Review weekly rainfall, SPI, reservoir, and river updates to detect any shift toward dry or wet conditions.'],
+          ['👥','Coordination','Share the outlook with local agencies so field observations and preparedness plans remain aligned.']
+        ];
+      }
+      if(signal === 'dry') return [
+        ['🔔','Early warning','Alert farmers and extension services about potential moisture stress and possible yield impact.'],
+        ['🌱','Crop planning','Adjust planting windows, select drought-tolerant or short-duration varieties, and plan staggered planting.'],
+        ['💧','Water management','Conserve soil moisture using mulching, minimum tillage, and field leveling. Plan supplemental irrigation for critical crop stages.'],
+        ['🧾','Input and resource planning','Review fertilizer and input schedules based on expected rainfall and soil moisture. Avoid high-risk investment during high-stress periods.'],
+        ['📈','Monitoring and advisory','Monitor soil moisture and crop condition regularly. Follow agro-advisories and update plans as forecasts change.'],
+        ['👥','Livelihood and risk preparedness','Diversify income sources, strengthen fodder reserves, and plan for potential dry spell or yield reduction.']
+      ];
+      if(signal === 'wet') return [
+        ['🔔','Early warning','Warn farmers in flood-prone or poorly drained areas about possible excess rainfall and field ponding.'],
+        ['🌱','Crop planning','Delay sensitive field operations if heavy rain is likely. Use raised beds or drainage support where appropriate.'],
+        ['💧','Water management','Clear field drainage and avoid irrigation before expected heavy-rain periods.'],
+        ['🧾','Input and resource planning','Avoid fertilizer or pesticide application immediately before likely heavy rain to reduce losses and runoff.'],
+        ['📈','Monitoring and advisory','Monitor disease pressure, waterlogging, and crop damage after rainfall events. Update farm-level advisories.'],
+        ['👥','Livelihood and risk preparedness','Prepare harvest, storage, and transport plans for areas with elevated flood or access-risk signals.']
+      ];
+      return [
+        ['🔔','Preparedness','Communicate a near-normal outlook while reminding farmers to follow updates and local advisories.'],
+        ['🌱','Crop planning','Proceed with normal seasonal operations, adjusting timing based on short-term rainfall forecasts.'],
+        ['💧','Water management','Maintain standard irrigation and drainage practices, adjusted to local soil and crop conditions.'],
+        ['🧾','Input planning','Plan inputs normally, but keep flexible timing for fertilizer and field operations.'],
+        ['📈','Monitoring','Continue routine monitoring of rainfall, soil moisture, pests, disease, and crop stage.'],
+        ['👥','Risk preparedness','Keep contingency plans ready for either dry spell or heavy-rain updates.']
+      ];
+    }
+    function buildActionHtml(type, signal){
+      return `<div class="action-list">${buildActionItems(type, signal).map(([icon,title,text]) => `<div class="action-item"><div class="action-icon">${icon}</div><div><div class="action-title">${title}</div><div class="action-text">${text}</div></div></div>`).join('')}</div>`;
+    }
+    function renderGuidanceHtml(area,ctx,type){
+      const signal=classifySignal(ctx), confidence=confidenceLabel(ctx.corr_skill);
+      const currentRisk = riskTextFromSignal(signal);
+      if(type==='water') return `${levelStripHtml(signal)}<div class="guide-block"><div class="guide-heading">What it means</div>${whatItMeansHtml('water')}</div><div class="guide-block"><div class="guide-heading">Key indicators</div><div class="guide-lines indicator-grid"><div class="guide-line">Forecast % anomaly: <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">P(exceed P67 / P85 / P95): <b>${formatPct(ctx.prob_exceed_p67)} / ${formatPct(ctx.prob_exceed_p85)} / ${formatPct(ctx.prob_exceed_p95)}</b></div><div class="guide-line">SPI-1 / SPI-3: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'}</b></div><div class="guide-line">Flood / drought / advisory class: <b>${Number.isFinite(ctx.flood_risk_class)?ctx.flood_risk_class.toFixed(0):'n/a'} / ${Number.isFinite(ctx.drought_risk_class)?ctx.drought_risk_class.toFixed(0):'n/a'} / ${advisoryLabel(ctx.advisory_class)}</b></div><div class="guide-line">P(below normal): <b>${formatPct(ctx.prob_below_normal)}</b></div><div class="guide-line">Water stress risk: <b>${currentRisk}</b></div><div class="guide-line">P(heavy rain): <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">Confidence (skill): <b>${confidence}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended actions</div>${buildActionHtml('water', signal)}</div>`;
+      const soilText=signal==='dry'?'Moisture stress risk increasing':signal==='wet'?'Moisture availability improving, but excess-water risk should be monitored':'Near seasonal baseline';
+      return `${levelStripHtml(signal)}<div class="guide-block"><div class="guide-heading">What it means</div>${whatItMeansHtml('agri')}</div><div class="guide-block"><div class="guide-heading">Agro-climate condition</div><div class="guide-lines indicator-grid"><div class="guide-line">Soil-moisture tendency: <b>${soilText}</b></div><div class="guide-line">Rainfall anomaly (forecast): <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">SPI-1 / SPI-3 / SPI-6: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi6)?ctx.spi6.toFixed(2):'n/a'}</b></div><div class="guide-line">Risk class: <b>${currentRisk}</b></div><div class="guide-line">Heavy-rain probability: <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">Agriculture score / class: <b>${Number.isFinite(ctx.agri_score)?ctx.agri_score.toFixed(2):'n/a'} / ${Number.isFinite(ctx.agri_risk_class)?ctx.agri_risk_class.toFixed(0):'n/a'}</b></div><div class="guide-line">Drought probability (SPI-1): <b>${formatPct(ctx.prob_drought_spi1)}</b></div><div class="guide-line">Confidence (skill): <b>${confidence}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended actions</div>${buildActionHtml('agri', signal)}</div>`;
+    }
     async function renderRankingAndGuidance(){ const rows=await loadProduct(state.month,state.shape,state.summaryProduct); const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value); const top=ranked.slice(0,10), bottom=[...ranked].slice(-10).reverse(); document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>Top areas</th><th>Value</th><th>Bottom areas</th><th>Value</th></tr></thead><tbody>${Array.from({length:Math.max(top.length,bottom.length)}).map((_,i)=>`<tr><td>${top[i]?.Area||''}</td><td>${top[i]?top[i].Value.toFixed(3):''}</td><td>${bottom[i]?.Area||''}</td><td>${bottom[i]?bottom[i].Value.toFixed(3):''}</td></tr>`).join('')}</tbody></table>`; const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0]; if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); } else { document.getElementById('waterGuidance').textContent='No data'; document.getElementById('agriGuidance').textContent='No data'; } }
 
     function featureCentroid(feature){
