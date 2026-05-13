@@ -112,8 +112,8 @@
       <div class="field"><label for="monthSelect">Forecast month</label><select id="monthSelect"></select></div>
       <div class="field"><label for="shapeSelect">Shape layer</label><select id="shapeSelect"></select></div>
       <div class="field"><label for="summaryProductSelect">Polygon summary product</label><select id="summaryProductSelect"></select></div>
-      <div class="field"><button id="downloadFigureBtn">Download current main figure</button></div>
-      <div class="field"><button id="downloadReportBtn" class="secondary">Download designed one-page report</button></div>
+      <div class="field"><button id="downloadReportBtn">Download designed one-page report</button></div>
+      <div class="field"><button id="downloadFigureBtn" class="secondary">Download current main figure</button></div>
       <div class="field"><button id="downloadCsvBtn">Download summary JSON</button></div>
       <div class="field"><button id="downloadGeoBtn" class="secondary">Download summary GeoJSON</button></div>
       <div class="field"><button id="resetPolygonBtn" class="secondary">Clear selected polygon</button></div>
@@ -135,7 +135,7 @@
       </section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Polygon-based geospatial map for the selected summary product and selected shape layer.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Selected layer ranking</div><div id="rankingTable"></div><div class="mini-note">Top and bottom polygons for the selected product. Click any polygon in the summary map to refresh the lower charts and guidance.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">How to interpret the alert levels</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">The labels combine rainfall anomaly, SPI dryness/wetness, below-normal probability, heavy-rain probability, risk class, and model skill. They are intended for early warning, planning, and coordination.</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">DRY = high risk</div><div class="alert-level-text">Clear dry signal or water-stress condition. Impacts are likely. Take early action now.</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">WATCH = moderate risk</div><div class="alert-level-text">Uncertain or emerging signal. Monitor closely, prepare resources, and update plans.</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">LOW–MODERATE = low risk</div><div class="alert-level-text">Near-normal or weak signal. Continue routine monitoring and stay ready for changes.</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
+      <section id="decisionGuidanceSection" class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">How to interpret the alert levels</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">The labels combine rainfall anomaly, SPI dryness/wetness, below-normal probability, heavy-rain probability, risk class, and model skill. They are intended for early warning, planning, and coordination.</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">DRY = high risk</div><div class="alert-level-text">Clear dry signal or water-stress condition. Impacts are likely. Take early action now.</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">WATCH = moderate risk</div><div class="alert-level-text">Uncertain or emerging signal. Monitor closely, prepare resources, and update plans.</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">LOW–MODERATE = low risk</div><div class="alert-level-text">Near-normal or weak signal. Continue routine monitoring and stay ready for changes.</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">SPI group</div><div class="section-subtitle">Short-, medium-, and seasonal-scale wetness and dryness indicators to contextualize the current rainfall outlook.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">SPI-1</div><div id="map_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-3</div><div id="map_spi3" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-6</div><div id="map_spi6" class="graph-sm"></div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Probability exceedance group</div><div class="section-subtitle">Exceedance probability layers for thresholds P67, P85, and P95.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Exceedance P67</div><div id="map_prob_exceed_p67" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P85</div><div id="map_prob_exceed_p85" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P95</div><div id="map_prob_exceed_p95" class="graph-sm"></div></div></div></section>
@@ -766,12 +766,52 @@
   .quality-card .qt { font-size:13px; line-height:1.55; }
   .diag-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
   .diag-grid .panel h4 { margin:0 0 8px; font-size:15px; }
-  .guides { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
-  .guide { border:1px solid var(--line); border-radius:20px; padding:16px 16px 14px; }
-  .guide.water { background:var(--water); }
-  .guide.agri { background:var(--agri); }
-  .guide h4 { margin:0 0 10px; font-size:16px; }
-  .guide .text { font-size:13px; line-height:1.6; color:#20304f; }
+  .report-decision { margin-top:14px; }
+  .section { padding:16px; }
+  .section.card { background:white; border:1px solid var(--line); border-radius:18px; box-shadow:none; }
+  .section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:10px; margin-bottom:12px; }
+  .section-title { font-size:1.08rem; font-weight:800; }
+  .section-subtitle { color:var(--muted); font-size:0.92rem; margin-top:4px; }
+  .alert-explainer { margin-bottom:14px; border:1px solid #d7e3f4; border-radius:18px; background:linear-gradient(180deg,#fbfdff 0%,#f5f8ff 100%); padding:14px 16px; }
+  .alert-explainer-title { font-size:0.98rem; font-weight:900; margin-bottom:8px; color:#13213d; }
+  .alert-explainer-grid { display:grid; grid-template-columns:1.05fr 1fr 1fr 1fr; gap:12px; align-items:stretch; }
+  .alert-explainer-intro { color:var(--muted); font-size:0.88rem; line-height:1.45; padding-right:8px; border-right:1px solid #d7dde8; }
+  .alert-level-card { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; padding:10px 12px; border-radius:16px; background:#fff; border:1px solid #e3ebf6; }
+  .alert-level-icon { width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; font-weight:900; }
+  .alert-dry .alert-level-icon { color:#9c1d1d; background:#fff0f0; border:1px solid #f3b4b4; }
+  .alert-watch .alert-level-icon { color:#a54000; background:#fff4e8; border:1px solid #f2bf87; }
+  .alert-low .alert-level-icon { color:#9a6a00; background:#fff8dc; border:1px solid #e7c86a; }
+  .alert-level-name { font-weight:900; font-size:0.88rem; margin-bottom:3px; }
+  .alert-level-text { color:var(--muted); font-size:0.82rem; line-height:1.4; }
+  .guidance-wrap { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .guidance-box { border-radius:22px; padding:20px 22px; line-height:1.55; border:1px solid #d7e0eb; }
+  .guidance-water { background:#f5f8ff; }
+  .guidance-agri { background:#f6fff4; }
+  .guidance-title { font-weight:900; margin-bottom:16px; font-size:1.03rem; display:flex; align-items:center; gap:10px; }
+  .guidance-title .title-icon { width:34px; height:34px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem; border:1px solid #cbd5e1; background:#fff; }
+  .guidance-chips { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; }
+  .chip { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:8px 14px; border-radius:999px; font-weight:800; font-size:0.82rem; border:1px solid transparent; letter-spacing:0.01em; }
+  .chip-ok { background:#eaf8ef; border-color:#9fd9ab; color:#0d6b43; }
+  .chip-warn { background:#fff4e8; border-color:#f2bf87; color:#a54000; }
+  .chip-bad { background:#fef0f0; border-color:#efb1b1; color:#9c1d1d; }
+  .chip-info { background:#eef4ff; border-color:#bdd0ff; color:#1749b6; }
+  .guide-block { border-top:1px solid #d7dde8; padding-top:14px; margin-top:14px; }
+  .guide-area { font-size:1.02rem; font-weight:900; margin-bottom:8px; }
+  .guide-heading { font-size:0.96rem; font-weight:900; margin-bottom:8px; }
+  .guide-lines { display:grid; gap:4px; font-size:0.94rem; }
+  .indicator-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
+  .guide-line b { font-weight:900; }
+  .guide-summary-text { color:#425579; font-size:0.92rem; line-height:1.58; }
+  .impact-list { display:grid; gap:8px; }
+  .impact-item { display:grid; grid-template-columns:28px 1fr; gap:8px; align-items:start; color:#425579; font-size:0.88rem; line-height:1.42; }
+  .impact-icon { width:24px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #dbe4ef; }
+  .action-list { display:grid; gap:10px; margin-top:8px; }
+  .action-item { display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start; }
+  .action-icon { width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#eef4ff; color:#1749b6; font-size:1rem; }
+  .guidance-agri .action-icon { background:#eaf8ef; color:#0d6b43; }
+  .action-title { font-weight:900; font-size:0.9rem; margin-bottom:2px; }
+  .action-text { color:#425579; font-size:0.86rem; line-height:1.42; }
+  @media (max-width: 1000px) { .guidance-wrap, .alert-explainer-grid, .indicator-grid { grid-template-columns:1fr; } .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; } }
   .footer { margin-top:14px; border-top:1px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; gap:18px; color:var(--muted); font-size:12px; }
   @media print {
     body { background:white; }
@@ -829,9 +869,8 @@
       </div>
     </div>
 
-    <div class="guides">
-      <div class="guide water"><h4>Water management guidance</h4><div class="text">${payload.waterHtml}</div></div>
-      <div class="guide agri"><h4>Agriculture guidance</h4><div class="text">${payload.agriHtml}</div></div>
+    <div class="report-decision">
+      ${payload.decisionGuidanceHtml || ''}
     </div>
 
     <div class="footer">
@@ -861,8 +900,7 @@
         diag2,
         diag1Title: document.getElementById('polygonBarTitle')?.textContent?.trim() || 'Confidential local distributions',
         diag2Title: document.getElementById('polygonLineTitle')?.textContent?.trim() || 'Monthly local distributions',
-        waterHtml: document.getElementById('waterGuidance')?.innerHTML || '<div>No data.</div>',
-        agriHtml: document.getElementById('agriGuidance')?.innerHTML || '<div>No data.</div>',
+        decisionGuidanceHtml: document.getElementById('decisionGuidanceSection')?.outerHTML || '',
         generatedAt: new Date().toLocaleString()
       };
       const html = buildReportHtml(payload);
