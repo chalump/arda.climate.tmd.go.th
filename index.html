@@ -451,50 +451,50 @@
     function buildActionItems(type, signal){
       if(type === 'water'){
         if(signal === 'dry') return [
-          ['📣','Early warning','Issue or update drought/water-stress alerts to relevant agencies and communities. Share expected impacts and preparedness actions.'],
-          ['📅','Water planning','Review reservoir, canal, and local storage levels against demand projections. Update allocation plans and contingency measures.'],
-          ['⚙️','Operations','Prioritize drinking water, health, ecosystems, and critical irrigation. Optimize reservoir operation and reduce non-essential releases.'],
-          ['📈','Monitoring','Increase monitoring frequency for rainfall, streamflow, reservoirs, groundwater, and SPI trends. Update forecasts regularly.'],
-          ['🤝','Stakeholder coordination','Coordinate with irrigation districts, municipalities, agriculture offices, and disaster-management authorities. Prepare clear public guidance.']
+          ['Early warning','Issue or update drought/water-stress alerts to relevant agencies and communities. Share expected impacts and preparedness actions.'],
+          ['Water planning','Review reservoir, canal, and local storage levels against demand projections. Update allocation plans and contingency measures.'],
+          ['Operations','Prioritize drinking water, health, ecosystems, and critical irrigation. Optimize reservoir operation and reduce non-essential releases.'],
+          ['Monitoring','Increase monitoring frequency for rainfall, streamflow, reservoirs, groundwater, and SPI trends. Update forecasts regularly.'],
+          ['Stakeholder coordination','Coordinate with irrigation districts, municipalities, agriculture offices, and disaster-management authorities. Prepare clear public guidance.']
         ];
         if(signal === 'wet') return [
-          ['📣','Early warning','Notify flood-prone communities and operating agencies where heavy-rain or exceedance probabilities are elevated.'],
-          ['🌊','Flood readiness','Inspect drainage, gates, pumping stations, canals, retention areas, and lowland hot spots before the event window.'],
-          ['⚙️','Operations','Review pre-release or retention options carefully with short-range forecasts and downstream capacity.'],
-          ['📈','Monitoring','Track accumulated rainfall, river levels, radar/satellite products, and flash-flood indicators more frequently.'],
-          ['🤝','Coordination','Prepare communication with DDPM/local authorities, water users, and municipalities for rapid response if thresholds are reached.']
+          ['Early warning','Notify flood-prone communities and operating agencies where heavy-rain or exceedance probabilities are elevated.'],
+          ['Flood readiness','Inspect drainage, gates, pumping stations, canals, retention areas, and lowland hot spots before the event window.'],
+          ['Operations','Review pre-release or retention options carefully with short-range forecasts and downstream capacity.'],
+          ['Monitoring','Track accumulated rainfall, river levels, radar/satellite products, and flash-flood indicators more frequently.'],
+          ['Coordination','Prepare communication with DDPM/local authorities, water users, and municipalities for rapid response if thresholds are reached.']
         ];
         return [
-          ['📣','Preparedness','Maintain routine awareness products and communicate that conditions are near normal but still being monitored.'],
-          ['📅','Planning','Use the outlook as background information for seasonal allocation, reservoir planning, and local water-use scheduling.'],
-          ['⚙️','Operations','Continue normal operation, but keep contingency plans ready for updates if forecast probabilities change.'],
-          ['📈','Monitoring','Review weekly rainfall, SPI, reservoir, and river updates to detect any shift toward dry or wet conditions.'],
-          ['🤝','Coordination','Share the outlook with local agencies so they can align field observations and preparedness plans.']
+          ['Preparedness','Maintain routine awareness products and communicate that conditions are near normal but still being monitored.'],
+          ['Planning','Use the outlook as background information for seasonal allocation, reservoir planning, and local water-use scheduling.'],
+          ['Operations','Continue normal operation, but keep contingency plans ready for updates if forecast probabilities change.'],
+          ['Monitoring','Review weekly rainfall, SPI, reservoir, and river updates to detect any shift toward dry or wet conditions.'],
+          ['Coordination','Share the outlook with local agencies so they can align field observations and preparedness plans.']
         ];
       }
       if(signal === 'dry') return [
-        ['🔔','Early warning','Alert farmers and extension services about potential moisture stress, yield impacts, and recommended preparedness actions.'],
-        ['🌾','Crop planning','Adjust planting windows, select drought-tolerant or short-duration varieties, and consider staggered planting.'],
-        ['💧','Water management','Conserve soil moisture using mulching, minimum tillage, and field leveling. Plan supplemental irrigation for critical crop stages.'],
-        ['🧾','Input and resource planning','Review fertilizer, seed, and labor schedules based on expected rainfall. Avoid high-risk investment during high-stress periods.'],
-        ['📈','Monitoring and advisory','Monitor soil moisture and crop condition regularly. Update advisories when forecast or SPI signals change.'],
-        ['👥','Livelihood risk preparedness','Prepare alternative water sources, fodder reserves, and livelihood support options for vulnerable areas.']
+        ['Early warning','Alert farmers and extension services about potential moisture stress, yield impacts, and recommended preparedness actions.'],
+        ['Crop planning','Adjust planting windows, select drought-tolerant or short-duration varieties, and consider staggered planting.'],
+        ['Water management','Conserve soil moisture using mulching, minimum tillage, and field leveling. Plan supplemental irrigation for critical crop stages.'],
+        ['Input and resource planning','Review fertilizer, seed, and labor schedules based on expected rainfall. Avoid high-risk investment during high-stress periods.'],
+        ['Monitoring and advisory','Monitor soil moisture and crop condition regularly. Update advisories when forecast or SPI signals change.'],
+        ['Livelihood risk preparedness','Prepare alternative water sources, fodder reserves, and livelihood support options for vulnerable areas.']
       ];
       if(signal === 'wet') return [
-        ['🔔','Early warning','Warn farmers in flood-prone or poorly drained areas about possible excess rainfall and field ponding.'],
-        ['🌾','Crop planning','Delay sensitive field operations if heavy rain is likely. Use raised beds or drainage support where appropriate.'],
-        ['💧','Water management','Clear field drainage and avoid irrigation before expected heavy-rain periods.'],
-        ['🧾','Input and resource planning','Avoid fertilizer or pesticide application immediately before likely heavy rain to reduce losses and runoff.'],
-        ['📈','Monitoring and advisory','Monitor disease pressure, waterlogging, and crop damage after rainfall events. Update farm-level advisories.'],
-        ['👥','Livelihood risk preparedness','Prepare harvest, storage, and transport plans for areas with elevated flood or access-risk signals.']
+        ['Early warning','Warn farmers in flood-prone or poorly drained areas about possible excess rainfall and field ponding.'],
+        ['Crop planning','Delay sensitive field operations if heavy rain is likely. Use raised beds or drainage support where appropriate.'],
+        ['Water management','Clear field drainage and avoid irrigation before expected heavy-rain periods.'],
+        ['Input and resource planning','Avoid fertilizer or pesticide application immediately before likely heavy rain to reduce losses and runoff.'],
+        ['Monitoring and advisory','Monitor disease pressure, waterlogging, and crop damage after rainfall events. Update farm-level advisories.'],
+        ['Livelihood risk preparedness','Prepare harvest, storage, and transport plans for areas with elevated flood or access-risk signals.']
       ];
       return [
-        ['🔔','Preparedness','Communicate a near-normal outlook while reminding farmers to follow updates and local advisories.'],
-        ['🌾','Crop planning','Proceed with normal seasonal operations, adjusting timing based on short-term rainfall forecasts.'],
-        ['💧','Water management','Maintain standard irrigation and drainage practices, adjusted to local soil and crop conditions.'],
-        ['🧾','Input planning','Plan inputs normally, but keep flexible timing for fertilizer and field operations.'],
-        ['📈','Monitoring','Continue routine monitoring of rainfall, soil moisture, pests, disease, and crop stage.'],
-        ['👥','Risk preparedness','Keep basic contingency plans ready for either dry spell or heavy-rain updates.']
+        ['Preparedness','Communicate a near-normal outlook while reminding farmers to follow updates and local advisories.'],
+        ['Crop planning','Proceed with normal seasonal operations, adjusting timing based on short-term rainfall forecasts.'],
+        ['Water management','Maintain standard irrigation and drainage practices, adjusted to local soil and crop conditions.'],
+        ['Input planning','Plan inputs normally, but keep flexible timing for fertilizer and field operations.'],
+        ['Monitoring','Continue routine monitoring of rainfall, soil moisture, pests, disease, and crop stage.'],
+        ['Risk preparedness','Keep basic contingency plans ready for either dry spell or heavy-rain updates.']
       ];
     }
     function buildActionHtml(type, signal){
