@@ -178,6 +178,19 @@
     const SUMMARY_PRODUCT_OPTIONS = [{ label: 'Forecast Actual Rainfall', value: 'forecast_actual' },{ label: 'Forecast Percent Anomaly', value: 'forecast_percent_anomaly' },{ label: 'Probability Below Normal', value: 'prob_below_normal' },{ label: 'Probability Heavy Rain', value: 'prob_heavy_rain' },{ label: 'Correlation Skill', value: 'corr_skill' },{ label: 'RMSE', value: 'rmse_skill' },{ label: 'MAE', value: 'mae_skill' },{ label: 'SPI-1', value: 'spi1' },{ label: 'SPI-3', value: 'spi3' },{ label: 'SPI-6', value: 'spi6' },{ label: 'Flood Risk Class', value: 'flood_risk_class' },{ label: 'Drought Risk', value: 'drought_risk_class' },{ label: 'Agriculture Risk', value: 'agri_risk_class' },{ label: 'Advisory Classes', value: 'advisory_class' },{ label: 'Flood Score', value: 'flood_score' },{ label: 'Drought Score', value: 'drought_score' },{ label: 'Agriculture Score', value: 'agri_score' },{ label: 'Probability Drought SPI-1', value: 'prob_drought_spi1' },{ label: 'Probability Exceedance P67', value: 'prob_exceed_p67' },{ label: 'Probability Exceedance P85', value: 'prob_exceed_p85' },{ label: 'Probability Exceedance P95', value: 'prob_exceed_p95' },{ label: 'F&D Risk', value: 'risk_class' }];
     const MONTHS = [['Jan','January'], ['Feb','February'], ['Mar','March'], ['Apr','April'], ['May','May'], ['Jun','June'], ['Jul','July'], ['Aug','August'], ['Sep','September'], ['Oct','October'], ['Nov','November'], ['Dec','December']];
     const COLORSCALES = {
+	darkreds: [
+	[00.00, #FEEBE7],
+    [10.00, #FCC6BB],
+    [20.00, #FAA18F],
+    [30.00, #F87C63],
+    [40.00, #F54927],
+    [50.00, #F4320B],
+    [60.00, #C82909],
+    [70.00, #9C2007],
+    [80.00, #701705],
+    [90.00, #440E03],
+    [100.0, #180501]
+	],
 	ocean: [
     [0.00, '#c7e9b4'],
     [0.20, '#7fcdbb'],
@@ -209,8 +222,8 @@
 	forecast_percent_anomaly: { legend: '% anomaly', colorscale: COLORSCALES.droughtWet, zmin: -100, zmax: 100, zmid: 0 },
 	corr_skill: { legend: 'Correlation', colorscale: COLORSCALES.droughtWet, zmin: -1, zmax: 1, zmid: 0 },
 
-	rmse_skill: { legend: 'RMSE', colorscale: 'RdOrYl' },
-	mae_skill: { legend: 'MAE', colorscale: 'RdOrYl' },
+	rmse_skill: { legend: 'RMSE', colorscale: COLORSCALES.darkreds },
+	mae_skill: { legend: 'MAE', colorscale: COLORSCALES.darkreds },
 
 	prob_tercile_above: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
 	prob_tercile_normal: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
