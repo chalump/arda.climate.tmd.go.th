@@ -252,7 +252,7 @@
 	drought_risk_class: { legend: 'Drought risk', colorscale: 'YlOrBr', zmin: 1, zmax: 5 },
 	agri_risk_class: { legend: 'Agriculture risk', colorscale: 'Greens', zmin: 1, zmax: 5 },
 
-	advisory_class: { legend: 'Advisory class', colorscale: 'YlOrRd', zmin: 0, zmax: 5 }
+	advisory_class: { legend: 'Advisory class', colorscale: COLORSCALES.darkreds, zmin: 0, zmax: 5 }
 	};
     const state = { month: 'Jun', shape: 'adm1', summaryProduct: 'forecast_actual', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
     const monthSelect = document.getElementById('monthSelect'), shapeSelect = document.getElementById('shapeSelect'), summaryProductSelect = document.getElementById('summaryProductSelect');
