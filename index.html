@@ -254,7 +254,7 @@
 
 	advisory_class: { legend: 'Advisory class', colorscale: COLORSCALES.darkreds, zmin: 0, zmax: 5 }
 	};
-    const state = { month: 'Jul', shape: 'adm1', summaryProduct: 'flood_risk_class', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
+    const state = { month: 'Jul', shape: 'adm1', summaryProduct: 'prob_heavy_rain', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
     const monthSelect = document.getElementById('monthSelect'), shapeSelect = document.getElementById('shapeSelect'), summaryProductSelect = document.getElementById('summaryProductSelect');
     const MAP_IDS = ['forecast_actual','forecast_anomaly','forecast_percent_anomaly','corr_skill','rmse_skill','mae_skill','prob_tercile_above','prob_tercile_normal','prob_tercile_below','prob_heavy_rain','prob_below_normal','dominant_tercile','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'];
     function monthName(abbr){ return Object.fromEntries(MONTHS)[abbr] || abbr; }
