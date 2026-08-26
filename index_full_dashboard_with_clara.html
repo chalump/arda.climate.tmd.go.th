@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARDA S2DFS Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --bg: #f4f7fb; --card: #ffffff; --line: #dbe4ef; --text: #13213d; --muted: #5f6f8a;
+      --accent: #1d4ed8; --accent-soft: #e8efff; --shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      --radius: 18px; --water-bg: #f5f8ff; --agri-bg: #f6fff4; --ok-bg: #eaf8ef; --ok-line: #9fd9ab;
+      --warn-bg: #fff4e8; --warn-line: #f2bf87; --bad-bg: #fef0f0; --bad-line: #efb1b1;
+      --info-bg: #eef4ff; --info-line: #bdd0ff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); }
+    .page { display: grid; grid-template-columns: 340px 1fr; gap: 18px; min-height: 100vh; padding: 18px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .sidebar { padding: 18px; position: sticky; top: 18px; height: fit-content; }
+    h1 { margin: 0 0 8px; font-size: 1.5rem; line-height: 1.2; }
+    h2, h3, h4 { margin: 0; }
+    .muted { color: var(--muted); line-height: 1.5; font-size: 0.95rem; }
+    .field { margin-top: 14px; }
+    .field label { display: block; font-weight: 700; font-size: 0.94rem; margin-bottom: 6px; }
+    .field select, .field button { width: 100%; border: 1px solid #cbd5e1; border-radius: 12px; padding: 11px 12px; font-size: 0.95rem; background: #fff; }
+    .field button { background: var(--accent); color: white; font-weight: 700; border: none; cursor: pointer; }
+    .field button.secondary { background: var(--accent-soft); color: #1e3a8a; }
+    .pill { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; }
+    .tip { margin-top: 16px; border: 1px dashed #cbd5e1; border-radius: 14px; padding: 12px; background: #f8fafc; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+    .main { display: grid; gap: 18px; }
+    .hero { padding: 18px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: start; }
+    .hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .metric { padding: 14px; border: 1px solid #e5ecf6; border-radius: 14px; background: #fbfdff; }
+    .metric .label { font-size: 0.84rem; color: var(--muted); margin-bottom: 4px; }
+    .metric .value { font-size: 1.15rem; font-weight: 800; }
+    .section { padding: 16px; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; margin-bottom: 12px; }
+    .section-title { font-size: 1.08rem; font-weight: 800; }
+    .section-subtitle { color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap: 14px; }
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; }
+    .mini-card { border: 1px solid #e4ebf5; border-radius: 16px; padding: 12px; background: #fff; }
+    .mini-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+    .mini-note { color: var(--muted); font-size: 0.86rem; margin-top: 8px; line-height: 1.45; }
+    .graph-lg { min-height: 560px; } .graph-md { min-height: 340px; } .graph-sm { min-height: 300px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { border-bottom: 1px solid #e6edf5; padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { background: #f8fafc; font-weight: 800; }
+    .guidance-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .guidance-box { border-radius: 22px; padding: 20px 22px; line-height: 1.55; border: 1px solid #d7e0eb; }
+    .guidance-water { background: var(--water-bg); } .guidance-agri { background: var(--agri-bg); }
+    .guidance-title { font-weight: 900; margin-bottom: 16px; font-size: 1.03rem; display:flex; align-items:center; gap:10px; }
+    .guidance-title .title-icon { width:34px; height:34px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem; border:1px solid #cbd5e1; background:#fff; }
+    .guidance-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .alert-explainer { margin-bottom: 14px; border:1px solid #d7e3f4; border-radius:18px; background:linear-gradient(180deg,#fbfdff 0%,#f5f8ff 100%); padding:14px 16px; }
+    .alert-explainer-title { font-size:0.98rem; font-weight:900; margin-bottom:8px; color:#13213d; }
+    .alert-explainer-grid { display:grid; grid-template-columns:1.05fr 1fr 1fr 1fr; gap:12px; align-items:stretch; }
+    .alert-explainer-intro { color:var(--muted); font-size:0.88rem; line-height:1.45; padding-right:8px; border-right:1px solid #d7dde8; }
+    .alert-level-card { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; padding:10px 12px; border-radius:16px; background:#fff; border:1px solid #e3ebf6; }
+    .alert-level-icon { width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; font-weight:900; }
+    .alert-dry .alert-level-icon { color:#9c1d1d; background:#fff0f0; border:1px solid #f3b4b4; }
+    .alert-watch .alert-level-icon { color:#a54000; background:#fff4e8; border:1px solid #f2bf87; }
+    .alert-low .alert-level-icon { color:#9a6a00; background:#fff8dc; border:1px solid #e7c86a; }
+    .alert-level-name { font-weight:900; font-size:0.88rem; margin-bottom:3px; }
+    .alert-level-text { color:var(--muted); font-size:0.82rem; line-height:1.4; }
+    .action-list { display:grid; gap:10px; margin-top:8px; }
+    .action-item { display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start; }
+    .action-icon { width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#eef4ff; color:#1749b6; font-size:1rem; }
+    .guidance-agri .action-icon { background:#eaf8ef; color:#0d6b43; }
+    .action-title { font-weight:900; font-size:0.9rem; margin-bottom:2px; }
+    .action-text { color:#425579; font-size:0.86rem; line-height:1.42; }
+    .indicator-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
+    .chip { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 14px; border-radius: 999px; font-weight: 800; font-size: 0.82rem; border: 1px solid transparent; letter-spacing: 0.01em; }
+    .chip-ok { background: var(--ok-bg); border-color: var(--ok-line); color: #0d6b43; }
+    .chip-warn { background: var(--warn-bg); border-color: var(--warn-line); color: #a54000; }
+    .chip-bad { background: var(--bad-bg); border-color: var(--bad-line); color: #9c1d1d; }
+    .chip-info { background: var(--info-bg); border-color: var(--info-line); color: #1749b6; }
+    .guide-block { border-top: 1px solid #d7dde8; padding-top: 14px; margin-top: 14px; }
+    .guide-area { font-size: 1.02rem; font-weight: 900; margin-bottom: 8px; }
+    .guide-heading { font-size: 0.96rem; font-weight: 900; margin-bottom: 8px; }
+    .guide-lines { display: grid; gap: 4px; font-size: 0.94rem; }
+    .guide-line b { font-weight: 900; }
+    .guide-actions { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+    .guide-empty { color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
+    .data-quality { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .debug-box { border: 1px solid #e4ebf5; border-radius: 16px; padding: 14px; background: #fff; }
+    .legend-note { color: var(--muted); font-size: 0.86rem; line-height: 1.45; margin-top: 8px; }
+    .export-block { margin-top: 18px; padding: 14px; border: 1px solid #d7e3f4; border-radius: 16px; background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%); }
+    .export-title { font-size: 0.95rem; font-weight: 900; color: #173b8a; margin-bottom: 6px; }
+    .export-note { color: var(--muted); font-size: 0.82rem; line-height: 1.45; margin-top: 8px; }
+    .export-actions { display: grid; gap: 10px; margin-top: 12px; }
+    .export-actions button { text-align: left; padding: 12px 14px; }
+    .export-actions .secondary { background: white; border: 1px solid #bfd0f1; color: #173b8a; }
+    @media (max-width: 1300px) {
+      .grid-3 { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+      .hero, .grid-2, .guidance-wrap, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
+      .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; }
+    }
+    @media (max-width: 980px) {
+      .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    /* Clara AI assistant */
+    .clara-fab { position: fixed; right: 24px; bottom: 24px; z-index: 10020; border: 0; border-radius: 999px; padding: 13px 18px; background: #1d4ed8; color: #fff; font-weight: 900; font-size: 0.94rem; box-shadow: 0 12px 28px rgba(29,78,216,.28); cursor: pointer; }
+    .clara-panel { position: fixed; right: 24px; bottom: 82px; z-index: 10019; width: min(420px, calc(100vw - 32px)); max-height: min(720px, calc(100vh - 110px)); display: none; grid-template-rows: auto auto 1fr auto; background: #fff; border: 1px solid #cfd9e8; border-radius: 20px; box-shadow: 0 20px 50px rgba(15,23,42,.20); overflow: hidden; }
+    .clara-panel.open { display: grid; }
+    .clara-head { display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:linear-gradient(135deg,#eef4ff 0%,#f8fbff 100%); border-bottom:1px solid #dbe4ef; }
+    .clara-title { font-weight: 900; color:#173b8a; }
+    .clara-sub { font-size:.78rem; color:#5f6f8a; margin-top:2px; }
+    .clara-close { border:0; background:transparent; font-size:1.25rem; cursor:pointer; color:#475569; }
+    .clara-context { padding:10px 14px; border-bottom:1px solid #e6edf5; background:#fbfdff; font-size:.82rem; color:#475569; line-height:1.45; }
+    .clara-quick { display:flex; flex-wrap:wrap; gap:7px; padding:10px 12px 0; }
+    .clara-quick button { border:1px solid #bfd0f1; background:#f8fbff; color:#173b8a; border-radius:999px; padding:7px 10px; font-size:.78rem; font-weight:800; cursor:pointer; }
+    .clara-chat { overflow:auto; padding:12px; display:grid; align-content:start; gap:10px; background:#fff; }
+    .clara-msg { max-width:92%; padding:10px 12px; border-radius:14px; font-size:.86rem; line-height:1.5; white-space:pre-wrap; }
+    .clara-msg.user { justify-self:end; background:#1d4ed8; color:#fff; border-bottom-right-radius:5px; }
+    .clara-msg.ai { justify-self:start; background:#f1f5f9; color:#1e293b; border-bottom-left-radius:5px; border:1px solid #e2e8f0; }
+    .clara-input-wrap { display:grid; grid-template-columns:1fr auto; gap:8px; padding:12px; border-top:1px solid #e6edf5; background:#fbfdff; }
+    .clara-input { width:100%; border:1px solid #cbd5e1; border-radius:12px; padding:10px 12px; font:inherit; resize:none; min-height:42px; max-height:110px; }
+    .clara-send { border:0; border-radius:12px; padding:0 14px; background:#1d4ed8; color:#fff; font-weight:900; cursor:pointer; }
+    .clara-note { grid-column:1/-1; font-size:.72rem; color:#64748b; line-height:1.35; }
+    @media (max-width: 640px) { .clara-fab { right:16px; bottom:16px; } .clara-panel { right:16px; bottom:72px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar card">
+      <div class="pill">Climate Graphic Product Dashboard</div>
+      <h1>ARDA S2DFS</h1>
+      <div class="muted">Full geospatial product dashboard with grouped forecast, skill, probability, SPI, exceedance, advisory, and decision-guidance panels.</div>
+      <div class="field"><label for="monthSelect">Forecast month</label><select id="monthSelect"></select></div>
+      <div class="field"><label for="shapeSelect">Shape layer</label><select id="shapeSelect"></select></div>
+      <div class="field"><label for="summaryProductSelect">Polygon summary product</label><select id="summaryProductSelect"></select></div>
+      <div class="field"><button id="downloadReportBtn">Download designed one-page report</button></div>
+      <div class="field"><button id="downloadFigureBtn" class="secondary">Download current main figure</button></div>
+      <div class="field"><button id="downloadCsvBtn">Download summary JSON</button></div>
+      <div class="field"><button id="downloadGeoBtn" class="secondary">Download summary GeoJSON</button></div>
+      <div class="field"><button id="resetPolygonBtn" class="secondary">Clear selected polygon</button></div>
+      <div class="tip"><strong>Workflow:</strong><br>Main summary → polygon diagnostics → forecast → SPI → exceedance → probability → risk/advisory → skill → decision guidance.</div>
+    </aside>
+    <main class="main">
+      <section class="hero card">
+        <div>
+          <div class="section-title" id="heroTitle">ARDA S2DFS Dashboard and Information System</div>
+          <div class="section-subtitle" id="heroSubtitle">Grouped ARDA S2DFS geospatial products based on generated monthly maps and polygon summaries.</div>
+          <div class="legend-note" id="heroDetail" style="margin-top:10px;">Use the shape selector to switch between provinces, districts, and river basin / sub-basin products.</div>
+        </div>
+        <div class="hero-right">
+          <div class="metric"><div class="label">Selected month</div><div class="value" id="metricMonth">-</div></div>
+          <div class="metric"><div class="label">Selected shape layer</div><div class="value" id="metricShape">-</div></div>
+          <div class="metric"><div class="label">Summary product</div><div class="value" id="metricProduct">-</div></div>
+          <div class="metric"><div class="label">Selected polygon</div><div class="value" id="metricPolygon">None</div></div>
+        </div>
+      </section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Polygon-based geospatial map for the selected summary product and selected shape layer.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Selected layer ranking</div><div id="rankingTable"></div><div class="mini-note">Top and bottom polygons for the selected product. Click any polygon in the summary map to refresh the lower charts and guidance.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
+      <section id="decisionGuidanceSection" class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">How to interpret the alert levels</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">The labels combine rainfall anomaly, SPI dryness/wetness, below-normal probability, heavy-rain probability, risk class, and model skill. They are intended for early warning, planning, and coordination.</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">DRY = high risk</div><div class="alert-level-text">Clear dry signal or water-stress condition. Impacts are likely. Take early action now.</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">WATCH = moderate risk</div><div class="alert-level-text">Uncertain or emerging signal. Monitor closely, prepare resources, and update plans.</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">LOW–MODERATE = low risk</div><div class="alert-level-text">Near-normal or weak signal. Continue routine monitoring and stay ready for changes.</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">SPI group</div><div class="section-subtitle">Short-, medium-, and seasonal-scale wetness and dryness indicators to contextualize the current rainfall outlook.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">SPI-1</div><div id="map_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-3</div><div id="map_spi3" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">SPI-6</div><div id="map_spi6" class="graph-sm"></div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Probability exceedance group</div><div class="section-subtitle">Exceedance probability layers for thresholds P67, P85, and P95.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Exceedance P67</div><div id="map_prob_exceed_p67" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P85</div><div id="map_prob_exceed_p85" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Exceedance P95</div><div id="map_prob_exceed_p95" class="graph-sm"></div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Probability group</div><div class="section-subtitle">Tercile and heavy-rain probability products for operational risk interpretation.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Prob Above Normal</div><div id="map_prob_tercile_above" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Near Normal</div><div id="map_prob_tercile_normal" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Below Normal</div><div id="map_prob_tercile_below" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Heavy Rain</div><div id="map_prob_heavy_rain" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Prob Below Normal (single)</div><div id="map_prob_below_normal" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Dominant Tercile / Combined</div><div id="map_dominant_tercile" class="graph-sm"></div><div class="mini-note">Use this panel for a single combined probability view when available from your generated products.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Flood, drought, and agriculture risk group</div><div class="section-subtitle">Risk layers linked directly to the generated elevation-informed risk products and original flood/drought risk outputs.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Flood / Drought Risk</div><div id="map_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Probability SPI-1</div><div id="map_prob_drought_spi1" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Flood Score</div><div id="map_flood_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Score</div><div id="map_drought_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Agriculture Score</div><div id="map_agri_score" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Flood Risk</div><div id="map_flood_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Drought Risk</div><div id="map_drought_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Agriculture Risk</div><div id="map_agri_risk_class" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Advisory Classes</div><div id="map_advisory_class" class="graph-sm"></div><div class="mini-note">Integrated advisory class combining forecast tendency, SPI condition, rainfall probability, and risk interpretation.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Skill group</div><div class="section-subtitle">Model performance and reliability layers to support interpretation confidence.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Correlation Skill</div><div id="map_corr_skill" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">RMSE</div><div id="map_rmse_skill" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">MAE</div><div id="map_mae_skill" class="graph-sm"></div></div></div></section>
+
+      <section class="section card"><div class="section-head"><div><div class="section-title">Data quality and polygon matching</div><div class="section-subtitle">Checks for region ID matching and area-average coverage between GeoJSON polygons and product JSON rows.</div></div></div><div class="data-quality"><div class="debug-box"><div class="mini-title">Current matching summary</div><div id="debugSummary" class="muted">No check yet.</div></div><div class="debug-box"><div class="mini-title">Example missing polygon IDs</div><div id="debugMissing" class="muted">No missing IDs reported.</div></div></div></section>
+    </main>
+  </div>
+
+  <button id="claraFab" class="clara-fab" type="button">💬 Clara AI</button>
+  <section id="claraPanel" class="clara-panel" aria-label="Clara AI climate assistant">
+    <div class="clara-head">
+      <div><div class="clara-title">Clara AI · S2DFS Assistant</div><div class="clara-sub">Explains the currently selected dashboard data</div></div>
+      <button id="claraClose" class="clara-close" type="button" aria-label="Close Clara">×</button>
+    </div>
+    <div>
+      <div id="claraContext" class="clara-context">Select a polygon for area-specific interpretation.</div>
+      <div class="clara-quick">
+        <button type="button" data-clara-q="summary">Explain selected area</button>
+        <button type="button" data-clara-q="why">Why this alert?</button>
+        <button type="button" data-clara-q="water">Water actions</button>
+        <button type="button" data-clara-q="agri">Agriculture actions</button>
+        <button type="button" data-clara-q="warning">Early-warning priorities</button>
+      </div>
+    </div>
+    <div id="claraChat" class="clara-chat">
+      <div class="clara-msg ai">Hello, I’m Clara. Click a polygon, then ask me to explain the forecast, risk, skill, or recommended actions.</div>
+    </div>
+    <div class="clara-input-wrap">
+      <textarea id="claraInput" class="clara-input" rows="1" placeholder="Ask about the selected area…"></textarea>
+      <button id="claraSend" class="clara-send" type="button">Send</button>
+      <div class="clara-note">Clara uses the dashboard’s current forecast, SPI, probabilities, risk classes, and skill. This version works locally without sending data to an external AI service.</div>
+    </div>
+  </section>
+  <script>
+    const CONFIG = { manifestUrl: './data/manifest.json', geojsonDir: './data/geojson', productDir: './data/products', filePattern: '{month}_{shape}_{product}.json', geojsonPattern: '{shape}.geojson' };
+    const LOCKED_PLOT_CONFIG = {
+      responsive: true,
+      displaylogo: false,
+      scrollZoom: false,
+      doubleClick: false,
+      modeBarButtonsToRemove: [
+        'zoom2d','pan2d','select2d','lasso2d','zoomIn2d','zoomOut2d','autoScale2d','resetScale2d',
+        'zoomInGeo','zoomOutGeo','resetGeo','hoverClosestGeo','toImage'
+      ]
+    };
+    function lockLayoutInteractions(layout){
+      const locked = { ...(layout || {}), dragmode: false };
+      for(const axisName of ['xaxis','yaxis','xaxis2','yaxis2','xaxis3','yaxis3']){
+        if(locked[axisName]) locked[axisName] = { ...locked[axisName], fixedrange: true };
+      }
+      if(locked.geo){
+        locked.geo = { ...locked.geo };
+        locked.geo.lonaxis = { ...(locked.geo.lonaxis || {}), fixedrange: true };
+        locked.geo.lataxis = { ...(locked.geo.lataxis || {}), fixedrange: true };
+      }
+      return locked;
+    }
+    const _plotlyNewPlot = Plotly.newPlot.bind(Plotly);
+    Plotly.newPlot = function(div, data, layout, config){
+      return _plotlyNewPlot(div, data, lockLayoutInteractions(layout), { ...LOCKED_PLOT_CONFIG, ...(config || {}) });
+    };
+    const SHAPE_OPTIONS = [{ value: 'adm1', label: 'ADM1 Province' },{ value: 'adm2', label: 'ADM2 District' },{ value: 'mainbasin', label: 'Main Basin' },{ value: 'subbasin', label: 'Sub-basin' }];
+    const SUMMARY_PRODUCT_OPTIONS = [{ label: 'Forecast Actual Rainfall', value: 'forecast_actual' },{ label: 'Forecast Percent Anomaly', value: 'forecast_percent_anomaly' },{ label: 'Probability Below Normal', value: 'prob_below_normal' },{ label: 'Probability Heavy Rain', value: 'prob_heavy_rain' },{ label: 'Correlation Skill', value: 'corr_skill' },{ label: 'RMSE', value: 'rmse_skill' },{ label: 'MAE', value: 'mae_skill' },{ label: 'SPI-1', value: 'spi1' },{ label: 'SPI-3', value: 'spi3' },{ label: 'SPI-6', value: 'spi6' },{ label: 'Flood Risk Class', value: 'flood_risk_class' },{ label: 'Drought Risk', value: 'drought_risk_class' },{ label: 'Agriculture Risk', value: 'agri_risk_class' },{ label: 'Advisory Classes', value: 'advisory_class' },{ label: 'Flood Score', value: 'flood_score' },{ label: 'Drought Score', value: 'drought_score' },{ label: 'Agriculture Score', value: 'agri_score' },{ label: 'Probability Drought SPI-1', value: 'prob_drought_spi1' },{ label: 'Probability Exceedance P67', value: 'prob_exceed_p67' },{ label: 'Probability Exceedance P85', value: 'prob_exceed_p85' },{ label: 'Probability Exceedance P95', value: 'prob_exceed_p95' },{ label: 'F&D Risk', value: 'risk_class' }];
+    const MONTHS = [['Jan','January'], ['Feb','February'], ['Mar','March'], ['Apr','April'], ['May','May'], ['Jun','June'], ['Jul','July'], ['Aug','August'], ['Sep','September'], ['Oct','October'], ['Nov','November'], ['Dec','December']];
+    const COLORSCALES = {
+	ocean: [
+    [0.00, '#081d58'],
+    [0.20, '#225ea8'],
+    [0.40, '#1d91c0'],
+    [0.60, '#41b6c4'],
+    [0.80, '#7fcdbb'],
+    [1.00, '#c7e9b4']
+	],
+	terrain: [
+    [0.00, '#1a9850'],
+    [0.20, '#66bd63'],
+    [0.40, '#a6d96a'],
+    [0.60, '#d9ef8b'],
+    [0.75, '#fee08b'],
+    [0.90, '#f46d43'],
+    [1.00, '#d73027']
+	],
+	droughtWet: [
+    [0.00, '#b2182b'],
+    [0.25, '#ef8a62'],
+    [0.50, '#f7f7f7'],
+    [0.75, '#67a9cf'],
+    [1.00, '#2166ac']
+	]
+	};
+	const PRODUCT_META = {
+	forecast_actual: { legend: 'Rainfall', colorscale: COLORSCALES.ocean },
+
+	forecast_anomaly: { legend: 'Anomaly', colorscale: COLORSCALES.droughtWet, zmid: 0 },
+	forecast_percent_anomaly: { legend: '% anomaly', colorscale: COLORSCALES.droughtWet, zmin: -100, zmax: 100, zmid: 0 },
+	corr_skill: { legend: 'Correlation', colorscale: COLORSCALES.droughtWet, zmin: -1, zmax: 1, zmid: 0 },
+
+	rmse_skill: { legend: 'RMSE', colorscale: 'YlOrRd' },
+	mae_skill: { legend: 'MAE', colorscale: 'YlOrRd' },
+
+	prob_tercile_above: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_tercile_normal: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_tercile_below: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_heavy_rain: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_below_normal: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+
+	dominant_tercile: { legend: 'Probabilistic', colorscale: 'Viridis' },
+
+	spi1: { legend: 'SPI-1', colorscale: COLORSCALES.droughtWet, zmin: -2.5, zmax: 2.5, zmid: 0 },
+	spi3: { legend: 'SPI-3', colorscale: COLORSCALES.droughtWet, zmin: -2.5, zmax: 2.5, zmid: 0 },
+	spi6: { legend: 'SPI-6', colorscale: COLORSCALES.droughtWet, zmin: -2.5, zmax: 2.5, zmid: 0 },
+
+	prob_exceed_p67: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_exceed_p85: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_exceed_p95: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+
+	risk_class: { legend: 'F&D Risk', colorscale: COLORSCALES.droughtWet, zmin: -1, zmax: 1, zmid: 0 },
+	prob_drought_spi1: { legend: 'Probability', colorscale: 'YlOrBr', zmin: 0, zmax: 1 },
+
+	flood_score: { legend: 'Flood score', colorscale: 'GnBu', zmin: 0, zmax: 1 },
+	drought_score: { legend: 'Drought score', colorscale: 'YlOrBr', zmin: 0, zmax: 1 },
+	agri_score: { legend: 'Agriculture score', colorscale: COLORSCALES.terrain, zmin: 0, zmax: 1 },
+
+	flood_risk_class: { legend: 'Flood risk', colorscale: 'YlOrRd', zmin: 1, zmax: 5 },
+	drought_risk_class: { legend: 'Drought risk', colorscale: 'YlOrBr', zmin: 1, zmax: 5 },
+	agri_risk_class: { legend: 'Agriculture risk', colorscale: 'Greens', zmin: 1, zmax: 5 },
+
+	advisory_class: { legend: 'Advisory class', colorscale: 'YlOrRd', zmin: 0, zmax: 5 }
+	};
+    const CURRENT_MONTH = new Date().toLocaleString('en-US', { month: 'short' });
+    const state = { month: CURRENT_MONTH, shape: 'adm1', summaryProduct: 'forecast_actual', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
+    const monthSelect = document.getElementById('monthSelect'), shapeSelect = document.getElementById('shapeSelect'), summaryProductSelect = document.getElementById('summaryProductSelect');
+    const MAP_IDS = ['forecast_actual','forecast_anomaly','forecast_percent_anomaly','corr_skill','rmse_skill','mae_skill','prob_tercile_above','prob_tercile_normal','prob_tercile_below','prob_heavy_rain','prob_below_normal','dominant_tercile','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'];
+    function monthName(abbr){ return Object.fromEntries(MONTHS)[abbr] || abbr; }
+    function shapeLabel(value){ return SHAPE_OPTIONS.find(d => d.value === value)?.label || value; }
+    function currentSummaryMeta(){ return SUMMARY_PRODUCT_OPTIONS.find(d => d.value === state.summaryProduct); }
+    function productPath(month, shape, product){ return `${CONFIG.productDir}/${CONFIG.filePattern.replace('{month}', month).replace('{shape}', shape).replace('{product}', product)}`; }
+    function geojsonPath(shape){ return `${CONFIG.geojsonDir}/${CONFIG.geojsonPattern.replace('{shape}', shape)}`; }
+    function normalizeId(v){ if (v === null || v === undefined) return ''; let s = String(v).trim(); if (s.endsWith('.0')) s = s.slice(0, -2); if (/^\d+$/.test(s)) s = String(parseInt(s, 10)); return s; }
+    async function safeFetchJson(url){ const res = await fetch(url, { cache: 'no-store' }); if (!res.ok) throw new Error(`Missing file: ${url}`); return await res.json(); }
+    async function loadManifest(){ if (state.manifest) return state.manifest; state.manifest = await safeFetchJson(CONFIG.manifestUrl); return state.manifest; }
+    async function loadGeoJSON(shape){ if (state.geojsonCache[shape]) return state.geojsonCache[shape]; const gj = await safeFetchJson(geojsonPath(shape)); state.geojsonCache[shape] = gj; return gj; }
+    function normalizeRows(raw){ if (Array.isArray(raw)) return raw; if (raw && Array.isArray(raw.rows)) return raw.rows; throw new Error('Unsupported JSON format. Expected array or { rows: [...] }.'); }
+    async function loadProduct(month, shape, product){ const key = `${month}_${shape}_${product}`; if (state.productCache[key]) return state.productCache[key]; const raw = await safeFetchJson(productPath(month, shape, product)); const rows = normalizeRows(raw).map(r => ({ ...r, region_id: normalizeId(r.region_id), region_name: String(r.region_name ?? ''), value: Number.isFinite(Number(r.value)) ? Number(r.value) : null })); state.productCache[key] = rows; return rows; }
+    function fillControls(){ monthSelect.innerHTML=''; MONTHS.forEach(([abbr,name])=>{ const opt=document.createElement('option'); opt.value=abbr; opt.textContent=`${name} (${abbr})`; monthSelect.appendChild(opt);}); monthSelect.value=state.month; shapeSelect.innerHTML=''; SHAPE_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; shapeSelect.appendChild(opt);}); shapeSelect.value=state.shape; summaryProductSelect.innerHTML=''; SUMMARY_PRODUCT_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; summaryProductSelect.appendChild(opt);}); summaryProductSelect.value=state.summaryProduct; }
+    async function applyManifest(){ const manifest=await loadManifest(); const geos=new Set(manifest.geographies||[]); [...shapeSelect.options].forEach(opt=>{opt.disabled=geos.size?!geos.has(opt.value):false;}); if(geos.size&&!geos.has(state.shape)) state.shape=[...geos][0]; shapeSelect.value=state.shape; const months=new Set(manifest.months||[]); [...monthSelect.options].forEach(opt=>{opt.disabled=months.size?!months.has(opt.value):false;}); if(months.size&&!months.has(state.month)) state.month=[...months][0]; monthSelect.value=state.month; const products=new Set(manifest.products||[]); [...summaryProductSelect.options].forEach(opt=>{opt.disabled=products.size?!products.has(opt.value):false;}); if(products.size&&!products.has(state.summaryProduct)) state.summaryProduct=[...products][0]; summaryProductSelect.value=state.summaryProduct; }
+    function updateHero(){ document.getElementById('metricMonth').textContent=monthName(state.month); document.getElementById('metricShape').textContent=shapeLabel(state.shape); document.getElementById('metricProduct').textContent=currentSummaryMeta()?.label||state.summaryProduct; document.getElementById('metricPolygon').textContent=state.selectedPolygon?.region_name||'None'; document.getElementById('summaryMapTitle').textContent=`${shapeLabel(state.shape)}: ${currentSummaryMeta()?.label||state.summaryProduct}`; document.getElementById('heroDetail').textContent=`Current display uses ${shapeLabel(state.shape)} for ${monthName(state.month)} and groups related products from the generated climate maps into operational sections.`; }
+    function getGeoJSONBounds(geojson){ let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity; function walkCoords(coords){ if(!Array.isArray(coords)) return; if(typeof coords[0]==='number'&&typeof coords[1]==='number'){ const [lon,lat]=coords; if(Number.isFinite(lon)&&Number.isFinite(lat)){ minLon=Math.min(minLon,lon); minLat=Math.min(minLat,lat); maxLon=Math.max(maxLon,lon); maxLat=Math.max(maxLat,lat);} return;} coords.forEach(walkCoords);} (geojson.features||[]).forEach(f=>{ if(f?.geometry?.coordinates) walkCoords(f.geometry.coordinates);}); if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return {lonRange:[95,106],latRange:[5,21]}; const lonPad=Math.max(0.35,(maxLon-minLon)*0.06), latPad=Math.max(0.35,(maxLat-minLat)*0.06); return {lonRange:[minLon-lonPad,maxLon+lonPad],latRange:[minLat-latPad,maxLat+latPad]}; }
+    function baseChoroplethLayout(height,geojson){ const bounds=getGeoJSONBounds(geojson); return { margin:{l:0,r:0,t:10,b:0}, height, dragmode:false, paper_bgcolor:'white', plot_bgcolor:'white', geo:{ visible:false, projection:{type:'mercator'}, bgcolor:'white', showland:false, showcountries:false, showcoastlines:false, showlakes:false, showrivers:false, showframe:false, lonaxis:{range:bounds.lonRange}, lataxis:{range:bounds.latRange} } }; }
+    function setDebugSummary(q){ const summaryEl=document.getElementById('debugSummary'), missingEl=document.getElementById('debugMissing'); if(!q){ summaryEl.textContent='No check yet.'; missingEl.textContent='No missing IDs reported.'; return;} summaryEl.innerHTML=`Matched polygons: <b>${q.matched}</b> / <b>${q.total}</b><br>Coverage: <b>${q.coverage.toFixed(1)}%</b>`; missingEl.textContent=q.missingIds.length?q.missingIds.join(', '):'No missing IDs reported.'; }
+
+    function bboxFromFeature(feature){
+      let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity;
+      function walk(coords){
+        if(!Array.isArray(coords)) return;
+        if(typeof coords[0] === 'number' && typeof coords[1] === 'number'){
+          const lon = Number(coords[0]), lat = Number(coords[1]);
+          if(Number.isFinite(lon) && Number.isFinite(lat)){
+            minLon=Math.min(minLon,lon); minLat=Math.min(minLat,lat);
+            maxLon=Math.max(maxLon,lon); maxLat=Math.max(maxLat,lat);
+          }
+          return;
+        }
+        coords.forEach(walk);
+      }
+      walk(feature?.geometry?.coordinates);
+      if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return null;
+      return {minLon,minLat,maxLon,maxLat,width:maxLon-minLon,height:maxLat-minLat};
+    }
+
+    function buildMainMapLabelTrace(geojson, names, shape){
+      const features = geojson?.features || [];
+      if(!features.length) return null;
+      const bounds = getGeoJSONBounds(geojson);
+      const lonSpan = Math.max(bounds.lonRange[1] - bounds.lonRange[0], 1e-6);
+      const latSpan = Math.max(bounds.latRange[1] - bounds.latRange[0], 1e-6);
+      const maxLabelsByShape = { adm1: 77, mainbasin: 35, subbasin: 42, adm2: 45 };
+      const fontSizeByShape = { adm1: 9.5, mainbasin: 10, subbasin: 8.5, adm2: 7.2 };
+      const maxLabels = maxLabelsByShape[shape] || 45;
+      const fontSize = fontSizeByShape[shape] || 8.5;
+      const candidates = features.map((f, i) => {
+        const c = featureCentroid(f);
+        const b = bboxFromFeature(f);
+        const label = String(names[i] || f?.properties?.region_name || f?.properties?.NAME_2 || f?.properties?.name || f?.properties?.region_id || '').trim();
+        if(!c || !b || !label) return null;
+        const areaScore = Math.max(b.width * b.height, 1e-8);
+        const labelW = Math.max(0.018, (label.length * fontSize * 0.00095) * lonSpan);
+        const labelH = Math.max(0.018, (fontSize * 0.0028) * latSpan);
+        return { lon:c.lon, lat:c.lat, label, areaScore, labelW, labelH };
+      }).filter(Boolean).sort((a,b) => b.areaScore - a.areaScore);
+
+      const selected = [];
+      for(const cand of candidates){
+        const overlaps = selected.some(prev => {
+          const minDx = (cand.labelW + prev.labelW) * 0.52;
+          const minDy = (cand.labelH + prev.labelH) * 0.72;
+          return Math.abs(cand.lon - prev.lon) < minDx && Math.abs(cand.lat - prev.lat) < minDy;
+        });
+        if(overlaps) continue;
+        selected.push(cand);
+        if(selected.length >= maxLabels) break;
+      }
+      if(!selected.length) return null;
+      return {
+        type:'scattergeo',
+        mode:'text',
+        lon:selected.map(d => d.lon),
+        lat:selected.map(d => d.lat),
+        text:selected.map(d => d.label),
+        textfont:{
+          size:fontSize,
+          color:'#0f172a',
+          family:'Inter, Arial, Helvetica, sans-serif'
+        },
+        textposition:'middle center',
+        hoverinfo:'skip',
+        showlegend:false
+      };
+    }
+
+    async function makePolygonMap(divId, month, shape, product, big=false, clickable=false){
+      const geojson = await loadGeoJSON(shape), rows = await loadProduct(month, shape, product);
+      const byId = Object.fromEntries(rows.map(r => [normalizeId(r.region_id), r]));
+      const locations = geojson.features.map(f => normalizeId(f.properties.region_id));
+      const names = geojson.features.map(f => String(f.properties.region_name ?? f.properties.NAME_2 ?? f.properties.name ?? f.properties.region_id));
+      const values = locations.map(id => byId[id]?.value ?? null);
+      const meta = PRODUCT_META[product] || {legend:'Value', colorscale:'Viridis'};
+      const matched = values.filter(v => Number.isFinite(v)).length;
+      state.dataQuality = {
+        total: locations.length,
+        matched,
+        coverage: locations.length ? (matched / locations.length * 100) : 0,
+        missingIds: locations.filter(id => !Number.isFinite(byId[id]?.value)).slice(0,25)
+      };
+
+      const trace = {
+        type:'choropleth',
+        geojson,
+        locations,
+        z: values,
+        featureidkey:'properties.region_id',
+        marker:{
+          line:{
+            color:'rgba(80,80,80,0.7)',
+            width:(shape === 'mainbasin' || shape === 'subbasin') ? 1.1 : 0.55
+          }
+        },
+        colorbar:{
+          title:meta.legend,
+          len:0.4,
+          thickness:10,
+          x:0.95,
+          y:0.06,
+          xanchor:'right',
+          yanchor:'bottom',
+          outlinewidth:0.6,
+          tickfont:{size:9}
+        },
+        customdata: locations.map((id,i)=>[id,names[i],byId[id]?.value ?? null]),
+        hovertemplate:'<b>%{customdata[1]}</b><br>Value: %{customdata[2]}<extra></extra>',
+        colorscale: meta.colorscale || 'Viridis'
+      };
+
+      if(meta.zmin !== undefined) trace.zmin = meta.zmin;
+      if(meta.zmax !== undefined) trace.zmax = meta.zmax;
+      if(meta.zmid !== undefined) trace.zmid = meta.zmid;
+
+      const tracesForMap = [trace];
+      if(big && divId === 'summaryMap'){
+        const labelTrace = buildMainMapLabelTrace(geojson, names, shape);
+        if(labelTrace) tracesForMap.push(labelTrace);
+      }
+
+      await Plotly.newPlot(divId, tracesForMap, baseChoroplethLayout(big ? 620 : 300, geojson), LOCKED_PLOT_CONFIG);
+
+      if(clickable){
+        const div = document.getElementById(divId);
+        div.removeAllListeners?.('plotly_click');
+        div.on('plotly_click', async evt => {
+          const point = evt.points?.[0];
+          if(!point || !point.customdata) return;
+
+          state.selectedPolygon = {
+            region_id: normalizeId(point.customdata[0]),
+            region_name: String(point.customdata[1])
+          };
+
+          if(divId !== 'summaryMap'){
+            state.summaryProduct = product;
+            summaryProductSelect.value = product;
+            updateHero();
+            await makePolygonMap('summaryMap', state.month, state.shape, state.summaryProduct, true, true);
+            setDebugSummary(state.dataQuality);
+            document.getElementById('summaryMap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            updateHero();
+          }
+
+          await renderRankingAndGuidance();
+          await renderDiagnostics();
+        });
+      }
+    }
+    async function renderGroupedMaps(){
+      await makePolygonMap('summaryMap', state.month, state.shape, state.summaryProduct, true, true);
+      setDebugSummary(state.dataQuality);
+      for(const pid of MAP_IDS){
+        const divId = `map_${pid}`;
+        try{
+          await makePolygonMap(divId, state.month, state.shape, pid, false, true);
+        } catch(err){
+          await Plotly.newPlot(divId, [], {
+            height:300,
+            annotations:[{text:err.message,x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:12,color:'gray'}}],
+            margin:{l:20,r:20,t:20,b:20},
+            paper_bgcolor:'white',
+            plot_bgcolor:'white'
+          }, LOCKED_PLOT_CONFIG);
+        }
+      }
+    }
+    function formatPct(value){ return Number.isFinite(value)?`${(value*100).toFixed(0)}%`:'n/a'; }
+    function signalLabel(signal){ if(signal==='dry') return 'DRY'; if(signal==='wet') return 'WET'; return 'NEAR NORMAL'; }
+    function chipClassForSignal(signal){ if(signal==='dry') return 'chip-bad'; if(signal==='wet') return 'chip-info'; return 'chip-ok'; }
+    function confidenceLabel(corr){ if(!Number.isFinite(corr)) return 'Unknown'; if(corr>=0.5) return 'High'; if(corr>=0.3) return 'Moderate'; return 'Low-Moderate'; }
+    function confidenceChipClass(corr){ if(!Number.isFinite(corr)) return 'chip-warn'; if(corr>=0.5) return 'chip-ok'; if(corr>=0.3) return 'chip-info'; return 'chip-warn'; }
+    function alertLabel(signal){ return signal==='dry'?'WATCH':'NORMAL'; }
+    function alertChipClass(signal){ return signal==='dry'?'chip-warn':'chip-ok'; }
+    function classifySignal(ctx){ const pAnom=ctx.forecast_percent_anomaly, spi1=ctx.spi1, spi3=ctx.spi3, pBelow=ctx.prob_below_normal, pHeavy=ctx.prob_heavy_rain; if((Number.isFinite(pAnom)&&pAnom<=-20)||(Number.isFinite(spi1)&&spi1<=-1.0)||(Number.isFinite(spi3)&&spi3<=-1.0)||(Number.isFinite(pBelow)&&pBelow>=0.55)) return 'dry'; if((Number.isFinite(pAnom)&&pAnom>=20)||(Number.isFinite(pHeavy)&&pHeavy>=0.55)||(Number.isFinite(ctx.prob_exceed_p67)&&ctx.prob_exceed_p67>=0.55)) return 'wet'; return 'neutral'; }
+    function advisoryLabel(v){ if(!Number.isFinite(v)) return 'No data'; if(v===0) return 'No advisory'; return String(Math.round(v)); }
+    async function collectGuidanceContext(regionId){ const products=['forecast_actual','forecast_anomaly','forecast_percent_anomaly','prob_below_normal','prob_heavy_rain','prob_tercile_above','prob_tercile_normal','prob_tercile_below','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','corr_skill','rmse_skill','mae_skill','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class']; const ctx={}; for(const pid of products){ try{ const rows=await loadProduct(state.month,state.shape,pid); const row=rows.find(r=>normalizeId(r.region_id)===normalizeId(regionId)); if(row&&Number.isFinite(row.value)) ctx[pid]=row.value; } catch{} } return ctx; }
+    function riskTextFromSignal(signal){
+      if(signal==='dry') return 'High';
+      if(signal==='wet') return 'Wet / flood watch';
+      return 'Low–Moderate';
+    }
+    function buildActionItems(type, signal){
+      if(type === 'water'){
+        if(signal === 'dry') return [
+          ['EW','Early warning','Issue or update drought/water-stress alerts to relevant agencies and communities. Share expected impacts and preparedness actions.'],
+          ['WP','Water planning','Review reservoir, canal, and local storage levels against demand projections. Update allocation plans and contingency measures.'],
+          ['OP','Operations','Prioritize drinking water, health, ecosystems, and critical irrigation. Optimize reservoir operation and reduce non-essential releases.'],
+          ['MO','Monitoring','Increase monitoring frequency for rainfall, streamflow, reservoirs, groundwater, and SPI trends. Update forecasts regularly.'],
+          ['SO','Stakeholder coordination','Coordinate with irrigation districts, municipalities, agriculture offices, and disaster-management authorities. Prepare clear public guidance.']
+        ];
+        if(signal === 'wet') return [
+          ['EW','Early warning','Notify flood-prone communities and operating agencies where heavy-rain or exceedance probabilities are elevated.'],
+          ['FR','Flood readiness','Inspect drainage, gates, pumping stations, canals, retention areas, and lowland hot spots before the event window.'],
+          ['OP','Operations','Review pre-release or retention options carefully with short-range forecasts and downstream capacity.'],
+          ['MO','Monitoring','Track accumulated rainfall, river levels, radar/satellite products, and flash-flood indicators more frequently.'],
+          ['CO','Coordination','Prepare communication with DDPM/local authorities, water users, and municipalities for rapid response if thresholds are reached.']
+        ];
+        return [
+          ['PP','Preparedness','Maintain routine awareness products and communicate that conditions are near normal but still being monitored.'],
+          ['PL','Planning','Use the outlook as background information for seasonal allocation, reservoir planning, and local water-use scheduling.'],
+          ['OP','Operations','Continue normal operation, but keep contingency plans ready for updates if forecast probabilities change.'],
+          ['MO','Monitoring','Review weekly rainfall, SPI, reservoir, and river updates to detect any shift toward dry or wet conditions.'],
+          ['CO','Coordination','Share the outlook with local agencies so they can align field observations and preparedness plans.']
+        ];
+      }
+      if(signal === 'dry') return [
+        ['EW','Early warning','Alert farmers and extension services about potential moisture stress, yield impacts, and recommended preparedness actions.'],
+        ['CP','Crop planning','Adjust planting windows, select drought-tolerant or short-duration varieties, and consider staggered planting.'],
+        ['WM','Water management','Conserve soil moisture using mulching, minimum tillage, and field leveling. Plan supplemental irrigation for critical crop stages.'],
+        ['IP','Input and resource planning','Review fertilizer, seed, and labor schedules based on expected rainfall. Avoid high-risk investment during high-stress periods.'],
+        ['MA','Monitoring and advisory','Monitor soil moisture and crop condition regularly. Update advisories when forecast or SPI signals change.'],
+        ['LR','Livelihood risk preparedness','Prepare alternative water sources, fodder reserves, and livelihood support options for vulnerable areas.']
+      ];
+      if(signal === 'wet') return [
+        ['EW','Early warning','Warn farmers in flood-prone or poorly drained areas about possible excess rainfall and field ponding.'],
+        ['CP','Crop planning','Delay sensitive field operations if heavy rain is likely. Use raised beds or drainage support where appropriate.'],
+        ['WM','Water management','Clear field drainage and avoid irrigation before expected heavy-rain periods.'],
+        ['IP','Input and resource planning','Avoid fertilizer or pesticide application immediately before likely heavy rain to reduce losses and runoff.'],
+        ['MA','Monitoring and advisory','Monitor disease pressure, waterlogging, and crop damage after rainfall events. Update farm-level advisories.'],
+        ['LR','Livelihood risk preparedness','Prepare harvest, storage, and transport plans for areas with elevated flood or access-risk signals.']
+      ];
+      return [
+        ['PP','Preparedness','Communicate a near-normal outlook while reminding farmers to follow updates and local advisories.'],
+        ['CP','Crop planning','Proceed with normal seasonal operations, adjusting timing based on short-term rainfall forecasts.'],
+        ['WM','Water management','Maintain standard irrigation and drainage practices, adjusted to local soil and crop conditions.'],
+        ['IP','Input planning','Plan inputs normally, but keep flexible timing for fertilizer and field operations.'],
+        ['MO','Monitoring','Continue routine monitoring of rainfall, soil moisture, pests, disease, and crop stage.'],
+        ['RP','Risk preparedness','Keep basic contingency plans ready for either dry spell or heavy-rain updates.']
+      ];
+    }
+    function buildActionHtml(type, signal){
+      return `<div class="action-list">${buildActionItems(type, signal).map(([icon,title,text]) => `<div class="action-item"><div class="action-icon">${icon}</div><div><div class="action-title">${title}</div><div class="action-text">${text}</div></div></div>`).join('')}</div>`;
+    }
+    function renderGuidanceHtml(area,ctx,type){
+      const signal=classifySignal(ctx), confidence=confidenceLabel(ctx.corr_skill);
+      const signalChip=`<span class="chip ${chipClassForSignal(signal)}">${signalLabel(signal)}</span>`;
+      const alertChip=`<span class="chip ${alertChipClass(signal)}">${alertLabel(signal)}</span>`;
+      const riskChip=`<span class="chip ${signal==='dry'?'chip-bad':signal==='wet'?'chip-info':'chip-warn'}">${riskTextFromSignal(signal)}</span>`;
+      const confidenceChip=`<span class="chip ${confidenceChipClass(ctx.corr_skill)}">Skill: ${confidence}</span>`;
+      const whatMeans = signal === 'dry'
+        ? (type === 'water' ? 'High chance of below-normal rainfall and water stress. Drought or local shortage is possible to likely.' : 'High chance of soil-moisture deficit and crop stress. Yield loss may occur without action.')
+        : signal === 'wet'
+          ? (type === 'water' ? 'Wet signal or heavy-rain probability is elevated. Runoff, drainage, or flood readiness should be reviewed.' : 'Wet signal may support water availability, but waterlogging, disease pressure, and field-access risk may increase.')
+          : 'Near-normal or weak signal. Continue normal operation, but keep monitoring because forecast signals can change.';
+      if(type==='water') return `<div class="guidance-chips">${signalChip}${alertChip}${riskChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div><b>What it means:</b> ${whatMeans}</div></div><div class="guide-block"><div class="guide-heading">Key indicators for early warning</div><div class="guide-lines indicator-grid"><div class="guide-line">Forecast % anomaly: <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">SPI-1 / SPI-3: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'}</b></div><div class="guide-line">P(below normal): <b>${formatPct(ctx.prob_below_normal)}</b></div><div class="guide-line">P(heavy rain): <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">P(exceed P67 / P85 / P95): <b>${formatPct(ctx.prob_exceed_p67)} / ${formatPct(ctx.prob_exceed_p85)} / ${formatPct(ctx.prob_exceed_p95)}</b></div><div class="guide-line">Flood / drought / advisory class: <b>${Number.isFinite(ctx.flood_risk_class)?ctx.flood_risk_class.toFixed(0):'n/a'} / ${Number.isFinite(ctx.drought_risk_class)?ctx.drought_risk_class.toFixed(0):'n/a'} / ${advisoryLabel(ctx.advisory_class)}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended early-warning and planning actions</div>${buildActionHtml('water', signal)}</div>`;
+      const soilText=signal==='dry'?'Moisture stress risk increasing':signal==='wet'?'Moisture availability improving, but excess-water risk should be monitored':'Near seasonal baseline';
+      return `<div class="guidance-chips">${signalChip}${alertChip}${riskChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div><b>What it means:</b> ${whatMeans}</div></div><div class="guide-block"><div class="guide-heading">Agro-climate condition</div><div class="guide-lines indicator-grid"><div class="guide-line">Soil-moisture tendency: <b>${soilText}</b></div><div class="guide-line">SPI-1 / SPI-3 / SPI-6: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi6)?ctx.spi6.toFixed(2):'n/a'}</b></div><div class="guide-line">Forecast % anomaly: <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">Heavy-rain probability: <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">Drought probability (SPI-1): <b>${formatPct(ctx.prob_drought_spi1)}</b></div><div class="guide-line">Agriculture score / class: <b>${Number.isFinite(ctx.agri_score)?ctx.agri_score.toFixed(2):'n/a'} / ${Number.isFinite(ctx.agri_risk_class)?ctx.agri_risk_class.toFixed(0):'n/a'}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended early-warning and planning actions</div>${buildActionHtml('agri', signal)}</div>`;
+    }
+    async function renderRankingAndGuidance(){ const rows=await loadProduct(state.month,state.shape,state.summaryProduct); const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value); const top=ranked.slice(0,10), bottom=[...ranked].slice(-10).reverse(); document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>Top areas</th><th>Value</th><th>Bottom areas</th><th>Value</th></tr></thead><tbody>${Array.from({length:Math.max(top.length,bottom.length)}).map((_,i)=>`<tr><td>${top[i]?.Area||''}</td><td>${top[i]?top[i].Value.toFixed(3):''}</td><td>${bottom[i]?.Area||''}</td><td>${bottom[i]?bottom[i].Value.toFixed(3):''}</td></tr>`).join('')}</tbody></table>`; const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0]; if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); } else { document.getElementById('waterGuidance').textContent='No data'; document.getElementById('agriGuidance').textContent='No data'; } }
+
+    function featureCentroid(feature){
+      const pts = [];
+      function walk(coords){
+        if(!Array.isArray(coords)) return;
+        if(typeof coords[0] === 'number' && typeof coords[1] === 'number'){
+          pts.push(coords);
+          return;
+        }
+        coords.forEach(walk);
+      }
+      walk(feature?.geometry?.coordinates);
+      if(!pts.length) return null;
+      const lon = pts.reduce((a,p)=>a+p[0],0) / pts.length;
+      const lat = pts.reduce((a,p)=>a+p[1],0) / pts.length;
+      return { lon, lat };
+    }
+
+    function getLocalPeerIds(geojson, regionId, maxPeers=12){
+      const features = geojson?.features || [];
+      const target = features.find(f => normalizeId(f?.properties?.region_id) === normalizeId(regionId));
+      if(!target) return [];
+      const c0 = featureCentroid(target);
+      if(!c0) return [];
+      const ranked = features.map(f => {
+        const id = normalizeId(f?.properties?.region_id);
+        const c = featureCentroid(f);
+        if(!c) return null;
+        const dx = c.lon - c0.lon;
+        const dy = c.lat - c0.lat;
+        return { id, d2: dx*dx + dy*dy };
+      }).filter(Boolean).sort((a,b) => a.d2 - b.d2);
+      return ranked.slice(0, maxPeers).map(d => d.id);
+    }
+
+    function computeNiceRange(values){
+      const vals = values.filter(v => Number.isFinite(v));
+      if(!vals.length) return null;
+      let min = Math.min(...vals), max = Math.max(...vals);
+      if(min === max){ const pad = Math.abs(min || 1) * 0.15; return [min - pad, max + pad]; }
+      const span = max - min;
+      const pad = span * 0.12;
+      return [min - pad, max + pad];
+    }
+
+    async function renderDiagnostics(){
+      if(!state.selectedPolygon){
+        document.getElementById('polygonBarTitle').textContent='Confidential local distributions ';
+        document.getElementById('polygonLineTitle').textContent='Monthly local distributions ';
+        await Plotly.newPlot('polygonBarChart',[],{height:360,annotations:[{text:'Click a polygon in the summary map or any grouped map to compare the selected location against its nearest local polygons.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},LOCKED_PLOT_CONFIG);
+        await Plotly.newPlot('polygonLineChart',[],{height:360,annotations:[{text:'After selecting a polygon, this panel will show monthly local neighborhood distributions for the selected summary product.',x:0.5,y:0.5,xref:'paper',yref:'paper',showarrow:false,font:{size:14,color:'gray'}}],margin:{l:40,r:20,t:20,b:40},paper_bgcolor:'white',plot_bgcolor:'white'},LOCKED_PLOT_CONFIG);
+        return;
+      }
+
+      const geojson = await loadGeoJSON(state.shape);
+      const peerIds = getLocalPeerIds(geojson, state.selectedPolygon.region_id, state.shape === 'adm2' ? 14 : 10);
+      const peerSet = new Set(peerIds.map(normalizeId));
+
+      const groupedProducts=['corr_skill','prob_tercile_above','prob_tercile_normal','prob_tercile_below','prob_heavy_rain','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'];
+      const groupedBoxes=[]; const groupedX=[]; const groupedY=[]; const groupedAllValues=[];
+
+//--- Confidentail scores
+      for(const pid of groupedProducts){
+        try{
+          const rows = await loadProduct(state.month, state.shape, pid);
+          const localRows = rows.filter(r => peerSet.has(normalizeId(r.region_id)));
+          const vals = localRows.map(r => r.value).filter(v => Number.isFinite(v));
+          const sel = rows.find(r => normalizeId(r.region_id) === normalizeId(state.selectedPolygon.region_id));
+
+          if(vals.length){
+            groupedAllValues.push(...vals);
+            groupedBoxes.push({
+              type:'violin',
+              name:pid.replaceAll('_',' '),
+              y:vals,
+              box:{visible:true},
+              meanline:{visible:true},
+              points:'suspectedoutliers',
+              width:0.6,
+              spanmode:'hard',
+              opacity:0.9,
+              jitter:0.03,
+              pointpos:0,
+              marker:{size:2,opacity:0.25},
+              line:{width:0.8},
+              fillcolor:'rgba(29,78,216,0.18)',
+              hovertemplate:'%{x}<br>Local distribution<extra></extra>'
+            });
+            if(sel && Number.isFinite(sel.value)){
+              groupedX.push(pid.replaceAll('_',' '));
+              groupedY.push(sel.value);
+            }
+          }
+        } catch {}
+      }
+
+      groupedBoxes.push({
+        type:'scatter',
+        mode:'markers',
+        x:groupedX,
+        y:groupedY,
+        name:`${state.selectedPolygon.region_name} value`,
+        marker:{size:6,color:'#b91c1c',symbol:'diamond'},
+        hovertemplate:'Selected polygon<br>%{x}<br>%{y:.3f}<extra></extra>'
+      });
+
+      document.getElementById('polygonBarTitle').textContent=`Confidential local distributions : ${state.selectedPolygon.region_name}`;
+      const groupedRange = computeNiceRange([...groupedAllValues, ...groupedY]);
+      await Plotly.newPlot('polygonBarChart',groupedBoxes,{
+        height:380,
+        xaxis:{title:`Confidential scores (nearest ${peerIds.length} polygons)`,tickangle:-35},
+        yaxis:{title:'Value', range: groupedRange || undefined},
+        margin:{l:55,r:20,t:35,b:100},
+        paper_bgcolor:'white',
+        plot_bgcolor:'white',
+        showlegend:false,
+        legend:{orientation:'h',y:1.12}
+      },LOCKED_PLOT_CONFIG);
+	  
+//--- Monthly Prediction Time Series
+      const monthBoxes=[]; const monthX=[]; const monthY=[]; const monthAllValues=[];
+      for(const [abbr,name] of MONTHS){
+        try{
+          const rows = await loadProduct(abbr, state.shape, state.summaryProduct);
+          const localRows = rows.filter(r => peerSet.has(normalizeId(r.region_id)));
+          const vals = localRows.map(r => r.value).filter(v => Number.isFinite(v));
+          const sel = rows.find(r => normalizeId(r.region_id) === normalizeId(state.selectedPolygon.region_id));
+          const label = `${name} (${abbr})`;
+
+          if(vals.length){
+            monthAllValues.push(...vals);
+            monthBoxes.push({
+              type:'violin',
+              name:label,
+              y:vals,
+              box:{visible:true},
+              meanline:{visible:true},
+              points:'suspectedoutliers',
+              width:0.6,
+              spanmode:'hard',
+              opacity:0.75,
+              jitter:0.03,
+              pointpos:0,
+              marker:{size:2,opacity:0.25},
+              line:{width:0.8},
+              fillcolor:'rgba(22,163,74,0.18)',
+              hovertemplate:'%{x}<br>Local distribution<extra></extra>'
+            });
+            if(sel && Number.isFinite(sel.value)){
+              monthX.push(label);
+              monthY.push(sel.value);
+            }
+          }
+        } catch {}
+      }
+
+      monthBoxes.push({
+        type:'scatter',
+        mode:'lines+markers',
+        x:monthX,
+        y:monthY,
+        name:`${state.selectedPolygon.region_name} trend`,
+        line:{width:2,color:'#2563eb'},
+        marker:{size:8,color:'#b91c1c',symbol:'diamond'},
+        hovertemplate:'Selected polygon<br>%{x}<br>%{y:.3f}<extra></extra>'
+      });
+
+      document.getElementById('polygonLineTitle').textContent=`Monthly local distributions : ${state.selectedPolygon.region_name} / ${currentSummaryMeta()?.label||state.summaryProduct}`;
+      const monthRange = computeNiceRange([...monthAllValues, ...monthY]);
+      await Plotly.newPlot('polygonLineChart',monthBoxes,{
+        height:380,
+        xaxis:{title:`Month (nearest ${peerIds.length} polygons)`,tickangle:-25},
+        yaxis:{title:currentSummaryMeta()?.label||'Value', range: monthRange || undefined},
+        margin:{l:55,r:20,t:35,b:90},
+        paper_bgcolor:'white',
+        plot_bgcolor:'white',
+        showlegend:false,
+        legend:{orientation:'h',y:1.12}
+      },LOCKED_PLOT_CONFIG);
+    }
+
+    function safeSlug(value){
+      return String(value || 'dashboard').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'') || 'dashboard';
+    }
+    function escapeHtml(value){
+      return String(value ?? '')
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#39;');
+    }
+    function htmlToPlainText(html){
+      const div = document.createElement('div');
+      div.innerHTML = html || '';
+      return (div.textContent || div.innerText || '').replace(/\s+/g,' ').trim();
+    }
+    async function exportPlotAsPng(divId, filename, width=1700, height=1100){
+      const div = document.getElementById(divId);
+      if(!div || !div.data || !div.layout) throw new Error('Figure is not ready for export.');
+      await Plotly.downloadImage(div, {format:'png', filename, width, height, scale:2});
+    }
+    async function plotToDataUrl(divId, width=1200, height=760){
+      const div = document.getElementById(divId);
+      if(!div || !div.data || !div.layout) return '';
+      return await Plotly.toImage(div, {format:'png', width, height, scale:2});
+    }
+    function buildReportHtml(payload){
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${escapeHtml(payload.title)}</title>
+<style>
+  :root {
+    --ink:#13213d; --muted:#5f6f8a; --line:#dbe4ef; --soft:#f4f7fb; --card:#ffffff;
+    --accent:#1d4ed8; --accent-soft:#eef4ff; --water:#f5f8ff; --agri:#f6fff4; --hero:#eaf1ff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: Inter, Arial, Helvetica, sans-serif; color:var(--ink); background:#edf2f9; }
+  .page { width: 1180px; min-height: 820px; margin: 0 auto; background: white; padding: 26px 28px 24px; }
+  .hero {
+    border:1px solid var(--line); border-radius:24px; padding:22px 24px;
+    background: linear-gradient(135deg, #f8fbff 0%, var(--hero) 100%);
+    margin-bottom: 16px;
+  }
+  .hero-top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+  .eyebrow { display:inline-block; font-size:12px; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:#1d4ed8; background:white; border:1px solid #cfe0ff; border-radius:999px; padding:6px 10px; margin-bottom:10px; }
+  .title { font-size: 30px; font-weight: 900; margin:0 0 8px; line-height:1.1; }
+  .subtitle { color:var(--muted); font-size: 14px; line-height:1.55; max-width:680px; }
+  .meta { display:grid; grid-template-columns: repeat(2, minmax(150px,1fr)); gap:10px; min-width: 360px; }
+  .metric { border:1px solid #d8e4f5; border-radius:16px; padding:11px 12px; background:rgba(255,255,255,0.78); }
+  .metric .k { color:var(--muted); font-size:12px; margin-bottom:4px; }
+  .metric .v { font-size:16px; font-weight:800; }
+  .hero-bottom { margin-top:14px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  .summary-chip { border:1px solid #d8e4f5; border-radius:16px; padding:12px 14px; background:white; }
+  .summary-chip .h { font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); margin-bottom:6px; font-weight:800; }
+  .summary-chip .t { font-size:14px; line-height:1.5; }
+  .content-grid { display:grid; grid-template-columns: 1.18fr 0.82fr; gap:16px; }
+  .panel { border:1px solid var(--line); border-radius:18px; padding:14px; background:var(--card); }
+  .panel h3 { margin:0 0 8px; font-size:17px; }
+  .panel p { margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
+  .img-wrap { margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:white; }
+  .img-wrap img { width:100%; display:block; }
+  .quality-card { margin-top:12px; padding:12px 14px; border-radius:14px; background:var(--soft); border:1px solid var(--line); }
+  .quality-card .qh { font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); margin-bottom:6px; }
+  .quality-card .qt { font-size:13px; line-height:1.55; }
+  .diag-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:14px; }
+  .diag-grid .panel h4 { margin:0 0 8px; font-size:15px; }
+  .report-decision { margin-top:14px; }
+  .section { padding:16px; }
+  .section.card { background:white; border:1px solid var(--line); border-radius:18px; box-shadow:none; }
+  .section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:10px; margin-bottom:12px; }
+  .section-title { font-size:1.08rem; font-weight:800; }
+  .section-subtitle { color:var(--muted); font-size:0.92rem; margin-top:4px; }
+  .alert-explainer { margin-bottom:14px; border:1px solid #d7e3f4; border-radius:18px; background:linear-gradient(180deg,#fbfdff 0%,#f5f8ff 100%); padding:14px 16px; }
+  .alert-explainer-title { font-size:0.98rem; font-weight:900; margin-bottom:8px; color:#13213d; }
+  .alert-explainer-grid { display:grid; grid-template-columns:1.05fr 1fr 1fr 1fr; gap:12px; align-items:stretch; }
+  .alert-explainer-intro { color:var(--muted); font-size:0.88rem; line-height:1.45; padding-right:8px; border-right:1px solid #d7dde8; }
+  .alert-level-card { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; padding:10px 12px; border-radius:16px; background:#fff; border:1px solid #e3ebf6; }
+  .alert-level-icon { width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; font-weight:900; }
+  .alert-dry .alert-level-icon { color:#9c1d1d; background:#fff0f0; border:1px solid #f3b4b4; }
+  .alert-watch .alert-level-icon { color:#a54000; background:#fff4e8; border:1px solid #f2bf87; }
+  .alert-low .alert-level-icon { color:#9a6a00; background:#fff8dc; border:1px solid #e7c86a; }
+  .alert-level-name { font-weight:900; font-size:0.88rem; margin-bottom:3px; }
+  .alert-level-text { color:var(--muted); font-size:0.82rem; line-height:1.4; }
+  .guidance-wrap { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .guidance-box { border-radius:22px; padding:20px 22px; line-height:1.55; border:1px solid #d7e0eb; }
+  .guidance-water { background:#f5f8ff; }
+  .guidance-agri { background:#f6fff4; }
+  .guidance-title { font-weight:900; margin-bottom:16px; font-size:1.03rem; display:flex; align-items:center; gap:10px; }
+  .guidance-title .title-icon { width:34px; height:34px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:1.05rem; border:1px solid #cbd5e1; background:#fff; }
+  .guidance-chips { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; }
+  .chip { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:8px 14px; border-radius:999px; font-weight:800; font-size:0.82rem; border:1px solid transparent; letter-spacing:0.01em; }
+  .chip-ok { background:#eaf8ef; border-color:#9fd9ab; color:#0d6b43; }
+  .chip-warn { background:#fff4e8; border-color:#f2bf87; color:#a54000; }
+  .chip-bad { background:#fef0f0; border-color:#efb1b1; color:#9c1d1d; }
+  .chip-info { background:#eef4ff; border-color:#bdd0ff; color:#1749b6; }
+  .guide-block { border-top:1px solid #d7dde8; padding-top:14px; margin-top:14px; }
+  .guide-area { font-size:1.02rem; font-weight:900; margin-bottom:8px; }
+  .guide-heading { font-size:0.96rem; font-weight:900; margin-bottom:8px; }
+  .guide-lines { display:grid; gap:4px; font-size:0.94rem; }
+  .indicator-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
+  .guide-line b { font-weight:900; }
+  .guide-summary-text { color:#425579; font-size:0.92rem; line-height:1.58; }
+  .impact-list { display:grid; gap:8px; }
+  .impact-item { display:grid; grid-template-columns:28px 1fr; gap:8px; align-items:start; color:#425579; font-size:0.88rem; line-height:1.42; }
+  .impact-icon { width:24px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #dbe4ef; }
+  .action-list { display:grid; gap:10px; margin-top:8px; }
+  .action-item { display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start; }
+  .action-icon { width:30px; height:30px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#eef4ff; color:#1749b6; font-size:1rem; }
+  .guidance-agri .action-icon { background:#eaf8ef; color:#0d6b43; }
+  .action-title { font-weight:900; font-size:0.9rem; margin-bottom:2px; }
+  .action-text { color:#425579; font-size:0.86rem; line-height:1.42; }
+  @media (max-width: 1000px) { .guidance-wrap, .alert-explainer-grid, .indicator-grid { grid-template-columns:1fr; } .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; } }
+  .footer { margin-top:14px; border-top:1px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; gap:18px; color:var(--muted); font-size:12px; }
+  @media print {
+    body { background:white; }
+    .page { width:auto; min-height:auto; margin:0; padding:14px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">ARDA S2DFS operational briefing</div>
+          <div class="title">${escapeHtml(payload.title)}</div>
+          <div class="subtitle">${escapeHtml(payload.subtitle)}</div>
+        </div>
+        <div class="meta">
+          <div class="metric"><div class="k">Selected month</div><div class="v">${escapeHtml(payload.month)}</div></div>
+          <div class="metric"><div class="k">Shape layer</div><div class="v">${escapeHtml(payload.shape)}</div></div>
+          <div class="metric"><div class="k">Summary product</div><div class="v">${escapeHtml(payload.product)}</div></div>
+          <div class="metric"><div class="k">Selected polygon</div><div class="v">${escapeHtml(payload.polygon)}</div></div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="summary-chip"><div class="h">Current interpretation</div><div class="t">${escapeHtml(payload.summaryText)}</div></div>
+        <div class="summary-chip"><div class="h">Coverage and matching</div><div class="t">${escapeHtml(payload.qualityText)}</div></div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="panel">
+        <h3>Main map</h3>
+        <p>${escapeHtml(payload.mapCaption)}</p>
+        <div class="img-wrap">${payload.summaryMap ? `<img src="${payload.summaryMap}" alt="Main summary map" />` : ''}</div>
+      </div>
+      <div class="panel">
+        <h3>Selected area briefing</h3>
+        <p>This block summarizes the currently selected location and the active dashboard context for rapid communication or decision support.</p>
+        <div class="quality-card"><div class="qh">Area</div><div class="qt">${escapeHtml(payload.polygon)}</div></div>
+        <div class="quality-card"><div class="qh">Product focus</div><div class="qt">${escapeHtml(payload.product)}</div></div>
+        <div class="quality-card"><div class="qh">Interpretation note</div><div class="qt">Use this report together with the diagnostics and guidance panels below. Local context, exposure, and recent observations should still be checked before final action.</div></div>
+      </div>
+    </div>
+
+    <div class="diag-grid">
+      <div class="panel">
+        <h4>${escapeHtml(payload.diag1Title)}</h4>
+        <p>Selected polygon compared against its nearest neighborhood distribution.</p>
+        <div class="img-wrap">${payload.diag1 ? `<img src="${payload.diag1}" alt="Local confidential distribution" />` : ''}</div>
+      </div>
+      <div class="panel">
+        <h4>${escapeHtml(payload.diag2Title)}</h4>
+        <p>Monthly local context for the active summary product.</p>
+        <div class="img-wrap">${payload.diag2 ? `<img src="${payload.diag2}" alt="Monthly local distribution" />` : ''}</div>
+      </div>
+    </div>
+
+    <div class="report-decision">
+      ${payload.decisionGuidanceHtml || ''}
+    </div>
+
+    <div class="footer">
+      <div>Generated from the current ARDA S2DFS dashboard state.</div>
+      <div>${escapeHtml(payload.generatedAt)}</div>
+    </div>
+  </div>
+</body>
+</html>`;
+    }
+    async function downloadCurrentSummaryReport(){
+      const summaryMap = await plotToDataUrl('summaryMap', 1400, 900);
+      const diag1 = await plotToDataUrl('polygonBarChart', 1200, 760);
+      const diag2 = await plotToDataUrl('polygonLineChart', 1200, 760);
+      const payload = {
+        title: `ARDA S2DFS one-page summary report`,
+        subtitle: `Current export for ${monthName(state.month)} using ${shapeLabel(state.shape)} and ${currentSummaryMeta()?.label || state.summaryProduct}.`,
+        month: monthName(state.month),
+        shape: shapeLabel(state.shape),
+        product: currentSummaryMeta()?.label || state.summaryProduct,
+        polygon: state.selectedPolygon?.region_name || 'None selected',
+        mapCaption: 'Current main polygon layer summary as displayed in the dashboard.',
+        summaryText: `This report captures the active dashboard state, including the current main map, local confidential/distribution diagnostics, and guidance for the selected area or lead-ranked area.`,
+        qualityText: htmlToPlainText(document.getElementById('debugSummary')?.innerHTML) || 'No matching summary available.',
+        summaryMap,
+        diag1,
+        diag2,
+        diag1Title: document.getElementById('polygonBarTitle')?.textContent?.trim() || 'Confidential local distributions',
+        diag2Title: document.getElementById('polygonLineTitle')?.textContent?.trim() || 'Monthly local distributions',
+        decisionGuidanceHtml: document.getElementById('decisionGuidanceSection')?.outerHTML || '',
+        generatedAt: new Date().toLocaleString()
+      };
+      const html = buildReportHtml(payload);
+      const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const suffix = `${safeSlug(state.month)}_${safeSlug(state.shape)}_${safeSlug(state.summaryProduct)}_${safeSlug(state.selectedPolygon?.region_name || 'overview')}`;
+      a.href = url;
+      a.download = `arda_s2dfs_summary_report_${suffix}.html`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    async function downloadFile(url,filename){ const res=await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error(`Download failed: ${url}`); const blob=await res.blob(); const obj=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=obj; a.download=filename; a.click(); URL.revokeObjectURL(obj); }
+    async function refreshAll(){ updateHero(); await renderGroupedMaps(); await renderRankingAndGuidance(); await renderDiagnostics(); }
+    monthSelect.addEventListener('change',async e=>{ state.month=e.target.value; state.selectedPolygon=null; await refreshAll(); });
+    shapeSelect.addEventListener('change',async e=>{ state.shape=e.target.value; state.selectedPolygon=null; await refreshAll(); });
+    summaryProductSelect.addEventListener('change',async e=>{ state.summaryProduct=e.target.value; state.selectedPolygon=null; await refreshAll(); });
+    document.getElementById('resetPolygonBtn').addEventListener('click',async()=>{ state.selectedPolygon=null; updateHero(); await renderDiagnostics(); await renderRankingAndGuidance(); });
+    document.getElementById('downloadCsvBtn').addEventListener('click',async()=>{ const file=`${state.month}_${state.shape}_${state.summaryProduct}.json`; await downloadFile(`${CONFIG.productDir}/${file}`,file); });
+    document.getElementById('downloadGeoBtn').addEventListener('click',async()=>{ const file=`${state.shape}.geojson`; await downloadFile(`${CONFIG.geojsonDir}/${file}`,file); });
+    document.getElementById('downloadFigureBtn').addEventListener('click',async()=>{
+      const suffix = `${safeSlug(state.month)}_${safeSlug(state.shape)}_${safeSlug(state.summaryProduct)}_${safeSlug(state.selectedPolygon?.region_name || 'overview')}`;
+      await exportPlotAsPng('summaryMap', `arda_s2dfs_main_map_${suffix}`);
+    });
+    document.getElementById('downloadReportBtn').addEventListener('click',async()=>{
+      await downloadCurrentSummaryReport();
+    });
+
+    // ---------------- Clara AI local climate assistant ----------------
+    const claraState = { lastContext: null };
+    function claraPct(v){ return Number.isFinite(v) ? `${Math.round(v*100)}%` : 'n/a'; }
+    function claraNum(v, d=2){ return Number.isFinite(v) ? Number(v).toFixed(d) : 'n/a'; }
+    function claraAddMessage(role, text){
+      const chat=document.getElementById('claraChat');
+      if(!chat) return;
+      const el=document.createElement('div');
+      el.className=`clara-msg ${role}`;
+      el.textContent=text;
+      chat.appendChild(el);
+      chat.scrollTop=chat.scrollHeight;
+    }
+    async function getClaraContext(){
+      let area = state.selectedPolygon;
+      if(!area){
+        try{
+          const rows=await loadProduct(state.month,state.shape,state.summaryProduct);
+          const top=rows.filter(r=>Number.isFinite(r.value)).sort((a,b)=>b.value-a.value)[0];
+          if(top) area={region_id:top.region_id, region_name:top.region_name};
+        }catch{}
+      }
+      if(!area) return null;
+      const ctx=await collectGuidanceContext(area.region_id);
+      const signal=classifySignal(ctx);
+      const confidence=confidenceLabel(ctx.corr_skill);
+      const obj={area,ctx,signal,confidence,month:monthName(state.month),shape:shapeLabel(state.shape),product:currentSummaryMeta()?.label||state.summaryProduct};
+      claraState.lastContext=obj;
+      const c=document.getElementById('claraContext');
+      if(c) c.innerHTML=`<b>${escapeHtml(area.region_name)}</b> · ${escapeHtml(obj.month)} · ${escapeHtml(obj.shape)}<br>${escapeHtml(obj.product)} · Signal: <b>${escapeHtml(signalLabel(signal))}</b> · Skill: <b>${escapeHtml(confidence)}</b>`;
+      return obj;
+    }
+    function claraSummary(c){
+      const {ctx,signal,confidence,area,month}=c;
+      const core = signal==='dry'
+        ? `The combined indicators point to a dry / water-stress signal for ${area.region_name} in ${month}.`
+        : signal==='wet'
+          ? `The combined indicators point to a wet signal for ${area.region_name} in ${month}, with elevated runoff or heavy-rain concern.`
+          : `The overall climate signal for ${area.region_name} in ${month} is near normal, without a strong dry or wet signal.`;
+      return `${core}\n\nKey evidence: forecast anomaly ${claraNum(ctx.forecast_percent_anomaly,1)}%, SPI-1 ${claraNum(ctx.spi1)}, SPI-3 ${claraNum(ctx.spi3)}, P(below normal) ${claraPct(ctx.prob_below_normal)}, P(heavy rain) ${claraPct(ctx.prob_heavy_rain)}. Forecast skill is ${confidence}.\n\nUse this as decision support together with recent observations and short-range updates.`;
+    }
+    function claraWhy(c){
+      const {ctx,signal}=c; const reasons=[];
+      if(Number.isFinite(ctx.forecast_percent_anomaly)) reasons.push(`rainfall anomaly ${ctx.forecast_percent_anomaly.toFixed(1)}%`);
+      if(Number.isFinite(ctx.spi1)) reasons.push(`SPI-1 ${ctx.spi1.toFixed(2)}`);
+      if(Number.isFinite(ctx.spi3)) reasons.push(`SPI-3 ${ctx.spi3.toFixed(2)}`);
+      if(Number.isFinite(ctx.prob_below_normal)) reasons.push(`below-normal probability ${claraPct(ctx.prob_below_normal)}`);
+      if(Number.isFinite(ctx.prob_heavy_rain)) reasons.push(`heavy-rain probability ${claraPct(ctx.prob_heavy_rain)}`);
+      if(Number.isFinite(ctx.prob_exceed_p67)) reasons.push(`P(exceed P67) ${claraPct(ctx.prob_exceed_p67)}`);
+      return `This area is classified as ${signalLabel(signal)} because the dashboard combines several indicators rather than using one value alone. Current evidence includes ${reasons.join(', ') || 'limited available indicators'}. The classification should therefore be read as an integrated climate signal, not a deterministic event forecast.`;
+    }
+    function claraActions(c,type){
+      const items=buildActionItems(type,c.signal);
+      const heading=type==='water'?'Water-management priorities':'Agriculture priorities';
+      return `${heading} for ${c.area.region_name}:\n`+items.map((x,i)=>`${i+1}. ${x[1]} — ${x[2]}`).join('\n');
+    }
+    function claraWarning(c){
+      const {ctx,signal,confidence}=c;
+      const lines=[];
+      if(signal==='dry') lines.push('Increase drought/water-stress monitoring and review contingency water allocation.','Watch SPI-1/SPI-3, rainfall accumulation, storage, streamflow, and local demand.');
+      else if(signal==='wet') lines.push('Increase heavy-rain/flood readiness in flood-prone and poorly drained areas.','Watch accumulated rainfall, river levels, drainage capacity, and exceedance probabilities.');
+      else lines.push('Maintain routine monitoring and readiness for a change in signal.','Review weekly rainfall, SPI, probability, and local observation updates.');
+      lines.push(`Current forecast confidence is ${confidence}; avoid irreversible decisions based on the seasonal signal alone.`);
+      if(Number.isFinite(ctx.corr_skill)) lines.push(`Correlation skill: ${ctx.corr_skill.toFixed(2)}.`);
+      return `Early-warning priorities for ${c.area.region_name}:\n• ${lines.join('\n• ')}`;
+    }
+    async function claraAnswer(question){
+      const c=await getClaraContext();
+      if(!c) return 'I cannot find a selected or lead-ranked area yet. Please select a polygon on the map first.';
+      const q=String(question||'').toLowerCase();
+      if(q==='summary' || /explain|summary|condition|mean/.test(q)) return claraSummary(c);
+      if(q==='why' || /why|alert|classif|reason/.test(q)) return claraWhy(c);
+      if(q==='water' || /water|reservoir|irrigation|dam|streamflow/.test(q)) return claraActions(c,'water');
+      if(q==='agri' || /agri|farm|crop|plant|soil/.test(q)) return claraActions(c,'agri');
+      if(q==='warning' || /warning|monitor|prepare|early/.test(q)) return claraWarning(c);
+      if(/spi/.test(q)) return `For ${c.area.region_name}, SPI-1 is ${claraNum(c.ctx.spi1)}, SPI-3 is ${claraNum(c.ctx.spi3)}, and SPI-6 is ${claraNum(c.ctx.spi6)}. SPI-1 reflects short-term rainfall conditions, SPI-3 seasonal accumulation, and SPI-6 longer persistence. The integrated signal is ${signalLabel(c.signal)}.`;
+      if(/skill|confidence|rmse|mae|correlation/.test(q)) return `Forecast confidence for ${c.area.region_name} is ${c.confidence}. Correlation skill is ${claraNum(c.ctx.corr_skill)}, RMSE ${claraNum(c.ctx.rmse_skill)}, and MAE ${claraNum(c.ctx.mae_skill)} where available. Lower skill means the forecast should be used more cautiously and updated observations should carry more weight.`;
+      if(/prob|heavy|exceed/.test(q)) return `For ${c.area.region_name}: P(below normal) ${claraPct(c.ctx.prob_below_normal)}, P(heavy rain) ${claraPct(c.ctx.prob_heavy_rain)}, P(exceed P67/P85/P95) ${claraPct(c.ctx.prob_exceed_p67)} / ${claraPct(c.ctx.prob_exceed_p85)} / ${claraPct(c.ctx.prob_exceed_p95)}.`;
+      return `${claraSummary(c)}\n\nYou can also ask “Why this alert?”, “Water actions”, “Agriculture actions”, “SPI interpretation”, or “Early-warning priorities”.`;
+    }
+    async function claraSubmit(text){
+      const q=String(text||'').trim(); if(!q) return;
+      claraAddMessage('user',q);
+      const input=document.getElementById('claraInput'); if(input) input.value='';
+      try{ claraAddMessage('ai',await claraAnswer(q)); }catch(err){ claraAddMessage('ai',`Clara could not build the interpretation: ${err.message}`); }
+    }
+    function initClara(){
+      const fab=document.getElementById('claraFab'), panel=document.getElementById('claraPanel'), close=document.getElementById('claraClose'), send=document.getElementById('claraSend'), input=document.getElementById('claraInput');
+      fab?.addEventListener('click',async()=>{ panel?.classList.toggle('open'); if(panel?.classList.contains('open')) await getClaraContext(); });
+      close?.addEventListener('click',()=>panel?.classList.remove('open'));
+      send?.addEventListener('click',()=>claraSubmit(input?.value));
+      input?.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();claraSubmit(input.value);} });
+      document.querySelectorAll('[data-clara-q]').forEach(btn=>btn.addEventListener('click',async()=>{ const key=btn.dataset.claraQ; claraAddMessage('user',btn.textContent.trim()); claraAddMessage('ai',await claraAnswer(key)); }));
+    }
+
+    async function boot(){ initClara(); fillControls(); try{ await loadManifest(); } catch{} await refreshAll(); }
+    boot();
+  </script>
+</body>
+</html>
