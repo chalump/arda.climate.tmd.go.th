@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,33 +101,12 @@
       .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .sidebar { position: static; }
     }
-
-    /* Clara AI assistant */
-    .clara-fab { position: fixed; right: 24px; bottom: 24px; z-index: 10020; border: 0; border-radius: 999px; padding: 13px 18px; background: #1d4ed8; color: #fff; font-weight: 900; font-size: 0.94rem; box-shadow: 0 12px 28px rgba(29,78,216,.28); cursor: pointer; }
-    .clara-panel { position: fixed; right: 24px; bottom: 82px; z-index: 10019; width: min(420px, calc(100vw - 32px)); max-height: min(720px, calc(100vh - 110px)); display: none; grid-template-rows: auto auto 1fr auto; background: #fff; border: 1px solid #cfd9e8; border-radius: 20px; box-shadow: 0 20px 50px rgba(15,23,42,.20); overflow: hidden; }
-    .clara-panel.open { display: grid; }
-    .clara-head { display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:linear-gradient(135deg,#eef4ff 0%,#f8fbff 100%); border-bottom:1px solid #dbe4ef; }
-    .clara-title { font-weight: 900; color:#173b8a; }
-    .clara-sub { font-size:.78rem; color:#5f6f8a; margin-top:2px; }
-    .clara-close { border:0; background:transparent; font-size:1.25rem; cursor:pointer; color:#475569; }
-    .clara-context { padding:10px 14px; border-bottom:1px solid #e6edf5; background:#fbfdff; font-size:.82rem; color:#475569; line-height:1.45; }
-    .clara-quick { display:flex; flex-wrap:wrap; gap:7px; padding:10px 12px 0; }
-    .clara-quick button { border:1px solid #bfd0f1; background:#f8fbff; color:#173b8a; border-radius:999px; padding:7px 10px; font-size:.78rem; font-weight:800; cursor:pointer; }
-    .clara-chat { overflow:auto; padding:12px; display:grid; align-content:start; gap:10px; background:#fff; }
-    .clara-msg { max-width:92%; padding:10px 12px; border-radius:14px; font-size:.86rem; line-height:1.5; white-space:pre-wrap; }
-    .clara-msg.user { justify-self:end; background:#1d4ed8; color:#fff; border-bottom-right-radius:5px; }
-    .clara-msg.ai { justify-self:start; background:#f1f5f9; color:#1e293b; border-bottom-left-radius:5px; border:1px solid #e2e8f0; }
-    .clara-input-wrap { display:grid; grid-template-columns:1fr auto; gap:8px; padding:12px; border-top:1px solid #e6edf5; background:#fbfdff; }
-    .clara-input { width:100%; border:1px solid #cbd5e1; border-radius:12px; padding:10px 12px; font:inherit; resize:none; min-height:42px; max-height:110px; }
-    .clara-send { border:0; border-radius:12px; padding:0 14px; background:#1d4ed8; color:#fff; font-weight:900; cursor:pointer; }
-    .clara-note { grid-column:1/-1; font-size:.72rem; color:#64748b; line-height:1.35; }
-    @media (max-width: 640px) { .clara-fab { right:16px; bottom:16px; } .clara-panel { right:16px; bottom:72px; } }
   </style>
 </head>
 <body>
   <div class="page">
     <aside class="sidebar card">
-      <div class="pill">Climate Graphic Product Dashboard</div>
+      <div class="pill">Climate Forecast and Water Planning System</div>
       <h1>ARDA S2DFS</h1>
       <div class="muted">Full geospatial product dashboard with grouped forecast, skill, probability, SPI, exceedance, advisory, and decision-guidance panels.</div>
       <div class="field"><label for="monthSelect">Forecast month</label><select id="monthSelect"></select></div>
@@ -167,32 +146,6 @@
       <section class="section card"><div class="section-head"><div><div class="section-title">Data quality and polygon matching</div><div class="section-subtitle">Checks for region ID matching and area-average coverage between GeoJSON polygons and product JSON rows.</div></div></div><div class="data-quality"><div class="debug-box"><div class="mini-title">Current matching summary</div><div id="debugSummary" class="muted">No check yet.</div></div><div class="debug-box"><div class="mini-title">Example missing polygon IDs</div><div id="debugMissing" class="muted">No missing IDs reported.</div></div></div></section>
     </main>
   </div>
-
-  <button id="claraFab" class="clara-fab" type="button">💬 Clara AI</button>
-  <section id="claraPanel" class="clara-panel" aria-label="Clara AI climate assistant">
-    <div class="clara-head">
-      <div><div class="clara-title">Clara AI · S2DFS Assistant</div><div class="clara-sub">Explains the currently selected dashboard data</div></div>
-      <button id="claraClose" class="clara-close" type="button" aria-label="Close Clara">×</button>
-    </div>
-    <div>
-      <div id="claraContext" class="clara-context">Select a polygon for area-specific interpretation.</div>
-      <div class="clara-quick">
-        <button type="button" data-clara-q="summary">Explain selected area</button>
-        <button type="button" data-clara-q="why">Why this alert?</button>
-        <button type="button" data-clara-q="water">Water actions</button>
-        <button type="button" data-clara-q="agri">Agriculture actions</button>
-        <button type="button" data-clara-q="warning">Early-warning priorities</button>
-      </div>
-    </div>
-    <div id="claraChat" class="clara-chat">
-      <div class="clara-msg ai">Hello, I’m Clara. Click a polygon, then ask me to explain the forecast, risk, skill, or recommended actions.</div>
-    </div>
-    <div class="clara-input-wrap">
-      <textarea id="claraInput" class="clara-input" rows="1" placeholder="Ask about the selected area…"></textarea>
-      <button id="claraSend" class="clara-send" type="button">Send</button>
-      <div class="clara-note">Clara uses the dashboard’s current forecast, SPI, probabilities, risk classes, and skill. This version works locally without sending data to an external AI service.</div>
-    </div>
-  </section>
   <script>
     const CONFIG = { manifestUrl: './data/manifest.json', geojsonDir: './data/geojson', productDir: './data/products', filePattern: '{month}_{shape}_{product}.json', geojsonPattern: '{shape}.geojson' };
     const LOCKED_PLOT_CONFIG = {
@@ -225,22 +178,34 @@
     const SUMMARY_PRODUCT_OPTIONS = [{ label: 'Forecast Actual Rainfall', value: 'forecast_actual' },{ label: 'Forecast Percent Anomaly', value: 'forecast_percent_anomaly' },{ label: 'Probability Below Normal', value: 'prob_below_normal' },{ label: 'Probability Heavy Rain', value: 'prob_heavy_rain' },{ label: 'Correlation Skill', value: 'corr_skill' },{ label: 'RMSE', value: 'rmse_skill' },{ label: 'MAE', value: 'mae_skill' },{ label: 'SPI-1', value: 'spi1' },{ label: 'SPI-3', value: 'spi3' },{ label: 'SPI-6', value: 'spi6' },{ label: 'Flood Risk Class', value: 'flood_risk_class' },{ label: 'Drought Risk', value: 'drought_risk_class' },{ label: 'Agriculture Risk', value: 'agri_risk_class' },{ label: 'Advisory Classes', value: 'advisory_class' },{ label: 'Flood Score', value: 'flood_score' },{ label: 'Drought Score', value: 'drought_score' },{ label: 'Agriculture Score', value: 'agri_score' },{ label: 'Probability Drought SPI-1', value: 'prob_drought_spi1' },{ label: 'Probability Exceedance P67', value: 'prob_exceed_p67' },{ label: 'Probability Exceedance P85', value: 'prob_exceed_p85' },{ label: 'Probability Exceedance P95', value: 'prob_exceed_p95' },{ label: 'F&D Risk', value: 'risk_class' }];
     const MONTHS = [['Jan','January'], ['Feb','February'], ['Mar','March'], ['Apr','April'], ['May','May'], ['Jun','June'], ['Jul','July'], ['Aug','August'], ['Sep','September'], ['Oct','October'], ['Nov','November'], ['Dec','December']];
     const COLORSCALES = {
+	darkreds: [
+	[0.00, '#feebe7'],
+    [10.00, '#fcc6bb'],
+    [20.00, '#faa18f'],
+    [30.00, '#f87c63'],
+    [40.00, '#f54927'],
+    [50.00, '#f4320b'],
+    [60.00, '#c82909'],
+    [70.00, '#9c2007'],
+    [80.00, '#701705'],
+    [90.00, '#440e03'],
+    [100.0, '#180501']
+	],
 	ocean: [
-    [0.00, '#081d58'],
-    [0.20, '#225ea8'],
-    [0.40, '#1d91c0'],
-    [0.60, '#41b6c4'],
-    [0.80, '#7fcdbb'],
-    [1.00, '#c7e9b4']
+    [0.00, '#c7e9b4'],
+    [0.20, '#7fcdbb'],
+    [0.40, '#41b6c4'],
+	[0.60, '#1d91c0'],
+    [0.80, '#225ea8'], 
+    [1.00, '#081d58']
 	],
 	terrain: [
-    [0.00, '#1a9850'],
-    [0.20, '#66bd63'],
-    [0.40, '#a6d96a'],
-    [0.60, '#d9ef8b'],
-    [0.75, '#fee08b'],
-    [0.90, '#f46d43'],
-    [1.00, '#d73027']
+    [0.00, '#d73027'],
+    [0.20, '#f46d43'],
+    [0.40, '#d9ef8b'],
+    [0.60, '#a6d96a'],
+    [0.80, '#66bd63'],
+    [1.00, '#1a9850']
 	],
 	droughtWet: [
     [0.00, '#b2182b'],
@@ -257,13 +222,13 @@
 	forecast_percent_anomaly: { legend: '% anomaly', colorscale: COLORSCALES.droughtWet, zmin: -100, zmax: 100, zmid: 0 },
 	corr_skill: { legend: 'Correlation', colorscale: COLORSCALES.droughtWet, zmin: -1, zmax: 1, zmid: 0 },
 
-	rmse_skill: { legend: 'RMSE', colorscale: 'YlOrRd' },
-	mae_skill: { legend: 'MAE', colorscale: 'YlOrRd' },
+	rmse_skill: { legend: 'RMSE', colorscale: COLORSCALES.darkreds },
+	mae_skill: { legend: 'MAE', colorscale: COLORSCALES.darkreds },
 
 	prob_tercile_above: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
 	prob_tercile_normal: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
 	prob_tercile_below: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
-	prob_heavy_rain: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_heavy_rain: { legend: 'Probability', colorscale: 'YlOrBr', zmin: 0, zmax: 1 },
 	prob_below_normal: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
 
 	dominant_tercile: { legend: 'Probabilistic', colorscale: 'Viridis' },
@@ -272,9 +237,9 @@
 	spi3: { legend: 'SPI-3', colorscale: COLORSCALES.droughtWet, zmin: -2.5, zmax: 2.5, zmid: 0 },
 	spi6: { legend: 'SPI-6', colorscale: COLORSCALES.droughtWet, zmin: -2.5, zmax: 2.5, zmid: 0 },
 
-	prob_exceed_p67: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
-	prob_exceed_p85: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
-	prob_exceed_p95: { legend: 'Probability', colorscale: 'YlGnBu', zmin: 0, zmax: 1 },
+	prob_exceed_p67: { legend: 'Probability', colorscale: COLORSCALES.ocean, zmin: 0, zmax: 1 },
+	prob_exceed_p85: { legend: 'Probability', colorscale: COLORSCALES.ocean, zmin: 0, zmax: 1 },
+	prob_exceed_p95: { legend: 'Probability', colorscale: COLORSCALES.ocean, zmin: 0, zmax: 1 },
 
 	risk_class: { legend: 'F&D Risk', colorscale: COLORSCALES.droughtWet, zmin: -1, zmax: 1, zmid: 0 },
 	prob_drought_spi1: { legend: 'Probability', colorscale: 'YlOrBr', zmin: 0, zmax: 1 },
@@ -283,14 +248,14 @@
 	drought_score: { legend: 'Drought score', colorscale: 'YlOrBr', zmin: 0, zmax: 1 },
 	agri_score: { legend: 'Agriculture score', colorscale: COLORSCALES.terrain, zmin: 0, zmax: 1 },
 
-	flood_risk_class: { legend: 'Flood risk', colorscale: 'YlOrRd', zmin: 1, zmax: 5 },
+	flood_risk_class: { legend: 'Flood risk', colorscale: 'RdOrYl', zmin: 1, zmax: 5 },
 	drought_risk_class: { legend: 'Drought risk', colorscale: 'YlOrBr', zmin: 1, zmax: 5 },
 	agri_risk_class: { legend: 'Agriculture risk', colorscale: 'Greens', zmin: 1, zmax: 5 },
 
-	advisory_class: { legend: 'Advisory class', colorscale: 'YlOrRd', zmin: 0, zmax: 5 }
+	advisory_class: { legend: 'Advisory class', colorscale: COLORSCALES.darkreds, zmin: 0, zmax: 5 }
 	};
-    const CURRENT_MONTH = new Date().toLocaleString('en-US', { month: 'short' });
-    const state = { month: CURRENT_MONTH, shape: 'adm1', summaryProduct: 'forecast_actual', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
+    const CURRENT_MONTH_ABBR = MONTHS[new Date().getMonth()][0];
+    const state = { month: CURRENT_MONTH_ABBR, shape: 'adm1', summaryProduct: 'prob_heavy_rain', selectedPolygon: null, manifest: null, geojsonCache: {}, productCache: {}, dataQuality: null };
     const monthSelect = document.getElementById('monthSelect'), shapeSelect = document.getElementById('shapeSelect'), summaryProductSelect = document.getElementById('summaryProductSelect');
     const MAP_IDS = ['forecast_actual','forecast_anomaly','forecast_percent_anomaly','corr_skill','rmse_skill','mae_skill','prob_tercile_above','prob_tercile_normal','prob_tercile_below','prob_heavy_rain','prob_below_normal','dominant_tercile','spi1','spi3','spi6','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','risk_class','prob_drought_spi1','flood_score','drought_score','agri_score','flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'];
     function monthName(abbr){ return Object.fromEntries(MONTHS)[abbr] || abbr; }
@@ -305,7 +270,50 @@
     function normalizeRows(raw){ if (Array.isArray(raw)) return raw; if (raw && Array.isArray(raw.rows)) return raw.rows; throw new Error('Unsupported JSON format. Expected array or { rows: [...] }.'); }
     async function loadProduct(month, shape, product){ const key = `${month}_${shape}_${product}`; if (state.productCache[key]) return state.productCache[key]; const raw = await safeFetchJson(productPath(month, shape, product)); const rows = normalizeRows(raw).map(r => ({ ...r, region_id: normalizeId(r.region_id), region_name: String(r.region_name ?? ''), value: Number.isFinite(Number(r.value)) ? Number(r.value) : null })); state.productCache[key] = rows; return rows; }
     function fillControls(){ monthSelect.innerHTML=''; MONTHS.forEach(([abbr,name])=>{ const opt=document.createElement('option'); opt.value=abbr; opt.textContent=`${name} (${abbr})`; monthSelect.appendChild(opt);}); monthSelect.value=state.month; shapeSelect.innerHTML=''; SHAPE_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; shapeSelect.appendChild(opt);}); shapeSelect.value=state.shape; summaryProductSelect.innerHTML=''; SUMMARY_PRODUCT_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; summaryProductSelect.appendChild(opt);}); summaryProductSelect.value=state.summaryProduct; }
-    async function applyManifest(){ const manifest=await loadManifest(); const geos=new Set(manifest.geographies||[]); [...shapeSelect.options].forEach(opt=>{opt.disabled=geos.size?!geos.has(opt.value):false;}); if(geos.size&&!geos.has(state.shape)) state.shape=[...geos][0]; shapeSelect.value=state.shape; const months=new Set(manifest.months||[]); [...monthSelect.options].forEach(opt=>{opt.disabled=months.size?!months.has(opt.value):false;}); if(months.size&&!months.has(state.month)) state.month=[...months][0]; monthSelect.value=state.month; const products=new Set(manifest.products||[]); [...summaryProductSelect.options].forEach(opt=>{opt.disabled=products.size?!products.has(opt.value):false;}); if(products.size&&!products.has(state.summaryProduct)) state.summaryProduct=[...products][0]; summaryProductSelect.value=state.summaryProduct; }
+    async function applyManifest(){
+      const manifest = await loadManifest();
+
+      const geos = new Set(manifest.geographies || []);
+      [...shapeSelect.options].forEach(opt => {
+        opt.disabled = geos.size ? !geos.has(opt.value) : false;
+      });
+      if(geos.size && !geos.has(state.shape)) state.shape = [...geos][0];
+      shapeSelect.value = state.shape;
+
+      const availableMonths = Array.isArray(manifest.months) ? manifest.months : [];
+      const months = new Set(availableMonths);
+      [...monthSelect.options].forEach(opt => {
+        opt.disabled = months.size ? !months.has(opt.value) : false;
+      });
+
+      // Prefer the real current calendar month.
+      const currentMonth = MONTHS[new Date().getMonth()][0];
+      if(months.has(currentMonth)){
+        state.month = currentMonth;
+      } else if(availableMonths.length){
+        // If the current month has not been generated yet, use the nearest
+        // available month by calendar distance. This avoids an empty first page.
+        const currentIndex = MONTHS.findIndex(([abbr]) => abbr === currentMonth);
+        const ranked = availableMonths
+          .map(abbr => ({
+            abbr,
+            idx: MONTHS.findIndex(([m]) => m === abbr)
+          }))
+          .filter(d => d.idx >= 0)
+          .sort((a,b) => Math.abs(a.idx - currentIndex) - Math.abs(b.idx - currentIndex));
+        state.month = ranked[0]?.abbr || availableMonths[0];
+      } else {
+        state.month = currentMonth;
+      }
+      monthSelect.value = state.month;
+
+      const products = new Set(manifest.products || []);
+      [...summaryProductSelect.options].forEach(opt => {
+        opt.disabled = products.size ? !products.has(opt.value) : false;
+      });
+      if(products.size && !products.has(state.summaryProduct)) state.summaryProduct = [...products][0];
+      summaryProductSelect.value = state.summaryProduct;
+    }
     function updateHero(){ document.getElementById('metricMonth').textContent=monthName(state.month); document.getElementById('metricShape').textContent=shapeLabel(state.shape); document.getElementById('metricProduct').textContent=currentSummaryMeta()?.label||state.summaryProduct; document.getElementById('metricPolygon').textContent=state.selectedPolygon?.region_name||'None'; document.getElementById('summaryMapTitle').textContent=`${shapeLabel(state.shape)}: ${currentSummaryMeta()?.label||state.summaryProduct}`; document.getElementById('heroDetail').textContent=`Current display uses ${shapeLabel(state.shape)} for ${monthName(state.month)} and groups related products from the generated climate maps into operational sections.`; }
     function getGeoJSONBounds(geojson){ let minLon=Infinity,minLat=Infinity,maxLon=-Infinity,maxLat=-Infinity; function walkCoords(coords){ if(!Array.isArray(coords)) return; if(typeof coords[0]==='number'&&typeof coords[1]==='number'){ const [lon,lat]=coords; if(Number.isFinite(lon)&&Number.isFinite(lat)){ minLon=Math.min(minLon,lon); minLat=Math.min(minLat,lat); maxLon=Math.max(maxLon,lon); maxLat=Math.max(maxLat,lat);} return;} coords.forEach(walkCoords);} (geojson.features||[]).forEach(f=>{ if(f?.geometry?.coordinates) walkCoords(f.geometry.coordinates);}); if(![minLon,minLat,maxLon,maxLat].every(Number.isFinite)) return {lonRange:[95,106],latRange:[5,21]}; const lonPad=Math.max(0.35,(maxLon-minLon)*0.06), latPad=Math.max(0.35,(maxLat-minLat)*0.06); return {lonRange:[minLon-lonPad,maxLon+lonPad],latRange:[minLat-latPad,maxLat+latPad]}; }
     function baseChoroplethLayout(height,geojson){ const bounds=getGeoJSONBounds(geojson); return { margin:{l:0,r:0,t:10,b:0}, height, dragmode:false, paper_bgcolor:'white', plot_bgcolor:'white', geo:{ visible:false, projection:{type:'mercator'}, bgcolor:'white', showland:false, showcountries:false, showcoastlines:false, showlakes:false, showrivers:false, showframe:false, lonaxis:{range:bounds.lonRange}, lataxis:{range:bounds.latRange} } }; }
@@ -976,103 +984,17 @@
     document.getElementById('downloadReportBtn').addEventListener('click',async()=>{
       await downloadCurrentSummaryReport();
     });
-
-    // ---------------- Clara AI local climate assistant ----------------
-    const claraState = { lastContext: null };
-    function claraPct(v){ return Number.isFinite(v) ? `${Math.round(v*100)}%` : 'n/a'; }
-    function claraNum(v, d=2){ return Number.isFinite(v) ? Number(v).toFixed(d) : 'n/a'; }
-    function claraAddMessage(role, text){
-      const chat=document.getElementById('claraChat');
-      if(!chat) return;
-      const el=document.createElement('div');
-      el.className=`clara-msg ${role}`;
-      el.textContent=text;
-      chat.appendChild(el);
-      chat.scrollTop=chat.scrollHeight;
-    }
-    async function getClaraContext(){
-      let area = state.selectedPolygon;
-      if(!area){
-        try{
-          const rows=await loadProduct(state.month,state.shape,state.summaryProduct);
-          const top=rows.filter(r=>Number.isFinite(r.value)).sort((a,b)=>b.value-a.value)[0];
-          if(top) area={region_id:top.region_id, region_name:top.region_name};
-        }catch{}
+    async function boot(){
+      fillControls();
+      try{
+        await applyManifest();
+      } catch(err){
+        // If manifest is unavailable, keep the browser's current calendar month.
+        state.month = CURRENT_MONTH_ABBR;
+        monthSelect.value = state.month;
       }
-      if(!area) return null;
-      const ctx=await collectGuidanceContext(area.region_id);
-      const signal=classifySignal(ctx);
-      const confidence=confidenceLabel(ctx.corr_skill);
-      const obj={area,ctx,signal,confidence,month:monthName(state.month),shape:shapeLabel(state.shape),product:currentSummaryMeta()?.label||state.summaryProduct};
-      claraState.lastContext=obj;
-      const c=document.getElementById('claraContext');
-      if(c) c.innerHTML=`<b>${escapeHtml(area.region_name)}</b> · ${escapeHtml(obj.month)} · ${escapeHtml(obj.shape)}<br>${escapeHtml(obj.product)} · Signal: <b>${escapeHtml(signalLabel(signal))}</b> · Skill: <b>${escapeHtml(confidence)}</b>`;
-      return obj;
+      await refreshAll();
     }
-    function claraSummary(c){
-      const {ctx,signal,confidence,area,month}=c;
-      const core = signal==='dry'
-        ? `The combined indicators point to a dry / water-stress signal for ${area.region_name} in ${month}.`
-        : signal==='wet'
-          ? `The combined indicators point to a wet signal for ${area.region_name} in ${month}, with elevated runoff or heavy-rain concern.`
-          : `The overall climate signal for ${area.region_name} in ${month} is near normal, without a strong dry or wet signal.`;
-      return `${core}\n\nKey evidence: forecast anomaly ${claraNum(ctx.forecast_percent_anomaly,1)}%, SPI-1 ${claraNum(ctx.spi1)}, SPI-3 ${claraNum(ctx.spi3)}, P(below normal) ${claraPct(ctx.prob_below_normal)}, P(heavy rain) ${claraPct(ctx.prob_heavy_rain)}. Forecast skill is ${confidence}.\n\nUse this as decision support together with recent observations and short-range updates.`;
-    }
-    function claraWhy(c){
-      const {ctx,signal}=c; const reasons=[];
-      if(Number.isFinite(ctx.forecast_percent_anomaly)) reasons.push(`rainfall anomaly ${ctx.forecast_percent_anomaly.toFixed(1)}%`);
-      if(Number.isFinite(ctx.spi1)) reasons.push(`SPI-1 ${ctx.spi1.toFixed(2)}`);
-      if(Number.isFinite(ctx.spi3)) reasons.push(`SPI-3 ${ctx.spi3.toFixed(2)}`);
-      if(Number.isFinite(ctx.prob_below_normal)) reasons.push(`below-normal probability ${claraPct(ctx.prob_below_normal)}`);
-      if(Number.isFinite(ctx.prob_heavy_rain)) reasons.push(`heavy-rain probability ${claraPct(ctx.prob_heavy_rain)}`);
-      if(Number.isFinite(ctx.prob_exceed_p67)) reasons.push(`P(exceed P67) ${claraPct(ctx.prob_exceed_p67)}`);
-      return `This area is classified as ${signalLabel(signal)} because the dashboard combines several indicators rather than using one value alone. Current evidence includes ${reasons.join(', ') || 'limited available indicators'}. The classification should therefore be read as an integrated climate signal, not a deterministic event forecast.`;
-    }
-    function claraActions(c,type){
-      const items=buildActionItems(type,c.signal);
-      const heading=type==='water'?'Water-management priorities':'Agriculture priorities';
-      return `${heading} for ${c.area.region_name}:\n`+items.map((x,i)=>`${i+1}. ${x[1]} — ${x[2]}`).join('\n');
-    }
-    function claraWarning(c){
-      const {ctx,signal,confidence}=c;
-      const lines=[];
-      if(signal==='dry') lines.push('Increase drought/water-stress monitoring and review contingency water allocation.','Watch SPI-1/SPI-3, rainfall accumulation, storage, streamflow, and local demand.');
-      else if(signal==='wet') lines.push('Increase heavy-rain/flood readiness in flood-prone and poorly drained areas.','Watch accumulated rainfall, river levels, drainage capacity, and exceedance probabilities.');
-      else lines.push('Maintain routine monitoring and readiness for a change in signal.','Review weekly rainfall, SPI, probability, and local observation updates.');
-      lines.push(`Current forecast confidence is ${confidence}; avoid irreversible decisions based on the seasonal signal alone.`);
-      if(Number.isFinite(ctx.corr_skill)) lines.push(`Correlation skill: ${ctx.corr_skill.toFixed(2)}.`);
-      return `Early-warning priorities for ${c.area.region_name}:\n• ${lines.join('\n• ')}`;
-    }
-    async function claraAnswer(question){
-      const c=await getClaraContext();
-      if(!c) return 'I cannot find a selected or lead-ranked area yet. Please select a polygon on the map first.';
-      const q=String(question||'').toLowerCase();
-      if(q==='summary' || /explain|summary|condition|mean/.test(q)) return claraSummary(c);
-      if(q==='why' || /why|alert|classif|reason/.test(q)) return claraWhy(c);
-      if(q==='water' || /water|reservoir|irrigation|dam|streamflow/.test(q)) return claraActions(c,'water');
-      if(q==='agri' || /agri|farm|crop|plant|soil/.test(q)) return claraActions(c,'agri');
-      if(q==='warning' || /warning|monitor|prepare|early/.test(q)) return claraWarning(c);
-      if(/spi/.test(q)) return `For ${c.area.region_name}, SPI-1 is ${claraNum(c.ctx.spi1)}, SPI-3 is ${claraNum(c.ctx.spi3)}, and SPI-6 is ${claraNum(c.ctx.spi6)}. SPI-1 reflects short-term rainfall conditions, SPI-3 seasonal accumulation, and SPI-6 longer persistence. The integrated signal is ${signalLabel(c.signal)}.`;
-      if(/skill|confidence|rmse|mae|correlation/.test(q)) return `Forecast confidence for ${c.area.region_name} is ${c.confidence}. Correlation skill is ${claraNum(c.ctx.corr_skill)}, RMSE ${claraNum(c.ctx.rmse_skill)}, and MAE ${claraNum(c.ctx.mae_skill)} where available. Lower skill means the forecast should be used more cautiously and updated observations should carry more weight.`;
-      if(/prob|heavy|exceed/.test(q)) return `For ${c.area.region_name}: P(below normal) ${claraPct(c.ctx.prob_below_normal)}, P(heavy rain) ${claraPct(c.ctx.prob_heavy_rain)}, P(exceed P67/P85/P95) ${claraPct(c.ctx.prob_exceed_p67)} / ${claraPct(c.ctx.prob_exceed_p85)} / ${claraPct(c.ctx.prob_exceed_p95)}.`;
-      return `${claraSummary(c)}\n\nYou can also ask “Why this alert?”, “Water actions”, “Agriculture actions”, “SPI interpretation”, or “Early-warning priorities”.`;
-    }
-    async function claraSubmit(text){
-      const q=String(text||'').trim(); if(!q) return;
-      claraAddMessage('user',q);
-      const input=document.getElementById('claraInput'); if(input) input.value='';
-      try{ claraAddMessage('ai',await claraAnswer(q)); }catch(err){ claraAddMessage('ai',`Clara could not build the interpretation: ${err.message}`); }
-    }
-    function initClara(){
-      const fab=document.getElementById('claraFab'), panel=document.getElementById('claraPanel'), close=document.getElementById('claraClose'), send=document.getElementById('claraSend'), input=document.getElementById('claraInput');
-      fab?.addEventListener('click',async()=>{ panel?.classList.toggle('open'); if(panel?.classList.contains('open')) await getClaraContext(); });
-      close?.addEventListener('click',()=>panel?.classList.remove('open'));
-      send?.addEventListener('click',()=>claraSubmit(input?.value));
-      input?.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();claraSubmit(input.value);} });
-      document.querySelectorAll('[data-clara-q]').forEach(btn=>btn.addEventListener('click',async()=>{ const key=btn.dataset.claraQ; claraAddMessage('user',btn.textContent.trim()); claraAddMessage('ai',await claraAnswer(key)); }));
-    }
-
-    async function boot(){ initClara(); fillControls(); try{ await loadManifest(); } catch{} await refreshAll(); }
     boot();
   </script>
 </body>
