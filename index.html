@@ -40,13 +40,23 @@
     .section-subtitle { color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap: 14px; }
     .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; }
-    .main-summary-stack { display:grid; grid-template-columns:1fr; gap:14px; }
-    .main-map-card { width:100%; }
-    .main-map-card .graph-lg { min-height:720px; }
-    .priority-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-    .priority-col { border:1px solid #e6edf5; border-radius:12px; overflow:hidden; background:#fff; }
-    .priority-col table { margin:0; }
-    @media (max-width:900px){ .priority-grid { grid-template-columns:1fr; } .main-map-card .graph-lg { min-height:560px; } }
+    .summary-layout { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(420px,.85fr); gap:14px; align-items:stretch; }
+    .summary-map-card, .priority-card { min-height:690px; display:flex; flex-direction:column; }
+    .summary-map-card #summaryMap { flex:1; min-height:630px; width:100%; }
+    .priority-card #rankingTable { flex:1; }
+    .priority-columns { display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start; }
+    .priority-group { border:1px solid #e5e7eb; border-radius:14px; overflow:hidden; background:#fff; }
+    .priority-group-title { padding:10px 12px; font-weight:900; font-size:.86rem; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .priority-group.warning .priority-group-title { background:#fee2e2; color:#991b1b; }
+    .priority-group.watch .priority-group-title { background:#ffedd5; color:#9a3412; }
+    .priority-group.normal .priority-group-title { background:#dcfce7; color:#166534; }
+    .priority-count { min-width:25px; height:25px; padding:0 7px; border-radius:999px; background:rgba(255,255,255,.75); display:inline-flex; align-items:center; justify-content:center; font-size:.75rem; }
+    .priority-mini-table { width:100%; table-layout:fixed; }
+    .priority-mini-table th, .priority-mini-table td { padding:9px 8px; font-size:.82rem; }
+    .priority-mini-table th:first-child, .priority-mini-table td:first-child { width:68%; }
+    .priority-mini-table th:last-child, .priority-mini-table td:last-child { width:32%; text-align:right; }
+    .priority-empty { padding:18px 12px; color:var(--muted); font-size:.82rem; text-align:center; }
+    .priority-normal-wrap { margin-top:10px; }
     .mini-card { border: 1px solid #e4ebf5; border-radius: 16px; padding: 12px; background: #fff; }
     .mini-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
     .mini-note { color: var(--muted); font-size: 0.86rem; margin-top: 8px; line-height: 1.45; }
@@ -113,6 +123,14 @@
       .hero, .grid-2, .guidance-wrap, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; }
     }
+    @media (max-width: 1080px) {
+      .summary-layout { grid-template-columns:1fr; }
+      .summary-map-card, .priority-card { min-height:auto; }
+      .summary-map-card #summaryMap { min-height:620px; }
+    }
+    @media (max-width: 700px) {
+      .priority-columns { grid-template-columns:1fr; }
+    }
     @media (max-width: 980px) {
       .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .sidebar { position: static; }
@@ -149,7 +167,25 @@
           <div class="metric"><div class="label">Selected polygon</div><div class="value" id="metricPolygon">None</div></div>
         </div>
       </section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Interactive map for the selected indicator. Use the full-width map to inspect spatial patterns; scroll to zoom, drag to pan/zoom, and double-click to reset. Click any polygon to open detailed diagnostics and guidance.</div></div></div><div class="main-summary-stack"><div class="mini-card main-map-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">The map uses the full dashboard width for easier viewing of province, district, basin, and sub-basin patterns.</div></div><div class="mini-card"><div class="mini-title">Priority areas / warning table</div><div id="rankingTable"></div><div class="mini-note">Priority areas are shown in two columns to use the available width efficiently. Click any row to open detailed diagnostics and guidance. Red = warning, orange = watch/attention, green = normal/information.</div></div></div></section>
+      <section class="section card">
+        <div class="section-head">
+          <div>
+            <div class="section-title">Main polygon layer summary</div>
+            <div class="section-subtitle">Interactive map for the selected indicator. Use the full map area to zoom and inspect locations; click a polygon to open detailed diagnostics and guidance.</div>
+          </div>
+        </div>
+        <div class="summary-layout">
+          <div class="mini-card summary-map-card">
+            <div class="mini-title" id="summaryMapTitle">Summary map</div>
+            <div id="summaryMap" class="graph-lg"></div>
+          </div>
+          <div class="mini-card priority-card">
+            <div class="mini-title">Priority areas / warning table</div>
+            <div id="rankingTable"></div>
+            <div class="mini-note"><b>Operational priority:</b> warning areas are shown in red and watch/attention areas in orange. Click any area to open its diagnostics and guidance.</div>
+          </div>
+        </div>
+      </section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
       <section id="decisionGuidanceSection" class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">How to interpret the alert levels</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">The labels combine rainfall anomaly, SPI dryness/wetness, below-normal probability, heavy-rain probability, risk class, and model skill. They are intended for early warning, planning, and coordination.</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">DRY = high risk</div><div class="alert-level-text">Clear dry signal or water-stress condition. Impacts are likely. Take early action now.</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">WATCH = moderate risk</div><div class="alert-level-text">Uncertain or emerging signal. Monitor closely, prepare resources, and update plans.</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">LOW–MODERATE = low risk</div><div class="alert-level-text">Near-normal or weak signal. Continue routine monitoring and stay ready for changes.</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
@@ -638,25 +674,63 @@
       return {level:'normal', label:'INFO'};
     }
     function rankingRow(area){
-      if(!area) return '<td></td><td></td>';
+      if(!area) return '<td></td><td></td><td></td>';
       const st = rankingStatus(state.summaryProduct, area.Value);
-      return `<td data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}">${escapeHtml(area.Area)}</td><td><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><b>${area.Value.toFixed(3)}</b><span class="rank-badge ${st.level}">${st.label}</span></div></td>`;
+      return `<td data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}">${escapeHtml(area.Area)}</td><td>${area.Value.toFixed(3)}</td><td><span class="rank-badge ${st.level}">${st.label}</span></td>`;
     }
     async function renderRankingAndGuidance(){
-      const rows=await loadProduct(state.month,state.shape,state.summaryProduct);
-      const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value);
-      const top=ranked.slice(0,12);
-      const splitAt=Math.ceil(top.length/2);
-      const groups=[top.slice(0,splitAt),top.slice(splitAt)];
-      const tableHtml=group=>`<div class="priority-col"><table><thead><tr><th>Area</th><th>Value / status</th></tr></thead><tbody>${group.map(area=>{const st=rankingStatus(state.summaryProduct,area.Value);return `<tr class="rank-row-${st.level}" data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}">${rankingRow(area)}</tr>`}).join('')}</tbody></table></div>`;
-      document.getElementById('rankingTable').innerHTML=`<div class="priority-grid">${groups.map(tableHtml).join('')}</div><div class="mini-note"><b>Color code:</b> red = warning, orange = watch/attention, green = normal or informational. Thresholds adapt to the selected indicator.</div>`;
-      document.querySelectorAll('#rankingTable tbody tr').forEach(tr=>tr.addEventListener('click',async()=>{
+      const rows = await loadProduct(state.month,state.shape,state.summaryProduct);
+      const ranked = rows
+        .filter(r => Number.isFinite(r.value))
+        .map(r => ({Area:r.region_name,Value:r.value,region_id:r.region_id,status:rankingStatus(state.summaryProduct,r.value)}));
+
+      const severity = {warning:0, watch:1, normal:2};
+      ranked.sort((a,b) => (severity[a.status.level]-severity[b.status.level]) || (b.Value-a.Value));
+
+      const warnings = ranked.filter(r => r.status.level === 'warning');
+      const watches = ranked.filter(r => r.status.level === 'watch');
+      const normals = ranked.filter(r => r.status.level === 'normal');
+
+      const miniRows = list => list.length
+        ? list.map(area => `<tr class="rank-row-${area.status.level}" data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}"><td>${escapeHtml(area.Area)}</td><td>${area.Value.toFixed(3)}</td></tr>`).join('')
+        : `<tr><td colspan="2" class="priority-empty">No areas in this category</td></tr>`;
+
+      const normalPreview = normals.slice(0,6);
+
+      document.getElementById('rankingTable').innerHTML = `
+        <div class="priority-columns">
+          <div class="priority-group warning">
+            <div class="priority-group-title"><span>🔴 WARNING</span><span class="priority-count">${warnings.length}</span></div>
+            <table class="priority-mini-table"><thead><tr><th>Area</th><th>Value</th></tr></thead><tbody>${miniRows(warnings)}</tbody></table>
+          </div>
+          <div class="priority-group watch">
+            <div class="priority-group-title"><span>🟠 WATCH</span><span class="priority-count">${watches.length}</span></div>
+            <table class="priority-mini-table"><thead><tr><th>Area</th><th>Value</th></tr></thead><tbody>${miniRows(watches)}</tbody></table>
+          </div>
+        </div>
+        <div class="priority-normal-wrap priority-group normal">
+          <div class="priority-group-title"><span>🟢 NORMAL / INFORMATION</span><span class="priority-count">${normals.length}</span></div>
+          <table class="priority-mini-table"><thead><tr><th>Area</th><th>Value</th></tr></thead><tbody>${miniRows(normalPreview)}</tbody></table>
+        </div>
+        <div class="mini-note"><b>Color code:</b> red = warning, orange = watch/attention, green = normal/information. Thresholds adapt to the selected indicator.</div>`;
+
+      document.querySelectorAll('#rankingTable tbody tr[data-region-id]').forEach(tr => tr.addEventListener('click', async()=>{
         state.selectedPolygon={region_id:normalizeId(tr.dataset.regionId),region_name:tr.dataset.regionName};
         updateHero(); await renderRankingAndGuidance(); await renderDiagnostics();
       }));
-      const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0];
-      if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); }
-      else { document.getElementById('waterGuidance').textContent='No data'; document.getElementById('agriGuidance').textContent='No data'; }
+
+      const focusRow = state.selectedPolygon
+        ? ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id))
+        : (warnings[0] || watches[0] || normals[0]);
+
+      if(focusRow){
+        const ctx=await collectGuidanceContext(focusRow.region_id);
+        document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water');
+        document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri');
+      } else {
+        document.getElementById('waterGuidance').textContent='No data';
+        document.getElementById('agriGuidance').textContent='No data';
+      }
     }
 
     function featureCentroid(feature){
