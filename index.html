@@ -43,6 +43,15 @@
     .mini-card { border: 1px solid #e4ebf5; border-radius: 16px; padding: 12px; background: #fff; }
     .mini-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
     .mini-note { color: var(--muted); font-size: 0.86rem; margin-top: 8px; line-height: 1.45; }
+    .rank-row-warning td { background:#fef2f2; color:#991b1b; font-weight:800; }
+    .rank-row-watch td { background:#fff7ed; color:#9a3412; font-weight:750; }
+    .rank-row-normal td { background:#f0fdf4; color:#166534; }
+    .rank-badge { display:inline-flex; align-items:center; gap:5px; padding:4px 8px; border-radius:999px; font-size:.72rem; font-weight:900; white-space:nowrap; }
+    .rank-badge.warning { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+    .rank-badge.watch { background:#ffedd5; color:#9a3412; border:1px solid #fed7aa; }
+    .rank-badge.normal { background:#dcfce7; color:#166534; border:1px solid #bbf7d0; }
+    #rankingTable tbody tr { cursor:pointer; }
+    #rankingTable tbody tr:hover td { filter:brightness(.98); outline:1px solid #cbd5e1; }
     .graph-lg { min-height: 560px; } .graph-md { min-height: 340px; } .graph-sm { min-height: 300px; }
     table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
     th, td { border-bottom: 1px solid #e6edf5; padding: 10px 8px; text-align: left; vertical-align: top; }
@@ -133,7 +142,7 @@
           <div class="metric"><div class="label">Selected polygon</div><div class="value" id="metricPolygon">None</div></div>
         </div>
       </section>
-      <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Polygon-based geospatial map for the selected summary product and selected shape layer.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Selected layer ranking</div><div id="rankingTable"></div><div class="mini-note">Top and bottom polygons for the selected product. Click any polygon in the summary map to refresh the lower charts and guidance.</div></div></div></section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">Main polygon layer summary</div><div class="section-subtitle">Interactive map for the selected indicator. Scroll to zoom, drag to zoom/pan, and double-click to reset the map. Click a polygon to open detailed diagnostics and guidance.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">Summary map</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">This panel switches between ADM1 provinces, ADM2 districts, and basin/sub-basin views, matching the selected summary product and generated polygon layer.</div></div><div class="mini-card"><div class="mini-title">Priority areas / warning table</div><div id="rankingTable"></div><div class="mini-note">Areas are highlighted by operational status for the selected indicator. Click a row or a polygon on the map to open detailed diagnostics and guidance. Red indicates warning; orange indicates watch/attention.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Clicked polygon diagnostics</div><div class="section-subtitle">Local distribution view for the selected polygon. Left: grouped product violin-plus-box plots using the nearest polygons around the selected location, with the selected-polygon marker overlaid. Right: monthly violin-plus-box plots for the selected summary product using the same local neighborhood, with the selected-polygon trend overlay.</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">Confidential local distributions </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">Monthly local distributions </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
       <section id="decisionGuidanceSection" class="section card"><div class="section-head"><div><div class="section-title">Decision guidance</div><div class="section-subtitle">Integrated interpretation using forecast, SPI, exceedance probability, probability terciles, risk, and skill layers for the selected polygon or lead area.</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">How to interpret the alert levels</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">The labels combine rainfall anomaly, SPI dryness/wetness, below-normal probability, heavy-rain probability, risk class, and model skill. They are intended for early warning, planning, and coordination.</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">DRY = high risk</div><div class="alert-level-text">Clear dry signal or water-stress condition. Impacts are likely. Take early action now.</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">WATCH = moderate risk</div><div class="alert-level-text">Uncertain or emerging signal. Monitor closely, prepare resources, and update plans.</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">LOW–MODERATE = low risk</div><div class="alert-level-text">Near-normal or weak signal. Continue routine monitoring and stay ready for changes.</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>Water management guidance</div><div id="waterGuidance" class="guide-empty">No data yet.</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>Agriculture guidance</div><div id="agriGuidance" class="guide-empty">No data yet.</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">Forecast group</div><div class="section-subtitle">Core rainfall outlook products for actual rainfall, anomaly, and percent anomaly.</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">Forecast Actual</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast Anomaly</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">Forecast % Anomaly</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
@@ -172,6 +181,27 @@
     }
     const _plotlyNewPlot = Plotly.newPlot.bind(Plotly);
     Plotly.newPlot = function(div, data, layout, config){
+      const divId = typeof div === 'string' ? div : (div?.id || '');
+      // The main summary map is intentionally interactive: wheel zoom, drag zoom/pan,
+      // double-click reset, and Geo zoom/reset buttons. Other dashboard plots remain locked.
+      if(divId === 'summaryMap'){
+        const interactiveLayout = { ...(layout || {}), dragmode:'zoom' };
+        if(interactiveLayout.geo){
+          interactiveLayout.geo = { ...interactiveLayout.geo };
+          interactiveLayout.geo.lonaxis = { ...(interactiveLayout.geo.lonaxis || {}), fixedrange:false };
+          interactiveLayout.geo.lataxis = { ...(interactiveLayout.geo.lataxis || {}), fixedrange:false };
+        }
+        const mainMapConfig = {
+          responsive:true, displaylogo:false, scrollZoom:true, doubleClick:'reset',
+          modeBarButtonsToRemove:['select2d','lasso2d','hoverClosestGeo','toImage'],
+          ...(config || {})
+        };
+        // Remove locked values that may have been passed by the caller.
+        mainMapConfig.scrollZoom = true;
+        mainMapConfig.doubleClick = 'reset';
+        mainMapConfig.modeBarButtonsToRemove = ['select2d','lasso2d','hoverClosestGeo','toImage'];
+        return _plotlyNewPlot(div, data, interactiveLayout, mainMapConfig);
+      }
       return _plotlyNewPlot(div, data, lockLayoutInteractions(layout), { ...LOCKED_PLOT_CONFIG, ...(config || {}) });
     };
     const SHAPE_OPTIONS = [{ value: 'adm1', label: 'ADM1 Province' },{ value: 'adm2', label: 'ADM2 District' },{ value: 'mainbasin', label: 'Main Basin' },{ value: 'subbasin', label: 'Sub-basin' }];
@@ -571,7 +601,53 @@
       const soilText=signal==='dry'?'Moisture stress risk increasing':signal==='wet'?'Moisture availability improving, but excess-water risk should be monitored':'Near seasonal baseline';
       return `<div class="guidance-chips">${signalChip}${alertChip}${riskChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div><b>What it means:</b> ${whatMeans}</div></div><div class="guide-block"><div class="guide-heading">Agro-climate condition</div><div class="guide-lines indicator-grid"><div class="guide-line">Soil-moisture tendency: <b>${soilText}</b></div><div class="guide-line">SPI-1 / SPI-3 / SPI-6: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'n/a'} / ${Number.isFinite(ctx.spi6)?ctx.spi6.toFixed(2):'n/a'}</b></div><div class="guide-line">Forecast % anomaly: <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'n/a'}</b></div><div class="guide-line">Heavy-rain probability: <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">Drought probability (SPI-1): <b>${formatPct(ctx.prob_drought_spi1)}</b></div><div class="guide-line">Agriculture score / class: <b>${Number.isFinite(ctx.agri_score)?ctx.agri_score.toFixed(2):'n/a'} / ${Number.isFinite(ctx.agri_risk_class)?ctx.agri_risk_class.toFixed(0):'n/a'}</b></div></div></div><div class="guide-block"><div class="guide-heading">Recommended early-warning and planning actions</div>${buildActionHtml('agri', signal)}</div>`;
     }
-    async function renderRankingAndGuidance(){ const rows=await loadProduct(state.month,state.shape,state.summaryProduct); const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value); const top=ranked.slice(0,10), bottom=[...ranked].slice(-10).reverse(); document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>Top areas</th><th>Value</th><th>Bottom areas</th><th>Value</th></tr></thead><tbody>${Array.from({length:Math.max(top.length,bottom.length)}).map((_,i)=>`<tr><td>${top[i]?.Area||''}</td><td>${top[i]?top[i].Value.toFixed(3):''}</td><td>${bottom[i]?.Area||''}</td><td>${bottom[i]?bottom[i].Value.toFixed(3):''}</td></tr>`).join('')}</tbody></table>`; const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0]; if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); } else { document.getElementById('waterGuidance').textContent='No data'; document.getElementById('agriGuidance').textContent='No data'; } }
+    function rankingStatus(product, value){
+      if(!Number.isFinite(value)) return {level:'normal', label:'NO DATA'};
+      // Operational highlighting follows the meaning of the active product.
+      if(['prob_heavy_rain','prob_exceed_p67','prob_exceed_p85','prob_exceed_p95','prob_drought_spi1'].includes(product)){
+        if(value >= 0.70) return {level:'warning', label:'WARNING'};
+        if(value >= 0.55) return {level:'watch', label:'WATCH'};
+        return {level:'normal', label:'NORMAL'};
+      }
+      if(['flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'].includes(product)){
+        if(value >= 4) return {level:'warning', label:'WARNING'};
+        if(value >= 3) return {level:'watch', label:'WATCH'};
+        return {level:'normal', label:'NORMAL'};
+      }
+      if(['spi1','spi3','spi6'].includes(product)){
+        if(value <= -1.5 || value >= 1.5) return {level:'warning', label:value < 0 ? 'DRY WARNING' : 'WET WARNING'};
+        if(value <= -1.0 || value >= 1.0) return {level:'watch', label:value < 0 ? 'DRY WATCH' : 'WET WATCH'};
+        return {level:'normal', label:'NORMAL'};
+      }
+      if(product === 'forecast_percent_anomaly'){
+        if(Math.abs(value) >= 40) return {level:'warning', label:value < 0 ? 'DRY WARNING' : 'WET WARNING'};
+        if(Math.abs(value) >= 20) return {level:'watch', label:value < 0 ? 'DRY WATCH' : 'WET WATCH'};
+        return {level:'normal', label:'NORMAL'};
+      }
+      if(product === 'corr_skill'){
+        if(value < 0.30) return {level:'watch', label:'LOW SKILL'};
+        return {level:'normal', label:value >= 0.50 ? 'HIGH SKILL' : 'MODERATE'};
+      }
+      return {level:'normal', label:'INFO'};
+    }
+    function rankingRow(area){
+      if(!area) return '<td></td><td></td><td></td>';
+      const st = rankingStatus(state.summaryProduct, area.Value);
+      return `<td data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}">${escapeHtml(area.Area)}</td><td>${area.Value.toFixed(3)}</td><td><span class="rank-badge ${st.level}">${st.label}</span></td>`;
+    }
+    async function renderRankingAndGuidance(){
+      const rows=await loadProduct(state.month,state.shape,state.summaryProduct);
+      const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value);
+      const top=ranked.slice(0,12);
+      document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>Area</th><th>Value</th><th>Status</th></tr></thead><tbody>${top.map(area=>{const st=rankingStatus(state.summaryProduct,area.Value);return `<tr class="rank-row-${st.level}" data-region-id="${escapeHtml(area.region_id)}" data-region-name="${escapeHtml(area.Area)}">${rankingRow(area)}</tr>`}).join('')}</tbody></table><div class="mini-note"><b>Color code:</b> red = warning, orange = watch/attention, green = normal or informational. Thresholds adapt to the selected indicator.</div>`;
+      document.querySelectorAll('#rankingTable tbody tr').forEach(tr=>tr.addEventListener('click',async()=>{
+        state.selectedPolygon={region_id:normalizeId(tr.dataset.regionId),region_name:tr.dataset.regionName};
+        updateHero(); await renderRankingAndGuidance(); await renderDiagnostics();
+      }));
+      const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0];
+      if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); }
+      else { document.getElementById('waterGuidance').textContent='No data'; document.getElementById('agriGuidance').textContent='No data'; }
+    }
 
     function featureCentroid(feature){
       const pts = [];
