@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ระบบพยากรณ์ฝน ARDA S2DFS</title>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --bg: #f4f7fb; --card: #ffffff; --line: #dbe4ef; --text: #13213d; --muted: #5f6f8a;
@@ -17,20 +15,9 @@
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Tahoma, "Leelawadee UI", Arial, sans-serif; line-height:1.6; background: var(--bg); color: var(--text); }
-    .page { display: grid; grid-template-columns: minmax(350px, 30%) minmax(0, 1fr); gap: 18px; min-height: 100vh; padding: 18px; }
+    .page { display: grid; grid-template-columns: 340px 1fr; gap: 18px; min-height: 100vh; padding: 18px; }
     .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
     .sidebar { padding: 18px; position: sticky; top: 18px; height: fit-content; }
-    .sidebar-detail-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
-    .sidebar-detail-head button { border:0; background:var(--accent-soft); color:#173b8a; border-radius:10px; padding:8px 10px; cursor:pointer; font-weight:700; }
-    #detailTerrainMap { height:550px; width:100%; border-radius:12px; border:1px solid var(--line); background:#e9eef1; }
-    .terrain-wrap { position:relative; }
-    .map-status { position:absolute; z-index:600; top:12px; right:12px; background:white; border-radius:10px; padding:5px; box-shadow:0 2px 9px #0003; }
-    .map-status:empty { display:none; }
-    .detail-color-key { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:8px; font-size:.81rem; }
-    .detail-color-key .swatch { width:19px; height:13px; border:1px solid #64748b77; border-radius:2px; display:inline-block; }
-    #detailChildren { max-height:180px; overflow:auto; padding-left:22px; font-size:.87rem; margin:8px 0; }
-    #detailChildren li { margin-bottom:3px; }
-    #locationDetail[hidden], #locationControls[hidden] { display:none; }
     h1 { margin: 0 0 8px; font-size: 1.5rem; line-height: 1.2; }
     h2, h3, h4 { margin: 0; }
     .muted { color: var(--muted); line-height: 1.5; font-size: 0.95rem; }
@@ -44,25 +31,6 @@
     .main, .mini-card { min-width: 0; }
     .action-text, .section-subtitle, .tip { overflow-wrap: anywhere; }
     .main { display: grid; gap: 18px; }
-    .controls-panel { padding: 14px 18px; }
-    .controls-panel #locationControls { display:flex; flex-wrap:wrap; align-items:end; gap:10px; }
-    .controls-panel .pill, .controls-panel h1, .controls-panel .muted { display:none; }
-    .controls-panel .field { margin:0; min-width:160px; flex:1 1 160px; }
-    .controls-panel .field label { font-size:.83rem; }
-    .controls-panel .field:has(button) { flex:0 1 168px; }
-    .detail-columns { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr); gap:14px; align-items:start; }
-    .detail-columns > * { min-width:0; }
-    .detail-right { max-height:780px; overflow:auto; }
-    .polygon-table-wrap { max-height:510px; overflow:auto; }
-    .polygon-table-wrap table { font-size:.84rem; }
-    .polygon-table-wrap td, .polygon-table-wrap th { padding:7px 5px; }
-    .status-badge { display:inline-flex; align-items:center; gap:5px; font-weight:700; padding:3px 7px; border-radius:999px; white-space:nowrap; }
-    .status-badge.warn { background:#fff1cf; color:#805000; }
-    .status-badge.early { background:#ffe3df; color:#a31b1b; }
-    .status-badge.normal { background:#e8f7eb; color:#17623d; }
-    .status-empty { margin:12px 0; }
-    .rankings { margin-top:14px; }
-    .rankings summary { cursor:pointer; font-weight:700; }
     .hero { padding: 18px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: start; }
     .hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .metric { padding: 14px; border: 1px solid #e5ecf6; border-radius: 14px; background: #fbfdff; }
@@ -126,14 +94,12 @@
     .export-actions { display: grid; gap: 10px; margin-top: 12px; }
     .export-actions button { text-align: left; padding: 12px 14px; }
     .export-actions .secondary { background: white; border: 1px solid #bfd0f1; color: #173b8a; }
-    @media (max-width: 1100px) { .detail-columns { grid-template-columns:1fr; } }
     @media (max-width: 1300px) {
       .grid-3 { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
       .hero, .grid-2, .guidance-wrap, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .alert-explainer-intro { border-right:none; border-bottom:1px solid #d7dde8; padding-bottom:10px; }
     }
     @media (max-width: 980px) {
-      .controls-panel #locationControls { display:flex; }
       .page, .grid-3, .guidance-wrap, .hero-right, .data-quality, .alert-explainer-grid, .indicator-grid { grid-template-columns: 1fr; }
       .sidebar { position: static; }
     }
@@ -141,13 +107,7 @@
 </head>
 <body>
   <div class="page">
-    <aside class="sidebar card" aria-label="แผนที่ภาพรวมประเทศไทย">
-      <div class="section-title" id="summaryMapTitle">แผนที่สรุปประเทศไทย</div>
-      <div class="mini-note">คลิกจังหวัด อำเภอ หรือลุ่มน้ำ เพื่อดูรายละเอียด</div>
-      <div id="summaryMap" class="graph-lg"></div>
-    </aside>
-    <main class="main">
-      <section class="section card controls-panel">      <div id="locationControls">
+    <aside class="sidebar card">
       <div class="pill">ระบบพยากรณ์ภูมิอากาศและวางแผนจัดการน้ำ</div>
       <h1>ARDA S2DFS</h1>
       <div class="muted">ดูแนวโน้มฝน ภัยแล้ง และความเสี่ยงน้ำท่วม พร้อมคำแนะนำด้านน้ำและการเกษตร เลือกเดือนและพื้นที่ที่ต้องการ แล้วคลิกแผนที่เพื่อดูรายละเอียด</div>
@@ -159,9 +119,9 @@
       <div class="field"><button id="downloadCsvBtn">ดาวน์โหลดข้อมูล (JSON)</button></div>
       <div class="field"><button id="downloadGeoBtn" class="secondary">ดาวน์โหลดขอบเขตพื้นที่ (GeoJSON)</button></div>
       <div class="field"><button id="resetPolygonBtn" class="secondary">ยกเลิกการเลือกพื้นที่</button></div>
-
-      </div>
-      </section>
+      <div class="tip"><strong>วิธีใช้งาน:</strong><br>1. เลือกเดือน → 2. เลือกขอบเขตพื้นที่ → 3. เลือกข้อมูล → 4. คลิกพื้นที่บนแผนที่ → 5. อ่านคำแนะนำหรือดาวน์โหลดรายงาน</div>
+    </aside>
+    <main class="main">
       <section class="hero card">
         <div>
           <div class="section-title" id="heroTitle">ระบบพยากรณ์ฝนและวางแผนจัดการน้ำ ARDA S2DFS</div>
@@ -175,25 +135,7 @@
           <div class="metric"><div class="label">พื้นที่ที่เลือก</div><div class="value" id="metricPolygon">ยังไม่ได้เลือกพื้นที่</div></div>
         </div>
       </section>
-      <section class="detail-columns" aria-label="รายละเอียดพื้นที่ที่เลือก">
-        <div class="section card detail-center">      <div id="locationDetail">
-        <div class="sidebar-detail-head"><strong>รายละเอียดพื้นที่</strong></div>
-        <h2 id="detailAreaName" style="font-size:1.15rem;margin-bottom:8px;"></h2>
-        <div class="terrain-wrap"><div id="detailTerrainMap" role="img" aria-label="แผนที่ภูมิประเทศและสีค่าพยากรณ์รายพื้นที่"></div><div id="detailMapStatus" class="map-status" role="status"></div></div>
-        <div id="detailColorLegend" class="detail-color-key"></div>
-        <div class="mini-note">แผนที่ภูมิประเทศ Esri World Topographic Map · เส้นสีน้ำเงินเข้มคือพื้นที่ที่เลือก · เส้นสีส้มคือพื้นที่ย่อย</div>
-        <div id="detailAreaInfo" class="mini-note"></div>
-        <strong id="detailChildrenTitle"></strong><ul id="detailChildren"></ul>
-      </div>
-</div>
-        <div class="section card detail-right">
-          <div class="section-title">ข้อมูลและสถานะพื้นที่</div>
-          <div id="detailWarning" class="status-empty" role="status">คลิกพื้นที่บนแผนที่ด้านซ้าย</div>
-          <div id="polygonDetailTable" class="polygon-table-wrap"><p class="muted">เลือกพื้นที่เพื่อดูค่าตัวชี้วัด</p></div>
-          <div class="mini-note">สัญลักษณ์เป็นการคัดกรองจากค่าพยากรณ์รายเดือน ไม่ใช่ประกาศเตือนภัยทางการ</div>
-          <details class="rankings"><summary>เปรียบเทียบพื้นที่ค่าสูงและต่ำ</summary><div id="rankingTable"></div></details>
-        </div>
-      </section>
+      <section class="section card"><div class="section-head"><div><div class="section-title">แผนที่สรุปรายพื้นที่</div><div class="section-subtitle">แสดงข้อมูลตามเดือน ขอบเขตพื้นที่ และตัวแปรที่เลือก คลิกบนแผนที่เพื่อดูรายละเอียด</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="summaryMapTitle">แผนที่สรุป</div><div id="summaryMap" class="graph-lg"></div><div class="mini-note">เปลี่ยนขอบเขตพื้นที่ได้จากเมนูด้านซ้าย ได้แก่ จังหวัด อำเภอ ลุ่มน้ำหลัก และลุ่มน้ำย่อย</div></div><div class="mini-card"><div class="mini-title">เปรียบเทียบพื้นที่ที่มีค่าสูงและต่ำ</div><div id="rankingTable"></div><div class="mini-note">แสดงพื้นที่ที่มีค่าสูงสุดและต่ำสุดของข้อมูลที่เลือก คลิกพื้นที่บนแผนที่เพื่อปรับกราฟและคำแนะนำ ค่าสูงไม่ได้หมายถึงความเสี่ยงสูงเสมอไป ขึ้นอยู่กับตัวแปร</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">รายละเอียดของพื้นที่ที่เลือก</div><div class="section-subtitle">กราฟซ้าย: เปรียบเทียบตัวชี้วัดของพื้นที่ที่เลือกกับพื้นที่ใกล้เคียง กราฟขวา: เปรียบเทียบรายเดือน รูปร่างกราฟแสดงการกระจายของข้อมูล ส่วนจุดแสดงค่าของพื้นที่ที่เลือก ตัวชี้วัดแต่ละชนิดมีหน่วยต่างกัน</div></div></div><div class="grid-2"><div class="mini-card"><div class="mini-title" id="polygonBarTitle">เปรียบเทียบข้อมูลกับพื้นที่ใกล้เคียง </div><div id="polygonBarChart" class="graph-md"></div></div><div class="mini-card"><div class="mini-title" id="polygonLineTitle">เปรียบเทียบข้อมูลรายเดือน </div><div id="polygonLineChart" class="graph-md"></div></div></div></section>
       <section id="decisionGuidanceSection" class="section card"><div class="section-head"><div><div class="section-title">คำแนะนำสำหรับการวางแผน</div><div class="section-subtitle">สรุปแนวโน้มฝนและความแห้งแล้ง พร้อมข้อมูลความเสี่ยงและผลประเมินแบบจำลอง หากยังไม่ได้เลือกพื้นที่ จะแสดงคำแนะนำของพื้นที่ที่มีค่าสูงสุดในตาราง</div></div></div><div class="alert-explainer"><div class="alert-explainer-title">อ่านสถานะและแนวโน้มอย่างไร</div><div class="alert-explainer-grid"><div class="alert-explainer-intro">แนวโน้มคำนวณจากฝนเทียบค่าปกติ ดัชนี SPI และโอกาสเกิดฝน ใช้ประกอบการเตรียมพร้อม โดยตรวจสอบพยากรณ์ระยะสั้นและสถานการณ์จริงในพื้นที่ร่วมด้วย</div><div class="alert-level-card alert-dry"><div class="alert-level-icon">●</div><div><div class="alert-level-name">แห้งแล้ง — ควรเตรียมรับมือ</div><div class="alert-level-text">มีสัญญาณฝนน้อยหรือขาดน้ำ ควรวางแผนสำรองน้ำและลดผลกระทบล่วงหน้า</div></div></div><div class="alert-level-card alert-watch"><div class="alert-level-icon">!</div><div><div class="alert-level-name">เฝ้าระวัง — ติดตามใกล้ชิด</div><div class="alert-level-text">เริ่มมีสัญญาณที่ต้องติดตาม เตรียมบุคลากร อุปกรณ์ และปรับแผนเมื่อมีข้อมูลใหม่</div></div></div><div class="alert-level-card alert-low"><div class="alert-level-icon">◎</div><div><div class="alert-level-name">ต่ำถึงปานกลาง — ติดตามต่อเนื่อง</div><div class="alert-level-text">แนวโน้มใกล้เคียงปกติหรือยังไม่ชัดเจน ติดตามข้อมูลและเตรียมพร้อมหากสถานการณ์เปลี่ยน</div></div></div></div></div><div class="guidance-wrap"><div class="guidance-box guidance-water"><div class="guidance-title"><span class="title-icon">💧</span>คำแนะนำด้านการจัดการน้ำ</div><div id="waterGuidance" class="guide-empty">ยังไม่มีข้อมูล</div></div><div class="guidance-box guidance-agri"><div class="guidance-title"><span class="title-icon">🌱</span>คำแนะนำด้านการเกษตร</div><div id="agriGuidance" class="guide-empty">ยังไม่มีข้อมูล</div></div></div></section>
       <section class="section card"><div class="section-head"><div><div class="section-title">แนวโน้มปริมาณฝน</div><div class="section-subtitle">ปริมาณฝนที่คาดการณ์ และความแตกต่างจากค่าปกติ ทั้งในหน่วยปริมาณฝนและร้อยละ</div></div></div><div class="grid-3"><div class="mini-card"><div class="mini-title">ปริมาณฝนที่คาดการณ์</div><div id="map_forecast_actual" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">ฝนต่างจากค่าปกติ</div><div id="map_forecast_anomaly" class="graph-sm"></div></div><div class="mini-card"><div class="mini-title">ฝนต่างจากค่าปกติ (%)</div><div id="map_forecast_percent_anomaly" class="graph-sm"></div></div></div></section>
@@ -327,134 +269,6 @@
     async function safeFetchJson(url){ const res = await fetch(url, { cache: 'no-store' }); if (!res.ok) throw new Error(`ไม่พบไฟล์ข้อมูล: ${url}`); return await res.json(); }
     async function loadManifest(){ if (state.manifest) return state.manifest; state.manifest = await safeFetchJson(CONFIG.manifestUrl); return state.manifest; }
     async function loadGeoJSON(shape){ if (state.geojsonCache[shape]) return state.geojsonCache[shape]; const gj = await safeFetchJson(geojsonPath(shape)); state.geojsonCache[shape] = gj; return gj; }
-    let detailMap, detailBoundary, detailChildrenLayer, detailRequest = 0;
-    function insideRing(point, ring){
-      let inside=false;
-      for(let i=0,j=ring.length-1;i<ring.length;j=i++){
-        const a=ring[i], b=ring[j];
-        if((a[1]>point[1]) !== (b[1]>point[1]) && point[0] < (b[0]-a[0])*(point[1]-a[1])/(b[1]-a[1])+a[0]) inside=!inside;
-      }
-      return inside;
-    }
-    function insideFeature(point, feature){
-      const g=feature?.geometry;
-      if(!g || !['Polygon','MultiPolygon'].includes(g.type)) return false;
-      const polygons=g.type==='Polygon' ? [g.coordinates] : g.coordinates;
-      return polygons.some(rings=>rings?.length && insideRing(point,rings[0]) && !rings.slice(1).some(hole=>insideRing(point,hole)));
-    }
-    function featureSamplePoints(feature){
-      const g=feature?.geometry;
-      if(!g || !['Polygon','MultiPolygon'].includes(g.type)) return [];
-      const polygons=g.type==='Polygon' ? [g.coordinates] : g.coordinates;
-      return polygons.flatMap(p=>{
-        const ring=p?.[0]||[];
-        if(!ring.length) return [];
-        const stride=Math.max(1,Math.floor(ring.length/12));
-        return ring.filter((_,i)=>i%stride===0).slice(0,13);
-      });
-    }
-    function regionName(feature){ return String(feature?.properties?.region_name ?? feature?.properties?.NAME_2 ?? feature?.properties?.name ?? feature?.properties?.region_id ?? 'ไม่ทราบชื่อ'); }
-    function featureBelongsTo(child,parent){
-      const points=featureSamplePoints(child);
-      return points.length>0 && points.filter(p=>insideFeature(p,parent)).length > points.length/2;
-    }
-    function detailPalette(product){
-      if(['spi1','spi3','spi6','forecast_anomaly','forecast_percent_anomaly'].includes(product)) return ['#b2182b','#ef8a62','#f7f7f7','#67a9cf','#2166ac'];
-      if(/risk|drought|advisory|prob_below/.test(product)) return ['#ffffcc','#fed976','#fd8d3c','#e31a1c','#800026'];
-      return ['#f7fbff','#c6dbef','#6baed6','#2171b5','#08306b'];
-    }
-    function detailScale(values,product){
-      const meta=PRODUCT_META[product]||{};
-      const finite=values.filter(Number.isFinite);
-      const lo=Number.isFinite(meta.zmin)?meta.zmin:finite.length?Math.min(...finite):0;
-      const hi=Number.isFinite(meta.zmax)?meta.zmax:finite.length?Math.max(...finite):1;
-      const colors=detailPalette(product);
-      return {lo,hi,colors,color(value){if(!Number.isFinite(value)) return '#aab4c2'; const t=(value-lo)/(hi-lo||1); return colors[Math.min(4,Math.max(0,Math.floor(t*5)))];}};
-    }
-    function displayMapStatus(ctx){
-      const badge=document.getElementById('detailMapStatus'); badge.replaceChildren();
-      if(!state.selectedPolygon) return;
-      const levels=DETAIL_METRICS.map(([key])=>indicatorLevel(key,ctx[key])).filter(Boolean);
-      const level=levels.includes('early')?'early':levels.includes('warn')?'warn':Object.keys(ctx).length?'normal':null;
-      const span=document.createElement('span'); span.className=`status-badge ${level||''}`;
-      span.textContent=level==='early'?'⚠ สัญญาณเตือนล่วงหน้า':level==='warn'?'▲ เฝ้าระวัง':level==='normal'?'● ไม่พบสัญญาณตามเกณฑ์':'ไม่มีข้อมูลประเมิน';
-      badge.appendChild(span);
-    }
-    async function renderLocationDetail(){
-      const request=++detailRequest, selected=state.selectedPolygon;
-      if(!selected){
-        document.getElementById('detailAreaName').textContent='เลือกพื้นที่บนแผนที่ประเทศไทย';
-        document.getElementById('detailAreaInfo').textContent='ขอบเขตพื้นที่และแผนที่ภูมิประเทศจะแสดงที่นี่';
-        document.getElementById('detailChildrenTitle').textContent='';
-        document.getElementById('detailChildren').replaceChildren();
-        if(detailBoundary){ detailBoundary.remove(); detailBoundary=null; }
-        if(detailChildrenLayer){ detailChildrenLayer.remove(); detailChildrenLayer=null; }
-        document.getElementById('detailColorLegend').replaceChildren();
-        document.getElementById('detailMapStatus').replaceChildren();
-        return;
-      }
-      document.getElementById('detailAreaName').textContent=`${shapeLabel(state.shape)}: ${selected.region_name}`;
-      document.getElementById('detailAreaInfo').textContent='กำลังโหลดขอบเขตพื้นที่…';
-      document.getElementById('detailChildrenTitle').textContent='';
-      document.getElementById('detailChildren').replaceChildren();
-      try {
-        const shapes=await loadGeoJSON(state.shape);
-        if(request!==detailRequest) return;
-        const focus=shapes.features.find(f=>normalizeId(f.properties?.region_id)===normalizeId(selected.region_id));
-        if(!focus) throw new Error('ไม่พบขอบเขตพื้นที่ที่เลือก');
-        const childShape={adm1:'adm2',mainbasin:'subbasin'}[state.shape];
-        const parentShape={adm2:'adm1',subbasin:'mainbasin'}[state.shape];
-        let children=[], parent=null, childError='';
-        if(childShape){
-          try { children=(await loadGeoJSON(childShape)).features.filter(f=>featureBelongsTo(f,focus)); }
-          catch(e){ childError=`ไม่สามารถโหลดขอบเขต${shapeLabel(childShape)}: ${e.message}`; }
-        }
-        if(parentShape){
-          try { parent=(await loadGeoJSON(parentShape)).features.find(f=>featureBelongsTo(focus,f))||null; }
-          catch(e){ childError=`ไม่สามารถโหลดขอบเขต${shapeLabel(parentShape)}: ${e.message}`; }
-        }
-        if(request!==detailRequest) return;
-        let colorRows=[], detailColorError='';
-        try { colorRows=await loadProduct(state.month,childShape||state.shape,state.summaryProduct); }
-        catch(e){ detailColorError=`ไม่มีข้อมูลสีของ${childShape?shapeLabel(childShape):shapeLabel(state.shape)}สำหรับตัวชี้วัดนี้`; }
-        if(request!==detailRequest) return;
-        const valueById=new Map(colorRows.map(r=>[normalizeId(r.region_id),r.value]));
-        const scale=detailScale(colorRows.map(r=>r.value),state.summaryProduct);
-        const legend=document.getElementById('detailColorLegend'); legend.replaceChildren();
-        const legendTitle=document.createElement('strong'); legendTitle.textContent=`${currentSummaryMeta()?.label||state.summaryProduct}: `;
-        legend.appendChild(legendTitle);
-        if(colorRows.length){
-          scale.colors.forEach((color,i)=>{ const swatch=document.createElement('span'); swatch.className='swatch'; swatch.style.backgroundColor=color; swatch.title=`${(scale.lo+(scale.hi-scale.lo)*i/5).toFixed(2)} – ${(scale.lo+(scale.hi-scale.lo)*(i+1)/5).toFixed(2)}`; legend.appendChild(swatch); });
-          const range=document.createElement('span'); range.textContent=`${scale.lo.toFixed(2)} → ${scale.hi.toFixed(2)} (เทา: ไม่มีข้อมูล)`; legend.appendChild(range);
-        } else { legend.append('ไม่มีข้อมูลค่าสี'); }
-        if(typeof L==='undefined') throw new Error('ไม่สามารถโหลด Leaflet เพื่อแสดงแผนที่ภูมิประเทศ');
-        if(!detailMap){
-          detailMap=L.map('detailTerrainMap',{scrollWheelZoom:false});
-          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{
-            attribution:'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, EPA, USDA',maxZoom:17
-          }).addTo(detailMap);
-        }
-        detailBoundary?.remove(); detailChildrenLayer?.remove();
-        detailChildrenLayer=L.geoJSON({type:'FeatureCollection',features:children},{
-          style:f=>({color:'#d97706',weight:1.4,fillColor:scale.color(valueById.get(normalizeId(f.properties?.region_id))),fillOpacity:colorRows.length?0.57:0.04}),
-          onEachFeature:(f,layer)=>{ const v=valueById.get(normalizeId(f.properties?.region_id)); layer.bindTooltip(`${regionName(f)}: ${Number.isFinite(v)?v.toFixed(2):'ไม่มีข้อมูล'}`); }
-        }).addTo(detailMap);
-        const ownValue=valueById.get(normalizeId(focus.properties?.region_id));
-        detailBoundary=L.geoJSON(focus,{style:{color:'#153e9c',weight:3,fillColor:children.length?'transparent':scale.color(ownValue),fillOpacity:children.length?0:0.55}}).addTo(detailMap);
-        if(parent) L.geoJSON(parent,{style:{color:'#64748b',weight:1.5,fillOpacity:0},interactive:false}).addTo(detailChildrenLayer);
-        detailMap.invalidateSize();
-        const bounds=detailBoundary.getBounds();
-        if(bounds.isValid()) detailMap.fitBounds(bounds.pad(0.13),{maxZoom:12});
-        const list=document.getElementById('detailChildren');
-        children.map(regionName).sort((a,b)=>a.localeCompare(b,'th')).forEach(name=>{
-          const li=document.createElement('li'); li.textContent=name; list.appendChild(li);
-        });
-        document.getElementById('detailChildrenTitle').textContent=childShape?`${shapeLabel(childShape)}ในพื้นที่ (${children.length})`:parent?`อยู่ใน${shapeLabel(parentShape)}: ${regionName(parent)}`:'';
-        document.getElementById('detailAreaInfo').textContent=childError || detailColorError || (childShape && !children.length ? `ไม่พบ${shapeLabel(childShape)}ที่อยู่ภายในขอบเขตนี้` : 'ขยายแผนที่เพื่อดูรายละเอียดภูมิประเทศและขอบเขต');
-      } catch(err){
-        if(request===detailRequest) document.getElementById('detailAreaInfo').textContent=`แสดงแผนที่รายละเอียดไม่ได้: ${err.message}`;
-      }
-    }
     function normalizeRows(raw){ if (Array.isArray(raw)) return raw; if (raw && Array.isArray(raw.rows)) return raw.rows; throw new Error('รูปแบบข้อมูล JSON ไม่รองรับ ต้องเป็นรายการข้อมูลหรือ { rows: [...] }'); }
     async function loadProduct(month, shape, product){ const key = `${month}_${shape}_${product}`; if (state.productCache[key]) return state.productCache[key]; const raw = await safeFetchJson(productPath(month, shape, product)); const rows = normalizeRows(raw).map(r => ({ ...r, region_id: normalizeId(r.region_id), region_name: String(r.region_name ?? ''), value: Number.isFinite(Number(r.value)) ? Number(r.value) : null })); state.productCache[key] = rows; return rows; }
     function fillControls(){ monthSelect.innerHTML=''; MONTHS.forEach(([abbr,name])=>{ const opt=document.createElement('option'); opt.value=abbr; opt.textContent=`${name} (${abbr})`; monthSelect.appendChild(opt);}); monthSelect.value=state.month; shapeSelect.innerHTML=''; SHAPE_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; shapeSelect.appendChild(opt);}); shapeSelect.value=state.shape; summaryProductSelect.innerHTML=''; SUMMARY_PRODUCT_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; summaryProductSelect.appendChild(opt);}); summaryProductSelect.value=state.summaryProduct; }
@@ -649,12 +463,11 @@
             updateHero();
             await makePolygonMap('summaryMap', state.month, state.shape, state.summaryProduct, true, true);
             setDebugSummary(state.dataQuality);
-            document.getElementById('locationDetail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            document.getElementById('summaryMap').scrollIntoView({ behavior: 'smooth', block: 'start' });
           } else {
             updateHero();
           }
 
-          await renderLocationDetail();
           await renderRankingAndGuidance();
           await renderDiagnostics();
         });
@@ -760,66 +573,7 @@
       const soilText=signal==='dry'?'เสี่ยงที่พืชจะขาดน้ำเพิ่มขึ้น':signal==='wet'?'ความชื้นเพิ่มขึ้น แต่ควรระวังน้ำมากเกินไป':'ใกล้เคียงปกติของฤดูกาล';
       return `<div class="guidance-chips">${signalChip}${alertChip}${riskChip}${confidenceChip}</div><div class="guide-block"><div class="guide-area">${area}</div><div><b>ความหมายต่อพื้นที่:</b> ${whatMeans}</div></div><div class="guide-block"><div class="guide-heading">สภาพอากาศที่เกี่ยวข้องกับการเกษตร</div><div class="guide-lines indicator-grid"><div class="guide-line">แนวโน้มความชื้นในดิน: <b>${soilText}</b></div><div class="guide-line">SPI-1 / SPI-3 / SPI-6: <b>${Number.isFinite(ctx.spi1)?ctx.spi1.toFixed(2):'ไม่มีข้อมูล'} / ${Number.isFinite(ctx.spi3)?ctx.spi3.toFixed(2):'ไม่มีข้อมูล'} / ${Number.isFinite(ctx.spi6)?ctx.spi6.toFixed(2):'ไม่มีข้อมูล'}</b></div><div class="guide-line">ฝนต่างจากค่าปกติ (%): <b>${Number.isFinite(ctx.forecast_percent_anomaly)?`${ctx.forecast_percent_anomaly.toFixed(1)}%`:'ไม่มีข้อมูล'}</b></div><div class="guide-line">โอกาสเกิดฝนหนัก: <b>${formatPct(ctx.prob_heavy_rain)}</b></div><div class="guide-line">โอกาสเกิดภัยแล้ง (SPI-1): <b>${formatPct(ctx.prob_drought_spi1)}</b></div><div class="guide-line">คะแนน / ระดับด้านการเกษตร: <b>${Number.isFinite(ctx.agri_score)?ctx.agri_score.toFixed(2):'ไม่มีข้อมูล'} / ${Number.isFinite(ctx.agri_risk_class)?ctx.agri_risk_class.toFixed(0):'ไม่มีข้อมูล'}</b></div></div></div><div class="guide-block"><div class="guide-heading">สิ่งที่ควรทำเพื่อเตรียมรับมือ</div>${buildActionHtml('agri', signal)}</div>`;
     }
-    const DETAIL_METRICS = [
-      ['forecast_actual','ปริมาณฝนพยากรณ์',' มม.'],['forecast_anomaly','ฝนต่างจากค่าปกติ',' มม.'],
-      ['forecast_percent_anomaly','ฝนต่างจากค่าปกติ','%'],['prob_heavy_rain','โอกาสฝนหนัก','%'],
-      ['prob_below_normal','โอกาสฝนน้อยกว่าปกติ','%'],['prob_exceed_p67','โอกาสฝนเกิน P67','%'],
-      ['prob_exceed_p85','โอกาสฝนเกิน P85','%'],['prob_exceed_p95','โอกาสฝนเกิน P95','%'],
-      ['spi1','SPI-1',''],['spi3','SPI-3',''],['spi6','SPI-6',''],
-      ['prob_drought_spi1','โอกาสภัยแล้งจาก SPI-1','%'],['flood_risk_class','ระดับเสี่ยงน้ำท่วม',' / 5'],
-      ['drought_risk_class','ระดับเสี่ยงภัยแล้ง',' / 5'],['agri_risk_class','ระดับเสี่ยงเกษตร',' / 5'],
-      ['advisory_class','ระดับคำแนะนำ',' / 5'],['corr_skill','ความสอดคล้องแบบจำลอง (r)','']
-    ];
-    function indicatorLevel(key,value){
-      if(!Number.isFinite(value)) return null;
-      if(['flood_risk_class','drought_risk_class','agri_risk_class','advisory_class'].includes(key)) return value>=4?'early':value>=3?'warn':null;
-      if(['prob_heavy_rain','prob_drought_spi1'].includes(key)) return value>=0.7?'early':value>=0.55?'warn':null;
-      if(['spi1','spi3'].includes(key)) return value<=-1.5?'early':value<=-1?'warn':null;
-      if(key==='forecast_percent_anomaly') return value<=-40?'early':value<=-20?'warn':null;
-      return null;
-    }
-    function renderPolygonDetailTable(ctx){
-      const box=document.getElementById('polygonDetailTable'), banner=document.getElementById('detailWarning');
-      if(!state.selectedPolygon){
-        box.innerHTML='<p class="muted">เลือกพื้นที่เพื่อดูค่าตัวชี้วัด</p>';
-        banner.textContent='คลิกพื้นที่บนแผนที่ด้านซ้าย';
-        return;
-      }
-      const warningRows=DETAIL_METRICS.map(([key])=>indicatorLevel(key,ctx[key])).filter(Boolean);
-      const overall=warningRows.includes('early')?'early':warningRows.includes('warn')?'warn':Object.keys(ctx).length?'normal':null;
-      banner.replaceChildren();
-      const headline=document.createElement('strong'); headline.textContent=`${state.selectedPolygon.region_name} · ${monthName(state.month)}`;
-      banner.append(headline,document.createElement('br'));
-      const badge=document.createElement('span');
-      badge.className=`status-badge ${overall||''}`;
-      badge.textContent=overall==='early'?'⚠ สัญญาณเตือนล่วงหน้า':overall==='warn'?'▲ ควรเฝ้าระวัง':overall==='normal'?'● ยังไม่พบสัญญาณตามเกณฑ์แสดงผล':'ไม่มีข้อมูลสำหรับประเมิน';
-      banner.appendChild(badge);
-      const table=document.createElement('table');
-      const head=document.createElement('thead'); head.innerHTML='<tr><th>ตัวชี้วัด</th><th>ค่า</th><th>สถานะ</th></tr>'; table.appendChild(head);
-      const body=document.createElement('tbody');
-      for(const [key,label,unit] of DETAIL_METRICS){
-        const value=ctx[key], tr=document.createElement('tr'), level=indicatorLevel(key,value);
-        const title=document.createElement('td'); title.textContent=label;
-        const val=document.createElement('td');
-        val.textContent=Number.isFinite(value) ? `${unit==='%'?formatPct(value):value.toFixed(key.includes('class')?0:2)+unit}` : 'ไม่มีข้อมูล';
-        const status=document.createElement('td');
-        if(level){ const mark=document.createElement('span'); mark.className=`status-badge ${level}`; mark.textContent=level==='early'?'⚠ เตือนล่วงหน้า':'▲ เฝ้าระวัง'; status.appendChild(mark); }
-        else status.textContent=Number.isFinite(value)?'—':'ไม่มีข้อมูล';
-        tr.append(title,val,status); body.appendChild(tr);
-      }
-      table.appendChild(body); box.replaceChildren(table);
-    }
-    async function renderRankingAndGuidance(){
-      const rows=await loadProduct(state.month,state.shape,state.summaryProduct);
-      const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value);
-      const top=ranked.slice(0,10), bottom=[...ranked].slice(-10).reverse();
-      document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>พื้นที่ค่าสูงสุด</th><th>ค่า</th><th>พื้นที่ค่าต่ำสุด</th><th>ค่า</th></tr></thead><tbody>${Array.from({length:Math.max(top.length,bottom.length)}).map((_,i)=>`<tr><td>${top[i]?.Area||''}</td><td>${top[i]?top[i].Value.toFixed(3):''}</td><td>${bottom[i]?.Area||''}</td><td>${bottom[i]?bottom[i].Value.toFixed(3):''}</td></tr>`).join('')}</tbody></table>`;
-      const focusRow=state.selectedPolygon
-        ? {Area:state.selectedPolygon.region_name,region_id:state.selectedPolygon.region_id}
-        : top[0];
-      if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); renderPolygonDetailTable(ctx); displayMapStatus(ctx); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); }
-      else { renderPolygonDetailTable({}); displayMapStatus({}); document.getElementById('waterGuidance').textContent='ไม่มีข้อมูล'; document.getElementById('agriGuidance').textContent='ไม่มีข้อมูล'; }
-    }
+    async function renderRankingAndGuidance(){ const rows=await loadProduct(state.month,state.shape,state.summaryProduct); const ranked=rows.filter(r=>Number.isFinite(r.value)).map(r=>({Area:r.region_name,Value:r.value,region_id:r.region_id})).sort((a,b)=>b.Value-a.Value); const top=ranked.slice(0,10), bottom=[...ranked].slice(-10).reverse(); document.getElementById('rankingTable').innerHTML=`<table><thead><tr><th>พื้นที่ค่าสูงสุด</th><th>ค่า</th><th>พื้นที่ค่าต่ำสุด</th><th>ค่า</th></tr></thead><tbody>${Array.from({length:Math.max(top.length,bottom.length)}).map((_,i)=>`<tr><td>${top[i]?.Area||''}</td><td>${top[i]?top[i].Value.toFixed(3):''}</td><td>${bottom[i]?.Area||''}</td><td>${bottom[i]?bottom[i].Value.toFixed(3):''}</td></tr>`).join('')}</tbody></table>`; const focusRow=state.selectedPolygon?ranked.find(r=>normalizeId(r.region_id)===normalizeId(state.selectedPolygon.region_id)):top[0]; if(focusRow){ const ctx=await collectGuidanceContext(focusRow.region_id); document.getElementById('waterGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'water'); document.getElementById('agriGuidance').innerHTML=renderGuidanceHtml(focusRow.Area,ctx,'agri'); } else { document.getElementById('waterGuidance').textContent='ไม่มีข้อมูล'; document.getElementById('agriGuidance').textContent='ไม่มีข้อมูล'; } }
 
     function featureCentroid(feature){
       const pts = [];
@@ -1218,11 +972,11 @@
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
     async function downloadFile(url,filename){ const res=await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error(`ดาวน์โหลดไม่สำเร็จ: ${url}`); const blob=await res.blob(); const obj=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=obj; a.download=filename; a.click(); URL.revokeObjectURL(obj); }
-    async function refreshAll(){ updateHero(); await renderLocationDetail(); await renderGroupedMaps(); await renderRankingAndGuidance(); await renderDiagnostics(); }
+    async function refreshAll(){ updateHero(); await renderGroupedMaps(); await renderRankingAndGuidance(); await renderDiagnostics(); }
     monthSelect.addEventListener('change',async e=>{ state.month=e.target.value; state.selectedPolygon=null; await refreshAll(); });
     shapeSelect.addEventListener('change',async e=>{ state.shape=e.target.value; state.selectedPolygon=null; await refreshAll(); });
     summaryProductSelect.addEventListener('change',async e=>{ state.summaryProduct=e.target.value; state.selectedPolygon=null; await refreshAll(); });
-    document.getElementById('resetPolygonBtn').addEventListener('click',async()=>{ state.selectedPolygon=null; updateHero(); await renderLocationDetail(); await renderDiagnostics(); await renderRankingAndGuidance(); });
+    document.getElementById('resetPolygonBtn').addEventListener('click',async()=>{ state.selectedPolygon=null; updateHero(); await renderDiagnostics(); await renderRankingAndGuidance(); });
     document.getElementById('downloadCsvBtn').addEventListener('click',async()=>{ const file=`${state.month}_${state.shape}_${state.summaryProduct}.json`; await downloadFile(`${CONFIG.productDir}/${file}`,file); });
     document.getElementById('downloadGeoBtn').addEventListener('click',async()=>{ const file=`${state.shape}.geojson`; await downloadFile(`${CONFIG.geojsonDir}/${file}`,file); });
     document.getElementById('downloadFigureBtn').addEventListener('click',async()=>{
