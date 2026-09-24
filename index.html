@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ระบบพยากรณ์ฝน ARDA S2DFS</title>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --bg: #f4f7fb; --card: #ffffff; --line: #dbe4ef; --text: #13213d; --muted: #5f6f8a;
@@ -18,6 +20,12 @@
     .page { display: grid; grid-template-columns: 340px 1fr; gap: 18px; min-height: 100vh; padding: 18px; }
     .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
     .sidebar { padding: 18px; position: sticky; top: 18px; height: fit-content; }
+    .sidebar-detail-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
+    .sidebar-detail-head button { border:0; background:var(--accent-soft); color:#173b8a; border-radius:10px; padding:8px 10px; cursor:pointer; font-weight:700; }
+    #detailTerrainMap { height:390px; width:100%; border-radius:12px; border:1px solid var(--line); background:#e9eef1; }
+    #detailChildren { max-height:180px; overflow:auto; padding-left:22px; font-size:.87rem; margin:8px 0; }
+    #detailChildren li { margin-bottom:3px; }
+    #locationDetail[hidden], #locationControls[hidden] { display:none; }
     h1 { margin: 0 0 8px; font-size: 1.5rem; line-height: 1.2; }
     h2, h3, h4 { margin: 0; }
     .muted { color: var(--muted); line-height: 1.5; font-size: 0.95rem; }
@@ -108,6 +116,7 @@
 <body>
   <div class="page">
     <aside class="sidebar card">
+      <div id="locationControls">
       <div class="pill">ระบบพยากรณ์ภูมิอากาศและวางแผนจัดการน้ำ</div>
       <h1>ARDA S2DFS</h1>
       <div class="muted">ดูแนวโน้มฝน ภัยแล้ง และความเสี่ยงน้ำท่วม พร้อมคำแนะนำด้านน้ำและการเกษตร เลือกเดือนและพื้นที่ที่ต้องการ แล้วคลิกแผนที่เพื่อดูรายละเอียด</div>
@@ -120,6 +129,15 @@
       <div class="field"><button id="downloadGeoBtn" class="secondary">ดาวน์โหลดขอบเขตพื้นที่ (GeoJSON)</button></div>
       <div class="field"><button id="resetPolygonBtn" class="secondary">ยกเลิกการเลือกพื้นที่</button></div>
       <div class="tip"><strong>วิธีใช้งาน:</strong><br>1. เลือกเดือน → 2. เลือกขอบเขตพื้นที่ → 3. เลือกข้อมูล → 4. คลิกพื้นที่บนแผนที่ → 5. อ่านคำแนะนำหรือดาวน์โหลดรายงาน</div>
+      </div>
+      <div id="locationDetail" hidden>
+        <div class="sidebar-detail-head"><strong>รายละเอียดพื้นที่</strong><button type="button" id="showLocationControls">เปลี่ยนการตั้งค่า</button></div>
+        <h2 id="detailAreaName" style="font-size:1.15rem;margin-bottom:8px;"></h2>
+        <div id="detailTerrainMap" role="img" aria-label="แผนที่ภูมิประเทศและขอบเขตพื้นที่ที่เลือก"></div>
+        <div class="mini-note">แผนที่ภูมิประเทศ Esri World Topographic Map · เส้นสีน้ำเงินเข้มคือพื้นที่ที่เลือก · เส้นสีส้มคือพื้นที่ย่อย</div>
+        <div id="detailAreaInfo" class="mini-note"></div>
+        <strong id="detailChildrenTitle"></strong><ul id="detailChildren"></ul>
+      </div>
     </aside>
     <main class="main">
       <section class="hero card">
@@ -269,6 +287,95 @@
     async function safeFetchJson(url){ const res = await fetch(url, { cache: 'no-store' }); if (!res.ok) throw new Error(`ไม่พบไฟล์ข้อมูล: ${url}`); return await res.json(); }
     async function loadManifest(){ if (state.manifest) return state.manifest; state.manifest = await safeFetchJson(CONFIG.manifestUrl); return state.manifest; }
     async function loadGeoJSON(shape){ if (state.geojsonCache[shape]) return state.geojsonCache[shape]; const gj = await safeFetchJson(geojsonPath(shape)); state.geojsonCache[shape] = gj; return gj; }
+    let detailMap, detailBoundary, detailChildrenLayer, detailRequest = 0;
+    function insideRing(point, ring){
+      let inside=false;
+      for(let i=0,j=ring.length-1;i<ring.length;j=i++){
+        const a=ring[i], b=ring[j];
+        if((a[1]>point[1]) !== (b[1]>point[1]) && point[0] < (b[0]-a[0])*(point[1]-a[1])/(b[1]-a[1])+a[0]) inside=!inside;
+      }
+      return inside;
+    }
+    function insideFeature(point, feature){
+      const g=feature?.geometry;
+      if(!g || !['Polygon','MultiPolygon'].includes(g.type)) return false;
+      const polygons=g.type==='Polygon' ? [g.coordinates] : g.coordinates;
+      return polygons.some(rings=>rings?.length && insideRing(point,rings[0]) && !rings.slice(1).some(hole=>insideRing(point,hole)));
+    }
+    function featureSamplePoints(feature){
+      const g=feature?.geometry;
+      if(!g || !['Polygon','MultiPolygon'].includes(g.type)) return [];
+      const polygons=g.type==='Polygon' ? [g.coordinates] : g.coordinates;
+      return polygons.flatMap(p=>{
+        const ring=p?.[0]||[];
+        if(!ring.length) return [];
+        const stride=Math.max(1,Math.floor(ring.length/12));
+        return ring.filter((_,i)=>i%stride===0).slice(0,13);
+      });
+    }
+    function regionName(feature){ return String(feature?.properties?.region_name ?? feature?.properties?.NAME_2 ?? feature?.properties?.name ?? feature?.properties?.region_id ?? 'ไม่ทราบชื่อ'); }
+    function featureBelongsTo(child,parent){
+      const points=featureSamplePoints(child);
+      return points.length>0 && points.filter(p=>insideFeature(p,parent)).length > points.length/2;
+    }
+    async function renderLocationDetail(){
+      const request=++detailRequest, selected=state.selectedPolygon;
+      if(!selected){
+        document.getElementById('locationDetail').hidden=true;
+        document.getElementById('locationControls').hidden=false;
+        return;
+      }
+      document.getElementById('locationControls').hidden=true;
+      document.getElementById('locationDetail').hidden=false;
+      document.getElementById('detailAreaName').textContent=`${shapeLabel(state.shape)}: ${selected.region_name}`;
+      document.getElementById('detailAreaInfo').textContent='กำลังโหลดขอบเขตพื้นที่…';
+      document.getElementById('detailChildrenTitle').textContent='';
+      document.getElementById('detailChildren').replaceChildren();
+      try {
+        const shapes=await loadGeoJSON(state.shape);
+        if(request!==detailRequest) return;
+        const focus=shapes.features.find(f=>normalizeId(f.properties?.region_id)===normalizeId(selected.region_id));
+        if(!focus) throw new Error('ไม่พบขอบเขตพื้นที่ที่เลือก');
+        const childShape={adm1:'adm2',mainbasin:'subbasin'}[state.shape];
+        const parentShape={adm2:'adm1',subbasin:'mainbasin'}[state.shape];
+        let children=[], parent=null, childError='';
+        if(childShape){
+          try { children=(await loadGeoJSON(childShape)).features.filter(f=>featureBelongsTo(f,focus)); }
+          catch(e){ childError=`ไม่สามารถโหลดขอบเขต${shapeLabel(childShape)}: ${e.message}`; }
+        }
+        if(parentShape){
+          try { parent=(await loadGeoJSON(parentShape)).features.find(f=>featureBelongsTo(focus,f))||null; }
+          catch(e){ childError=`ไม่สามารถโหลดขอบเขต${shapeLabel(parentShape)}: ${e.message}`; }
+        }
+        if(request!==detailRequest) return;
+        if(typeof L==='undefined') throw new Error('ไม่สามารถโหลด Leaflet เพื่อแสดงแผนที่ภูมิประเทศ');
+        if(!detailMap){
+          detailMap=L.map('detailTerrainMap',{scrollWheelZoom:false});
+          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',{
+            attribution:'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, EPA, USDA',maxZoom:17
+          }).addTo(detailMap);
+        }
+        detailBoundary?.remove(); detailChildrenLayer?.remove();
+        detailChildrenLayer=L.geoJSON({type:'FeatureCollection',features:children},{style:{color:'#d97706',weight:1.7,fillOpacity:0.04},onEachFeature:(f,layer)=>layer.bindTooltip(regionName(f))}).addTo(detailMap);
+        detailBoundary=L.geoJSON(focus,{style:{color:'#153e9c',weight:3,fillColor:'#2563eb',fillOpacity:0.08}}).addTo(detailMap);
+        if(parent) L.geoJSON(parent,{style:{color:'#64748b',weight:1.5,fillOpacity:0},interactive:false}).addTo(detailChildrenLayer);
+        detailMap.invalidateSize();
+        const bounds=detailBoundary.getBounds();
+        if(bounds.isValid()) detailMap.fitBounds(bounds.pad(0.13),{maxZoom:12});
+        const list=document.getElementById('detailChildren');
+        children.map(regionName).sort((a,b)=>a.localeCompare(b,'th')).forEach(name=>{
+          const li=document.createElement('li'); li.textContent=name; list.appendChild(li);
+        });
+        document.getElementById('detailChildrenTitle').textContent=childShape?`${shapeLabel(childShape)}ในพื้นที่ (${children.length})`:parent?`อยู่ใน${shapeLabel(parentShape)}: ${regionName(parent)}`:'';
+        document.getElementById('detailAreaInfo').textContent=childError || (childShape && !children.length ? `ไม่พบ${shapeLabel(childShape)}ที่อยู่ภายในขอบเขตนี้` : 'ขยายแผนที่เพื่อดูรายละเอียดภูมิประเทศและขอบเขต');
+      } catch(err){
+        if(request===detailRequest) document.getElementById('detailAreaInfo').textContent=`แสดงแผนที่รายละเอียดไม่ได้: ${err.message}`;
+      }
+    }
+    document.getElementById('showLocationControls').addEventListener('click',()=>{
+      document.getElementById('locationDetail').hidden=true;
+      document.getElementById('locationControls').hidden=false;
+    });
     function normalizeRows(raw){ if (Array.isArray(raw)) return raw; if (raw && Array.isArray(raw.rows)) return raw.rows; throw new Error('รูปแบบข้อมูล JSON ไม่รองรับ ต้องเป็นรายการข้อมูลหรือ { rows: [...] }'); }
     async function loadProduct(month, shape, product){ const key = `${month}_${shape}_${product}`; if (state.productCache[key]) return state.productCache[key]; const raw = await safeFetchJson(productPath(month, shape, product)); const rows = normalizeRows(raw).map(r => ({ ...r, region_id: normalizeId(r.region_id), region_name: String(r.region_name ?? ''), value: Number.isFinite(Number(r.value)) ? Number(r.value) : null })); state.productCache[key] = rows; return rows; }
     function fillControls(){ monthSelect.innerHTML=''; MONTHS.forEach(([abbr,name])=>{ const opt=document.createElement('option'); opt.value=abbr; opt.textContent=`${name} (${abbr})`; monthSelect.appendChild(opt);}); monthSelect.value=state.month; shapeSelect.innerHTML=''; SHAPE_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; shapeSelect.appendChild(opt);}); shapeSelect.value=state.shape; summaryProductSelect.innerHTML=''; SUMMARY_PRODUCT_OPTIONS.forEach(d=>{ const opt=document.createElement('option'); opt.value=d.value; opt.textContent=d.label; summaryProductSelect.appendChild(opt);}); summaryProductSelect.value=state.summaryProduct; }
@@ -468,6 +575,7 @@
             updateHero();
           }
 
+          await renderLocationDetail();
           await renderRankingAndGuidance();
           await renderDiagnostics();
         });
@@ -972,11 +1080,11 @@
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
     async function downloadFile(url,filename){ const res=await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error(`ดาวน์โหลดไม่สำเร็จ: ${url}`); const blob=await res.blob(); const obj=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=obj; a.download=filename; a.click(); URL.revokeObjectURL(obj); }
-    async function refreshAll(){ updateHero(); await renderGroupedMaps(); await renderRankingAndGuidance(); await renderDiagnostics(); }
+    async function refreshAll(){ updateHero(); await renderLocationDetail(); await renderGroupedMaps(); await renderRankingAndGuidance(); await renderDiagnostics(); }
     monthSelect.addEventListener('change',async e=>{ state.month=e.target.value; state.selectedPolygon=null; await refreshAll(); });
     shapeSelect.addEventListener('change',async e=>{ state.shape=e.target.value; state.selectedPolygon=null; await refreshAll(); });
     summaryProductSelect.addEventListener('change',async e=>{ state.summaryProduct=e.target.value; state.selectedPolygon=null; await refreshAll(); });
-    document.getElementById('resetPolygonBtn').addEventListener('click',async()=>{ state.selectedPolygon=null; updateHero(); await renderDiagnostics(); await renderRankingAndGuidance(); });
+    document.getElementById('resetPolygonBtn').addEventListener('click',async()=>{ state.selectedPolygon=null; updateHero(); await renderLocationDetail(); await renderDiagnostics(); await renderRankingAndGuidance(); });
     document.getElementById('downloadCsvBtn').addEventListener('click',async()=>{ const file=`${state.month}_${state.shape}_${state.summaryProduct}.json`; await downloadFile(`${CONFIG.productDir}/${file}`,file); });
     document.getElementById('downloadGeoBtn').addEventListener('click',async()=>{ const file=`${state.shape}.geojson`; await downloadFile(`${CONFIG.geojsonDir}/${file}`,file); });
     document.getElementById('downloadFigureBtn').addEventListener('click',async()=>{
